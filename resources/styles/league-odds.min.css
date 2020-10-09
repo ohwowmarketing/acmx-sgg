@@ -1,0 +1,349 @@
+[data-card=betting-odds] .odds-filter {
+  background: #00A305;
+  padding: 15px;
+  margin-bottom: 15px;
+}
+[data-card=betting-odds] .odds-filter input[type=search] {
+  font-size: 14px;
+  height: 40px;
+}
+[data-card=betting-odds] .odds-filter .uk-select {
+  background-color: transparent;
+  font-size: 14px;
+}
+[data-card=betting-odds] .odds-filter .uk-button {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: capitalize;
+  line-height: normal;
+  height: 40px;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+[data-card=betting-odds] .odds-filter .odds-schedule div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+[data-card=betting-odds] .odds-filter .odds-schedule button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.01);
+  width: 38px;
+  height: 38px;
+}
+[data-card=betting-odds] .odds-filter .odds-schedule button:focus, [data-card=betting-odds] .odds-filter .odds-schedule button:hover {
+  background: rgba(255, 255, 255, 0.09);
+}
+[data-card=betting-odds] .uk-position-relative {
+  margin-bottom: 30px;
+}
+[data-card=betting-odds] .uk-overflow-auto {
+  position: relative;
+  max-width: 100%;
+}
+[data-card=betting-odds] .uk-table {
+  position: relative;
+  display: table;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  border: 1px solid #E1E2E9;
+  border-width: 1px 0 0;
+  white-space: nowrap;
+}
+[data-card=betting-odds] thead {
+  border-bottom: 2px solid #E1E2E9;
+}
+[data-card=betting-odds] thead th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  font-size: 12px;
+  font-family: OpenSans-Bold;
+  text-align: center;
+  text-transform: uppercase;
+  padding: 0 15px;
+  z-index: 1;
+}
+[data-card=betting-odds] thead th:first-child {
+  left: 0;
+  background: #F7F8FD;
+  font-size: 14px;
+  font-family: OpenSans-Bold;
+  color: #000000;
+  text-align: left;
+  width: 260px;
+  padding: 0 15px;
+  box-shadow: 1px 0 0 0 #E1E2E9;
+  z-index: 2;
+}
+[data-card=betting-odds] thead th .team-label {
+  display: inline-flex;
+  align-items: center;
+  max-width: 160px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+}
+[data-card=betting-odds] thead th span {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+}
+[data-card=betting-odds] thead th img {
+  display: block;
+  width: 120px;
+  height: 40px;
+  min-width: 120px;
+  border: 1px solid #E1E2E9;
+  border-radius: 3px;
+}
+[data-card=betting-odds] tbody td {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  font-size: 12px;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 15px;
+  z-index: 1;
+}
+[data-card=betting-odds] tbody td:first-child {
+  left: 0;
+  background: #F7F8FD;
+  text-align: left;
+  width: 260px;
+  box-shadow: 1px 0 0 0 #E1E2E9;
+  z-index: 2;
+}
+[data-card=betting-odds] tbody td img {
+  width: 36px;
+  height: 24px;
+  padding-right: 12px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+[data-card=betting-odds] .team-panel .odds-away,
+[data-card=betting-odds] .team-panel .odds-home {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-family: OpenSans-SemiBold;
+  color: #000000;
+  height: 50px;
+  padding-right: 55px;
+}
+[data-card=betting-odds] .team-panel .odds-away-score,
+[data-card=betting-odds] .team-panel .odds-home-score {
+  position: absolute;
+  top: calc( (50px / 2) - 10px );
+  right: 0;
+  font-size: 12px;
+  font-family: OpenSans-Regular;
+  color: #888;
+}
+[data-card=betting-odds] .consensus-panel .odds-consensus {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: OpenSans-SemiBold;
+  color: #444;
+  font-size: 12px;
+  height: 50px;
+}
+[data-card=betting-odds] .sportsbook-panel .odds-sb-bookline {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: OpenSans-SemiBold;
+  font-size: 12px;
+  height: 50px;
+}
+[data-card=betting-odds] .sportsbook-panel .odds-sb-bookline a,
+[data-card=betting-odds] .sportsbook-panel .odds-sb-bookline a[href] {
+  color: #444;
+}
+[data-card=betting-odds] .sportsbook-panel .odds-sb-bookline a .sb-bookline-extlink,
+[data-card=betting-odds] .sportsbook-panel .odds-sb-bookline a[href] .sb-bookline-extlink {
+  border-color: #E1E2E9 !important;
+}
+[data-card=betting-odds] .sportsbook-panel .sb-bookline-extlink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 46px;
+  border-radius: 3px;
+  border: 1px solid;
+  border-color: #E1E2E9;
+  overflow: hidden;
+}
+[data-card=betting-odds] .sportsbook-panel .sb-bookline-extlink.uk-background-muted {
+  background-color: rgba(225, 226, 233, 0.5);
+}
+[data-card=betting-odds] .sportsbook-panel .sb-bookline-extlink small {
+  position: relative;
+  top: 0;
+  font-family: OpenSans-Regular;
+  font-size: 12px;
+  color: #888;
+}
+[data-card=betting-odds] .sportsbook-panel .sb-extlink-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #00a305;
+  font-size: 12px;
+  color: #DDD;
+  border-radius: 3px;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+[data-card=betting-odds] .sportsbook-panel .sb-extlink-hover:hover {
+  opacity: 0.85;
+}
+[data-card=betting-odds] .schedule-row td {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  font-size: 12px;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 0;
+  z-index: 1;
+}
+[data-card=betting-odds] .schedule-row td:first-child {
+  left: 0;
+  background: #F7F8FD;
+  text-align: left;
+  width: 260px;
+  box-shadow: none;
+  z-index: 2;
+}
+[data-card=betting-odds] .schedule-row td div {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  padding: 0 15px;
+  border: solid #00A305;
+  border-width: 0 0 5px;
+}
+@media (min-width: 640px) {
+  [data-card=betting-odds] thead th {
+    font-size: 14px;
+  }
+  [data-card=betting-odds] thead th:first-child {
+    font-size: 18px;
+  }
+  [data-card=betting-odds] tbody td {
+    font-size: 16px;
+  }
+  [data-card=betting-odds] .consensus-panel .odds-consensus,
+[data-card=betting-odds] .sportsbook-panel .odds-sb-bookline {
+    font-size: 16px;
+  }
+  [data-card=betting-odds] .sportsbook-panel .sb-bookline-extlink small {
+    top: -1.5px;
+  }
+  [data-card=betting-odds] .sportsbook-panel .sb-extlink-hover {
+    font-size: 14px;
+  }
+}
+
+[data-card=content] .uk-panel {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+}
+@media (min-width: 960px) {
+  [data-card=content] .uk-panel {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+[data-card=content] p > em,
+[data-card=content] p > i {
+  font-family: OpenSans-Italic;
+  font-style: italic;
+}
+[data-card=content] p > a {
+  color: #00A305;
+}
+
+.odds-locations .uk-subnav-pill > .uk-active > a {
+  background: #00A305;
+  color: #FFF;
+}
+.odds-locations .uk-subnav-pill > li > a {
+  font-family: OpenSans-SemiBold;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 2px;
+}
+.odds-locations .uk-subnav-pill > li > a:focus, .odds-locations .uk-subnav-pill > li > a:hover {
+  background: #E1E2E9;
+}
+.odds-locations .button-select-wrapper {
+  position: relative;
+  margin-top: 0;
+}
+.odds-locations .uk-button-outline {
+  background: #FFF url(../images/ui/arrow-down.png) no-repeat 95% center/8px auto;
+  text-align: left;
+  text-transform: capitalize;
+  line-height: normal;
+  min-width: 225px;
+  height: 35px;
+  padding: 0 12px;
+  border: 1px solid #E1E2E9;
+  border-radius: 3px;
+}
+.odds-locations .uk-button-outline:focus, .odds-locations .uk-button-outline:hover {
+  border-color: #00A305;
+}
+.odds-locations .uk-button-outline.uk-open {
+  border-radius: 3px 3px 0 0;
+}
+.odds-locations .uk-dropdown {
+  width: 225px;
+  margin: 0;
+  padding: 0;
+  border-radius: 0 0 3px 3px;
+  border: 1px solid #E1E2E9;
+  overflow: hidden;
+  z-index: 1;
+}
+.odds-locations .uk-dropdown li > a {
+  padding: 12px;
+  transition: 300ms ease-in-out;
+}
+.odds-locations .uk-dropdown li > a:focus, .odds-locations .uk-dropdown li > a:hover {
+  background: #00A305;
+  color: #FFF;
+}
+@media (min-width: 640px) {
+  .odds-locations .uk-button-outline {
+    width: 200px;
+  }
+  .odds-locations .button-select-wrapper {
+    margin-top: 0;
+  }
+}
