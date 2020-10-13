@@ -1,3 +1,11 @@
+<?php         
+switch ( $post->post_parent ) { 
+    case '23': $league = 'nfl'; break;
+    case '25': $league = 'nba'; break;
+    case '27': $league = 'mlb'; break;
+    default: $league = ''; break;
+}
+?>
 <main id="main" class="main" role="main">
     <div class="uk-container uk-container-xlarge">
         <div class="uk-container uk-container-xlarge">
@@ -7,21 +15,23 @@
                 </div>
                 <div class="uk-position-relative">
                     <div class="uk-overflow-auto">
-                        <?php 
-                        switch ( $post->post_parent ) { 
-                            case '23':
-                                do_action( 'nfl_against_the_spread' );
-                                break;
-                            case '25':
-                                do_action( 'nba_against_the_spread' );
-                                break;
-                            case '27':
-                                do_action( 'mlb_against_the_spread' );
-                                break;
-                            default:
-                                break;
-                        }
-                        ?>
+                        <table id="ats-table" class="uk-table uk-table-divider" data-league="<?php echo $league; ?>">
+                            <thead>
+                                <tr>
+                                    <th class="team-label">Team</th>
+                                    <th>Overall</th>
+                                    <?php if ( $league !== 'nfl' ) : ?>
+                                    <th>Home</th>
+                                    <th>Away</th>
+                                    <?php endif; ?>
+                                    <th><small>Last 10 Games</small> ATS Home</th>
+                                    <th><small>Last 10 Games</small> ATS Away</th>
+                                    <th><small>Last 10 Games</small> OV/UN Home</th>
+                                    <th><small>Last 10 Games</small> OV/UN Away</th>
+                                </tr>
+                            </thead>
+                            <tbody><tr><td>Loading&hellip;</td></tr></tbody>
+                        </table>
                     </div>    
                 </div>
             </div>

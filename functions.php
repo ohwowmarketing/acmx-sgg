@@ -4,7 +4,7 @@
 //! ===
 
 //* Load All Functions
-$fn_config = [ 'config/actions.php', 'config/assets.php', 'config/acf.php', 'config/controller.php', 'config/yoast.php', 'config/theme.php', 'config/editor.php', 'config/api/api.php' ];
+$fn_config = [ 'config/actions.php', 'config/assets.php', 'config/acf.php', 'config/controller.php', 'config/yoast.php', 'config/theme.php', 'config/editor.php', 'config/api.php', 'config/api/api.php' ];
 foreach ( $fn_config as $config ) {
 
     if ( ! $files = locate_template( $config ) ) {
