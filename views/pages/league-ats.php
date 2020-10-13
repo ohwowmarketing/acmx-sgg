@@ -14,8 +14,11 @@ switch ( $post->post_parent ) {
                     <h1 class="uk-card-title"><?php echo get_the_title( $post->post_parent ) . ' Against the Spread'; ?></h1>
                 </div>
                 <div class="uk-position-relative">
+                    <div id="table-loading" style="text-align: center; margin-top: 15px;">
+                        <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/loading.gif" />
+                    </div>
                     <div class="uk-overflow-auto">
-                        <table id="ats-table" class="uk-table uk-table-divider" data-league="<?php echo $league; ?>">
+                        <table id="ats-table" class="uk-table uk-table-divider" data-league="<?php echo $league; ?>" style="display: none;">
                             <thead>
                                 <tr>
                                     <th class="team-label">Team</th>
@@ -30,7 +33,7 @@ switch ( $post->post_parent ) {
                                     <th><small>Last 10 Games</small> OV/UN Away</th>
                                 </tr>
                             </thead>
-                            <tbody><tr><td>Loading&hellip;</td></tr></tbody>
+                            <tbody></tbody>
                         </table>
                     </div>    
                 </div>

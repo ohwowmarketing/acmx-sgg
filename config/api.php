@@ -40,8 +40,12 @@ function api_spread_ajax() {
       </td>
       <td class="api-overall"><?php score( $team->wins, $team->losses ); ?></td>
       <?php if ( $league !== 'nfl' ) : ?> 
-      <td class="api-overall-home"></td>
-      <td class="api-overall-away"></td>
+      <td class="api-overall-home">
+        <?php score( $team->homeWins, $team->homeLosses ); ?>
+      </td>
+      <td class="api-overall-away">
+        <?php score( $team->awayWins, $team->awayLosses ); ?>
+      </td>
       <?php endif; ?>
       <td class="api-ten-spread-home">
         <?php score( $team->homeSpreadWins, $team->homeSpreadLosses, $team->homeSpreadPushes ); ?>
