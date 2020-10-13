@@ -9,7 +9,6 @@ jQuery(document).ready(function($) {
         league: table.data('league')
       },
       function(rows) {
-        console.log(rows);
         $('tbody', table).html(rows);
       }
     );
