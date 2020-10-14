@@ -47,10 +47,8 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li><a href="<?php echo esc_url( site_url('nfl') ); ?>">Sports Gambling Data</a></li>
                                 <li><a href="<?php echo esc_url( site_url('nfl/odds-betting-lines') ); ?>">Odds &amp; Betting Lines</a></li>
-                                <?php /*
                                 <li><a href="<?php echo esc_url( site_url('nfl/futures') ); ?>">Futures</a></li>
                                 <li><a href="<?php echo esc_url( site_url('nfl/ats-standings') ); ?>">ATS Standings</a></li>
-                                */ ?>
                                 <li><a href="<?php echo esc_url( site_url('nfl/injuries') ); ?>">Injuries</a></li>
                                 <li><a href="<?php echo esc_url( site_url('nfl/news') ); ?>">News</a></li>
                             </ul>
@@ -62,10 +60,8 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li><a href="<?php echo esc_url( site_url('nba') ); ?>">Sports Gambling Data</a></li>
                                 <li><a href="<?php echo esc_url( site_url('nba/odds-betting-lines') ); ?>">Odds &amp; Betting Lines</a></li>
-                                <?php /*
                                 <li><a href="<?php echo esc_url( site_url('nba/futures') ); ?>">Futures</a></li>
                                 <li><a href="<?php echo esc_url( site_url('nba/ats-standings') ); ?>">ATS Standings</a></li>
-                                */ ?>
                                 <li><a href="<?php echo esc_url( site_url('nba/injuries') ); ?>">Injuries</a></li>
                                 <li><a href="<?php echo esc_url( site_url('nba/news') ); ?>">News</a></li>
                             </ul>
@@ -77,10 +73,8 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li><a href="<?php echo esc_url( site_url('mlb') ); ?>">Sports Gambling Data</a></li>
                                 <li><a href="<?php echo esc_url( site_url('mlb/odds-betting-lines') ); ?>">Odds &amp; Betting Lines</a></li>
-                                <?php /*
                                 <li><a href="<?php echo esc_url( site_url('mlb/futures') ); ?>">Futures</a></li>
                                 <li><a href="<?php echo esc_url( site_url('mlb/ats-standings') ); ?>">ATS Standings</a></li>
-                                */ ?>
                                 <li><a href="<?php echo esc_url( site_url('mlb/injuries') ); ?>">Injuries</a></li>
                                 <li><a href="<?php echo esc_url( site_url('mlb/news') ); ?>">News</a></li>
                             </ul>
