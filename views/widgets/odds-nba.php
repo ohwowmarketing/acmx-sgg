@@ -82,7 +82,11 @@ function bookline( $spread, $payout, $link, $sportsbook ) {
                 <?php echo ($spread < 0) ? $spread : '+'.$spread; ?>
                 <small class="uk-margin-small-left"><?php echo $payout ?></small>
             </span>
-            <span class="sb-extlink-hover" hidden>
+            <?php if ( $sportsbooks->id == 'RiversCasinoPA' || $sportsbooks->id == 'UnibetNJ' ) {
+                echo '<span class="sb-extlink-hover">';
+            } else {
+                echo '<span class="sb-extlink-hover" hidden>';
+            } ?>
                 <svg viewBox="0 0 24 24" width="15" height="15" xmlns="https://www.w3.org/2000/svg" class="" fill="#F7F8FD"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"></path></svg>
                 <span>Bet Now</span>
             </span>
