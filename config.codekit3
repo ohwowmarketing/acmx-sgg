@@ -494,6 +494,14 @@
 		"oAP": "/config/actions.php",
 		"oF": 0
 		},
+	"/config/api.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/config/api.php",
+		"oF": 0
+		},
 	"/config/api/api.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -934,6 +942,25 @@
 		"opt": 0,
 		"oT": 1,
 		"q": 100
+		},
+	"/resources/images/ui/loading.gif": {
+		"ft": 4194304,
+		"iS": 3208,
+		"oA": 0,
+		"oAP": "/resources/images/ui/loading.gif",
+		"oF": 0,
+		"opt": 0
+		},
+	"/resources/scripts/inc/api.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/resources/scripts/api.min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
 		},
 	"/resources/scripts/inc/betting-odds.js": {
 		"bF": 0,
