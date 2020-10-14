@@ -73,10 +73,10 @@ function against_the_spread_table( $league, $teams ) {
         <th>Home</th>
         <th>Away</th>
         <?php endif; ?>
-        <th><small>Last 10 Games</small> ATS Home</th>
-        <th><small>Last 10 Games</small> ATS Away</th>
-        <th><small>Last 10 Games</small> OV/UN Home</th>
-        <th><small>Last 10 Games</small> OV/UN Away</th>
+        <th><small>Last 5 Games</small> ATS Home</th>
+        <th><small>Last 5 Games</small> ATS Away</th>
+        <th><small>Last 5 Games</small> OV/UN Home</th>
+        <th><small>Last 5 Games</small> OV/UN Away</th>
       </tr>
     </thead>
     <tbody>
