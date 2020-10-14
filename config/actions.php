@@ -150,4 +150,10 @@ function fetchPostViews($postID) {
   return $count.' Views';
 }
 
+function add_state_query_vars_filter( $vars ){
+  $vars[] = "state";
+  return $vars;
+}
+add_filter( 'query_vars', 'add_state_query_vars_filter' );
+
 //* Add Sticky Post to FAQ
