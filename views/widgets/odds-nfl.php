@@ -70,7 +70,7 @@ function bookline( $spread, $payout, $link, $sportsbook ) {
                 <?php echo ($spread < 0) ? $spread : '+'.$spread; ?>
                 <small class="uk-margin-small-left"><?php echo $payout ?></small>
             </span>
-            <?php if ( $sportsbooks->id == 'RiversCasinoPA' || $sportsbooks->id == 'UnibetNJ' ) {
+            <?php if ( $sportsbooks[id] == 'RiversCasinoPA' || $sportsbooks[id] == 'UnibetNJ' ) {
                 echo '<span class="sb-extlink-hover">';
             } else {
                 echo '<span class="sb-extlink-hover" hidden>';
