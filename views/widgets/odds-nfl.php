@@ -172,7 +172,7 @@ function updateOddsWeek(oType) {
             <?php
             $betting_states = get_field( 'states_operation', 'option' );
             $location = $_GET['states'];
-            $success = true;
+            $success = false;
 
             foreach ( $betting_states as $betting_state ) :
 

@@ -178,7 +178,7 @@ var headerValue = "14ab1b17eede492d8996908963d2ebbd";
             <?php
             $betting_states = get_field( 'states_operation', 'option' );
             $location = $_GET['states'];
-            $success = true;
+            $success = false;
 
             foreach ( $betting_states as $betting_state ) :
 

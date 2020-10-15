@@ -5,7 +5,7 @@
             <?php 
             $betting_states = get_field( 'states_operation', 'option' );
             $location = $_GET['states'];
-            $success = true;
+            $success = false;
 
             foreach ( $betting_states as $betting_state ) :
 
@@ -21,6 +21,7 @@
             <?php else : ?>
             <button type="button" class="uk-button uk-button-outline">Choose Betting Location</button>
             <?php endif; ?>
+
             <div uk-dropdown="mode: click">
                 <ul class="uk-nav uk-dropdown-nav">
                 <?php 
