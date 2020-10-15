@@ -168,24 +168,37 @@ function updateOddsWeek(oType) {
         </ul>
     </div>
     <div class="uk-width-auto@m">
-        <?php /*
-        <select class="uk-select" name="oddsLocation">
-            <option selected disabled>Choose Betting Location</option>
-            <option value="Pennsylvania">Pennsylvania</option>
-        </select>
-        */ ?>
-        <div class="button-select-wrapper">
+        <div class="button-select-wrapper">            
+            <?php
+            $betting_states = get_field( 'states_operation', 'option' );
+            $location = $_GET['states'];
+            $match = true;
+
+            foreach ( $betting_states as $betting_state ) :
+
+                if ( $location == $betting_state['value'] ) {
+                    $match = true;
+                    break;    
+                }
+            
+            endforeach; ?>
+
+            <?php if ( $success ) : ?>
+            <button type="button" class="uk-button uk-button-outline"><?php echo $betting_state['label']; ?></button>
+            <?php else : ?>
             <button type="button" class="uk-button uk-button-outline">Choose Betting Location</button>
+            <?php endif; ?>
+
             <div uk-dropdown="mode: click">
                 <ul class="uk-nav uk-dropdown-nav">
-                <?php $betting_states = get_field( 'states_operation',  'option' );
+                <?php 
                 foreach ( $betting_states as $state ) : ?>
                     <li><a href="<?php echo get_permalink().'?states='.$state['value'].''; ?>" target="_self" rel="noopener"><?php echo $state['label'] ?></a></li>
                 <?php 
                 endforeach; ?>
                 </ul>
             </div>
-        </div>
+        </div> 
     </div>
 </div>
 

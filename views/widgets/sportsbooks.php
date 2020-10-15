@@ -1,17 +1,30 @@
 <div class="uk-card uk-card-default uk-card-body" data-card="sportsbooks">
     <div class="uk-flex uk-flex-between">
         <h1 class="uk-card-title">Best Sportsbooks</h1>
-        <div class="button-select-wrapper">
-            <?php /*
-            <select name="" id="" class="uk-select uk-width-medium">
-                <option value="pennsylvania">Pennsylvania</option>
-            </select>
-            */ ?>
+        <div class="button-select-wrapper">            
+            <?php
+            $betting_states = get_field( 'states_operation', 'option' );
+            $location = $_GET['states'];
+            $match = true;
+
+            foreach ( $betting_states as $betting_state ) :
+
+                if ( $location == $betting_state['value'] ) {
+                    $match = true;
+                    break;    
+                }
             
+            endforeach; ?>
+
+            <?php if ( $success ) : ?>
+            <button type="button" class="uk-button uk-button-outline"><?php echo $betting_state['label']; ?></button>
+            <?php else : ?>
             <button type="button" class="uk-button uk-button-outline">Choose Betting Location</button>
+            <?php endif; ?>
+
             <div uk-dropdown="mode: click">
                 <ul class="uk-nav uk-dropdown-nav">
-                <?php $betting_states = get_field( 'states_operation',  'option' );
+                <?php 
                 foreach ( $betting_states as $state ) : ?>
                     <li><a href="<?php echo get_permalink().'?states='.$state['value'].''; ?>" target="_self" rel="noopener"><?php echo $state['label'] ?></a></li>
                 <?php 
@@ -37,7 +50,7 @@
         $details = get_field('sb_details');
         $states  = get_field('sb_state');
 
-        $location = $_GET['states'];
+        // $location = $_GET['states'];
 
         if ( in_array($location, $states) || empty($location) ) : ?>
         <ul>
