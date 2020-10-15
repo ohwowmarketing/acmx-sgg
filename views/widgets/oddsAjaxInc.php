@@ -1,5 +1,6 @@
 <?php  
 // include file with Javascript, Ajax and Template code
+$selected_state = isset( $_COOKIE['state_abbr'] ) ? $_COOKIE['state_abbr'] : 'XX';
 ?>
 
 <script type="text/javascript">
@@ -139,42 +140,88 @@ function formatDate(date) {
 						<td class="sportsbook-panel">
 							<div class="uk-panel">
 								<div class="odds-sb-bookline">
-                                    {{if sportsbook == "RiversCasinoPA"}}
-                                    <a href="https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_3320b_415c_&affid=947&siteid=3320&adid=415&c=" target="_blank">
-                                    {{else sportsbook == "UnibetNJ"}}
-                                    <a href="https://wlkindred.adsrv.eacdn.com/C.ashx?btag=a_783b_150c_&affid=195&siteid=783&adid=150&c=" target="_blank">                                        
-                                    {{else}}
-                                    <a>
-                                    {{/if}}
+									{{if (sportsbook === "RiversCasinoPA" && state === 'PA')}}
+										<a href="https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_3320b_415c_&affid=947&siteid=3320&adid=415&c=" target="_blank">
+											<span class="sb-bookline-extlink">
+												<span>
+													{{= away_odds }} <small class="uk-margin-small-left">{{= away_payout }}</small>
+												</span>
+												<span class="sb-extlink-hover">
+													<svg viewBox="0 0 24 24" width="15" height="15" xmlns="https://www.w3.org/2000/svg" class="" fill="#F7F8FD"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"></path></svg>
+													<span>Bet Now</span>
+												</span>
+											</span>
+										</a>
+									{{else (sportsbook === "UnibetNJ" && state === 'PA')}}
+										<a href="https://wlkindred.adsrv.eacdn.com/C.ashx?btag=a_783b_150c_&affid=195&siteid=783&adid=150&c=" target="_blank">
+											<span class="sb-bookline-extlink">
+												<span>
+													{{= away_odds }} <small class="uk-margin-small-left">{{= away_payout }}</small>
+												</span>
+												<span class="sb-extlink-hover">
+													<svg viewBox="0 0 24 24" width="15" height="15" xmlns="https://www.w3.org/2000/svg" class="" fill="#F7F8FD"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"></path></svg>
+													<span>Bet Now</span>
+												</span>
+											</span>
+										</a>
+									{{else (sportsbook === "RiversCasinoPA" && state === 'IL')}}
+										<a href="https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_4043b_900c_&affid=1142&siteid=4043&adid=900&c=" target="_blank">
+											<span class="sb-bookline-extlink">
+												<span>
+													{{= away_odds }} <small class="uk-margin-small-left">{{= away_payout }}</small>
+												</span>
+												<span class="sb-extlink-hover">
+													<svg viewBox="0 0 24 24" width="15" height="15" xmlns="https://www.w3.org/2000/svg" class="" fill="#F7F8FD"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"></path></svg>
+													<span>Bet Now</span>
+												</span>
+											</span>
+										</a>
+									{{else}}
 										<span class="sb-bookline-extlink">
 											<span>
 											   {{= away_odds }} <small class="uk-margin-small-left">{{= away_payout }}</small>
 											</span>
-											<span class="sb-extlink-hover" {{if (sportsbook != 'RiversCasinoPA' && sportsbook != 'UnibetNJ') }}hidden{{/if}}>
-												<svg viewBox="0 0 24 24" width="15" height="15" xmlns="https://www.w3.org/2000/svg" class="" fill="#F7F8FD"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"></path></svg>
-												<span>Bet Now</span>
-											</span>
 										</span>
-									</a>
+									{{/if}}
 								</div>
 								<div class="odds-sb-bookline">
-                                    {{if sportsbook == "RiversCasinoPA"}}
-                                    <a href="https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_3320b_415c_&affid=947&siteid=3320&adid=415&c=" target="_blank">
-                                    {{else sportsbook == "UnibetNJ"}}
-                                    <a href="https://wlkindred.adsrv.eacdn.com/C.ashx?btag=a_783b_150c_&affid=195&siteid=783&adid=150&c=" target="_blank">                                           
-                                    {{else}}
-                                    <a>
-                                    {{/if}}
+									{{if (sportsbook === "RiversCasinoPA" && state === 'PA')}}
 										<span class="sb-bookline-extlink">
 											<span>
 												{{= home_odds }} <small class="uk-margin-small-left">{{= home_payout }}</small>
 											</span>
-											<span class="sb-extlink-hover" {{if (sportsbook != 'RiversCasinoPA' && sportsbook != 'UnibetNJ') }}hidden{{/if}}>
+											<span class="sb-extlink-hover">
 												<svg viewBox="0 0 24 24" width="15" height="15" xmlns="https://www.w3.org/2000/svg" class="" fill="#F7F8FD"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"></path></svg>
 												<span>Bet Now</span>
 											</span>
 										</span>
-									</a>
+									{{else (sportsbook === "UnibetNJ" && state === 'PA')}}
+										<span class="sb-bookline-extlink">
+											<span>
+												{{= home_odds }} <small class="uk-margin-small-left">{{= home_payout }}</small>
+											</span>
+											<span class="sb-extlink-hover">
+												<svg viewBox="0 0 24 24" width="15" height="15" xmlns="https://www.w3.org/2000/svg" class="" fill="#F7F8FD"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"></path></svg>
+												<span>Bet Now</span>
+											</span>
+										</span>
+									{{else (sportsbook === "RiversCasinoPA" && state === 'IL')}}
+										<span class="sb-bookline-extlink">
+											<span>
+												{{= home_odds }} <small class="uk-margin-small-left">{{= home_payout }}</small>
+											</span>
+											<span class="sb-extlink-hover">
+												<svg viewBox="0 0 24 24" width="15" height="15" xmlns="https://www.w3.org/2000/svg" class="" fill="#F7F8FD"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"></path></svg>
+												<span>Bet Now</span>
+											</span>
+										</span>
+									{{else}}
+										<span class="sb-bookline-extlink">
+											<span>
+												{{= home_odds }} <small class="uk-margin-small-left">{{= home_payout }}</small>
+											</span>
+										</span>
+									{{/if}}
 								</div>
 							</div>
 						</td> 
@@ -402,6 +449,7 @@ function formatDate(date) {
 							for(var i = 0; i < gameData.PregameOdds.length; i++) {
 								if (gameData.PregameOdds[i].Sportsbook == sportsbook) {
 									var oddsBookItem = {};
+									oddsBookItem.state = '<?php echo $selected_state ?>';
 									oddsBookItem.sportsbook = sportsbook;
 									oddsBookItem.away_odds = formatOddsVal(getCorrectOddsTypeValue(gameData.PregameOdds[i], oddsType, true, false));
 									oddsBookItem.home_odds = formatOddsVal(getCorrectOddsTypeValue(gameData.PregameOdds[i], oddsType, false, false));
@@ -414,6 +462,7 @@ function formatDate(date) {
 							}
 							if (!found) {
 								var oddsBookItem = {};
+								oddsBookItem.state = '<?php echo $selected_state ?>';
 								oddsBookItem.sportsbook = sportsbook;
 								oddsBookItem.away_odds = null;
 								oddsBookItem.home_odds = null;
