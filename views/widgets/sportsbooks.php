@@ -4,19 +4,12 @@
         <div class="button-select-wrapper">
             <?php 
             $betting_states = get_field( 'states_operation', 'option' );
-            $location = $_GET['states'];
-            $success = false;
+            $valid_states = [];
+            foreach ($betting_states as $state) {
+                $valid_states[] = $state['value'];
+            }
 
-            foreach ( $betting_states as $betting_state ) :
-
-                if ( $location == $betting_state['value'] ) {
-                    $success = true;
-                    break;    
-                }
-            
-            endforeach; ?>
-
-            <?php if ( $success ) : ?>
+            if ( $_COOKIE['state_abbr'] && in_array( $_COOKIE['state_abbr'], $valid_states) ) : ?>
             <button type="button" class="uk-button uk-button-outline"><?php echo $betting_state['label']; ?></button>
             <?php else : ?>
             <button type="button" class="uk-button uk-button-outline">Choose Betting Location</button>
@@ -26,7 +19,7 @@
                 <ul class="uk-nav uk-dropdown-nav">
                 <?php 
                 foreach ( $betting_states as $state ) : ?>
-                    <li><a href="<?php echo get_permalink().'?states='.$state['value'].''; ?>" target="_self" rel="noopener"><?php echo $state['label'] ?></a></li>
+                    <li><a href="<?php echo get_permalink().'?state_abbr='.$state['value'].''; ?>" target="_self" rel="noopener"><?php echo $state['label'] ?></a></li>
                 <?php 
                 endforeach; ?>
                 </ul>
@@ -37,8 +30,8 @@
     
     <div class="sportsbooks-lists">
     <?php $sportsbooks = ['post_type'=>'sportsbooks','has_password'=>false,'posts_per_page'=>-1,'order'=>'asc'];
-    if ($_GET['state']) {
-        $sportsbooks['meta_query'] = [['key'=>'sb_state','value'=>$_GET['state'],'compare'=>'LIKE']];
+    if ($_COOKIE['state_abbr']) {
+        $sportsbooks['meta_query'] = [['key'=>'sb_state','value'=>$_COOKIE['state_abbr'],'compare'=>'LIKE']];
     }
     query_posts( $sportsbooks );
 

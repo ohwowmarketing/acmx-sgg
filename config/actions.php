@@ -151,9 +151,27 @@ function fetchPostViews($postID) {
 }
 
 function add_state_query_vars_filter( $vars ){
-  $vars[] = "state";
+  $vars[] = "state_abbr";
   return $vars;
 }
 add_filter( 'query_vars', 'add_state_query_vars_filter' );
+
+function state_check() {
+  if ( isset( $_GET['state_abbr'] ) ) {
+    setcookie( 'state_abbr', $_GET['state_abbr'], strtotime( '+1 day' ) );
+  }
+  if ( ! isset( $_COOKIE['state_abbr'] ) ) {
+    $response = json_decode( 
+      wp_remote_retrieve_body( 
+        wp_remote_get( 'http://api.ipstack.com/' . $_SERVER['REMOTE_ADDR'] . '?access_key=df8f6bf77c6da3a5a45166435f317b92&fields=country_code,region_code' )
+      )
+    );
+    $valid_states = get_field( 'states_operation', 'option' );
+    if ( $response->country_code === 'US' && in_array( $response->region_code, $valid_states ) ) {
+      setcookie( 'state_abbr', $response->region_code, strtotime( '+1 day' ) );
+    }
+  }
+}
+add_action( 'init', 'state_check' );
 
 //* Add Sticky Post to FAQ
