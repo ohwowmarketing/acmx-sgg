@@ -69,15 +69,6 @@
         });
     }
 
-    // Polling for the sake of my Cookies
-    var interval = setInterval(function() {
-        if(document.readyState === 'complete') {
-            clearInterval(interval);
-            // done();
-        }    
-    }, 100);
-
-
     // Search News
     $('#searchNews').on('keyup', function() {
 
@@ -90,6 +81,14 @@
 
 
 }) (jQuery);
+
+// Polling for the sake of my Cookies
+var interval = setInterval(function() {
+    if(document.readyState === 'complete') {
+        clearInterval(interval);
+        // done();
+    }    
+}, 100);
 
 // Search Filter for Team
 function searchTeam() {
