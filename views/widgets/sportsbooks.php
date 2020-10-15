@@ -11,7 +11,11 @@
             <button type="button" class="uk-button uk-button-outline">Choose Betting Location</button>
             <div uk-dropdown="mode: click">
                 <ul class="uk-nav uk-dropdown-nav">
-                    <li><a rel="noopener">Pennsylvania</a></li>
+                <?php $betting_states = get_field( 'states_operation',  'option' );
+                foreach ( $betting_states as $state ) : ?>
+                    <li><a href="<?php echo get_permalink().'?states='.$state['value'].''; ?>" target="_self" rel="noopener"><?php echo $state['label'] ?></a></li>
+                <?php 
+                endforeach; ?>
                 </ul>
             </div>
         </div>    
@@ -31,8 +35,11 @@
         $url     = get_field('sb_url');
         $promo   = get_field('sb_promotion');
         $details = get_field('sb_details');
+        $states  = get_field('sb_state');
 
-        ?>
+        $location = $_GET['states'];
+
+        if ( in_array($location, $states) || empty($location) ) : ?>
         <ul>
             <li class="sbl-sportsbook">
                 <div class="sbl-item">
@@ -58,7 +65,8 @@
                 </div>
             </li>
         </ul>
-        <?php  
+        <?php 
+        endif;
 
     endwhile; 
 

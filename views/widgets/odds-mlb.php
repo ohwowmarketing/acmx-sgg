@@ -183,7 +183,11 @@ var headerValue = "b426343c15c843c3ab56930d2a919e2c";
             <button type="button" class="uk-button uk-button-outline">Choose Betting Location</button>
             <div uk-dropdown="mode: click">
                 <ul class="uk-nav uk-dropdown-nav">
-                    <li><a rel="noopener">Pennsylvania</a></li>
+                <?php $betting_states = get_field( 'states_operation',  'option' );
+                foreach ( $betting_states as $state ) : ?>
+                    <li><a href="<?php echo get_permalink().'?states='.$state['value'].''; ?>" target="_self" rel="noopener"><?php echo $state['label'] ?></a></li>
+                <?php 
+                endforeach; ?>
                 </ul>
             </div>
         </div>

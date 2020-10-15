@@ -55,6 +55,12 @@ if ( function_exists( 'acf_add_options_page' ) ) :
     ]);
 
         acf_add_options_sub_page([
+            'menu_title'  => 'Sportsbook States',
+            'page_title'  => 'Sportsbook States Operation',
+            'parent_slug' => 'theme-widgets'
+        ]);
+
+        acf_add_options_sub_page([
             'menu_title'  => 'Odds Lines',
             'page_title'  => 'Real Time Odds Lines by League',
             'parent_slug' => 'theme-widgets'

@@ -178,7 +178,11 @@ function updateOddsWeek(oType) {
             <button type="button" class="uk-button uk-button-outline">Choose Betting Location</button>
             <div uk-dropdown="mode: click">
                 <ul class="uk-nav uk-dropdown-nav">
-                    <li><a rel="noopener">Pennsylvania</a></li>
+                <?php $betting_states = get_field( 'states_operation',  'option' );
+                foreach ( $betting_states as $state ) : ?>
+                    <li><a href="<?php echo get_permalink().'?states='.$state['value'].''; ?>" target="_self" rel="noopener"><?php echo $state['label'] ?></a></li>
+                <?php 
+                endforeach; ?>
                 </ul>
             </div>
         </div>
