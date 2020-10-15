@@ -5,12 +5,13 @@
             <?php 
             $betting_states = get_field( 'states_operation', 'option' );
             $valid_states = [];
+            $label = '';
             foreach ($betting_states as $state) {
-                $valid_states[] = $state['value'];
+                $valid_states[$state['label']] = $state['value'];
             }
 
             if ( isset( $_COOKIE['state_abbr'] ) && in_array( $_COOKIE['state_abbr'], $valid_states) ) : ?>
-            <button type="button" class="uk-button uk-button-outline"><?php echo $betting_state['label']; ?></button>
+            <button type="button" class="uk-button uk-button-outline"><?php echo array_search( $_COOKIE['state_abbr'], $valid_states ); ?></button>
             <?php else : ?>
             <button type="button" class="uk-button uk-button-outline">Choose Betting Location</button>
             <?php endif; ?>
