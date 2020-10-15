@@ -20,7 +20,7 @@
                 <ul class="uk-nav uk-dropdown-nav">
                 <?php 
                 foreach ( $betting_states as $state ) : ?>
-                    <li><a href="<?php echo get_permalink().'?state_abbr='.$state['value'].''; ?>" target="_self" rel="noopener"><?php echo $state['label'] ?></a></li>
+                    <li><a href="<?php echo home_url('/best-books/').'?state_abbr='.$state['value']; ?>" target="_self" rel="noopener"><?php echo $state['label'] ?></a></li>
                 <?php 
                 endforeach; ?>
                 </ul>
