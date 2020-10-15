@@ -177,12 +177,12 @@ var headerValue = "b426343c15c843c3ab56930d2a919e2c";
             <?php
             $betting_states = get_field( 'states_operation', 'option' );
             $location = $_GET['states'];
-            $match = true;
+            $success = true;
 
             foreach ( $betting_states as $betting_state ) :
 
                 if ( $location == $betting_state['value'] ) {
-                    $match = true;
+                    $success = true;
                     break;    
                 }
             

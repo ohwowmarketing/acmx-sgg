@@ -1,16 +1,16 @@
 <div class="uk-card uk-card-default uk-card-body" data-card="sportsbooks">
     <div class="uk-flex uk-flex-between">
         <h1 class="uk-card-title">Best Sportsbooks</h1>
-        <div class="button-select-wrapper">            
-            <?php
+        <div class="button-select-wrapper">
+            <?php 
             $betting_states = get_field( 'states_operation', 'option' );
             $location = $_GET['states'];
-            $match = true;
+            $success = true;
 
             foreach ( $betting_states as $betting_state ) :
 
                 if ( $location == $betting_state['value'] ) {
-                    $match = true;
+                    $success = true;
                     break;    
                 }
             
