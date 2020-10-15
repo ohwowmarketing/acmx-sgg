@@ -158,7 +158,7 @@ add_filter( 'query_vars', 'add_state_query_vars_filter', 0 );
 
 function state_check() {
   if ( isset( $_GET['state_abbr'] ) ) {
-    setcookie( 'state_abbr', $_GET['state_abbr'], strtotime( '+1 day' ) );
+    setcookie( 'state_abbr', $_GET['state_abbr'], strtotime( '+1 day' ), '/' );
   } else {
     if ( ! isset( $_COOKIE['state_abbr'] ) ) {
 
@@ -178,14 +178,14 @@ function state_check() {
             $valid_states[] = $state['value'];
           }
           if ( in_array( $response->region_code, $valid_states ) ) {
-            setcookie( 'state_abbr', $response->region_code, strtotime( '+1 day' ) );
+            setcookie( 'state_abbr', $response->region_code, strtotime( '+1 day' ), '/' );
             $isValid = true;
           }
         }
       }
       
       if ( !$isValid ) {
-        setcookie( 'state_abbr', 'XX', strtotime( '+1 day' ) );
+        setcookie( 'state_abbr', 'XX', strtotime( '+1 day' ), '/' );
       }
     }
   }
