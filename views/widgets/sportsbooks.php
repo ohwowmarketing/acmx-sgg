@@ -21,7 +21,6 @@
             <?php else : ?>
             <button type="button" class="uk-button uk-button-outline">Choose Betting Location</button>
             <?php endif; ?>
-
             <div uk-dropdown="mode: click">
                 <ul class="uk-nav uk-dropdown-nav">
                 <?php 
