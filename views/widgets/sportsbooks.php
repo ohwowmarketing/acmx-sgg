@@ -9,7 +9,7 @@
                 $valid_states[] = $state['value'];
             }
 
-            if ( $_COOKIE['state_abbr'] && in_array( $_COOKIE['state_abbr'], $valid_states) ) : ?>
+            if ( isset( $_COOKIE['state_abbr'] ) && in_array( $_COOKIE['state_abbr'], $valid_states) ) : ?>
             <button type="button" class="uk-button uk-button-outline"><?php echo $betting_state['label']; ?></button>
             <?php else : ?>
             <button type="button" class="uk-button uk-button-outline">Choose Betting Location</button>
@@ -30,7 +30,7 @@
     
     <div class="sportsbooks-lists">
     <?php $sportsbooks = ['post_type'=>'sportsbooks','has_password'=>false,'posts_per_page'=>-1,'order'=>'asc'];
-    if ($_COOKIE['state_abbr']) {
+    if ( isset( $_COOKIE['state_abbr'] ) ) {
         $sportsbooks['meta_query'] = [['key'=>'sb_state','value'=>$_COOKIE['state_abbr'],'compare'=>'LIKE']];
     }
     query_posts( $sportsbooks );
@@ -43,9 +43,7 @@
         $details = get_field('sb_details');
         $states  = get_field('sb_state');
 
-        // $location = $_GET['states'];
-
-        if ( in_array($location, $states) || empty($location) ) : ?>
+        if ( ! isset( $_COOKIE['state_abbr'] ) || isset( $_COOKIE['state_abbr'] ) && in_array( $_COOKIE['state_abbr'], $states) ) : ?>
         <ul>
             <li class="sbl-sportsbook">
                 <div class="sbl-item">
