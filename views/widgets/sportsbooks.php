@@ -20,6 +20,9 @@
     
     <div class="sportsbooks-lists">
     <?php $sportsbooks = ['post_type'=>'sportsbooks','has_password'=>false,'posts_per_page'=>-1,'order'=>'asc'];
+    if ($_GET['state']) {
+        $sportsbooks['meta_query'] = [['key'=>'sb_state','value'=>$_GET['state'],'compare'=>'LIKE']];
+    }
     query_posts( $sportsbooks );
 
     while ( have_posts() ) : the_post();
