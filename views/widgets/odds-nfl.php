@@ -70,7 +70,7 @@ function bookline( $spread, $payout, $link, $sportsbook ) {
                 <?php echo ($spread < 0) ? $spread : '+'.$spread; ?>
                 <small class="uk-margin-small-left"><?php echo $payout ?></small>
             </span>
-            <?php if ( $sportsbook[id] == 'RiversCasinoPA' || $sportsbook[id] == 'UnibetNJ' ) {
+            <?php if ( $sportsbook['id'] == 'RiversCasinoPA' || $sportsbook['id'] == 'UnibetNJ' ) {
                 echo '<span class="sb-extlink-hover">';
             } else {
                 echo '<span class="sb-extlink-hover" hidden>';
@@ -171,20 +171,14 @@ function updateOddsWeek(oType) {
         <div class="button-select-wrapper">            
             <?php
             $betting_states = get_field( 'states_operation', 'option' );
-            $location = $_GET['states'];
-            $success = false;
-
-            foreach ( $betting_states as $betting_state ) :
-
-                if ( $location == $betting_state['value'] ) {
-                    $success = true;
-                    break;    
-                }
+            $valid_states = [];
+            $label = '';
+            foreach ($betting_states as $state) {
+                $valid_states[$state['label']] = $state['value'];
+            } 
             
-            endforeach; ?>
-
-            <?php if ( $success ) : ?>
-            <button type="button" class="uk-button uk-button-outline"><?php echo $betting_state['label']; ?></button>
+            if ( isset( $_COOKIE['state_abbr'] ) && in_array( $_COOKIE['state_abbr'], $valid_states) ) : ?>
+            <button type="button" class="uk-button uk-button-outline"><?php echo array_search( $_COOKIE['state_abbr'], $valid_states ); ?></button>
             <?php else : ?>
             <button type="button" class="uk-button uk-button-outline">Choose Betting Location</button>
             <?php endif; ?>
@@ -193,7 +187,7 @@ function updateOddsWeek(oType) {
                 <ul class="uk-nav uk-dropdown-nav">
                 <?php 
                 foreach ( $betting_states as $state ) : ?>
-                    <li><a href="<?php echo get_permalink().'?states='.$state['value'].''; ?>" target="_self" rel="noopener"><?php echo $state['label'] ?></a></li>
+                    <li><a href="<?php echo get_permalink().'?state_abbr='.$state['value'].''; ?>" target="_self" rel="noopener"><?php echo $state['label'] ?></a></li>
                 <?php 
                 endforeach; ?>
                 </ul>
