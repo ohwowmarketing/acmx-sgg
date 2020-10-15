@@ -66,7 +66,7 @@
 
                             $teamName  = $team->Name;
                             $teamCity  = $team->City;
-                            $teamFName = $team->FullName;
+                            $teamFName = ($league[$cat] === 'NFL') ? $team->FullName : $team->Name;
                             $teamLogo  = $team->WikipediaLogoUrl;
                             $teamColor = $team->PrimaryColor;
 
