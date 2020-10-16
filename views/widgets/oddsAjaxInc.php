@@ -20,7 +20,7 @@ function updateOddsType(oType) {
 // create a teams Hash for lookup
 function buildTeamsHash(teams) {
 	
-	$.each( teams, function( index, team ) {
+	jQuery.each( teams, function( index, team ) {
 	  teamsHashByID[team.TeamID] = team;
 	});
 }
@@ -89,7 +89,7 @@ function updateDateChange(next) {
 // make the Ajax API call
 function makeNewOddsRequest(url) {
 	
-	$.ajax({
+	jQuery.ajax({
     type: 'GET',
     url: url,
     dataType: 'json',
@@ -404,15 +404,15 @@ function formatDate(date) {
 			function showNewOddsTable() {
 				
 				// clear old data
-				$("#odds-list-body").empty();
+				jQuery("#odds-list-body").empty();
 				
 				// show "no game.." message when needed
 				if(responseGameOdds.length == 0) {
 				  // Render the odds table row using the template
-				  $("#oddsRowEmptyTmpl").tmpl().appendTo("#odds-list-body");
+				  jQuery("#oddsRowEmptyTmpl").tmpl().appendTo("#odds-list-body");
 				}
 				
-				$.each(responseGameOdds, function( index, gameData ) {
+				jQuery.each(responseGameOdds, function( index, gameData ) {
 				  
 				  var oddsData = {};
 				  
@@ -476,7 +476,7 @@ function formatDate(date) {
 				  } // end odds array check
 				  
 				  // Render the odds table row using the template
-				  $("#oddsRowTemplate").tmpl(oddsData).appendTo("#odds-list-body");
+				  jQuery("#oddsRowTemplate").tmpl(oddsData).appendTo("#odds-list-body");
 				  
 				});
 				
