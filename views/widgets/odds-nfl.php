@@ -7,7 +7,7 @@ $leagueName = get_the_title( $post->post_parent );
 include( locate_template( includes.'league-keys.php', false, true ) );
 
 // Premium Odds
-$gameoddsbydate_request = wp_remote_get( 'https://api.sportsdata.io/v3/nfl/odds/json/GameOddsByWeek/2020/4', $nfl_header_opk );
+$gameoddsbydate_request = wp_remote_get( 'https://api.sportsdata.io/v3/nfl/odds/json/GameOddsByWeek/2020/5', $nfl_header_opk );
 $gameoddsbydate_body_json = wp_remote_retrieve_body( $gameoddsbydate_request );
 $gameoddsbydate_body = json_decode($gameoddsbydate_body_json);
 
