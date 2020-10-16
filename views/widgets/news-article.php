@@ -52,6 +52,7 @@
                         $newsTitle   = $news->Title;
                         $newsContent = $news->Content;
                         $newsDate    = $news->Updated;
+                        $newsLink    = $news->Url;
 
                     foreach ( $team_body as $team ) {
 
@@ -78,19 +79,25 @@
         </figure>
         <h1><?php echo $newsTitle; ?></h1>
         <p><?php echo $newsContent; ?></p>
-        <div class="uk-text-meta">
-            <span>
-                <?php echo $leagueName; ?>
-            </span>
-            <span>&#x25cf</span>
-            <span>
-                <?php  
-                    $time = date_create($newsDate);
-                    $time = date_format($time, 'D, F j, Y');
+        <div class="uk-text-meta uk-flex uk-flex-top uk-flex-between">
+            <div>
+                <span>
+                    <?php echo $leagueName; ?>
+                </span>
+                <span>&#x25cf</span>
+                <span>
+                    <?php  
+                        $time = date_create($newsDate);
+                        $time = date_format($time, 'D, F j, Y');
 
-                    echo $time;
-                ?>
-            </span>
+                        echo $time;
+                    ?>
+                </span>
+            </div>
+            <div id="accreditation">
+                <span>Powered by</span>
+                <a href="<?php echo esc_url( $newsLink ); ?>"><img src="<?php echo _uri.'/resources/images/accreditation/rotoballer-black.png' ?>" height="50" alt="RotoBaller Premium News"></a>
+            </div>
         </div>
         <?php endif; ?>
 

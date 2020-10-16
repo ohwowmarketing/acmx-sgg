@@ -37,6 +37,7 @@ add_action('wp_enqueue_scripts', function() {
         switch ( $post->post_type ) {
 
             case 'sports_guides' : $postName = 'guides'; break;
+            case 'sportsbooks_reviews' : $postName = 'reviews'; break;
 
         }
         wp_enqueue_style( 'page', _styles.$postName.'.min.css' );

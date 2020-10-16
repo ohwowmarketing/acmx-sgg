@@ -1,15 +1,15 @@
-[data-card=sportsbooks] .uk-flex {
+[data-card=sportsbooks] ._headings {
   flex-wrap: wrap;
   margin-bottom: 30px;
 }
-[data-card=sportsbooks] .uk-flex h1 {
+[data-card=sportsbooks] ._headings h1 {
   margin-bottom: 0;
 }
-[data-card=sportsbooks] .uk-flex .button-select-wrapper {
+[data-card=sportsbooks] ._headings .button-select-wrapper {
   position: relative;
   margin-top: 15px;
 }
-[data-card=sportsbooks] .uk-flex .uk-button-outline {
+[data-card=sportsbooks] ._headings .uk-button-outline {
   background: #FFF url(../images/ui/arrow-down.png) no-repeat 95% center/8px auto;
   text-align: left;
   text-transform: capitalize;
@@ -20,13 +20,13 @@
   border: 1px solid #E1E2E9;
   border-radius: 3px;
 }
-[data-card=sportsbooks] .uk-flex .uk-button-outline:focus, [data-card=sportsbooks] .uk-flex .uk-button-outline:hover {
+[data-card=sportsbooks] ._headings .uk-button-outline:focus, [data-card=sportsbooks] ._headings .uk-button-outline:hover {
   border-color: #00A305;
 }
-[data-card=sportsbooks] .uk-flex .uk-button-outline.uk-open {
+[data-card=sportsbooks] ._headings .uk-button-outline.uk-open {
   border-radius: 3px 3px 0 0;
 }
-[data-card=sportsbooks] .uk-flex .uk-dropdown {
+[data-card=sportsbooks] ._headings .uk-dropdown {
   width: 225px;
   margin: 0;
   padding: 0;
@@ -35,19 +35,19 @@
   overflow: hidden;
   z-index: 1;
 }
-[data-card=sportsbooks] .uk-flex .uk-dropdown li > a {
+[data-card=sportsbooks] ._headings .uk-dropdown li > a {
   padding: 12px;
   transition: 300ms ease-in-out;
 }
-[data-card=sportsbooks] .uk-flex .uk-dropdown li > a:focus, [data-card=sportsbooks] .uk-flex .uk-dropdown li > a:hover {
+[data-card=sportsbooks] ._headings .uk-dropdown li > a:focus, [data-card=sportsbooks] ._headings .uk-dropdown li > a:hover {
   background: #00A305;
   color: #FFF;
 }
 @media (min-width: 640px) {
-  [data-card=sportsbooks] .uk-flex .uk-button-outline {
+  [data-card=sportsbooks] ._headings .uk-button-outline {
     width: 200px;
   }
-  [data-card=sportsbooks] .uk-flex .button-select-wrapper {
+  [data-card=sportsbooks] ._headings .button-select-wrapper {
     margin-top: -4px;
   }
 }
@@ -61,7 +61,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1400px) {
   [data-card=sportsbooks] .sportsbooks-lists {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -130,6 +130,9 @@
   margin: 0;
   padding: 0;
 }
+[data-card=sportsbooks] .sbl-offers {
+  min-height: 115px;
+}
 [data-card=sportsbooks] .sbl-offers h4 {
   font-size: 18px;
 }
@@ -138,12 +141,7 @@
   font-size: 18px;
   color: #FFF;
   text-transform: uppercase;
-  padding: 5px;
-}
-[data-card=sportsbooks] .sbl-sportsbook .uk-height-small {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 5px !important;
 }
 [data-card=sportsbooks] .sbl-details {
   text-align: left;
@@ -152,6 +150,13 @@
   list-style-type: square;
   line-height: 1.6;
   padding-left: 20px;
+}
+[data-card=sportsbooks] .sbl-details .uk-button-text {
+  font-family: OpenSans-Bold;
+  color: #00A305;
+}
+[data-card=sportsbooks] .sbl-details .uk-button-text::before {
+  border-color: #00A305;
 }
 [data-card=sportsbooks] .sbl-item {
   flex: 0 1 100%;
@@ -316,4 +321,18 @@
 [data-card=league-article] .uk-text-meta span:nth-child(2) {
   display: inline-block;
   margin: 0 5px;
+}
+[data-card=league-article] #accreditation {
+  text-align: right;
+}
+[data-card=league-article] #accreditation span {
+  display: block;
+  font-size: 12px;
+}
+[data-card=league-article] #accreditation img {
+  width: auto;
+  height: 20px;
+}
+[data-card=league-article] #accreditation a {
+  color: #999;
 }

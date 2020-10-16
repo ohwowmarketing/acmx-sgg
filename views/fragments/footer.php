@@ -68,6 +68,11 @@
                     <div class="uk-flex uk-flex-middle">
                         <span class="icon-twentyone" title=""></span>
                         <img src="<?php echo _uri.'/resources/images/img-copyright-NCPG.png'; ?>" alt="NCPG">
+                        <span>
+                            <a href="https://sportsdata.io/" target="_blank">
+                                <img src="https://sportsdata.io/assets/images/badges/sportsdataio_light_100.png?v=1" alt="Sports Data Provider">
+                            </a>
+                        </span>
                     </div>
                 </div>
 

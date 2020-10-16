@@ -335,6 +335,19 @@
 		"oS": 0,
 		"sct": 0
 		},
+	"/build/scss/reviews.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"ec": 1,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/resources/styles/reviews.min.css",
+		"oF": 0,
+		"oS": 0,
+		"sct": 0
+		},
 	"/build/scss/sitemap.scss": {
 		"aP": 1,
 		"bl": 0,
@@ -745,6 +758,17 @@
 		"oAP": "/resources/fonts/PassionOne/PassionOne-Regular.woff2",
 		"oF": 0
 		},
+	"/resources/images/accreditation/rotoballer-black.png": {
+		"ft": 32768,
+		"iS": 54580,
+		"oA": 0,
+		"oAP": "/resources/images/accreditation/rotoballer-black.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"/resources/images/img-copyright-800-gambler.png": {
 		"ft": 32768,
 		"iS": 0,
@@ -1148,6 +1172,16 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"/resources/styles/reviews.min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/resources/styles/reviews.min-min.css",
+		"oF": 0,
+		"oS": 3
+		},
 	"/resources/styles/sitemap.min.css": {
 		"aP": 1,
 		"bl": 0,
@@ -1434,6 +1468,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/views/singles/guides.php",
+		"oF": 0
+		},
+	"/views/singles/reviews.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/views/singles/reviews.php",
 		"oF": 0
 		},
 	"/views/taxonomies/leagues-news.php": {

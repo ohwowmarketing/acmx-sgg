@@ -21,6 +21,10 @@
 
         get_template_part( _single.'guides' );
 
+    elseif ( $post->post_type == 'sportsbooks_reviews' ) :
+
+        get_template_part( _single.'reviews' );
+
     endif;
 
 get_footer();

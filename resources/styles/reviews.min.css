@@ -1,0 +1,62 @@
+[data-card=reviews-introduction] {
+  padding: 0 !important;
+}
+[data-card=reviews-introduction].uk-card-default {
+  background: #000000;
+}
+[data-card=reviews-introduction] .rColumn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+  height: 160px;
+  margin: 0;
+  padding: 0;
+}
+[data-card=reviews-introduction] .rItem {
+  padding: 20px;
+}
+[data-card=reviews-introduction] ._logo img {
+  width: auto;
+  height: 120px;
+  border-radius: 3px;
+}
+[data-card=reviews-introduction] ._offer {
+  width: calc( 100% - 320px );
+}
+[data-card=reviews-introduction] ._offer {
+  font-family: PassionOne-Regular;
+  font-size: 32px;
+  color: #FFF;
+  line-height: 1;
+  letter-spacing: 0.025em;
+}
+[data-card=reviews-introduction] ._star {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #00A305;
+  color: #FFF;
+  width: 120px;
+  height: 100%;
+}
+[data-card=reviews-introduction] ._star span.uk-icon polygon {
+  fill: #FFF;
+}
+[data-card=reviews-introduction] ._star span.starValue {
+  font-family: OpenSans-SemiBold;
+  font-size: 24px;
+}
+[data-card=reviews-introduction] nav {
+  display: flex;
+  align-items: center;
+  background: #FFF;
+  width: 100%;
+  height: 60px;
+  margin: 0;
+  padding: 0 20px;
+}
+[data-card=reviews-introduction] nav ul {
+  margin: 0;
+  padding: 0;
+}

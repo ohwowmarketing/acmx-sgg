@@ -1,5 +1,5 @@
 <div class="uk-card uk-card-default uk-card-body" data-card="sportsbooks">
-    <div class="uk-flex uk-flex-between">
+    <div class="uk-flex uk-flex-between _headings">
         <h1 class="uk-card-title">Best Sportsbooks</h1>
         <div class="button-select-wrapper">
             <?php 
@@ -48,10 +48,9 @@
         <ul>
             <li class="sbl-sportsbook">
                 <div class="sbl-item">
-                    <div class="uk-background-cover uk-height-small" data-src="<?php echo $image['url']; ?>" uk-img>
-                        <span hidden><?php the_title(); ?></span>
-                    </div>
-                    <a href="<?php echo $url; ?>" class="uk-position-cover"></a>
+                    <a href="<?php echo esc_url( $url ); ?>" target="_blank">
+                        <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>">
+                    </a>
                 </div>
             </li>
             <li class="sbl-offers">
@@ -62,6 +61,10 @@
             <li class="sbl-details">
                 <div class="sbl-item">
                     <?php echo $details; ?>
+                    <hr class="uk-divider-small uk-margin-small">
+                    <span class="uk-display-block">
+                        <a href="#" class="uk-button-text uk-text-bold">Full Review</a>
+                    </span>
                 </div>
             </li>
             <li class="sbl-link">
