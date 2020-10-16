@@ -57,7 +57,7 @@
         $.getScript('https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js', function(){
 
             // Session Cookie
-            $kukie = Cookies.set('sgg-accept-cookies');
+            $kukie = Cookies.get('sgg-accept-cookies');
             if ( ! $kukie ) {
                 $('.sgg-accept-cookies').removeAttr('hidden').attr('uk-scrollspy', 'cls: uk-animation-fast uk-animation-slide-bottom; delay: 2500');
                 $('.sgg-accept-cookies').find('.uk-alert-accept').on('click', function() {

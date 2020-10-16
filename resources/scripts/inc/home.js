@@ -6,19 +6,13 @@
         jQuery.getScript('https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js', function(){
 
             // Session Cookie
-            $promo = Cookies.set('sgg-video-promotion');
+            $promo = Cookies.get('sgg-video-promotion');
             if ( ! $promo ) {
 
-                jQuery('.uk-navbar-nav .wp-video-popup').trigger('click');
+                $('.uk-navbar-nav .wp-video-popup').trigger('click');
                 Cookies.set('sgg-video-promotion', 'true', { expires: 7 });
 
-            //     $('.sgg-accept-cookies').removeAttr('hidden').attr('uk-scrollspy', 'cls: uk-animation-fast uk-animation-slide-bottom; delay: 2500');
-            //     $('.sgg-accept-cookies').find('.uk-alert-accept').on('click', function() {
-            //         Cookies.set('sgg-accept-cookies', 'true', { expires: 7 });
-            //         UIkit.alert('.sgg-accept-cookies').close();
-            //     });
-            }
-
+            } 
         });
     }
 
