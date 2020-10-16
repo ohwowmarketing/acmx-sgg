@@ -21,13 +21,20 @@ $sportsbooks = [
         'id' => 'RiversCasinoPA',
         'display' => 'BetRivers',
         'link' => 'https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_3320b_380c_&affid=947&siteid=3320&adid=380&c=',
-        'badge' => _uri . '/resources/images/sportsbooks/betrivers.jpg'
+        'badge' => _uri . '/resources/images/sportsbooks/betrivers.jpg',
+        'state' => [
+            'PA' => 'https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_3320b_380c_&affid=947&siteid=3320&adid=380&c=',
+            'IL' => 'https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_4043b_900c_&affid=1142&siteid=4043&adid=900&c='
+        ]
     ], 
     [ 
         'id' => 'UnibetNJ',
         'display' => 'Unibet',
         'link' => 'https://wlkindred.adsrv.eacdn.com/C.ashx?btag=a_783b_150c_&affid=195&siteid=783&adid=150&c=',
-        'badge' => _uri . '/resources/images/sportsbooks/unibet.jpg'
+        'badge' => _uri . '/resources/images/sportsbooks/unibet.jpg',
+        'state' => [
+            'PA' => 'https://wlkindred.adsrv.eacdn.com/C.ashx?btag=a_783b_150c_&affid=195&siteid=783&adid=150&c='
+        ]
     ],
     [ 'id' => 'DraftKings', 'display' => 'DraftKings' ], 
     [ 'id' => 'FanDuel', 'display' => 'FanDuel' ], 
@@ -70,11 +77,13 @@ function bookline( $spread, $payout, $link, $sportsbook ) {
                 <?php echo ($spread < 0) ? $spread : '+'.$spread; ?>
                 <small class="uk-margin-small-left"><?php echo $payout ?></small>
             </span>
-            <?php if ( $sportsbook['id'] == 'RiversCasinoPA' || $sportsbook['id'] == 'UnibetNJ' ) {
-                echo '<span class="sb-extlink-hover">';
-            } else {
-                echo '<span class="sb-extlink-hover" hidden>';
-            } ?>
+            <?php 
+            $hidden_link = ' hidden';
+            if ( isset( $_COOKIE['state_abbr'] ) && isset( $sportsbook['state'] ) && in_array( $_COOKIE['state_abbr'], array_keys( $sportsbook['state'] ) ) ) {
+                $hidden_link = '';
+            }
+            ?>
+            <span class="sb-extlink-hover"<?php echo $hidden_link; ?>>
                 <svg viewBox="0 0 24 24" width="15" height="15" xmlns="https://www.w3.org/2000/svg" class="" fill="#F7F8FD"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"></path></svg>
                 <span>Bet Now</span>
             </span>
@@ -258,17 +267,17 @@ function updateOddsWeek(oType) {
                     <?php foreach ( $sportsbooks as $sportsbookHeading ) : ?>
                         <th width="120">
                             <span>
-                                <?php if ( isset( $sportsbookHeading['link'] ) ) : ?>
-                                    <a href="<?php echo $sportsbookHeading['link']; ?>" target="_blank">
+                                <?php if ( isset( $_COOKIE['state_abbr'] ) && isset( $sportsbookHeading['state'] ) && in_array( $_COOKIE['state_abbr'], array_keys( $sportsbookHeading['state'] ) ) ) : ?>
+                                    <a href="<?php echo $sportsbookHeading['state'][ $_COOKIE['state_abbr'] ]; ?>" target="_blank">
                                 <?php endif; ?>
                                     
-                                    <?php if ( isset( $sportsbookHeading['badge'] ) ) : ?>
+                                    <?php if ( isset( $_COOKIE['state_abbr'] ) && isset( $sportsbookHeading['state'] ) && in_array( $_COOKIE['state_abbr'], array_keys( $sportsbookHeading['state'] ) ) && isset( $sportsbookHeading['badge'] ) ) : ?>
                                         <img src="<?php echo $sportsbookHeading['badge']; ?>" width="120" height="40" alt="<?php echo $sportsbookHeading['display'] ?>">
                                     <?php else : ?>
                                         <?php echo $sportsbookHeading['display']; ?>
                                     <?php endif; ?>
 
-                                <?php if ( isset( $sportsbookHeading['link'] ) ) : ?>
+                                <?php if ( isset( $_COOKIE['state_abbr'] ) && isset( $sportsbookHeading['state'] ) && in_array( $_COOKIE['state_abbr'], array_keys( $sportsbookHeading['state'] ) ) ) : ?>
                                     </a>
                                 <?php endif; ?>
                             </span>

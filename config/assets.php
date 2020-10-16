@@ -112,10 +112,29 @@ add_action('wp_enqueue_scripts', function() {
 
         }
         wp_enqueue_style( 'page', _styles.$pageName.'.min.css' );
-
+        // if ($pageName === 'league-odds') {
+        //     wp_enqueue_script( 'jquery-tmpl', get_template_directory_uri() . '/views/widgets/jquery.tmpl.js', ['jquery'], 1.1, true);
+        //     wp_enqueue_script( 'odds-row-empty', get_template_directory_uri() . '/resources/scripts/inc/odds-row-empty.js', ['jquery-tmpl'] );
+        //     wp_enqueue_script( 'odds-cell', get_template_directory_uri() . '/resources/scripts/inc/odds-cell.js', ['jquery-tmpl'] );
+        //     wp_enqueue_script( 'odds-row', get_template_directory_uri() . '/resources/scripts/inc/odds-row.js', ['odds-cell'] );
+        //     wp_enqueue_script( 'odds', get_template_directory_uri() . '/resources/scripts/inc/odds.js', ['odds-row', 'odds-row-empty'] );
+        // }
     }
 
 }, 100);
+
+// function add_tmpl_to_script( $tag, $handle, $source ) {
+//     if ( 'odds-cell' === $handle ) {
+//         $tag = '<script type="text/javascript" src="' . $source . '" id="booksOddsCellTemp" type="text/x-jQuery-tmpl"></script>';
+//     } elseif ( 'odds-row-empty' === $handle ) {
+//         $tag = '<script type="text/javascript" src="' . $source . '" id="oddsRowEmptyTmpl" type="text/x-jQuery-tmpl"></script>';
+//     } elseif ( 'odds-row' === $handle ) {
+//         $tag = '<script type="text/javascript" src="' . $source . '" id="oddsRowTemplate" type="text/x-jQuery-tmpl"></script>';
+//     }
+
+//     return $tag;
+// }
+// add_filter( 'script_loader_tag', 'add_id_to_script', 10, 3 );
 
 // Disable WordPress Script & Function
 function unnecessary_scripts() {
