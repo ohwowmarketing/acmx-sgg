@@ -31,7 +31,6 @@ $sportsbooks = [
     [ 
         'id' => 'RiversCasinoPA',
         'display' => 'BetRivers',
-        'link' => 'https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_3320b_380c_&affid=947&siteid=3320&adid=380&c=',
         'badge' => _uri . '/resources/images/sportsbooks/betrivers.jpg',
         'state' => [
             'PA' => 'https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_3320b_380c_&affid=947&siteid=3320&adid=380&c=',
@@ -41,7 +40,6 @@ $sportsbooks = [
     [ 
         'id' => 'UnibetNJ',
         'display' => 'Unibet',
-        'link' => 'https://wlkindred.adsrv.eacdn.com/C.ashx?btag=a_783b_150c_&affid=195&siteid=783&adid=150&c=',
         'badge' => _uri . '/resources/images/sportsbooks/unibet.jpg',
         'state' => [
             'PA' => 'https://wlkindred.adsrv.eacdn.com/C.ashx?btag=a_783b_150c_&affid=195&siteid=783&adid=150&c='
@@ -82,24 +80,27 @@ function getSportsbookById( $needle, $haystack ) {
 function bookline( $spread, $payout, $link, $sportsbook ) {
 ?>
 <div class="odds-sb-bookline">
-    <a<?php echo ($link !== '') ? ' href="' . $link . '"' : ''; ?>>
+    <?php if ( $link !== '' ) : ?>
+    <a href="<?php echo $link; ?>">
         <span class="sb-bookline-extlink">
             <span>
                 <?php echo ($spread < 0) ? $spread : '+'.$spread; ?>
                 <small class="uk-margin-small-left"><?php echo $payout ?></small>
             </span>
-            <?php
-            $hidden_link = ' hidden';
-            if ( isset( $_COOKIE['state_abbr'] ) && isset( $sportsbook['state'] ) && in_array( $_COOKIE['state_abbr'], array_keys( $sportsbook['state'] ) ) ) {
-                $hidden_link = '';
-            }
-            ?>
-            <span class="sb-extlink-hover"<?php echo $hidden_link; ?>>
+            <span class="sb-extlink-hover">
                 <svg viewBox="0 0 24 24" width="15" height="15" xmlns="https://www.w3.org/2000/svg" class="" fill="#F7F8FD"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"></path></svg>
                 <span>Bet Now</span>
             </span>
         </span>
     </a>
+    <?php else : ?>
+    <span class="sb-bookline-extlink">
+        <span>
+            <?php echo ($spread < 0) ? $spread : '+'.$spread; ?>
+            <small class="uk-margin-small-left"><?php echo $payout ?></small>
+        </span>
+    </span>
+    <?php endif; ?>
 </div>
 <?php } 
 
@@ -123,7 +124,11 @@ function naBookline() {
 }
 
 function sportsbookPanel( $odds, $sportsbook ) { 
-    $link = ( isset( $sportsbook['link'] ) ) ? $sportsbook['link'] : '';
+    if ( isset( $_COOKIE['state_abbr'] ) && isset( $sportsbook['state'] ) && in_array( $_COOKIE['state_abbr'], array_keys( $sportsbook['state'] ) ) ) {
+        $link = $sportsbook['state'][ $_COOKIE['state_abbr'] ];
+    } else {
+        $link = '';
+    }
 ?>
 <td class="sportsbook-panel">
     <div class="uk-panel">
