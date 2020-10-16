@@ -39,12 +39,25 @@
     while ( have_posts() ) : the_post();
         
         $image   = get_field('sb_image');
-        $url     = get_field('sb_url');
         $promo   = get_field('sb_promotion');
         $details = get_field('sb_details');
-        $states  = get_field('sb_state');
+        
+        // $url     = get_field('sb_url');
+        // $states  = get_field('sb_state');
 
-        if ( ! isset( $_COOKIE['state_abbr'] ) || isset( $_COOKIE['state_abbr'] ) && in_array( $_COOKIE['state_abbr'], $states) ) : ?>
+        while ( have_rows('sb_affiliation') ) : 
+            the_row();
+
+            $states = get_sub_field('sb_state');
+            $urls   = get_sub_field('sb_url');
+
+            if ( $_COOKIE['state_abbr'] == $states ) {
+                $state = $states;
+                $url   = $urls;
+            }
+        endwhile;
+
+        if ( ! isset( $_COOKIE['state_abbr'] ) || isset( $_COOKIE['state_abbr'] ) ) : ?>
         <ul>
             <li class="sbl-sportsbook">
                 <div class="sbl-item">
