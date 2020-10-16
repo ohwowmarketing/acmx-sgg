@@ -133,5 +133,5 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
 
 <?php
 // WP Video Popup Pro
-$ytClip = 'https://www.youtube.com/watch?v=_HWm_2ok8gw';
+$ytClip = 'https://youtu.be/3Cx3eJWMRzc';
 echo do_shortcode( '[wp-video-popup hide-related="1" video="'.$ytClip.'"]' );
