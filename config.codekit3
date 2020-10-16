@@ -1585,28 +1585,12 @@
 		"oAP": "/views/widgets/odds-mlb.php",
 		"oF": 0
 		},
-	"/views/widgets/odds-nba-bak.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/views/widgets/odds-nba-bak.php",
-		"oF": 0
-		},
 	"/views/widgets/odds-nba.php": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/views/widgets/odds-nba.php",
-		"oF": 0
-		},
-	"/views/widgets/odds-nfl-bak.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/views/widgets/odds-nfl-bak.php",
 		"oF": 0
 		},
 	"/views/widgets/odds-nfl.php": {

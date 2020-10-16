@@ -9,7 +9,7 @@
             $promo = Cookies.get('sgg-video-promotion');
             if ( ! $promo ) {
 
-                $('.uk-navbar-nav .wp-video-popup').trigger('click');
+                jQuery('.uk-navbar-nav .wp-video-popup').trigger('click');
                 Cookies.set('sgg-video-promotion', 'true', { expires: 7 });
 
             } 

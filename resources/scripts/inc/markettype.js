@@ -1,7 +1,7 @@
 jQuery(document).ready(function($) {
-  $('#markettype').change(function() {
+  jQuery('#markettype').change(function() {
     SGG.permalink;
-    let selected = $(this).val();
+    let selected = jQuery(this).val();
     if (selected.substr(0, 5) === 'type-') {
       const param = 'type_id=' + selected.substr(5);
       window.location = SGG.permalink + '?' + param;

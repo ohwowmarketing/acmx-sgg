@@ -1,16 +1,16 @@
 jQuery(document).ready(function($) {
-  if ($('#ats-table').length) {
-    $.post(
+  if (jQuery('#ats-table').length) {
+    jQuery.post(
       SGGAPI.ajax_url,
       {
         action: 'api_spread',
         nonce: SGGAPI.nonce,
-        league: $('#ats-table').data('league')
+        league: jQuery('#ats-table').data('league')
       },
       function(rows) {
-        $('#ats-table tbody').html(rows);
-        $('#table-loading').hide();
-        $('#ats-table').show();
+        jQuery('#ats-table tbody').html(rows);
+        jQuery('#table-loading').hide();
+        jQuery('#ats-table').show();
       }
     );
   }

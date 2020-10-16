@@ -201,7 +201,8 @@ function updateOddsWeek(oType) {
                 <ul class="uk-nav uk-dropdown-nav">
                 <?php 
                 foreach ( $betting_states as $state ) : ?>
-                    <li><a href="<?php echo get_permalink().'?state_abbr='.$state['value'].''; ?>" target="_self" rel="noopener"><?php echo $state['label'] ?></a></li>
+                    <?php /* <li><a href="<?php echo get_permalink().'?state_abbr='.$state['value'].''; ?>" target="_self" rel="noopener"><?php echo $state['label'] ?></a></li> */ ?>
+                    <li><a href="<?php echo esc_url( site_url('checking-location.php?key=odds&league='.strtolower($leagueName).'&state_abbr='.$state['value']) ); ?>" target="_self" rel="noopener"><?php echo $state['label'] ?></a></li>                    
                 <?php 
                 endforeach; ?>
                 </ul>

@@ -1,24 +1,24 @@
 (function($) {
 
     //* Mobile Menu
-    $(window).on('load', function() {
-        $('.uk-nav-mobile').find('.menu-item-has-children').addClass('uk-parent');
+    jQuery(window).on('load', function() {
+        jQuery('.uk-nav-mobile').find('.menu-item-has-children').addClass('uk-parent');
     });
 
 
     function footerStack() {
-        if ( $(window).width() <= 959 ) {
-            $('.footer-directory .uk-accordion li').removeClass('uk-open');
-            $('.footer-directory .uk-accordion li .uk-accordion-content').attr('hidden', '');
+        if ( jQuery(window).width() <= 959 ) {
+            jQuery('.footer-directory .uk-accordion li').removeClass('uk-open');
+            jQuery('.footer-directory .uk-accordion li .uk-accordion-content').attr('hidden', '');
         }
 
-        $(window).on('resize', function() {
-            if ( $(window).width() >= 959 ) {
-                $('.footer-directory .uk-accordion li').addClass('uk-open');
-                $('.footer-directory .uk-accordion li .uk-accordion-content').removeAttr('hidden', '');
-            } else if ( $(window).width() <= 959 ) {
-                $('.footer-directory .uk-accordion li').removeClass('uk-open');
-                $('.footer-directory .uk-accordion li .uk-accordion-content').attr('hidden', '');
+        jQuery(window).on('resize', function() {
+            if ( jQuery(window).width() >= 959 ) {
+                jQuery('.footer-directory .uk-accordion li').addClass('uk-open');
+                jQuery('.footer-directory .uk-accordion li .uk-accordion-content').removeAttr('hidden', '');
+            } else if ( jQuery(window).width() <= 959 ) {
+                jQuery('.footer-directory .uk-accordion li').removeClass('uk-open');
+                jQuery('.footer-directory .uk-accordion li .uk-accordion-content').attr('hidden', '');
             }
         }).resize();
     }
@@ -27,9 +27,9 @@
 
     // Widget: News
     // Switch tabs/contents base on Leagues and/or Parent ID
-    $(window).on('load', function() {
+    jQuery(window).on('load', function() {
 
-        var $body = $('body');
+        var $body = jQuery('body');
         // League: NFL
         if ( $body.hasClass('page-id-23') || $body.hasClass('parent-pageid-23') ) {
             UIkit.switcher('.widget-league-news').show(0);
@@ -54,13 +54,13 @@
     // Cookie Sessions
     // The basic check of site fully loaded
     if(document.readyState === 'complete') {
-        $.getScript('https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js', function(){
+        jQuery.getScript('https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js', function(){
 
             // Session Cookie
             $kukie = Cookies.get('sgg-accept-cookies');
             if ( ! $kukie ) {
-                $('.sgg-accept-cookies').removeAttr('hidden').attr('uk-scrollspy', 'cls: uk-animation-fast uk-animation-slide-bottom; delay: 2500');
-                $('.sgg-accept-cookies').find('.uk-alert-accept').on('click', function() {
+                jQuery('.sgg-accept-cookies').removeAttr('hidden').attr('uk-scrollspy', 'cls: uk-animation-fast uk-animation-slide-bottom; delay: 2500');
+                jQuery('.sgg-accept-cookies').find('.uk-alert-accept').on('click', function() {
                     Cookies.set('sgg-accept-cookies', 'true', { expires: 7 });
                     UIkit.alert('.sgg-accept-cookies').close();
                 });
@@ -70,11 +70,11 @@
     }
 
     // Search News
-    $('#searchNews').on('keyup', function() {
+    jQuery('#searchNews').on('keyup', function() {
 
-        var value = $(this).val().toLowerCase();
-        $('.article-news').filter(function() {
-            $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1).addClass('uk-margin-remove');
+        var value = jQuery(this).val().toLowerCase();
+        jQuery('.article-news').filter(function() {
+            jQuery(this).toggle($(this).text().toLowerCase().indexOf(value) > -1).addClass('uk-margin-remove');
         });
 
     });

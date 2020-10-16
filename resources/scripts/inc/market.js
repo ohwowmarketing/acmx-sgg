@@ -1,5 +1,5 @@
 jQuery(document).ready(function($) {
-  $('#market_id').change(function() {
+  jQuery('#market_id').change(function() {
     this.form.submit();
   });
 });

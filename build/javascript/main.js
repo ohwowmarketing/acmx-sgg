@@ -8,21 +8,21 @@
     $vendor = $uri + '/wp-content/themes/acmx-sgg/vendor/';
 
     //* Convert jQuery $
-    $ = jQuery;
+    // $ = jQuery;
 
     theme = {
 
         'common': { 
-            init:function() { $.getScript($plugin + 'common.js') }
+            init:function() { jQuery.getScript($plugin + 'common.js') }
         },
         
         'home': {
-            init: function () { $.getScript($plugin + 'home.js') }
+            init: function () { jQuery.getScript($plugin + 'home.js') }
         },
 
         // NFL/NBA/MLB Odds
         'odds_betting_lines': {
-            init: function () { $.getScript($plugin + 'betting-odds.js') }
+            init: function () { jQuery.getScript($plugin + 'betting-odds.js') }
         },
 
     }
@@ -45,7 +45,7 @@
             UTIL.fire('common');
 
             //* Fire page-specific init JS, and then finalize JS
-            $.each(document.body.className.replace(/-/g, '_').split(/\s+/), function (i, classnm) {
+            jQuery.each(document.body.className.replace(/-/g, '_').split(/\s+/), function (i, classnm) {
                 UTIL.fire(classnm);
                 UTIL.fire(classnm, 'finalize');
             });
@@ -56,7 +56,7 @@
     };
 
     // Load Events
-    $(document).ready(UTIL.loadEvents);
+    jQuery(document).ready(UTIL.loadEvents);
 
 })(jQuery);
 
