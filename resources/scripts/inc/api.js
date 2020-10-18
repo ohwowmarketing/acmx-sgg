@@ -1,17 +1,70 @@
 jQuery(document).ready(function($) {
-  if (jQuery('#ats-table').length) {
-    jQuery.post(
+  if ($('#ats-table').length) {
+    $.post(
       SGGAPI.ajax_url,
       {
         action: 'api_spread',
         nonce: SGGAPI.nonce,
-        league: jQuery('#ats-table').data('league')
+        league: $('#ats-table').data('league')
       },
       function(rows) {
-        jQuery('#ats-table tbody').html(rows);
-        jQuery('#table-loading').hide();
-        jQuery('#ats-table').show();
+        $('#ats-table tbody').html(rows);
+        $('#table-loading').hide();
+        $('#ats-table').show();
       }
     );
+  }
+
+  if ($('#futures-select').length) {
+    $.post(
+      SGGAPI.ajax_url,
+      {
+        action: 'api_market',
+        nonce: SGGAPI.nonce,
+        league: $('#futures-select').data('league'),
+        future: $('#futures-select').data('future')
+      },
+      function(options) {
+        $('#futures-select select').html(options);
+        $('#select-loading').hide();
+        $('#futures-select').show();
+        if ($('#futures-table').data('future') === '') {
+          var selected = $('#futures-select select :selected').val();
+          $('#futures-table').data('future', selected).trigger('datachange');
+          $('#futures-table').show();
+        }
+        // $('#table-loading').show();
+      }
+    );
+  }
+
+  $('#futures-select select').on('change', function() {
+    window.location = SGGAPI.permalink + '?future=' + this.value;
+  });
+
+  function getFuturesTable() {
+    $.post(
+      SGGAPI.ajax_url,
+      {
+        action: 'api_future',
+        nonce: SGGAPI.nonce,
+        league: $('#futures-table').data('league'),
+        future: $('#futures-table').data('future')
+      },
+      function(options) {
+        
+        $('#futures-table').html(options);
+        $('#table-loading').hide();
+        $('#futures-table').show();
+      }
+    );
+  }
+
+  if ($('#futures-table').length) {
+    if ($('#futures-table').data('future') !== '') {
+      getFuturesTable();
+    } else {
+      $('#futures-table').on('datachange', getFuturesTable);
+    }
   }
 });
