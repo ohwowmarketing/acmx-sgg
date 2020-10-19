@@ -119,7 +119,11 @@ function api_future_ajax() {
     echo '<p>Futures are currently unavailable.</p>';
     die();
   }
-  $sportsbooks = array_merge(['Consensus'], $data->sportsbooks);
+  if ( !in_array( 'Consensus', $data->sportsbooks ) ) {
+    $sportsbooks = array_merge(['Consensus'], $data->sportsbooks);
+  } else {
+    $sportsbooks = $data->sportsbooks;
+  }
   ?>
   <thead>
     <tr>
@@ -136,20 +140,22 @@ function api_future_ajax() {
       <?php if ($row->logo) : ?>
         <img src="<?php echo $row->logo; ?>" />
       <?php endif; ?>
-      <?php echo $row['display']; ?>
+      <?php echo $row->display; ?>
       </td>
       <?php foreach( $sportsbooks as $sportsbook ) : ?>
       <td>
-        <?php 
-        if ( isset( $row['sportsbooks'][ $sportsbook ] ) ) {
-          if ( in_array( 'american', array_keys( $row['sportsbooks'][ $sportsbook ] ) ) ) {
-            future_payout( $row['sportsbooks'][ $sportsbook ]['american'] );
+        <?php
+        if ( isset( $row->participantBets->{$sportsbook} ) ) {
+          if ( in_array( 'american', array_keys(get_object_vars( $row->participantBets->{$sportsbook} ) ) ) ) {
+            future_payout( $row->participantBets->{$sportsbook}->american );
           } else {
             $count = 1;
-            $total_types = count( $row['sportsbooks'][ $sportsbook ] );
-            foreach ( $row['sportsbooks'][ $sportsbook ] as $type => $value ) {
-              echo $value . ' ';
-              future_payout( $value );
+            $total_types = count( $row->participantBets->{$sportsbook} );
+            $types = get_object_vars( $row->participantBets->{$sportsbook} );
+            $total_types = count( $types );
+            foreach( $types as $type ) {
+              echo $type . ' ';
+              future_payout( $row->participantBets->{$sportsbook}->{$type}->american );
               if ($count !== $total_types) {
                 echo "<br />";
                 $count++;

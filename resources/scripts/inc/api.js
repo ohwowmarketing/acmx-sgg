@@ -51,9 +51,9 @@ jQuery(document).ready(function($) {
         league: $('#futures-table').data('league'),
         future: $('#futures-table').data('future')
       },
-      function(options) {
+      function(table) {
         
-        $('#futures-table').html(options);
+        $('#futures-table').html(table);
         $('#table-loading').hide();
         $('#futures-table').show();
       }
