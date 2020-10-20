@@ -281,3 +281,98 @@
 [data-card=news] .news-lists .uk-panel a:focus, [data-card=news] .news-lists .uk-panel a:hover {
   color: #444;
 }
+
+[data-card=futures-widget] .uk-position-relative {
+  margin-bottom: 60px;
+}
+[data-card=futures-widget] .uk-overflow-auto {
+  max-width: 100%;
+  margin-left: 180px;
+}
+[data-card=futures-widget] .uk-table {
+  margin-top: 0;
+  margin-bottom: 0;
+  border: solid #E1E2E9;
+  border-width: 1px 0;
+}
+[data-card=futures-widget] .uk-table thead tr {
+  font-family: OpenSans-SemiBold;
+  text-transform: uppercase;
+}
+[data-card=futures-widget] .uk-table thead tr th small {
+  display: block;
+  font-size: 11px;
+}
+[data-card=futures-widget] .uk-table tbody tr td:not(:first-child) {
+  text-align: center;
+  height: 58px;
+  vertical-align: middle;
+}
+[data-card=futures-widget] thead,
+[data-card=futures-widget] tbody,
+[data-card=futures-widget] tbody tr {
+  position: relative;
+}
+[data-card=futures-widget] thead th {
+  text-align: center;
+  text-transform: capitalize;
+  height: 55px;
+  border: solid #E1E2E9;
+  border-width: 1px 0;
+}
+[data-card=futures-widget] thead th:first-child {
+  display: flex;
+  align-items: flex-end;
+  font-family: OpenSans-Bold;
+  font-size: 16px;
+  color: #000000;
+  text-align: left;
+  height: 68px;
+}
+[data-card=futures-widget] thead .team-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  border-right: 1px solid #E1E2E9;
+}
+[data-card=futures-widget] tbody .team-panel {
+  position: absolute;
+  top: auto;
+  left: 0;
+  font-size: 14px;
+  width: 180px;
+  border-bottom: 1px solid #E1E2E9;
+  border-right: 1px solid #E1E2E9;
+}
+[data-card=futures-widget] tbody .team-panel img {
+  width: 36px;
+  height: 24px;
+  padding-right: 12px;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+[data-card=futures-widget] thead th:not(.team-label),
+[data-card=futures-widget] tbody td:not(.team-panel) {
+  min-width: 180px;
+}
+@media (min-width: 640px) {
+  [data-card=futures-widget] .uk-overflow-auto {
+    margin-left: 260px;
+  }
+  [data-card=futures-widget] thead th:not(.team-label),
+[data-card=futures-widget] tbody td:not(.team-panel) {
+    min-width: 180px;
+  }
+  [data-card=futures-widget] thead .team-label,
+[data-card=futures-widget] tbody .team-panel {
+    width: 260px;
+  }
+  [data-card=futures-widget] tbody .team-panel {
+    font-size: 16px;
+  }
+  [data-card=futures-widget] thead .team-label,
+[data-card=futures-widget] tbody .team-panel {
+    padding: 16px 24px;
+  }
+}
