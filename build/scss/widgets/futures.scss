@@ -17,7 +17,15 @@
 
   .uk-table thead tr {
     font-family: $sbold;
-    text-transform: uppercase;
+    text-align: center;
+    text-transform: capitalize;
+    height: 55px;
+    border: solid $sgg-line;
+    border-width: 1px 0;
+    vertical-align: bottom;
+    font-size: .875rem;
+    font-weight: 400;
+    color: #999;
 
     th small {
       display: block;
@@ -62,7 +70,15 @@
     top: 0;
     left: 0;
     width: 180px;
+    border-top: 1px solid $sgg-line;
     border-right: 1px solid $sgg-line;
+    display: flex;
+    align-items: flex-end;
+    font-family: $bold;
+    font-size: 16px;
+    color: $sgg-black;
+    text-align: left;
+    height: 68px;
   }
 
   tbody .team-panel {

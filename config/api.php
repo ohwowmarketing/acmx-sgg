@@ -127,7 +127,13 @@ function api_future_ajax() {
   ?>
   <thead>
     <tr>
-      <td class="team-label">Futures</td>
+      <td class="team-label">
+        <?php 
+        if ( $data->meta->known ) {
+          echo ( $data->meta->isTeam ) ? 'Teams' : 'Players';
+        }
+        ?>
+      </td>
       <?php foreach ( $sportsbooks as $sportsbook ) : ?>
       <td><?php echo $sportsbook; ?></td>
       <?php endforeach; ?>
@@ -149,19 +155,22 @@ function api_future_ajax() {
           if ( in_array( 'american', array_keys(get_object_vars( $row->participantBets->{$sportsbook} ) ) ) ) {
             future_payout( $row->participantBets->{$sportsbook}->american );
           } else {
-            $count = 1;
-            $total_types = count( $row->participantBets->{$sportsbook} );
-            $types = get_object_vars( $row->participantBets->{$sportsbook} );
-            $total_types = count( $types );
-            foreach( $types as $type ) {
-              echo $type . ' ';
-              future_payout( $row->participantBets->{$sportsbook}->{$type}->american );
-              if ($count !== $total_types) {
-                echo "<br />";
-                $count++;
-              }
-            }
+            echo 'N/A';
+            // $count = 1;
+            // $total_types = count( $row->participantBets->{$sportsbook} );
+            // $types = get_object_vars( $row->participantBets->{$sportsbook} );
+            // $total_types = count( $types );
+            // foreach( $types as $type ) {
+            //   echo $type . ' ';
+            //   future_payout( $row->participantBets->{$sportsbook}->{$type}->american );
+            //   if ($count !== $total_types) {
+            //     echo "<br />";
+            //     $count++;
+            //   }
+            // }
           }
+        } else {
+          echo 'N/A';
         }
         ?>
       </td>
