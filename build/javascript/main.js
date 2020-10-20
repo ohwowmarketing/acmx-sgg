@@ -20,6 +20,11 @@
             init: function () { jQuery.getScript($plugin + 'home.js') }
         },
 
+        // Best Books
+        'best_books': {
+            init: function () { jQuery.getScript($plugin + 'best-books.js') }
+        },
+
         // NFL/NBA/MLB Odds
         'odds_betting_lines': {
             init: function () { jQuery.getScript($plugin + 'betting-odds.js') }

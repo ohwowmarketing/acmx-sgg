@@ -1,6 +1,10 @@
 // Import mixins
 @import "common/mixins";
 
+// Sidebar Content
+@import "widgets/guides",
+        "widgets/news";
+
 // Main Content
 [data-card="reviews-introduction"] {
     padding: 0 !important;
@@ -80,6 +84,77 @@
         ul {
             margin: 0;
             padding: 0;
+        }
+    }
+
+}
+
+[data-card="reviews-summary"] {
+
+    h3, p {
+        margin: 0;
+    }
+
+    h3 {
+        font-size: 24px;
+        text-transform: uppercase;
+    }
+
+    h4 {
+        font-family: $sbold;        
+        margin: 15px 0;
+    }
+
+    .uk-grid ul {
+        display: grid;
+        grid-gap: 10px;
+        grid-template-rows: repeat(5, 1fr);
+
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: rgba($sgg-line, 0.5);
+
+            min-height: calc((500px / 5) - 8px);
+            padding: 15px 15px 15px 90px;
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .summary-item-icon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: $sgg-green;
+            width: 70px;
+            height: 100%;
+
+            .uk-icon {
+                color: #FFF;
+            }
+        }
+
+        .summary-item h4 {
+            font-family: $sbold;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .summary-item span {
+            display: inline-block;
+
+            svg polygon {
+                fill: rgba(251,179,24,1);
+                stroke: transparent !important;
+            }
         }
     }
 

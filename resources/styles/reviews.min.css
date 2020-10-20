@@ -1,3 +1,88 @@
+[data-card=guides] .guides-lists {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+[data-card=guides] .guides-lists li {
+  padding: 10px 0;
+  border-top: 1px solid #E1E2E9;
+}
+[data-card=guides] .guides-lists li:first-child {
+  border-top: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+[data-card=guides] .guides-lists .uk-width-auto {
+  margin-right: 15px;
+}
+[data-card=guides] .guides-lists .uk-width-auto img {
+  width: 60px;
+  height: 60px;
+  border-radius: 2px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+}
+[data-card=guides] .guides-lists .uk-panel {
+  font-size: 14px;
+}
+[data-card=guides] .guides-lists .uk-panel a {
+  color: #666;
+}
+[data-card=guides] .guides-lists .uk-panel a:focus, [data-card=guides] .guides-lists .uk-panel a:hover {
+  color: #444;
+}
+
+[data-card=news] .news-lists {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+[data-card=news] .news-lists li {
+  padding: 10px 0;
+  border-top: 1px solid #E1E2E9;
+}
+[data-card=news] .news-lists li:first-child {
+  border-top: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+[data-card=news] .news-lists .uk-width-auto {
+  margin-right: 15px;
+}
+[data-card=news] .news-lists .uk-width-auto div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 2px;
+  box-shadow: 0 0 8px 0 rgba(0, 0, 0, 0.1);
+}
+[data-card=news] .news-lists .uk-panel {
+  font-size: 14px;
+}
+[data-card=news] .news-lists .uk-panel small {
+  display: block;
+  color: #00A305;
+  margin-bottom: 5px;
+}
+[data-card=news] .news-lists .uk-panel h1 {
+  font-size: 12px;
+  font-family: OpenSans-Regular;
+  text-transform: uppercase;
+  letter-spacing: normal;
+  margin: 5px 0 0;
+}
+[data-card=news] .news-lists .uk-panel h4 {
+  font-size: 14px;
+  margin: 0;
+}
+[data-card=news] .news-lists .uk-panel a {
+  color: #666;
+}
+[data-card=news] .news-lists .uk-panel a:focus, [data-card=news] .news-lists .uk-panel a:hover {
+  color: #444;
+}
+
 [data-card=reviews-introduction] {
   padding: 0 !important;
 }
@@ -59,4 +144,60 @@
 [data-card=reviews-introduction] nav ul {
   margin: 0;
   padding: 0;
+}
+
+[data-card=reviews-summary] h3, [data-card=reviews-summary] p {
+  margin: 0;
+}
+[data-card=reviews-summary] h3 {
+  font-size: 24px;
+  text-transform: uppercase;
+}
+[data-card=reviews-summary] h4 {
+  font-family: OpenSans-SemiBold;
+  margin: 15px 0;
+}
+[data-card=reviews-summary] .uk-grid ul {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-rows: repeat(5, 1fr);
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+[data-card=reviews-summary] .uk-grid ul li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: rgba(225, 226, 233, 0.5);
+  min-height: calc((500px / 5) - 8px);
+  padding: 15px 15px 15px 90px;
+  border-radius: 3px;
+  overflow: hidden;
+}
+[data-card=reviews-summary] .uk-grid ul .summary-item-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #00A305;
+  width: 70px;
+  height: 100%;
+}
+[data-card=reviews-summary] .uk-grid ul .summary-item-icon .uk-icon {
+  color: #FFF;
+}
+[data-card=reviews-summary] .uk-grid ul .summary-item h4 {
+  font-family: OpenSans-SemiBold;
+  font-size: 18px;
+  margin: 0;
+}
+[data-card=reviews-summary] .uk-grid ul .summary-item span {
+  display: inline-block;
+}
+[data-card=reviews-summary] .uk-grid ul .summary-item span svg polygon {
+  fill: #fbb318;
+  stroke: transparent !important;
 }

@@ -868,6 +868,17 @@
 		"opt": 0,
 		"q": 100
 		},
+	"/resources/images/temp/betrivers-ads.jpg": {
+		"ft": 16384,
+		"iS": 81868,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/resources/images/temp/betrivers-ads.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
 	"/resources/images/temp/img-map-dynamic.png": {
 		"ft": 32768,
 		"iS": 0,
@@ -975,6 +986,17 @@
 		"oF": 0,
 		"opt": 0
 		},
+	"/resources/scripts/best-books.min.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/resources/scripts/best-books.min.min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"/resources/scripts/inc/api.js": {
 		"bF": 0,
 		"ft": 64,
@@ -983,6 +1005,17 @@
 		"oA": 1,
 		"oAP": "/resources/scripts/api.min.js",
 		"oF": 1,
+		"sC": 0,
+		"tS": 0
+		},
+	"/resources/scripts/inc/best-books.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/resources/scripts/best-books.min.js",
+		"oF": 0,
 		"sC": 0,
 		"tS": 0
 		},
@@ -1615,6 +1648,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/views/widgets/oddslines.php",
+		"oF": 0
+		},
+	"/views/widgets/sportsbooks-alt.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/views/widgets/sportsbooks-alt.php",
 		"oF": 0
 		},
 	"/views/widgets/sportsbooks.php": {

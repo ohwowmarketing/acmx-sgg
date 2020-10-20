@@ -6,7 +6,7 @@
                 <?php
 
                     get_template_part( widget.'oddslines' );
-                    get_template_part( widget.'sportsbooks' );
+                    get_template_part( widget.'sportsbooks-alt' );
 
                 ?>
 
