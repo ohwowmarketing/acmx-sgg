@@ -1026,9 +1026,9 @@
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
-		"oA": 0,
+		"oA": 1,
 		"oAP": "/resources/scripts/best-books.min.js",
-		"oF": 0,
+		"oF": 1,
 		"sC": 0,
 		"tS": 0
 		},
