@@ -77,10 +77,10 @@ function updateDateChange(next) {
 	buildTeamsHash(teamsObj);
 	
 	if(next) {
-		currentDate.setDate(currentDate.getDate() + 1);
+		currentDate.setDate(currentDate.getUTCDate() + 1);
 	}
 	else {
-		currentDate.setDate(currentDate.getDate() - 1);
+		currentDate.setDate(currentDate.getUTCDate() - 1);
 	}
 	
 	makeNewOddsRequest(apiLeagueUrl + formatDate(currentDate));
