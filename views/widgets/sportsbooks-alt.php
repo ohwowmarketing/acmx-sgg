@@ -69,7 +69,7 @@
                 <div class="sbl-item">
                     <a href="<?php echo esc_url( site_url('best-books') ); ?>" class="uk-button uk-button-primary uk-button-small">Visit Sportsbooks</a>
                     <span class="uk-display-block uk-margin-small-top">
-                        <a href="#" class="uk-button-text uk-text-bold">Full Review</a>
+                        <!-- <a href="#" class="uk-button-text uk-text-bold">Full Review</a> -->
                     </span>
                 </div>
             </li>
