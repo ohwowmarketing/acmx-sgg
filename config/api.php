@@ -155,19 +155,42 @@ function api_future_ajax() {
           if ( in_array( 'american', array_keys(get_object_vars( $row->participantBets->{$sportsbook} ) ) ) ) {
             future_payout( $row->participantBets->{$sportsbook}->american );
           } else {
-            echo 'N/A';
-            // $count = 1;
-            // $total_types = count( $row->participantBets->{$sportsbook} );
-            // $types = get_object_vars( $row->participantBets->{$sportsbook} );
-            // $total_types = count( $types );
-            // foreach( $types as $type ) {
-            //   echo $type . ' ';
-            //   future_payout( $row->participantBets->{$sportsbook}->{$type}->american );
-            //   if ($count !== $total_types) {
-            //     echo "<br />";
-            //     $count++;
-            //   }
-            // }
+            $types = get_object_vars( $row->participantBets->{$sportsbook} );
+
+            if ( ! isset( $types ) ) {
+              echo 'N/A';
+            } else {
+              $original_keys = array_keys( $types );
+
+              $key_priority = ['Over', 'Yes'];
+              $sorted_keys = [];
+              $unsorted_keys = [];
+              
+              foreach( $original_keys as $key ) {
+                if ( in_array( $key, $key_priority ) ) {
+                  $sorted_keys[] = $key;
+                } else {
+                  $unsorted_keys[] = $key;
+                }
+              }
+              
+              $keys = array_merge( $sorted_keys, $unsorted_keys );
+              
+              $value = '';
+              if ( $types[ $keys[0] ]->value ) {
+                $value = ' (' . $types[ $keys[0] ]->value . ')';
+              }
+  
+              $i = 1;
+              foreach( $keys as $key ) {
+                echo $key . $value . ': ';
+                future_payout( $types[ $key ]->american );
+                if ( $i < count( $keys ) ) {
+                  echo "<br />";
+                  $i++;
+                }
+              }
+            }
           }
         } else {
           echo 'N/A';
