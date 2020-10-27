@@ -70,6 +70,12 @@
                         endforeach; ?>
                         </ul>
                     </div>
+                    <?php if ( get_field('isReviewTrue') ) : 
+                    $url = get_field('review_link_url'); ?>
+                    <span class="uk-display-block uk-margin-small-top">
+                        <a href="<?php echo esc_url( $url ); ?>" class="uk-button-text uk-text-bold">Full Review</a>
+                    </span>
+                    <?php endif; ?>
                 </div>
             </li>
         </ul>
