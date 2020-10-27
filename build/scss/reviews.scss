@@ -119,6 +119,17 @@
             margin: 0;
             padding: 0;
         }
+
+        li > a {
+            font-size: 12px !important;
+
+            &:focus,
+            &:hover {
+                background-color: $sgg-green;
+                color: #FFF;
+                border-radius: 3px;
+            }
+        }
     }
 
 }

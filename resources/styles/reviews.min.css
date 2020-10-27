@@ -371,6 +371,14 @@
   margin: 0;
   padding: 0;
 }
+[data-card=reviews-introduction] nav li > a {
+  font-size: 12px !important;
+}
+[data-card=reviews-introduction] nav li > a:focus, [data-card=reviews-introduction] nav li > a:hover {
+  background-color: #00A305;
+  color: #FFF;
+  border-radius: 3px;
+}
 
 [data-card=reviews-summary] h3, [data-card=reviews-summary] p {
   margin: 0;
