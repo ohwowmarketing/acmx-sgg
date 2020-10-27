@@ -1,9 +1,13 @@
 // Import mixins
 @import "common/mixins";
 
+// Main Content
+@import "widgets/sportsbooks";
+
 // Sidebar Content
 @import "widgets/guides",
         "widgets/news";
+
 
 // Main Content
 [data-card="reviews-introduction"] {
@@ -15,10 +19,11 @@
 
     .rColumn {
         display: flex;
+        flex-wrap: wrap;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         list-style: none;
-        height: 160px;
+        height: auto;
         margin: 0;
         padding: 0;
     }
@@ -39,15 +44,13 @@
     }
 
     ._offer {
-        width: calc( 100% - 320px );
-    }
-
-    ._offer {
         font-family: $passion;
         font-size: 32px;
         color: #FFF;
+        text-align: center;
         line-height: 1;
         letter-spacing: .025em;
+        width: 100%;
     }
 
     ._star {
@@ -56,7 +59,7 @@
         justify-content: center;
         background: $sgg-green;
         color: #FFF;
-        width: 120px;
+        width: 100%;
         height: 100%;
 
         span.uk-icon {
@@ -66,9 +69,37 @@
         }
 
         span.starValue {
-            font-family: $sbold;
+            font-family: $bold;
             font-size: 24px;
+
+            &::before {
+                content: "Overall Rate: ";
+            }
         }
+    }
+
+    @media ( min-width: 960px ) {
+
+        .rColumn {
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            height: 160px;
+        }        
+
+
+        ._offer {
+            text-align: left;
+            width: calc( 100% - 320px );
+        }
+
+        ._star {
+            width: 120px;
+
+            span.starValue::before {
+                display: none;
+            }
+        }
+
     }
 
 
@@ -80,8 +111,11 @@
         height: 60px;
         margin: 0;
         padding: 0 20px;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
 
         ul {
+            flex-wrap: nowrap;
             margin: 0;
             padding: 0;
         }
@@ -105,57 +139,159 @@
         margin: 15px 0;
     }
 
-    .uk-grid ul {
-        display: grid;
-        grid-gap: 10px;
-        grid-template-rows: repeat(5, 1fr);
+    .summary-list {
+        li:nth-child(4),
+        li:nth-child(5) {
+            flex: 1 1 auto;
+        }
+    }
 
-        list-style: none;
+    .summary-item {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #FFF;
+        text-align: center;
+        padding: 40px 15px 75px;
+        border: 1px solid $sgg-line;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+    .summary-item h4 {
+        font-size: 16px;
+        line-height: 1.2;
         margin: 0;
-        padding: 0;
+    }
 
-        li {
-            position: relative;
-            display: flex;
-            align-items: center;
-            background: rgba($sgg-line, 0.5);
+    .summary-item .summary-item-icon {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $sgg-green;
+        color: #FFF;
+        width: 100%;
+        height: 50px;
+        border-radius: 0 0 2px 2px;
 
-            min-height: calc((500px / 5) - 8px);
-            padding: 15px 15px 15px 90px;
-            border-radius: 3px;
-            overflow: hidden;
-        }
-
-        .summary-item-icon {
-            position: absolute;
-            top: 0;
-            left: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: $sgg-green;
-            width: 70px;
-            height: 100%;
-
-            .uk-icon {
-                color: #FFF;
+        .icon {
+            svg * {
+                stroke: rgba(251,179,24,1);
+                stroke-width: 0;
             }
-        }
 
-        .summary-item h4 {
-            font-family: $sbold;
-            font-size: 18px;
-            margin: 0;
-        }
-
-        .summary-item span {
-            display: inline-block;
-
-            svg polygon {
+            &.full svg * {
                 fill: rgba(251,179,24,1);
-                stroke: transparent !important;
+                stroke: rgba(251,179,24,1);
+            }
+
+            &.half {
+                clip-path: inset(0 50% 0 0);
+
+                svg * {
+                    fill: rgba(251,179,24,1);
+                }
             }
         }
+    }
+
+}
+
+.uk-card {
+    position: relative;
+
+    ._starRating {
+        position: absolute;
+        top: 0;
+        left: 15px;
+        right: auto;
+        background: $sgg-green;
+        padding: 10px;
+        border-radius: 0 0 3px 3px;
+
+        @media ( min-width: 960px ) {
+            left: auto;
+            right: 0;
+            border-radius: 0 0 0 3px;
+        }
+    }
+
+    h4 {
+        margin-top: 40px;
+
+        @media ( min-width: 960px ) {
+            margin-top: 0;
+        }
+    }
+}
+
+[data-card="reviews-promos"],
+[data-card="reviews-ratings"] {
+
+    // Disable Padding
+    [data-card="sportsbooks"] {
+        padding: 0;
+    }
+
+}
+
+[data-card="reviews-methods"],
+[data-card="reviews-options"] {
+
+    .uk-table {
+        font-size: 14px;
+
+        thead {
+            background: #353f42;
+        }
+
+        thead th {
+            font-family: $light;
+            font-size: 14px;
+            color: #FFF;
+        }
+    }
+
+}
+
+[data-card="reviews-methods"] {
+
+    .uk-table {
+
+        tbody tr:first-child {
+            border-top: none;
+        }
+
+        tbody td {
+
+            &:nth-child(1) {
+                font-family: $sbold;
+            }
+
+            &:nth-child(2) {
+                font-family: $light;
+                color: #888;
+            }
+
+        }
+
+    }
+
+    @media ( min-width: 960px ) {
+
+        .uk-table tbody td:nth-child(1),
+        .uk-table tbody td:nth-child(2) {
+            font-family: $regular;
+        }
+
+        .uk-table tbody td:nth-child(2) {
+            color: #444;
+        }
+
     }
 
 }

@@ -30,7 +30,17 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
                 <?php // wp_nav_menu( $hdrMenu ); ?>
                 <ul class="uk-navbar-nav uk-visible@l">
                     <li><a href="<?php echo esc_url( home_url() ); ?>">Home</a></li>
-                    <li><a href="<?php echo esc_url( site_url('best-books') ); ?>">Best Books</a></li>
+                    <li class="uk-parent">
+                        <a href="#">Best Books</a>
+                        <div class="uk-navbar-dropdown uk-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <?php $betting_states = get_field( 'states_operation', 'option' );
+                                foreach ( $betting_states as $state ) :
+                                    echo '<li><a href="'.esc_url(site_url('/best-books').'?state_abbr='.$state['value']).'">'.$state['label'].'</a></li>';
+                                endforeach; ?>
+                            </ul>
+                        </div>
+                    </li>
                     <li class="uk-parent">
                         <a href="#">Live Odds</a>
                         <div class="uk-navbar-dropdown uk-dropdown">
@@ -105,14 +115,14 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
         <?php
         if ( $post->post_parent ) {
             $children = wp_list_pages( array(
-                'exclude'  => '31, 33, 39, 41, 47, 49',
+                'exclude'  => '',
                 'title_li' => '',
                 'child_of' => $post->post_parent,
                 'echo'     => 0,
             ) );
         } else {
             $children = wp_list_pages( array(
-                'exclude'  => '31, 33, 39, 41, 47, 49',
+                'exclude'  => '',
                 'title_li' => '',
                 'child_of' => $post->ID,
                 'echo'     => 0

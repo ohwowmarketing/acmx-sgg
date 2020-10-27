@@ -1671,6 +1671,14 @@
 		"oAP": "/views/widgets/sportsbooks-alt.php",
 		"oF": 0
 		},
+	"/views/widgets/sportsbooks-reviews.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/views/widgets/sportsbooks-reviews.php",
+		"oF": 0
+		},
 	"/views/widgets/sportsbooks.php": {
 		"cB": 0,
 		"ft": 8192,

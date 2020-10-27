@@ -55,22 +55,21 @@
             </li>
             <li class="sbl-details">
                 <div class="sbl-item">
-                    <h4>States Available</h4>
-                    <ul>
-                        <?php while ( have_rows('sb_affiliation') ) : the_row(); ?>
-                        <li><?php $state = get_sub_field('sb_state'); 
-                            echo $state['label'];
-                        ?></li>
-                        <?php endwhile; ?>
-                    </ul>
+                    <?php echo $details; ?>
                 </div>
             </li>
             <li class="sbl-link">
                 <div class="sbl-item">
-                    <a href="<?php echo esc_url( site_url('best-books') ); ?>" class="uk-button uk-button-primary uk-button-small">Visit Sportsbooks</a>
-                    <span class="uk-display-block uk-margin-small-top">
-                        <!-- <a href="#" class="uk-button-text uk-text-bold">Full Review</a> -->
-                    </span>
+                    <button type="button" class="uk-button uk-button-primary">Choose Betting Location</button>
+                    <div uk-dropdown="mode: click; pos: bottom-justify; boundary: .sbl-item; offset: 5">
+                        <ul class="uk-nav uk-dropdown-nav">
+                        <?php $affiliations = get_field('sb_affiliation');
+                            foreach ( $affiliations as $affiliate ) : ?>
+                                <li><a href="<?php echo esc_url($affiliate['sb_url']); ?>" target="_blank"><?php echo $affiliate['sb_state']['label'] ?></a></li>
+                            <?php
+                        endforeach; ?>
+                        </ul>
+                    </div>
                 </div>
             </li>
         </ul>
