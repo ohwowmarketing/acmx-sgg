@@ -473,6 +473,43 @@
 [data-card=reviews-ratings] [data-card=sportsbooks] {
   padding: 0;
 }
+[data-card=reviews-promos] .sbl-link .uk-button-primary,
+[data-card=reviews-ratings] .sbl-link .uk-button-primary {
+  background: #00A305;
+  font-family: OpenSans-SemiBold;
+  font-size: 12px;
+  color: #FFF;
+  line-height: 1;
+  padding: 15px;
+  border-radius: 3px;
+}
+[data-card=reviews-promos] .sbl-link .uk-button-primary:focus, [data-card=reviews-promos] .sbl-link .uk-button-primary:hover,
+[data-card=reviews-ratings] .sbl-link .uk-button-primary:focus,
+[data-card=reviews-ratings] .sbl-link .uk-button-primary:hover {
+  background: #008a04;
+}
+[data-card=reviews-promos] .sbl-link .uk-dropdown,
+[data-card=reviews-ratings] .sbl-link .uk-dropdown {
+  width: auto;
+  margin: 0;
+  padding: 0;
+  border-radius: 0 0 3px 3px;
+  border: 1px solid #E1E2E9;
+  overflow: hidden;
+  z-index: 1;
+}
+[data-card=reviews-promos] .sbl-link .uk-dropdown li > a,
+[data-card=reviews-ratings] .sbl-link .uk-dropdown li > a {
+  text-transform: uppercase;
+  padding: 12px;
+  transition: 300ms ease-in-out;
+}
+[data-card=reviews-promos] .sbl-link .uk-dropdown li > a:focus, [data-card=reviews-promos] .sbl-link .uk-dropdown li > a:hover,
+[data-card=reviews-ratings] .sbl-link .uk-dropdown li > a:focus,
+[data-card=reviews-ratings] .sbl-link .uk-dropdown li > a:hover {
+  background: #00A305;
+  color: #FFF;
+}
 
 [data-card=reviews-methods] .uk-table,
 [data-card=reviews-options] .uk-table {
