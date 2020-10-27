@@ -60,7 +60,7 @@
             </li>
             <li class="sbl-link">
                 <div class="sbl-item">
-                    <button type="button" class="uk-button uk-button-primary">Choose Betting Location</button>
+                    <button type="button" class="uk-button uk-button-primary">Bet Now Choose State</button>
                     <div uk-dropdown="mode: click; pos: bottom-justify; boundary: .sbl-item; offset: 5">
                         <ul class="uk-nav uk-dropdown-nav">
                         <?php $affiliations = get_field('sb_affiliation');
