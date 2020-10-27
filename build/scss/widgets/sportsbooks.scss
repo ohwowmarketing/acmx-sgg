@@ -216,11 +216,36 @@
         .uk-button-primary {
             background: $sgg-green;
             font-family: $sbold;
-            font-size: 12px;
+            font-size: 18px;
             color: #FFF;
             line-height: 1;
             padding: 15px;
             border-radius: 3px;
+
+            small {
+                display: block;
+                font-family: $light;
+                font-size: 12px;
+                margin-top: 5px;
+
+                &::before {
+                    content: "[ ";
+                    position: relative;
+                    top: -1px;
+                    left: -2px;
+                    display: inline-block;
+                    font-size: 13px;
+                }
+
+                &::after {
+                    content: " ]";
+                    position: relative;
+                    top: -1px;
+                    right: -2px;
+                    display: inline-block;
+                    font-size: 13px;
+                }
+            }
 
             &:focus,
             &:hover {

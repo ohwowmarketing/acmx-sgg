@@ -191,11 +191,33 @@
 [data-card=sportsbooks] ._alt .sbl-link .uk-button-primary {
   background: #00A305;
   font-family: OpenSans-SemiBold;
-  font-size: 12px;
+  font-size: 18px;
   color: #FFF;
   line-height: 1;
   padding: 15px;
   border-radius: 3px;
+}
+[data-card=sportsbooks] ._alt .sbl-link .uk-button-primary small {
+  display: block;
+  font-family: OpenSans-Light;
+  font-size: 12px;
+  margin-top: 5px;
+}
+[data-card=sportsbooks] ._alt .sbl-link .uk-button-primary small::before {
+  content: "[ ";
+  position: relative;
+  top: -1px;
+  left: -2px;
+  display: inline-block;
+  font-size: 13px;
+}
+[data-card=sportsbooks] ._alt .sbl-link .uk-button-primary small::after {
+  content: " ]";
+  position: relative;
+  top: -1px;
+  right: -2px;
+  display: inline-block;
+  font-size: 13px;
 }
 [data-card=sportsbooks] ._alt .sbl-link .uk-button-primary:focus, [data-card=sportsbooks] ._alt .sbl-link .uk-button-primary:hover {
   background: #008a04;
