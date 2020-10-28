@@ -8,36 +8,39 @@ switch ( $post->post_parent ) {
 ?>
 <main id="main" class="main" role="main">
     <div class="uk-container uk-container-xlarge">
-        <div class="uk-container uk-container-xlarge">
-            <div class="uk-card uk-card-default uk-card-body" data-card="odds-ats">
-                <div class="uk-flex uk-flex-between uk-flex-middle">
-                    <h1 class="uk-card-title"><?php echo get_the_title( $post->post_parent ) . ' Against the Spread'; ?></h1>
-                </div>
-                <div class="uk-position-relative">
-                    <div id="table-loading" style="text-align: center; margin-top: 15px;">
-                        <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/loading.gif" />
-                    </div>
-                    <div class="uk-overflow-auto">
-                        <table id="ats-table" class="uk-table uk-table-divider" data-league="<?php echo $league; ?>" style="display: none;">
-                            <thead>
-                                <tr>
-                                    <th class="team-label">Team</th>
-                                    <th>Overall</th>
-                                    <?php if ( $league !== 'nfl' ) : ?>
-                                    <th>Home</th>
-                                    <th>Away</th>
-                                    <?php endif; ?>
-                                    <th><small>Last 5 Games</small> ATS Home</th>
-                                    <th><small>Last 5 Games</small> ATS Away</th>
-                                    <th><small>Last 5 Games</small> OV/UN Home</th>
-                                    <th><small>Last 5 Games</small> OV/UN Away</th>
-                                </tr>
-                            </thead>
-                            <tbody></tbody>
-                        </table>
-                    </div>    
+
+        <div class="uk-card uk-card-default uk-card-body" data-card="odds-ats">
+
+            <header class="uk-flex uk-flex-middle">
+                <h1 class="uk-card-title"><?php echo get_the_title( $post->post_parent ) . ' Against the Spread'; ?></h1>
+            </header>
+
+            <div class="uk-position-relative">
+                <div class="uk-overflow-auto">
+                    <table hidden id="ats-table" class="uk-table uk-table-divider" data-league="<?php echo $league; ?>">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <div class="team-label">Team</th>
+                                </th>
+                                <th width="120"><span>Overall</span></th>
+                                <?php if ( $league !== 'nfl' ) : ?>
+                                <th width="120"><span>Home</span></th>
+                                <th width="120"><span>Away</span></th>
+                                <?php endif; ?>
+                                <th width="120"><span>ATS Home</span></th>
+                                <th width="120"><span>ATS Away</span></th>
+                                <th width="120"><span>OV/UN Home</span></th>
+                                <th width="120"><span>OV/UN Away</span></th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                    <div id="table-loading" uk-spinner></div>
                 </div>
             </div>
+
         </div>
+
     </div>
 </main>

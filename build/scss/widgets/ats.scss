@@ -1,0 +1,360 @@
+[data-card="odds-ats"] {
+
+    // Define height for preloader
+    min-height: 500px;
+
+    header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 0 30px;
+
+        .uk-card-title {
+            margin: 0;
+        }
+    }
+
+    // Init preloader
+    #table-loading {
+        color: $sgg-green;
+
+        &::after {
+            content: "Loading data, please wait...";
+            position: relative;
+            top: 2px;
+            left: 10px;
+            font-family: $light;
+            font-size: 14px;
+            color: #888;
+        }
+    }
+
+    .uk-position-relative {
+        margin-bottom: 30px;
+    }
+
+    .uk-overflow-auto {
+        position: relative;
+        max-width: 100%;
+    }
+
+    .uk-table {
+        position: relative;
+        display: table;
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+        border: 1px solid $sgg-line;
+        border-width: 1px 0 0;
+        // white-space: nowrap;
+    }
+
+    thead {
+        border-bottom: 2px solid $sgg-line;
+    }
+
+    thead th {
+        position: sticky;
+        top: 0;
+        font-size: 12px;
+        font-family: $bold;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 0 15px;
+        z-index: 1;
+
+        &:first-child {
+            left: 0;
+            background: #F7F8FD;
+            font-size: 14px;
+            font-family: $bold;
+            color: $sgg-black;
+            text-align: left;
+            width: 150px;
+            padding: 0 15px;
+            // border-right: 1px solid $sgg-line;
+            box-shadow: 1px 0 0 0 $sgg-line;
+            z-index: 2;
+        }
+
+        @media ( min-width: 640px ) {
+
+            &:first-child {
+                width: 260px;
+            }
+
+        }
+
+        .team-label {
+            display: inline-flex;
+            align-items: center;
+            max-width: 120px;
+            height: 50px;
+            margin: 0;
+            padding: 0;
+        }
+
+        span {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            min-width: 120px;
+            height: 50px;
+        }
+
+        img {
+            display: block;
+            @include size(120px,40px);
+            min-width: 120px;
+            border: 1px solid $sgg-line;
+            border-radius: 3px;
+        }
+    }
+
+    tbody td {
+        position: sticky;
+        top: 0;
+        font-size: 12px;
+        text-align: center;
+        text-transform: capitalize;
+        padding: 15px;
+        z-index: 1;
+
+        &:first-child {
+            left: 0;
+            background: #F7F8FD;
+            text-align: left;
+            width: 150px;
+            // border-right: 1px solid $sgg-line;
+            box-shadow: 1px 0 0 0 $sgg-line;
+            z-index: 2;
+        }
+
+        @media ( min-width: 640px ) {
+
+            &:first-child {
+                width: 260px;
+            }
+
+        }
+
+        img {
+            width: 36px;
+            height: 24px;
+            padding-right: 12px;
+            object-fit: contain;
+        }
+
+        &.api-overall,
+        &.api-overall-home,
+        &.api-overall-away,
+        &.api-spread-home,
+        &.api-spread-away,
+        &.api-over-under-home,
+        &.api-over-under-away {
+            span {
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-family: $sbold;
+                font-size: 12px;
+                width: 120px;
+                height: 50px;
+                margin: auto;
+            }
+        }
+    }
+
+    .team-panel {
+        position: relative;
+        display: flex;
+        align-items: center;
+        font-family: $sbold;
+        color: $sgg-black;
+        width: 150px;
+        height: 50px;
+        padding-right: 15px;
+        padding-left: 50px;
+
+        .tp-logo {
+            position: absolute;
+            top: calc( 50% - 12px );
+            left: 0;
+        }
+
+        .tp-label {
+            display: block;
+            width: 120px;
+        }
+
+        @media ( min-width: 640px ) {
+
+            width: 260px;
+
+            .tp-label {
+                width: 100%;
+            }
+
+        }
+    }
+
+    @media ( min-width: 640px ) {
+
+        thead th {
+            font-size: 14px;
+
+            &:first-child {
+                font-size: 18px;
+            }
+        }
+
+        tbody td {
+            font-size: 16px;
+
+            &.api-overall,
+            &.api-overall-home,
+            &.api-overall-away,
+            &.api-spread-home,
+            &.api-spread-away,
+            &.api-over-under-home,
+            &.api-over-under-away {
+                span {
+                    font-size: 14px;
+                }
+            }
+        }
+
+    }
+
+}
+
+
+
+
+/*
+[data-card="odds-ats"] {
+
+    .uk-position-relative {
+        margin-bottom: 60px;
+    }
+
+    .uk-overflow-auto {
+        max-width: 100%;
+        margin-left: 180px;
+    }
+
+    .uk-table {
+        margin-top: 0;
+        margin-bottom: 0;
+        border: solid $sgg-line;
+        border-width: 1px 0;
+    }
+
+    .uk-table thead tr {
+        font-family: $sbold;
+        text-transform: uppercase;
+
+        th small {
+            display: block;
+            font-size: 11px;
+        }
+    }
+
+    .uk-table tbody tr {
+
+        td:not(:first-child) {
+            text-align: center;
+            height: 58px;
+            vertical-align: middle;
+        }
+
+    }
+
+    thead,
+    tbody,
+    tbody tr {
+        position: relative;
+    }
+
+    thead th {
+        text-align: center;
+        text-transform: capitalize;
+        height: 55px;
+        border: solid $sgg-line;
+        border-width: 1px 0;
+
+        &:first-child {
+            display: flex;
+            align-items: flex-end;
+            font-family: $bold;
+            font-size: 16px;
+            color: $sgg-black;
+            text-align: left;
+            height: 68px;
+        }
+    }
+
+    thead .team-label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 180px;
+        border-right: 1px solid $sgg-line;
+    }
+
+    tbody .team-panel {
+        position: absolute;
+        top: auto;
+        left: 0;
+        font-size: 14px;
+        width: 180px;
+        border-bottom: 1px solid $sgg-line;
+        border-right: 1px solid $sgg-line;
+    }
+
+    tbody .team-panel img {
+        width: 36px;
+        height: 24px;
+        padding-right: 12px;
+        object-fit: contain;
+    }
+
+    thead th:not(.team-label),
+    tbody td:not(.team-panel) {
+        min-width: 180px;
+    }
+
+    @media ( min-width: 640px ) {
+
+        .uk-overflow-auto {
+            margin-left: 260px;
+        }
+
+        thead th:not(.team-label),
+        tbody td:not(.team-panel) {
+            min-width: 180px;
+        }
+
+
+        thead .team-label,
+        tbody .team-panel {
+            width: 260px;
+        }
+
+        tbody .team-panel {
+            font-size: 16px;
+        }
+
+        thead .team-label,
+        tbody .team-panel {
+            padding: 16px 24px;
+        }
+
+    }
+
+
+}
+
+*/

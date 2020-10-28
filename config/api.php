@@ -33,32 +33,37 @@ function api_spread_ajax() {
   $teams = api_data( $url );
   foreach ( $teams as $team ) : ?>
     <tr id="row-<?php echo $team->sdio; ?>">
-      <td class="team-panel">
-        <?php if ($team->logo) : ?>
-          <img src="<?php echo $team->logo; ?>" />
-        <?php endif; ?>
-        <?php echo $team->display; ?>
+      <td>
+        <div class="team-panel">
+          <span class="tp-logo">
+            <?php if ($team->logo) : ?>
+              <img src="<?php echo $team->logo; ?>" />
+            <?php endif; ?>
+          </span>
+          <span class="tp-label">
+            <?php echo $team->display; ?>
+          </span>
       </td>
-      <td class="api-overall"><?php score( $team->wins, $team->losses ); ?></td>
+      <td class="api-overall"><span><?php score( $team->wins, $team->losses ); ?></span></td>
       <?php if ( $league !== 'nfl' ) : ?> 
       <td class="api-overall-home">
-        <?php score( $team->homeWins, $team->homeLosses ); ?>
+        <span><?php score( $team->homeWins, $team->homeLosses ); ?></span>
       </td>
       <td class="api-overall-away">
-        <?php score( $team->awayWins, $team->awayLosses ); ?>
+        <span><?php score( $team->awayWins, $team->awayLosses ); ?></span>
       </td>
       <?php endif; ?>
-      <td class="api-ten-spread-home">
-        <?php score( $team->homeSpreadWins, $team->homeSpreadLosses, $team->homeSpreadPushes ); ?>
+      <td class="api-spread-home">
+        <span><?php score( $team->homeSpreadWins, $team->homeSpreadLosses, $team->homeSpreadPushes ); ?></span>
       </td>
-      <td class="api-ten-spread-away">
-        <?php score( $team->awaySpreadWins, $team->awaySpreadLosses, $team->awaySpreadPushes ); ?>
+      <td class="api-spread-away">
+        <span><?php score( $team->awaySpreadWins, $team->awaySpreadLosses, $team->awaySpreadPushes ); ?></span>
       </td>
-      <td class="api-ten-over-under-home">
-        <?php score( $team->homeOvers, $team->homeUnders, $team->homeOverUnderPushes ); ?>
+      <td class="api-over-under-home">
+        <span><?php score( $team->homeOvers, $team->homeUnders, $team->homeOverUnderPushes ); ?></span>
       </td>
-      <td class="api-ten-over-under-away">
-        <?php score( $team->awayOvers, $team->awayUnders, $team->awayOverUnderPushes ); ?>
+      <td class="api-over-under-away">
+        <span><?php score( $team->awayOvers, $team->awayUnders, $team->awayOverUnderPushes ); ?></span>
       </td>
     </tr>
   <?php endforeach;

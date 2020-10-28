@@ -9,8 +9,10 @@ jQuery(document).ready(function($) {
       },
       function(rows) {
         $('#ats-table tbody').html(rows);
-        $('#table-loading').hide();
-        $('#ats-table').show();
+        $('#table-loading').attr('hidden', '');
+        $('#ats-table').show(function() {
+          $('#ats-table').removeAttr('hidden');
+        });
       }
     );
   }

@@ -322,97 +322,307 @@
   color: #444;
 }
 
+[data-card=odds-ats] {
+  min-height: 500px;
+}
+[data-card=odds-ats] header {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 0 30px;
+}
+[data-card=odds-ats] header .uk-card-title {
+  margin: 0;
+}
+[data-card=odds-ats] #table-loading {
+  color: #00A305;
+}
+[data-card=odds-ats] #table-loading::after {
+  content: "Loading data, please wait...";
+  position: relative;
+  top: 2px;
+  left: 10px;
+  font-family: OpenSans-Light;
+  font-size: 14px;
+  color: #888;
+}
 [data-card=odds-ats] .uk-position-relative {
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 [data-card=odds-ats] .uk-overflow-auto {
+  position: relative;
   max-width: 100%;
-  margin-left: 180px;
 }
 [data-card=odds-ats] .uk-table {
+  position: relative;
+  display: table;
+  width: 100%;
   margin-top: 0;
   margin-bottom: 0;
-  border: solid #E1E2E9;
-  border-width: 1px 0;
+  border: 1px solid #E1E2E9;
+  border-width: 1px 0 0;
 }
-[data-card=odds-ats] .uk-table thead tr {
-  font-family: OpenSans-SemiBold;
-  text-transform: uppercase;
-}
-[data-card=odds-ats] .uk-table thead tr th small {
-  display: block;
-  font-size: 11px;
-}
-[data-card=odds-ats] .uk-table tbody tr td:not(:first-child) {
-  text-align: center;
-  height: 58px;
-  vertical-align: middle;
-}
-[data-card=odds-ats] thead,
-[data-card=odds-ats] tbody,
-[data-card=odds-ats] tbody tr {
-  position: relative;
+[data-card=odds-ats] thead {
+  border-bottom: 2px solid #E1E2E9;
 }
 [data-card=odds-ats] thead th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  font-size: 12px;
+  font-family: OpenSans-Bold;
   text-align: center;
-  text-transform: capitalize;
-  height: 55px;
-  border: solid #E1E2E9;
-  border-width: 1px 0;
+  text-transform: uppercase;
+  padding: 0 15px;
+  z-index: 1;
 }
 [data-card=odds-ats] thead th:first-child {
-  display: flex;
-  align-items: flex-end;
+  left: 0;
+  background: #F7F8FD;
+  font-size: 14px;
   font-family: OpenSans-Bold;
-  font-size: 16px;
   color: #000000;
   text-align: left;
-  height: 68px;
+  width: 150px;
+  padding: 0 15px;
+  box-shadow: 1px 0 0 0 #E1E2E9;
+  z-index: 2;
 }
-[data-card=odds-ats] thead .team-label {
-  position: absolute;
+@media (min-width: 640px) {
+  [data-card=odds-ats] thead th:first-child {
+    width: 260px;
+  }
+}
+[data-card=odds-ats] thead th .team-label {
+  display: inline-flex;
+  align-items: center;
+  max-width: 120px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+}
+[data-card=odds-ats] thead th span {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-width: 120px;
+  height: 50px;
+}
+[data-card=odds-ats] thead th img {
+  display: block;
+  width: 120px;
+  height: 40px;
+  min-width: 120px;
+  border: 1px solid #E1E2E9;
+  border-radius: 3px;
+}
+[data-card=odds-ats] tbody td {
+  position: -webkit-sticky;
+  position: sticky;
   top: 0;
-  left: 0;
-  width: 180px;
-  border-right: 1px solid #E1E2E9;
+  font-size: 12px;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 15px;
+  z-index: 1;
 }
-[data-card=odds-ats] tbody .team-panel {
-  position: absolute;
-  top: auto;
+[data-card=odds-ats] tbody td:first-child {
   left: 0;
-  font-size: 14px;
-  width: 180px;
-  border-bottom: 1px solid #E1E2E9;
-  border-right: 1px solid #E1E2E9;
+  background: #F7F8FD;
+  text-align: left;
+  width: 150px;
+  box-shadow: 1px 0 0 0 #E1E2E9;
+  z-index: 2;
 }
-[data-card=odds-ats] tbody .team-panel img {
+@media (min-width: 640px) {
+  [data-card=odds-ats] tbody td:first-child {
+    width: 260px;
+  }
+}
+[data-card=odds-ats] tbody td img {
   width: 36px;
   height: 24px;
   padding-right: 12px;
   -o-object-fit: contain;
      object-fit: contain;
 }
-[data-card=odds-ats] thead th:not(.team-label),
-[data-card=odds-ats] tbody td:not(.team-panel) {
-  min-width: 180px;
+[data-card=odds-ats] tbody td.api-overall span, [data-card=odds-ats] tbody td.api-overall-home span, [data-card=odds-ats] tbody td.api-overall-away span, [data-card=odds-ats] tbody td.api-spread-home span, [data-card=odds-ats] tbody td.api-spread-away span, [data-card=odds-ats] tbody td.api-over-under-home span, [data-card=odds-ats] tbody td.api-over-under-away span {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: OpenSans-SemiBold;
+  font-size: 12px;
+  width: 120px;
+  height: 50px;
+  margin: auto;
+}
+[data-card=odds-ats] .team-panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-family: OpenSans-SemiBold;
+  color: #000000;
+  width: 150px;
+  height: 50px;
+  padding-right: 15px;
+  padding-left: 50px;
+}
+[data-card=odds-ats] .team-panel .tp-logo {
+  position: absolute;
+  top: calc( 50% - 12px );
+  left: 0;
+}
+[data-card=odds-ats] .team-panel .tp-label {
+  display: block;
+  width: 120px;
 }
 @media (min-width: 640px) {
-  [data-card=odds-ats] .uk-overflow-auto {
-    margin-left: 260px;
-  }
-  [data-card=odds-ats] thead th:not(.team-label),
-[data-card=odds-ats] tbody td:not(.team-panel) {
-    min-width: 180px;
-  }
-  [data-card=odds-ats] thead .team-label,
-[data-card=odds-ats] tbody .team-panel {
+  [data-card=odds-ats] .team-panel {
     width: 260px;
   }
-  [data-card=odds-ats] tbody .team-panel {
-    font-size: 16px;
-  }
-  [data-card=odds-ats] thead .team-label,
-[data-card=odds-ats] tbody .team-panel {
-    padding: 16px 24px;
+  [data-card=odds-ats] .team-panel .tp-label {
+    width: 100%;
   }
 }
+@media (min-width: 640px) {
+  [data-card=odds-ats] thead th {
+    font-size: 14px;
+  }
+  [data-card=odds-ats] thead th:first-child {
+    font-size: 18px;
+  }
+  [data-card=odds-ats] tbody td {
+    font-size: 16px;
+  }
+  [data-card=odds-ats] tbody td.api-overall span, [data-card=odds-ats] tbody td.api-overall-home span, [data-card=odds-ats] tbody td.api-overall-away span, [data-card=odds-ats] tbody td.api-spread-home span, [data-card=odds-ats] tbody td.api-spread-away span, [data-card=odds-ats] tbody td.api-over-under-home span, [data-card=odds-ats] tbody td.api-over-under-away span {
+    font-size: 14px;
+  }
+}
+
+/*
+[data-card="odds-ats"] {
+
+    .uk-position-relative {
+        margin-bottom: 60px;
+    }
+
+    .uk-overflow-auto {
+        max-width: 100%;
+        margin-left: 180px;
+    }
+
+    .uk-table {
+        margin-top: 0;
+        margin-bottom: 0;
+        border: solid $sgg-line;
+        border-width: 1px 0;
+    }
+
+    .uk-table thead tr {
+        font-family: $sbold;
+        text-transform: uppercase;
+
+        th small {
+            display: block;
+            font-size: 11px;
+        }
+    }
+
+    .uk-table tbody tr {
+
+        td:not(:first-child) {
+            text-align: center;
+            height: 58px;
+            vertical-align: middle;
+        }
+
+    }
+
+    thead,
+    tbody,
+    tbody tr {
+        position: relative;
+    }
+
+    thead th {
+        text-align: center;
+        text-transform: capitalize;
+        height: 55px;
+        border: solid $sgg-line;
+        border-width: 1px 0;
+
+        &:first-child {
+            display: flex;
+            align-items: flex-end;
+            font-family: $bold;
+            font-size: 16px;
+            color: $sgg-black;
+            text-align: left;
+            height: 68px;
+        }
+    }
+
+    thead .team-label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 180px;
+        border-right: 1px solid $sgg-line;
+    }
+
+    tbody .team-panel {
+        position: absolute;
+        top: auto;
+        left: 0;
+        font-size: 14px;
+        width: 180px;
+        border-bottom: 1px solid $sgg-line;
+        border-right: 1px solid $sgg-line;
+    }
+
+    tbody .team-panel img {
+        width: 36px;
+        height: 24px;
+        padding-right: 12px;
+        object-fit: contain;
+    }
+
+    thead th:not(.team-label),
+    tbody td:not(.team-panel) {
+        min-width: 180px;
+    }
+
+    @media ( min-width: 640px ) {
+
+        .uk-overflow-auto {
+            margin-left: 260px;
+        }
+
+        thead th:not(.team-label),
+        tbody td:not(.team-panel) {
+            min-width: 180px;
+        }
+
+
+        thead .team-label,
+        tbody .team-panel {
+            width: 260px;
+        }
+
+        tbody .team-panel {
+            font-size: 16px;
+        }
+
+        thead .team-label,
+        tbody .team-panel {
+            padding: 16px 24px;
+        }
+
+    }
+
+
+}
+
+*/
