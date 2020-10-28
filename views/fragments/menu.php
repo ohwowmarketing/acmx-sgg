@@ -130,9 +130,11 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
         }
          
         if ( $children ) : ?>
-            <ul class="uk-subnav uk-flex uk-flex-right" uk-margin>
-                <?php echo $children; ?>
-            </ul>
+            <div class="overflow">
+                <ul class="uk-subnav">
+                    <?php echo $children; ?>
+                </ul>
+            </div>
         <?php endif; ?>
 
         </div>

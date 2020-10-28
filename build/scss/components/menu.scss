@@ -107,39 +107,6 @@
                 padding: 15px;
             }
         }
-
-        // Social Media
-        // > li.socialmedia div {
-            
-        //     display: flex;
-        //     align-items: center;
-        //     justify-content: center;
-        //     height: 100%;
-        //     padding-left: 15px;
-
-        //     > a {
-        //         display: inline-flex;
-        //         align-items: center;
-        //         justify-content: center;
-        //         color: #FFF;
-        //     }
-
-        //     > a.sm-facebook {
-        //         background: #0084FF;
-        //         @include size(28px);
-        //         border-radius: 2px;
-        //         overflow: hidden;
-        //     }
-
-        //     > a.sm-twitter {
-        //         background: #55ACEE;
-        //         @include size(28px);
-        //         margin-left: 5px;
-        //         border-radius: 2px;
-        //         overflow: hidden;
-        //     }
-
-        // }
     }
 
     // Newsletter Scroll
@@ -178,11 +145,25 @@
 
 } // end
 
-
+// Sub navigation from Leagues
 .uk-background-primary {
     background: $sgg-green;
-    padding-top: 15px;
-    padding-bottom: 15px;
+
+    .overflow {
+        padding: 15px 0;
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .uk-subnav {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        margin: 0;
+
+        @media ( min-width: 960px ) {
+            justify-content: flex-end;
+        }
+    }
 
     .uk-subnav > li:first-child {
         font-family: $bold;

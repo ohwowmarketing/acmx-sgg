@@ -516,8 +516,21 @@ address {
 
 .uk-background-primary {
   background: #00A305;
-  padding-top: 15px;
-  padding-bottom: 15px;
+}
+.uk-background-primary .overflow {
+  padding: 15px 0;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.uk-background-primary .uk-subnav {
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  margin: 0;
+}
+@media (min-width: 960px) {
+  .uk-background-primary .uk-subnav {
+    justify-content: flex-end;
+  }
 }
 .uk-background-primary .uk-subnav > li:first-child {
   font-family: OpenSans-Bold;
