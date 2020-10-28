@@ -322,113 +322,401 @@
   color: #444;
 }
 
-[data-card=futures-widget] .uk-position-relative {
-  margin-bottom: 60px;
+[data-card=futures-widget] {
+  min-height: 500px;
+  /*
+    .uk-position-relative {
+      margin-bottom: 60px;
+    }
+
+    .uk-overflow-auto {
+      max-width: 100%;
+      margin-left: 180px;
+    }
+
+    .uk-table {
+      margin-top: 0;
+      margin-bottom: 0;
+      border: solid $sgg-line;
+      border-width: 1px 0;
+    }
+
+    .uk-table thead tr {
+      font-family: $sbold;
+      text-align: center;
+      text-transform: capitalize;
+      height: 55px;
+      border: solid $sgg-line;
+      border-width: 1px 0;
+      vertical-align: bottom;
+      font-size: .875rem;
+      font-weight: 400;
+      color: #999;
+
+      th small {
+        display: block;
+        font-size: 11px;
+      }
+    }
+
+    .uk-table tbody tr {
+      td:not(:first-child) {
+        text-align: center;
+        height: 58px;
+        vertical-align: middle;
+      }
+    }
+
+    thead,
+    tbody,
+    tbody tr {
+      position: relative;
+    }
+
+    thead th {
+      text-align: center;
+      text-transform: capitalize;
+      height: 55px;
+      border: solid $sgg-line;
+      border-width: 1px 0;
+
+      &:first-child {
+        display: flex;
+        align-items: flex-end;
+        font-family: $bold;
+        font-size: 16px;
+        color: $sgg-black;
+        text-align: left;
+        height: 68px;
+      }
+    }
+
+    thead .team-label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 180px;
+      border-top: 1px solid $sgg-line;
+      border-right: 1px solid $sgg-line;
+      display: flex;
+      align-items: flex-end;
+      font-family: $bold;
+      font-size: 16px;
+      color: $sgg-black;
+      text-align: left;
+      height: 68px;
+    }
+
+    tbody .team-panel {
+      position: absolute;
+      top: auto;
+      left: 0;
+      font-size: 14px;
+      width: 180px;
+      border-bottom: 1px solid $sgg-line;
+      border-right: 1px solid $sgg-line;
+    }
+
+    tbody .team-panel img {
+      width: 36px;
+      height: 24px;
+      padding-right: 12px;
+      object-fit: contain;
+    }
+
+    thead th:not(.team-label),
+    tbody td:not(.team-panel) {
+      min-width: 180px;
+    }
+
+    @media ( min-width: 640px ) {
+      .uk-overflow-auto {
+        margin-left: 260px;
+      }
+      thead th:not(.team-label),
+      tbody td:not(.team-panel) {
+        min-width: 180px;
+      }
+      thead .team-label,
+      tbody .team-panel {
+        width: 260px;
+      }
+
+      tbody .team-panel {
+        font-size: 16px;
+      }
+
+      thead .team-label,
+      tbody .team-panel {
+        padding: 16px 24px;
+      }
+    }
+  */
 }
-[data-card=futures-widget] .uk-overflow-auto {
-  max-width: 100%;
-  margin-left: 180px;
+[data-card=futures-widget] header {
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 0 30px;
 }
-[data-card=futures-widget] .uk-table {
-  margin-top: 0;
-  margin-bottom: 0;
-  border: solid #E1E2E9;
-  border-width: 1px 0;
+[data-card=futures-widget] header .uk-card-title {
+  margin: 0;
 }
-[data-card=futures-widget] .uk-table thead tr {
-  font-family: OpenSans-SemiBold;
-  text-align: center;
-  text-transform: capitalize;
-  height: 55px;
-  border: solid #E1E2E9;
-  border-width: 1px 0;
-  vertical-align: bottom;
-  font-size: 0.875rem;
-  font-weight: 400;
-  color: #999;
+[data-card=futures-widget] header form {
+  margin-top: 15px;
 }
-[data-card=futures-widget] .uk-table thead tr th small {
-  display: block;
-  font-size: 11px;
+[data-card=futures-widget] header form .uk-select {
+  font-family: OpenSans-Light;
+  font-size: 14px;
+  min-width: 225px;
+  border-radius: 3px;
 }
-[data-card=futures-widget] .uk-table tbody tr td:not(:first-child) {
-  text-align: center;
-  height: 58px;
-  vertical-align: middle;
-}
-[data-card=futures-widget] thead,
-[data-card=futures-widget] tbody,
-[data-card=futures-widget] tbody tr {
+[data-card=futures-widget] header form .uk-inline {
   position: relative;
 }
+[data-card=futures-widget] header form .uk-inline #select-loading {
+  position: absolute;
+  top: calc(50% - 7.5px);
+  left: 12px;
+}
+[data-card=futures-widget] header form .uk-inline #select-loading::after {
+  content: "Loading menu, please wait...";
+  position: relative;
+  top: 0;
+  left: 10px;
+  font-family: OpenSans-Light;
+  font-size: 12px;
+  color: #888;
+}
+@media (min-width: 960px) {
+  [data-card=futures-widget] header form {
+    margin-top: 0;
+  }
+}
+[data-card=futures-widget] #table-loading {
+  color: #00A305;
+}
+[data-card=futures-widget] #table-loading::after {
+  content: "Loading data, please wait...";
+  position: relative;
+  top: 2px;
+  left: 10px;
+  font-family: OpenSans-Light;
+  font-size: 14px;
+  color: #888;
+}
+[data-card=futures-widget] ._notice .uk-icon {
+  position: relative;
+  top: -2px;
+  margin-right: 5px;
+}
+[data-card=futures-widget] .uk-position-relative {
+  margin-bottom: 30px;
+}
+[data-card=futures-widget] .uk-overflow-auto {
+  position: relative;
+  max-width: 100%;
+}
+[data-card=futures-widget] .uk-table {
+  position: relative;
+  display: table;
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 0;
+  border: 1px solid #E1E2E9;
+  border-width: 1px 0 0;
+}
+[data-card=futures-widget] thead {
+  border-bottom: 2px solid #E1E2E9;
+}
 [data-card=futures-widget] thead th {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  font-size: 12px;
+  font-family: OpenSans-Bold;
   text-align: center;
-  text-transform: capitalize;
-  height: 55px;
-  border: solid #E1E2E9;
-  border-width: 1px 0;
+  text-transform: uppercase;
+  padding: 0 15px;
+  z-index: 1;
 }
 [data-card=futures-widget] thead th:first-child {
-  display: flex;
-  align-items: flex-end;
-  font-family: OpenSans-Bold;
-  font-size: 16px;
-  color: #000000;
-  text-align: left;
-  height: 68px;
-}
-[data-card=futures-widget] thead .team-label {
-  position: absolute;
-  top: 0;
   left: 0;
-  width: 180px;
-  border-top: 1px solid #E1E2E9;
-  border-right: 1px solid #E1E2E9;
-  display: flex;
-  align-items: flex-end;
-  font-family: OpenSans-Bold;
-  font-size: 16px;
-  color: #000000;
-  text-align: left;
-  height: 68px;
-}
-[data-card=futures-widget] tbody .team-panel {
-  position: absolute;
-  top: auto;
-  left: 0;
+  background: #F7F8FD;
   font-size: 14px;
-  width: 180px;
-  border-bottom: 1px solid #E1E2E9;
-  border-right: 1px solid #E1E2E9;
+  font-family: OpenSans-Bold;
+  color: #000000;
+  text-align: left;
+  width: 150px;
+  padding: 0 15px;
+  box-shadow: 1px 0 0 0 #E1E2E9;
+  z-index: 2;
 }
-[data-card=futures-widget] tbody .team-panel img {
+@media (min-width: 640px) {
+  [data-card=futures-widget] thead th:first-child {
+    width: 260px;
+  }
+}
+[data-card=futures-widget] thead th .team-label {
+  display: inline-flex;
+  align-items: center;
+  max-width: 120px;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+}
+[data-card=futures-widget] thead th span {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 50px;
+}
+[data-card=futures-widget] thead th img {
+  display: block;
+  width: 120px;
+  height: 40px;
+  min-width: 120px;
+  border: 1px solid #E1E2E9;
+  border-radius: 3px;
+}
+[data-card=futures-widget] tbody td {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  font-size: 12px;
+  text-align: center;
+  text-transform: capitalize;
+  padding: 15px;
+  z-index: 1;
+}
+[data-card=futures-widget] tbody td:first-child {
+  left: 0;
+  background: #F7F8FD;
+  text-align: left;
+  width: 150px;
+  box-shadow: 1px 0 0 0 #E1E2E9;
+  z-index: 2;
+}
+@media (min-width: 640px) {
+  [data-card=futures-widget] tbody td:first-child {
+    width: 260px;
+  }
+}
+[data-card=futures-widget] tbody td img {
   width: 36px;
   height: 24px;
   padding-right: 12px;
   -o-object-fit: contain;
      object-fit: contain;
 }
-[data-card=futures-widget] thead th:not(.team-label),
-[data-card=futures-widget] tbody td:not(.team-panel) {
-  min-width: 180px;
+[data-card=futures-widget] .team-panel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-family: OpenSans-SemiBold;
+  color: #000000;
+  width: 150px;
+  height: 50px;
+  padding-right: 15px;
+  padding-left: 50px;
+}
+[data-card=futures-widget] .team-panel .tp-logo {
+  position: absolute;
+  top: calc( 50% - 12px );
+  left: 0;
+}
+[data-card=futures-widget] .team-panel .tp-label {
+  display: block;
+  width: 120px;
 }
 @media (min-width: 640px) {
-  [data-card=futures-widget] .uk-overflow-auto {
-    margin-left: 260px;
-  }
-  [data-card=futures-widget] thead th:not(.team-label),
-[data-card=futures-widget] tbody td:not(.team-panel) {
-    min-width: 180px;
-  }
-  [data-card=futures-widget] thead .team-label,
-[data-card=futures-widget] tbody .team-panel {
+  [data-card=futures-widget] .team-panel {
     width: 260px;
   }
-  [data-card=futures-widget] tbody .team-panel {
+  [data-card=futures-widget] .team-panel .tp-label {
+    width: 100%;
+  }
+}
+[data-card=futures-widget] .sportsbook-panel .odds-sb-bookline {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: OpenSans-SemiBold;
+  font-size: 12px;
+  height: 50px;
+}
+[data-card=futures-widget] .sportsbook-panel .odds-sb-bookline a,
+[data-card=futures-widget] .sportsbook-panel .odds-sb-bookline a[href] {
+  color: #444;
+}
+[data-card=futures-widget] .sportsbook-panel .odds-sb-bookline a .sb-bookline-extlink,
+[data-card=futures-widget] .sportsbook-panel .odds-sb-bookline a[href] .sb-bookline-extlink {
+  border-color: #E1E2E9 !important;
+}
+[data-card=futures-widget] .sportsbook-panel .sb-bookline-extlink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 56px;
+  border-radius: 3px;
+  border: 1px solid;
+  border-color: #E1E2E9;
+  overflow: hidden;
+}
+[data-card=futures-widget] .sportsbook-panel .sb-bookline-extlink.uk-background-muted {
+  background-color: rgba(225, 226, 233, 0.5);
+}
+[data-card=futures-widget] .sportsbook-panel .sb-bookline-extlink small {
+  position: relative;
+  top: 0;
+  font-family: OpenSans-Regular;
+  font-size: 12px;
+  color: #888;
+}
+[data-card=futures-widget] .sportsbook-panel .sb-extlink-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #00a305;
+  font-size: 12px;
+  color: #DDD;
+  border-radius: 3px;
+  cursor: pointer;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease-out;
+}
+[data-card=futures-widget] .sportsbook-panel .sb-extlink-hover:hover {
+  opacity: 0.85;
+}
+@media (min-width: 640px) {
+  [data-card=futures-widget] thead th {
+    font-size: 14px;
+  }
+  [data-card=futures-widget] thead th:first-child {
+    font-size: 18px;
+  }
+  [data-card=futures-widget] tbody td {
     font-size: 16px;
   }
-  [data-card=futures-widget] thead .team-label,
-[data-card=futures-widget] tbody .team-panel {
-    padding: 16px 24px;
+  [data-card=futures-widget] .consensus-panel .odds-consensus,
+[data-card=futures-widget] .sportsbook-panel .odds-sb-bookline {
+    font-size: 14px;
+  }
+  [data-card=futures-widget] .sportsbook-panel .sb-bookline-extlink small {
+    top: -1.5px;
+  }
+  [data-card=futures-widget] .sportsbook-panel .sb-extlink-hover {
+    font-size: 14px;
   }
 }

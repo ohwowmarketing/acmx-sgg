@@ -1,4 +1,333 @@
 [data-card="futures-widget"] {
+
+    // Define height for preloader
+    min-height: 500px;
+
+    header {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 0 30px;
+
+        .uk-card-title {
+            margin: 0;
+        }
+
+        form {
+            margin-top: 15px;
+        }
+
+        form .uk-select {
+            font-family: $light;
+            font-size: 14px;
+            min-width: 225px;
+            border-radius: 3px;
+        }
+
+        form .uk-inline {
+            position: relative;
+
+            // Init preloader
+            #select-loading {
+                position: absolute;
+                top: calc(50% - 7.5px);
+                left: 12px;
+
+                &::after {
+                    content: "Loading menu, please wait...";
+                    position: relative;
+                    top: 0;
+                    left: 10px;
+                    font-family: $light;
+                    font-size: 12px;
+                    color: #888;
+                }
+            }
+        }
+
+        @media ( min-width: 960px ) {
+
+            form {
+                margin-top: 0;
+            }
+
+        }
+    }
+
+    // Init preloader
+    #table-loading {
+        color: $sgg-green;
+
+        &::after {
+            content: "Loading data, please wait...";
+            position: relative;
+            top: 2px;
+            left: 10px;
+            font-family: $light;
+            font-size: 14px;
+            color: #888;
+        }
+    }
+
+    // When notice display visible
+    ._notice {
+        .uk-icon {
+            position: relative;
+            top: -2px;
+            margin-right: 5px;
+        }
+    }
+
+    .uk-position-relative {
+        margin-bottom: 30px;
+    }
+
+    .uk-overflow-auto {
+        position: relative;
+        max-width: 100%;
+    }
+
+    .uk-table {
+        position: relative;
+        display: table;
+        width: 100%;
+        margin-top: 0;
+        margin-bottom: 0;
+        border: 1px solid $sgg-line;
+        border-width: 1px 0 0;
+        // white-space: nowrap;
+    }
+
+    thead {
+        border-bottom: 2px solid $sgg-line;
+    }
+
+    thead th {
+        position: sticky;
+        top: 0;
+        font-size: 12px;
+        font-family: $bold;
+        text-align: center;
+        text-transform: uppercase;
+        padding: 0 15px;
+        z-index: 1;
+
+        &:first-child {
+            left: 0;
+            background: #F7F8FD;
+            font-size: 14px;
+            font-family: $bold;
+            color: $sgg-black;
+            text-align: left;
+            width: 150px;
+            padding: 0 15px;
+            // border-right: 1px solid $sgg-line;
+            box-shadow: 1px 0 0 0 $sgg-line;
+            z-index: 2;
+        }
+
+        @media ( min-width: 640px ) {
+
+            &:first-child {
+                width: 260px;
+            }
+
+        }
+
+        .team-label {
+            display: inline-flex;
+            align-items: center;
+            max-width: 120px;
+            height: 50px;
+            margin: 0;
+            padding: 0;
+        }
+
+        span {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 50px;
+        }
+
+        img {
+            display: block;
+            @include size(120px,40px);
+            min-width: 120px;
+            border: 1px solid $sgg-line;
+            border-radius: 3px;
+        }
+    }
+
+    tbody td {
+        position: sticky;
+        top: 0;
+        font-size: 12px;
+        text-align: center;
+        text-transform: capitalize;
+        padding: 15px;
+        z-index: 1;
+
+        &:first-child {
+            left: 0;
+            background: #F7F8FD;
+            text-align: left;
+            width: 150px;
+            // border-right: 1px solid $sgg-line;
+            box-shadow: 1px 0 0 0 $sgg-line;
+            z-index: 2;
+        }
+
+        @media ( min-width: 640px ) {
+
+            &:first-child {
+                width: 260px;
+            }
+
+        }
+
+        img {
+            width: 36px;
+            height: 24px;
+            padding-right: 12px;
+            object-fit: contain;
+        }
+    }
+
+    .team-panel {
+        position: relative;
+        display: flex;
+        align-items: center;
+        font-family: $sbold;
+        color: $sgg-black;
+        width: 150px;
+        height: 50px;
+        padding-right: 15px;
+        padding-left: 50px;
+
+        .tp-logo {
+            position: absolute;
+            top: calc( 50% - 12px );
+            left: 0;
+        }
+
+        .tp-label {
+            display: block;
+            width: 120px;
+        }
+
+        @media ( min-width: 640px ) {
+
+            width: 260px;
+
+            .tp-label {
+                width: 100%;
+            }
+
+        }
+    }
+
+    .sportsbook-panel {
+        .odds-sb-bookline {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: $sbold;
+            font-size: 12px;
+            height: 50px;
+
+            a,
+            a[href] {
+                color: #444;
+                
+                .sb-bookline-extlink {
+                    border-color: $sgg-line !important;
+                }
+            }
+        }
+
+        .sb-bookline-extlink {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 120px;
+            height: 56px;
+            border-radius: 3px;
+            border: 1px solid;
+            border-color: $sgg-line;
+            overflow: hidden;
+
+            &.uk-background-muted {
+                background-color: rgba($sgg-line, 0.5);
+            }
+        }
+
+        .sb-bookline-extlink small {
+            position: relative;
+            top: 0;
+            font-family: $regular;
+            font-size: 12px;
+            color: #888;
+        }
+
+        .sb-extlink-hover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba($sgg-green, 1);
+            font-size: 12px;
+            color: #DDD;
+            border-radius: 3px;
+            cursor: pointer;
+            z-index: 1;
+            opacity: 0;
+            transition: opacity .5s ease-out;
+
+            &:hover {
+                opacity: 0.85;
+            }
+        }
+    }
+
+    @media ( min-width: 640px ) {
+
+        thead th {
+            font-size: 14px;
+
+            &:first-child {
+                font-size: 18px;
+            }
+        }
+
+        tbody td {
+            font-size: 16px;
+        }
+
+        .consensus-panel .odds-consensus,
+        .sportsbook-panel .odds-sb-bookline {
+            font-size: 14px;
+        }
+
+        .sportsbook-panel .sb-bookline-extlink small {
+            top: -1.5px;
+        }
+
+        .sportsbook-panel .sb-extlink-hover {
+            font-size: 14px;
+        }
+
+    }
+
+/*
   .uk-position-relative {
     margin-bottom: 60px;
   }
@@ -125,4 +454,6 @@
       padding: 16px 24px;
     }
   }
+*/
+
 }

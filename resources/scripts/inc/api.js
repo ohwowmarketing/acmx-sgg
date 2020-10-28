@@ -26,8 +26,7 @@ jQuery(document).ready(function($) {
       },
       function(options) {
         $('#futures-select select').html(options);
-        $('#select-loading').hide();
-        $('#futures-select').show();
+        $('#select-loading').attr('hidden', '');
         if ($('#futures-table').data('future') === '') {
           var selected = $('#futures-select select :selected').val();
           $('#futures-table').data('future', selected).trigger('datachange');
@@ -55,7 +54,16 @@ jQuery(document).ready(function($) {
         
         $('#futures-table').html(table);
         $('#table-loading').hide();
-        $('#futures-table').show();
+        $('#futures-table').show(function() {
+          if ($('._notice').is(':visible')) {
+            console.log('visible');
+          } else {
+            $('#futures-select').removeAttr('hidden');
+            console.log('not visible');
+          }   
+          
+          // console.log('this display');
+        });
       }
     );
   }

@@ -434,12 +434,14 @@ function normalize_futures_outcomes( $league, $outcomes, $sportsbooks ) {
 
 function futures_type_table( $outcomes, $sportsbooks ) {
   ?>
-  <table class="uk-table uk-table-responsive uk-table-divider">
+  <table class="uk-table uk-table-divider">
     <thead>
       <tr>
-        <td class="team-label">Futures</td>
+        <th>
+          <div class="team-label">Futures</div>
+        </th>
         <?php foreach ( $sportsbooks as $sportsbook ) : ?>
-        <td><?php echo $sportsbook; ?></td>
+        <th width="120"><?php echo $sportsbook; ?></th>
         <?php endforeach; ?>
       </tr>
     </thead>
@@ -474,12 +476,14 @@ function futures_type_table( $outcomes, $sportsbooks ) {
 
 function futures_table( $outcomes, $sportsbooks ) {
   ?>
-  <table class="uk-table uk-table-responsive uk-table-divider">
+  <table class="uk-table uk-table-divider">
     <thead>
       <tr>
-        <td class="team-label">Futures</td>
+        <th>
+          <div class="team-label">Futures</div>
+        </th>
         <?php foreach ( $sportsbooks as $sportsbook ) : ?>
-        <td><?php echo $sportsbook; ?></td>
+        <th width="120"><?php echo $sportsbook; ?></th>
         <?php endforeach; ?>
       </tr>
     </thead>
