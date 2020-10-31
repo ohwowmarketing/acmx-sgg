@@ -125,7 +125,7 @@
                 }
 
                 // Check if cookie is set and fetching states correctly
-                if ( isset($_COOKIE['state_abbr']) && in_array($_GET['state_abbr'], $valid_states) ) {
+                if ( isset($_COOKIE['state_abbr']) && in_array($_COOKIE['state_abbr'], $valid_states) ) {
                     get_template_part( widget.'sportsbooks' ); 
                 } else {
                     get_template_part( widget.'sportsbooks-alt' );     
