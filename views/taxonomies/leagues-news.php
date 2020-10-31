@@ -9,7 +9,19 @@
                 get_template_part( widget.'news-article' );
                 
                 // viewws/widgets
-                get_template_part( widget.'sportsbooks-alt' ); 
+                $betting_states = get_field('states_operation', 'option'); 
+
+                $valid_states = [];
+                foreach ( $betting_states as $state ) {
+                    $valid_states[$state['label']] = $state['value'];
+                }
+
+                // Check if cookie is set and fetching states correctly
+                if ( isset($_COOKIE['state_abbr']) && in_array($_GET['state_abbr'], $valid_states) ) {
+                    get_template_part( widget.'sportsbooks' ); 
+                } else {
+                    get_template_part( widget.'sportsbooks-alt' );     
+                }
 
             ?>
             <!-- End Content -->
