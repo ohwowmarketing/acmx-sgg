@@ -118,7 +118,7 @@
                 </div>
 
                 <?php $count = 4;
-                include( locate_template( widget.'sportsbooks.php', false, true ) ); ?>
+                include( locate_template( widget.'sportsbooks-alt.php', false, true ) ); ?>
                 <div class="uk-card uk-card-default uk-card-body" data-card="content">
                     <?php the_content(); ?>
                 </div>
