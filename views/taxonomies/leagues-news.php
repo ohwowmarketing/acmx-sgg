@@ -9,7 +9,7 @@
                 get_template_part( widget.'news-article' );
                 
                 // viewws/widgets
-                get_template_part( widget.'sportsbooks' ); 
+                get_template_part( widget.'sportsbooks-alt' ); 
 
             ?>
             <!-- End Content -->
