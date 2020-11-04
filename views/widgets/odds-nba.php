@@ -35,7 +35,7 @@ $sportsbooks = [
         'badge' => _uri . '/resources/images/sportsbooks/betrivers.jpg',
         'state' => [
             'PA' => 'https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_3320b_380c_&affid=947&siteid=3320&adid=380&c=',
-            'IL' => 'http://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_4043b_900c_&affid=1142&siteid=4043&adid=900&c='
+            'IL' => 'https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_4043b_817c_&affid=1142&siteid=4043&adid=817&c=900'
         ]
     ], 
     [ 

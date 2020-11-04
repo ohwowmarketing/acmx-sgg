@@ -16,6 +16,9 @@ $team_request = wp_remote_get( 'https://api.sportsdata.io/v3/nfl/scores/json/tea
 $teams_json = wp_remote_retrieve_body( $team_request );
 $team_body = json_decode( $teams_json );
 
+// Old IL Link
+// https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_4043b_900c_&affid=1142&siteid=4043&adid=900&c=
+
 $sportsbooks = [ 
     [ 
         'id' => 'RiversCasinoPA',
@@ -23,7 +26,7 @@ $sportsbooks = [
         'badge' => _uri . '/resources/images/sportsbooks/betrivers.jpg',
         'state' => [
             'PA' => 'https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_3320b_380c_&affid=947&siteid=3320&adid=380&c=',
-            'IL' => 'https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_4043b_900c_&affid=1142&siteid=4043&adid=900&c='
+            'IL' => 'https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_4043b_817c_&affid=1142&siteid=4043&adid=817&c=900'
         ]
     ], 
     [ 
