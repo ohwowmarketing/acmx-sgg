@@ -109,22 +109,139 @@ function api_market_ajax() {
 add_action('wp_ajax_api_market', 'api_market_ajax' );
 add_action('wp_ajax_nopriv_api_market', 'api_market_ajax' );
 
+function future_thead( $meta, $sportsbooks ) {
+  $out = '<thead>
+  <tr>
+    <th>
+      <div class="team-label">';
+  if ( $data->meta->known ) {
+    $out .= ( $data->meta->isTeam ) ? 'Teams' : 'Players';
+  }
+  
+  $out .= '</div>
+    </th>';
+  foreach ( $sportsbooks as $sportsbook ) {
+    $out .= '<th width="120"><span>' . $sportsbook . '</span></th>';
+  }
+  $out .= '</tr>
+  </thead>';
+  return $out;
+}
+
+function future_tbody( $rows, $sportsbooks ) {
+  $out = '<tbody>';
+  foreach ( $rows as $row ) {
+    $out .= '<tr>';
+    $out .= future_participant_td( $row->display, $row->logo );
+    foreach( $sportsbooks as $sportsbook ) {
+      $out .= future_sportsbook_td( $row->participantBets->{$sportsbook} );
+    }
+    $out .= '</tr>';
+  }
+  $out .= '</tbody>';
+  return $out;
+}
+
+function future_participant_td( $display, $logo ) {
+  $out = '<td>
+    <div class="team-panel">
+      <span class="tp-logo">';
+  $out .= ( $logo ) ? '<img src="' . $logo . '" uk-img>' : '';
+  $out .= '</span>
+      <span class="tp-label">' . $display . '</span>
+    </div>
+  </td>';
+  return $out;
+}
+
+function future_sportsbook_td( $sportsbook ) {
+  $out = '<td class="sportsbook-panel">
+    <div class="uk-panel">
+      <div class="odds-sb-bookline">
+        <span class="sb-bookline-extlink">
+          <span>';
+  $out .= future_sportsbook_payout( $sportsbook );
+  $out .= '</span>
+        </span>
+      </div>
+    </div>
+  </td>';
+  return $out;
+}
+
+function future_sportsbook_payout( $sportsbook ) {
+  $out = '';
+  if ( isset( $sportsbook ) ) {
+    if ( in_array( 'american', array_keys( get_object_vars( $sportsbook ) ) ) ) {
+      $out .= future_payout( $sportsbook->american );
+    } else {
+      $types = get_object_vars( $sportsbook );
+
+      if ( ! isset( $types ) ) {
+        $out .= 'N/A';
+      } else {
+        $original_keys = array_keys( $types );
+
+        $key_priority = ['Over', 'Yes'];
+        $sorted_keys = [];
+        $unsorted_keys = [];
+        
+        foreach( $original_keys as $key ) {
+          if ( in_array( $key, $key_priority ) ) {
+            $sorted_keys[] = $key;
+          } else {
+            $unsorted_keys[] = $key;
+          }
+        }
+        
+        $keys = array_merge( $sorted_keys, $unsorted_keys );
+        
+        $value = '';
+        if ( $types[ $keys[0] ]->value ) {
+          $value = ' (' . $types[ $keys[0] ]->value . ')';
+        }
+  
+        $i = 1;
+        foreach( $keys as $key ) {
+          $out .= $key . $value . ': ';
+          $out .= future_payout( $types[ $key ]->american );
+          if ( $i < count( $keys ) ) {
+            $out .= "<br />";
+            $i++;
+          }
+        }
+      }
+    }
+  } else {
+    $out .= 'N/A';
+  }
+  return $out;
+}
+
 function future_payout( $payout ) {
+  $out = '';
   if ( is_numeric( $payout ) ) {
     if ( $payout > 0 ) {
-      echo '+';
+      $out .= '+';
     }
-    echo number_format( $payout, 0, '.', ',' );
+    $out .= number_format( $payout, 0, '.', ',' );
   } else {
-    echo 'N/A';
+    $out .= 'N/A';
   }
+  return $out;
 }
 
 function api_future_ajax() {
   if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
 		die('Unable to verify sender.');
   }
-  $league = $_POST['league'];
+
+  $transient = get_transient( 'sgg_api_future_' . $_POST['league'] . '_market_' . $_POST['future'] );
+  if ( ! empty( $transient ) ) {
+    echo $transient;
+    die();
+  }
+
   $url = 'https://sgg.vercel.app/api/' . $_POST['league'] . '/future/' . $_POST['future'];
   $data = api_data( $url );
   if ( ! isset( $data ) ) {
@@ -136,100 +253,13 @@ function api_future_ajax() {
   } else {
     $sportsbooks = $data->sportsbooks;
   }
-  ?>
-  <thead>
-    <tr>
-      <th>
-        <div class="team-label">
-        <?php if ( $data->meta->known ) {
-          echo ( $data->meta->isTeam ) ? 'Teams' : 'Players';
-        } ?>
-        </div>
-      </th>
-      <?php foreach ( $sportsbooks as $sportsbook ) : ?>
-      <th width="120"><span><?php echo $sportsbook; ?></span></th>
-      <?php endforeach; ?>
-    </tr>
-  </thead>
-  <tbody>
-    <?php foreach ( $data->rows as $row ) : ?>
-    <tr>
-      <td>
-        <div class="team-panel">
-          <span class="tp-logo">
-          <?php if ($row->logo) : ?>
-            <img src="<?php echo $row->logo; ?>" uk-img>
-          <?php endif; ?>
-          </span>
-          <span class="tp-label">
-            <?php echo $row->display; ?>  
-          </span>
-        </div>
-      </td>
-      <?php foreach( $sportsbooks as $sportsbook ) : ?>
-      <td class="sportsbook-panel">
-        <div class="uk-panel">
-          <div class="odds-sb-bookline">
-            <span class="sb-bookline-extlink">
-              <span>
-
-                <?php
-                if ( isset( $row->participantBets->{$sportsbook} ) ) {
-                  if ( in_array( 'american', array_keys(get_object_vars( $row->participantBets->{$sportsbook} ) ) ) ) {
-                    future_payout( $row->participantBets->{$sportsbook}->american );
-                  } else {
-                    $types = get_object_vars( $row->participantBets->{$sportsbook} );
-
-                    if ( ! isset( $types ) ) {
-                      echo 'N/A';
-                    } else {
-                      $original_keys = array_keys( $types );
-
-                      $key_priority = ['Over', 'Yes'];
-                      $sorted_keys = [];
-                      $unsorted_keys = [];
-                      
-                      foreach( $original_keys as $key ) {
-                        if ( in_array( $key, $key_priority ) ) {
-                          $sorted_keys[] = $key;
-                        } else {
-                          $unsorted_keys[] = $key;
-                        }
-                      }
-                      
-                      $keys = array_merge( $sorted_keys, $unsorted_keys );
-                      
-                      $value = '';
-                      if ( $types[ $keys[0] ]->value ) {
-                        $value = ' (' . $types[ $keys[0] ]->value . ')';
-                      }
-                
-                      $i = 1;
-                      foreach( $keys as $key ) {
-                        echo $key . $value . ': ';
-                        future_payout( $types[ $key ]->american );
-                        if ( $i < count( $keys ) ) {
-                          echo "<br />";
-                          $i++;
-                        }
-                      }
-                    }
-                  }
-                } else {
-                  echo 'N/A';
-                }
-                ?>
-
-              </span>
-            </span>
-          </div>
-        </div>
-      </td>
-      <?php endforeach; ?>
-    </tr>
-    <?php endforeach; ?>
-  </tbody>
-  <?php 
+  $out = '';
+  $out .= future_thead( $data->meta, $data->sportsbooks );
+  $out .= future_tbody( $data->rows, $data->sportsbooks );
+  if ( $out !== '' ) {
+    set_transient( 'sgg_api_future_' . $_POST['league'] . '_market_' . $_POST['future'], $out, HOUR_IN_SECONDS );
+    echo $out;
+  }
   die();
 }
 add_action('wp_ajax_api_future', 'api_future_ajax' );
