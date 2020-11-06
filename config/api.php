@@ -76,9 +76,15 @@ function api_market_ajax() {
   if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
 		die('Unable to verify sender.');
   }
+  $transient = get_transient( 'sgg_api_future_' . $_POST['league'] . '_market_select' );
+  if ( ! empty( $transient ) ) {
+    echo $transient;
+    die();
+  }
   $url = 'https://sgg.vercel.app/api/' . $_POST['league'] . '/market';
   $markets = api_data( $url );
   $defaults = ['NFL Championship Winner', 'World Series Winner', 'NBA Champion'];
+  $out = '';
   foreach ( $markets as $market ) {
     $selected = false;
     if ( $_POST['future'] === '' ) {
@@ -90,12 +96,13 @@ function api_market_ajax() {
         $selected = true;
       }
     }
-    echo '<option ';
-    echo 'value="' . $market->id . '"';
-    echo $selected ? ' selected="selected"' : '';
-    echo '>';
-    echo $market->display;
-    echo '</option>';
+    $out .= '<option value="' . $market->id . '"';
+    $out .=  $selected ? ' selected="selected"' : '';
+    $out .= '>' . $market->display . '</option>';
+  }
+  if ( $out !== '' ) {
+    set_transient( 'sgg_api_future_' . $_POST['league'] . '_market_select', $out, DAY_IN_SECONDS );
+    echo $out;
   }
   die();
 }
