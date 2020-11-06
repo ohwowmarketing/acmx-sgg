@@ -233,8 +233,8 @@ var headerValue = "b426343c15c843c3ab56930d2a919e2c";
         </div>
         <div class="odds-type">
             <select id="typeOdds" class="uk-select" name="typeOdds" onchange="updateOddsType(this);">
-                <option selected disabled>Choose Odds Type</option>
-                <option value="Spread">Spread</option>
+                <option disabled>Choose Odds Type</option>
+                <option selected value="Spread">Spread</option>
                 <option value="Total">Total</option>
                 <option value="Moneyline">Moneyline</option>
             </select>
