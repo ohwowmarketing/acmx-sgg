@@ -7,7 +7,7 @@ $leagueName = get_the_title( $post->post_parent );
 include( locate_template( includes.'league-keys.php', false, true ) );
 
 // Premium Odds
-$gameoddsbydate_request = wp_remote_get( 'https://api.sportsdata.io/v3/nfl/odds/json/GameOddsByWeek/2020/5', $nfl_header_opk );
+$gameoddsbydate_request = wp_remote_get( 'https://api.sportsdata.io/v3/nfl/odds/json/GameOddsByWeek/2020/9', $nfl_header_opk );
 $gameoddsbydate_body_json = wp_remote_retrieve_body( $gameoddsbydate_request );
 $gameoddsbydate_body = json_decode($gameoddsbydate_body_json);
 
@@ -229,11 +229,11 @@ function updateOddsWeek(oType) {
                 <option value="2020/2">Week 2</option>
                 <option value="2020/3">Week 3</option>
                 <option value="2020/4">Week 4</option>
-                <option selected value="2020/5">Week 5</option>
+                <option value="2020/5">Week 5</option>
                 <option value="2020/6">Week 6</option>
                 <option value="2020/7">Week 7</option>
                 <option value="2020/8">Week 8</option>
-                <option value="2020/9">Week 9</option>
+                <option selected value="2020/9">Week 9</option>
                 <option value="2020/10">Week 10</option>
                 <option value="2020/11">Week 11</option>
                 <option value="2020/12">Week 12</option>
