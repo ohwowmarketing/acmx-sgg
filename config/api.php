@@ -11,10 +11,10 @@ function api_scripts() {
     'permalink' => get_permalink(),
   ) );
 }
-add_action('wp_enqueue_scripts', 'api_scripts');
+add_action( 'wp_enqueue_scripts', 'api_scripts' );
 
 function api_data( $url ) {
-  return json_decode( wp_remote_retrieve_body( wp_remote_get($url) ) );
+  return json_decode( wp_remote_retrieve_body( wp_remote_get( $url ) ) );
 }
 
 function score( $wins, $losses, $draws = 0 ) {
@@ -26,7 +26,7 @@ function score( $wins, $losses, $draws = 0 ) {
 
 function api_spread_ajax() {
   if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
-		die('Unable to verify sender.');
+		die( 'Unable to verify sender.' );
   }
   $league = $_POST['league'];
   $url = 'https://sgg.vercel.app/api/' . $league . '/spread';
@@ -69,12 +69,12 @@ function api_spread_ajax() {
   <?php endforeach;
   die();
 }
-add_action('wp_ajax_api_spread', 'api_spread_ajax' );
-add_action('wp_ajax_nopriv_api_spread', 'api_spread_ajax' );
+add_action( 'wp_ajax_api_spread', 'api_spread_ajax' );
+add_action( 'wp_ajax_nopriv_api_spread', 'api_spread_ajax' );
 
 function api_market_ajax() {
   if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
-		die('Unable to verify sender.');
+		die( 'Unable to verify sender.' );
   }
   $transient = get_transient( 'sgg_api_future_' . $_POST['league'] . '_market_select' );
   if ( ! empty( $transient ) ) {
@@ -106,8 +106,8 @@ function api_market_ajax() {
   }
   die();
 }
-add_action('wp_ajax_api_market', 'api_market_ajax' );
-add_action('wp_ajax_nopriv_api_market', 'api_market_ajax' );
+add_action( 'wp_ajax_api_market', 'api_market_ajax' );
+add_action( 'wp_ajax_nopriv_api_market', 'api_market_ajax' );
 
 function future_thead( $meta, $sportsbooks ) {
   $out = '<thead>
@@ -257,11 +257,13 @@ function api_future_ajax() {
   $out .= future_thead( $data->meta, $data->sportsbooks );
   $out .= future_tbody( $data->rows, $data->sportsbooks );
   if ( $out !== '' ) {
-    set_transient( 'sgg_api_future_' . $_POST['league'] . '_market_' . $_POST['future'], $out, HOUR_IN_SECONDS );
+    $minutes = 10;
+    $seconds = 60;
+    $cache_time = $minutes * $seconds;
+    set_transient( 'sgg_api_future_' . $_POST['league'] . '_market_' . $_POST['future'], $out, $cache_time );
     echo $out;
   }
   die();
 }
-add_action('wp_ajax_api_future', 'api_future_ajax' );
-add_action('wp_ajax_nopriv_api_future', 'api_future_ajax' );
-        
+add_action( 'wp_ajax_api_future', 'api_future_ajax' );
+add_action( 'wp_ajax_nopriv_api_future', 'api_future_ajax' );
