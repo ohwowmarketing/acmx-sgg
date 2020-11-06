@@ -168,7 +168,7 @@ function state_check() {
       if ( isset( $_SERVER['REMOTE_ADDR'] ) && $_SERVER['REMOTE_ADDR'] !== '::1') {
         $response = json_decode( 
           wp_remote_retrieve_body( 
-            wp_remote_get( 'http://api.ipstack.com/' . $_SERVER['REMOTE_ADDR'] . '?access_key=df8f6bf77c6da3a5a45166435f317b92&fields=country_code,region_code' )
+            wp_remote_get( 'https://api.ipstack.com/' . $_SERVER['REMOTE_ADDR'] . '?access_key=df8f6bf77c6da3a5a45166435f317b92&fields=country_code,region_code' )
           )
         );
         
@@ -179,14 +179,17 @@ function state_check() {
             $valid_states[] = $state['value'];
           }
           if ( in_array( $response->region_code, $valid_states ) ) {
-            setcookie( 'state_abbr', $response->region_code, strtotime( '+1 day' ), '/' );
+            setcookie( 'state_abbr', $response->region_code, strtotime( '+3 day' ), '/' );
+            $isValid = true;
+          } else {
+            setcookie( 'state_abbr', $response->region_code, strtotime( '+7 day' ), '/' );
             $isValid = true;
           }
         }
       }
       
       if ( !$isValid ) {
-        setcookie( 'state_abbr', 'XX', strtotime( '+1 day' ), '/' );
+        setcookie( 'state_abbr', 'XX', strtotime( '+7 day' ), '/' );
       }
     }
   }
