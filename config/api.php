@@ -227,7 +227,4 @@ function api_future_ajax() {
 }
 add_action('wp_ajax_api_future', 'api_future_ajax' );
 add_action('wp_ajax_nopriv_api_future', 'api_future_ajax' );
-
-
-/*
         
