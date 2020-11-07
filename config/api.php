@@ -9,6 +9,7 @@ function api_scripts() {
     'ajax_url' => admin_url( 'admin-ajax.php' ),
     'nonce' => wp_create_nonce( 'sgg-nonce' ),
     'permalink' => get_permalink(),
+    'future' => ( isset( $_GET['future'] ) ) ? $_GET['future'] : null
   ) );
 }
 add_action( 'wp_enqueue_scripts', 'api_scripts' );
@@ -86,19 +87,7 @@ function api_market_ajax() {
   $defaults = ['NFL Championship Winner', 'World Series Winner', 'NBA Champion'];
   $out = '';
   foreach ( $markets as $market ) {
-    $selected = false;
-    if ( $_POST['future'] === '' ) {
-      if ( in_array( $market->display, $defaults ) ) {
-        $selected = true;
-      }
-    } else {
-      if ( (int) $_POST['future'] === $market->id) {
-        $selected = true;
-      }
-    }
-    $out .= '<option value="' . $market->id . '"';
-    $out .=  $selected ? ' selected="selected"' : '';
-    $out .= '>' . $market->display . '</option>';
+    $out .= '<option value="' . $market->id . '">' . $market->display . '</option>';
   }
   if ( $out !== '' ) {
     set_transient( 'sgg_api_future_' . $_POST['league'] . '_market_select', $out, DAY_IN_SECONDS );
