@@ -10,7 +10,7 @@
         case '14':   $pageName = 'contact'; break;
         case '21':   $pageName = 'sitemap'; break;
 
-        case '513':  $pageName = 'guides'; break;
+        case '552':  $pageName = 'guides'; break;
         
         // Legal
         case '3':
