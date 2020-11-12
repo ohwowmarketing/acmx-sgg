@@ -7,6 +7,6 @@
     </ul>
     <div class="uk-switcher uk-margin">
         <div id="news-holder"></div>
-        <div id="news-loading">Loading...</div>
+        <div id="news-loading" uk-spinner="ratio: 0.5"></div>
     </div>
 </div>
