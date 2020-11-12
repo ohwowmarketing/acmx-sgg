@@ -153,6 +153,7 @@ function fetchPostViews($postID) {
 function add_state_query_vars_filter( $vars ) {
   $vars[] = "state_abbr";
   $vars[] = "future";
+  $vars[] = "league";
   return $vars;
 }
 add_filter( 'query_vars', 'add_state_query_vars_filter', 0 );

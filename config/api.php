@@ -9,7 +9,8 @@ function api_scripts() {
     'ajax_url' => admin_url( 'admin-ajax.php' ),
     'nonce' => wp_create_nonce( 'sgg-nonce' ),
     'permalink' => get_permalink(),
-    'future' => ( isset( $_GET['future'] ) ) ? $_GET['future'] : null
+    'future' => ( isset( $_GET['future'] ) ) ? $_GET['future'] : null,
+    'league' => ( isset( $_GET['league'] ) ) ? $_GET['league'] : 'nfl'
   ) );
 }
 add_action( 'wp_enqueue_scripts', 'api_scripts' );
@@ -256,3 +257,131 @@ function api_future_ajax() {
 }
 add_action( 'wp_ajax_api_future', 'api_future_ajax' );
 add_action( 'wp_ajax_nopriv_api_future', 'api_future_ajax' );
+
+function api_news_ajax() {
+  if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
+		die( 'Unable to verify sender.' );
+  }
+
+  // Include API Keys
+  include( locate_template( includes.'league-keys.php', false, true ) );
+
+  switch ( $_POST['league'] ) {
+    case 'MLB':
+      $header_npk = $mlb_header_npk;
+      $header_dak = $mlb_header_dak;
+      $widget = 'widget_gallery_mlbnews';
+      break;
+    case 'NBA':
+      $header_npk = $nba_header_npk;
+      $header_dak = $nba_header_dak;
+      $widget = 'widget_gallery_nbanews';
+      break;
+    case 'NFL':
+      $header_npk = $nfl_header_npk;
+      $header_dak = $nfl_header_dak;
+      $widget = 'widget_gallery_nflnews';
+      break;
+    default:
+  }
+
+  // Premium News
+  $news_request = wp_remote_get( 'https://api.sportsdata.io/v3/' . strtolower( $_POST['league'] ).'/news-rotoballer/json/RotoBallerPremiumNews', $header_npk );
+  $news_list = json_decode( wp_remote_retrieve_body( $news_request ) );
+  $latest_news = array_slice( $news_list, 0, 5 );
+  
+  // Tier 1 - Score/Teams
+  $team_request = wp_remote_get( 'https://api.sportsdata.io/v3/' . strtolower( $_POST['league'] ).'/scores/json/teams', $header_dak );
+  $teams_list = json_decode( wp_remote_retrieve_body( $team_request ) );
+  $teams = [];
+  foreach( $teams_list as $team ) {
+    $teams[ $team->TeamID ] = $team;
+  }
+
+  // Widget Images
+  $tagged_images = get_field( $widget, 'option' );
+  $team_images = json_decode( json_encode( $tagged_images ), FALSE );
+  $images = [];
+  $captions = [];
+  foreach( $team_images as $image ) {
+    $images[ $image->title ] = $image->id;
+    if ( $image->caption !== '' ) {
+      $captions[ $image->caption ] = $image->id;
+    } 
+  }
+
+  $news = [];
+  foreach( $latest_news as $item) {
+    $news_item = [
+      'id' => $item->NewsID,
+      'title' => $item->Title,
+      'updated' => $item->Updated,
+      'display' => '',
+      'color' => 'E1E2E9'
+    ];
+    if ( $item->TeamID !== '' && array_key_exists( $item->TeamID, $teams ) ) {
+      $news_item['city'] = $teams[ $item->TeamID ]->City;
+      $news_item['name'] = $teams[ $item->TeamID ]->Name;
+      $news_item['display'] = $news_item['city'] . ' ' . $news_item['name'];
+      $news_item['color'] = $teams[ $item->TeamID ]->PrimaryColor;
+      if ( array_key_exists( $news_item['name'], $images ) ) {
+        $news_item['imageId'] = $images[ $news_item['name'] ];
+      } else {
+        $keys = array_keys( $captions );
+        foreach ($keys as $key) {
+          $terms = explode( ', ', $key );
+          if ( in_array( $news_item['name'], $terms ) ) {
+            $news_item['imageId'] = $images[ $news_item['name'] ];
+          }
+        }
+      }
+    } else {
+      if ( ! array_key_exists( 'imageId', $news_item ) ) {
+        $image_title = $_POST['league'] . ' Player News';
+        if ( $images[ $image_title ] ) {
+          $news_item['imageId'] = $images[ $image_title ];
+        } else {
+          $news_item['imageId'] = null;
+        }
+      }
+    }
+    $news_item['link'] = site_url( '/article' . '/' . strtolower( $_POST['league'] ) . 
+      '?newsID=' . $news_item['id'] . 
+      '&imgID=' . $news_item['imageId'] . 
+      '&league=' . strtolower( $_POST['league'] ) );
+    $news_item['image'] = wp_get_attachment_image( $news_item['imageId'], [ 60, 60, true ] );
+    $news[] = $news_item;
+  }
+  ?>
+  <ul class="news-lists">
+    <?php foreach ( $news as $item ) : ?>
+    <li class="uk-grid-collapse uk-flex-middle" uk-grid>
+      <div class="uk-width-auto">
+        <div style="border-bottom:5px solid #<?php echo $item['color']; ?>">
+          <a href="<?php echo $item['link']; ?>" title="<?php echo $item['title']; ?>">
+            <?php echo $item['image']; ?>
+          </a>
+        </div>
+      </div>
+      <div class="uk-width-expand">
+        <div class="uk-panel">                      
+          <small><?php echo $_POST['league']; ?> <span>&#x25cf;</span> <?php echo date_format( date_create( $news->Updated ), 'D, F j, Y' ); ?></small>
+          <h1><?php echo $item['display']; ?></h1>
+          <h4>
+            <a href="<?php echo $item['link']; ?>"><?php echo $item['title']; ?></a>
+          </h4>
+        </div>
+      </div>
+    </li>
+    <?php endforeach; ?>
+    <li class="uk-margin-top uk-border-remove">
+      <a href="<?php esc_url( site_url( strtolower( $_POST['league'] ) . '/news' ) ); ?>" class="uk-button uk-button-primary uk-button-small">
+        View All <?php echo $_POST['league']; ?> News
+      </a>
+    </li>
+  </ul>
+  <?php
+  die();
+}
+add_action( 'wp_ajax_api_news', 'api_news_ajax' );
+add_action( 'wp_ajax_nopriv_api_news', 'api_news_ajax' );
