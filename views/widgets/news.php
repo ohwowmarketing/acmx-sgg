@@ -1,9 +1,9 @@
 <div class="uk-card uk-card-default uk-card-body" data-card="news">
     <h1 class="uk-card-title"><?php the_field( 'widget_title_news', 'option' ); ?></h1>
     <ul uk-tab="animation: uk-animation-fade">
-        <li<?php echo ( $_GET['league'] === 'nfl' ) ? ' class="uk-active"' : ''; ?>><a href="#" id="nfl-news">NFL</a></li>
-        <li<?php echo ( $_GET['league'] === 'nba' ) ? ' class="uk-active"' : ''; ?>><a href="#" id="nba-news">NBA</a></li>
-        <li<?php echo ( $_GET['league'] === 'mlb' ) ? ' class="uk-active"' : ''; ?>><a href="#" id="mlb-news">MLB</a></li>
+        <li<?php echo ( isset( $_GET['league'] ) && $_GET['league'] === 'nfl' ) ? ' class="uk-active"' : ''; ?>><a href="#" id="nfl-news">NFL</a></li>
+        <li<?php echo ( isset( $_GET['league'] ) && $_GET['league'] === 'nba' ) ? ' class="uk-active"' : ''; ?>><a href="#" id="nba-news">NBA</a></li>
+        <li<?php echo ( isset( $_GET['league'] ) && $_GET['league'] === 'mlb' ) ? ' class="uk-active"' : ''; ?>><a href="#" id="mlb-news">MLB</a></li>
     </ul>
     <div class="uk-switcher uk-margin">
         <div id="news-holder"></div>
