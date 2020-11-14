@@ -375,7 +375,7 @@ function api_news_ajax() {
     </li>
     <?php endforeach; ?>
     <li class="uk-margin-top uk-border-remove">
-      <a href="<?php esc_url( site_url( strtolower( $_POST['league'] ) . '/news' ) ); ?>" class="uk-button uk-button-primary uk-button-small">
+      <a href="<?php echo esc_url( site_url( strtolower( $_POST['league'] ) . '/news' ) ); ?>" class="uk-button uk-button-primary uk-button-small">
         View All <?php echo $_POST['league']; ?> News
       </a>
     </li>
