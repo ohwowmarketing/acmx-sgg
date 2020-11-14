@@ -1,23 +1,47 @@
 <?php
-
 // Get Parent Name
 $leagueName = get_the_title( $post->post_parent );
 
 // Include API Keys
 include( locate_template( includes.'league-keys.php', false, true ) );
 
-// Premium Odds
-$gameoddsbydate_request = wp_remote_get( 'https://api.sportsdata.io/v3/nfl/odds/json/GameOddsByWeek/2020/10', $nfl_header_opk );
-$gameoddsbydate_body_json = wp_remote_retrieve_body( $gameoddsbydate_request );
-$gameoddsbydate_body = json_decode($gameoddsbydate_body_json);
+function json_response($url, $headers) {
+    return json_decode( wp_remote_retrieve_body( wp_remote_get( $url, $headers ) ) );
+}
 
-// Tier 1 - Score/Teams
-$team_request = wp_remote_get( 'https://api.sportsdata.io/v3/nfl/scores/json/teams', $nfl_header_dak );
-$teams_json = wp_remote_retrieve_body( $team_request );
-$team_body = json_decode( $teams_json );
+$team_body = json_response('https://api.sportsdata.io/v3/nfl/scores/json/teams', $nfl_header_dak);
+$current_season = json_response('https://api.sportsdata.io/v3/nfl/scores/json/CurrentSeason', $nfl_header_dak);
+$current_week = json_response('https://api.sportsdata.io/v3/nfl/scores/json/CurrentWeek', $nfl_header_dak);
 
-// Old IL Link
-// https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_4043b_900c_&affid=1142&siteid=4043&adid=900&c=
+$selected_week = $current_season . '/' . $current_week;
+if ( $current_week > 17 ) {
+    $post_week = $current_week - 17;
+    $selected_week = $current_season . 'POST/' . $post_week;
+}
+$url = 'https://api.sportsdata.io/v3/nfl/odds/json/GameOddsByWeek/' . $selected_week;
+$gameoddsbydate_body = json_response($url, $nfl_header_opk);
+
+$week_options = '<option disabled>Choose Schedule</option>';
+for ($i = 1; $i < 18; $i++) {
+    $week_options .= '<option ';
+    if ($selected_week == $i) {
+        $week_options .= 'selected ';
+    }
+    $week_options .= 'value="' . $current_season . '/' . $i . '">Week ' . $i . '</option>';
+}
+for ($i = 1; $i < 5; $i++) {
+    $week_options .= '<option ';
+}
+
+$weeks = [];
+for ($i = 1; $i < 18; $i++) {
+    $weeks[$current_season . '/' . $i] = 'Week ' . $i;
+}
+$weeks[$current_season . 'POST/1'] = 'Wild Card';
+$weeks[$current_season . 'POST/2'] = 'Division Round';
+$weeks[$current_season . 'POST/3'] = 'Conf Champ';
+$weeks[$current_season . 'POST/4'] = 'Super Bowl';
+$weeks[$current_season . 'STAR/1'] = 'Pro Bowl';
 
 $sportsbooks = [ 
     [ 
@@ -224,29 +248,9 @@ function updateOddsWeek(oType) {
         </div>
         <div class="odds-schedule">
             <select class="uk-select" placeholder="Odds Schedule" onchange="updateOddsWeek(this);">
-                <option disabled>Choose Schedule</option>
-                <option value="2020/1">Week 1</option>
-                <option value="2020/2">Week 2</option>
-                <option value="2020/3">Week 3</option>
-                <option value="2020/4">Week 4</option>
-                <option value="2020/5">Week 5</option>
-                <option value="2020/6">Week 6</option>
-                <option value="2020/7">Week 7</option>
-                <option value="2020/8">Week 8</option>
-                <option value="2020/9">Week 9</option>
-                <option selected value="2020/10">Week 10</option>
-                <option value="2020/11">Week 11</option>
-                <option value="2020/12">Week 12</option>
-                <option value="2020/13">Week 13</option>
-                <option value="2020/14">Week 14</option>
-                <option value="2020/15">Week 15</option>
-                <option value="2020/16">Week 16</option>
-                <option value="2020/17">Week 17</option>
-                <option value="2020POST/1">Wild Card</option>
-                <option value="2020POST/2">Division Round</option>
-                <option value="2020POST/3">Conf Champ</option>
-                <option value="2020POST/4">Super Bowl</option>
-                <option value="2020STAR/1">Pro Bowl</option>
+                <?php foreach( $weeks as $week_value => $week_display ): ?>
+                    <option <?php echo ($week_value === $selected_week) ? 'selected ' : ''; ?>value="<?php echo $week_value; ?>"><?php echo $week_display; ?></option>
+                <?php endforeach; ?>
             </select>
         </div>
         <div class="odds-type">
