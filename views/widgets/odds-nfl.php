@@ -175,8 +175,8 @@ function consensusPanel( $single ) {
 
 <script type="text/javascript">
 // variables for saving the state of the page
-var responseGameOdds = <?php echo $gameoddsbydate_body_json; ?>;
-var teamsObj = <?php echo $teams_json; ?>;
+var responseGameOdds = <?php echo json_encode($gameoddsbydate_body); ?>;
+var teamsObj = <?php echo json_encode($team_body); ?>;
 var teamsHashByID = {};
 var oddsType = "Spread";
 
