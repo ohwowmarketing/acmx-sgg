@@ -533,46 +533,6 @@
 		"oAP": "/config/acf.php",
 		"oF": 0
 		},
-	"/config/actions.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/config/actions.php",
-		"oF": 0
-		},
-	"/config/api.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/config/api.php",
-		"oF": 0
-		},
-	"/config/api/api.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/config/api/api.php",
-		"oF": 0
-		},
-	"/config/api/ats.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/config/api/ats.php",
-		"oF": 0
-		},
-	"/config/api/futures.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/config/api/futures.php",
-		"oF": 0
-		},
 	"/config/assets.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -1028,17 +988,6 @@
 		"oA": 0,
 		"oAP": "/resources/scripts/best-books.min.min.js",
 		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"/resources/scripts/inc/api.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "/resources/scripts/api.min.js",
-		"oF": 1,
 		"sC": 0,
 		"tS": 0
 		},
@@ -1636,14 +1585,6 @@
 		"oAP": "/views/widgets/news-article.php",
 		"oF": 0
 		},
-	"/views/widgets/news.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/views/widgets/news.php",
-		"oF": 0
-		},
 	"/views/widgets/odds-mlb.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -1658,14 +1599,6 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/views/widgets/odds-nba.php",
-		"oF": 0
-		},
-	"/views/widgets/odds-nfl.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/views/widgets/odds-nfl.php",
 		"oF": 0
 		},
 	"/views/widgets/oddsAjaxInc.php": {
