@@ -102,7 +102,7 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
                 </ul>
                 
                 <a href="#newsletter" role="button" type="button" class="uk-button uk-button-primary newsletter uk-visible@l" uk-scroll> <i uk-icon="icon: mail"></i> Get On Our List </a>
-                <button role="button" class="uk-navbar-toggle uk-hidden@l" uk-navbar-toggle-icon uk-toggle="target: #mobile"></button>
+                <button type="button" role="button" class="uk-navbar-toggle uk-hidden@l" uk-navbar-toggle-icon uk-toggle="target: #mobile"></button>
             </div>
         </nav>
 
