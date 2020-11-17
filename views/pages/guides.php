@@ -6,7 +6,7 @@
                 <div class="uk-card uk-card-default uk-card-body" data-card="guides">
                     <h1 class="uk-card-title"><?php the_title(); ?></h1>
 
-                    <?php $guides = ['post_type'=>'sports_guides','has_password'=>false,'posts_per_page'=>-1,'order'=>'desc'];
+                    <?php $guides = ['post_type'=>'sports_guides','post_status'=>'publish','has_password'=>false,'posts_per_page'=>-1,'orderby'=>'menu_order','order'=>'ASC'];
                     query_posts( $guides ); ?>
                     <div uk-grid class="uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@xl" uk-height-match="target: > div > article > h3">
                         <?php while ( have_posts() ) : the_post(); ?>
