@@ -226,6 +226,14 @@ function api_future_ajax() {
 		die('Unable to verify sender.');
   }
 
+  if ( $_POST['future'] === '' && in_array( $_POST['league'], ['nfl', 'nba'] ) ) {
+    if ($_POST['league'] === 'nfl') {
+      $_POST['future'] = 38;
+    } else {
+      $_POST['future'] = 36;
+    }
+  }
+
   $transient = get_transient( 'sgg_api_future_' . $_POST['league'] . '_market_' . $_POST['future'] );
   if ( ! empty( $transient ) ) {
     echo $transient;
