@@ -309,29 +309,3 @@ function sportsbook_promos() {
   wp_reset_query();
 }
 add_action( 'sportsbook_promos', 'sportsbook_promos' );
-
-/*function sportsbook_state_select() {
-  $betting_states = get_field( 'states_operation', 'option' );
-  $valid_states = [];
-  foreach ($betting_states as $state) {
-      $valid_states[ $state['label'] ] = $state['value'];
-  }
-  ?>
-  <div class="button-select-wrapper">
-  <?php if ( isset( $_COOKIE['state_abbr'] ) && in_array( $_COOKIE['state_abbr'], $valid_states) ) : ?>
-      <button type="button" class="uk-button uk-button-outline"><?php echo array_search( $_COOKIE['state_abbr'], $valid_states ); ?></button>
-  <?php else : ?>
-      <button type="button" class="uk-button uk-button-outline">Choose Betting Location</button>
-  <?php endif; ?>
-      <div uk-dropdown="mode: click">
-          <ul class="uk-nav uk-dropdown-nav">
-          <?php foreach ( $betting_states as $state ) : ?>
-              <li><a href="<?php echo esc_url( site_url( '/best-books/' ) . '?state_abbr=' . $state['value'] ); ?>"><?php echo $state['label'] ?></a></li>
-          <?php endforeach; ?>
-          </ul>
-      </div>
-  </div>
-  <?php
-}
-add_action( 'sportsbook_state_select', 'sportsbook_state_select' );
-*/
