@@ -122,10 +122,13 @@
 
                 </div>
 
-                <div id="promos" class="uk-card uk-card-default uk-card-body" data-card="reviews-promos">
+                <div id="promos" class="uk-card uk-card-default uk-card-body" data-card="sportsbooks">
                     <h4>Promos</h4>
 
-                    <?php get_template_part( widget.'sportsbooks-reviews' ); ?>
+                    <div class="sportsbooks-lists _alt">
+                        <?php do_action('sportsbook_promos'); ?>
+                    </div>
+
                     <?php the_field('promos'); ?>
 
                     <div class="_starRating">
@@ -193,10 +196,14 @@
                     </div>                    
                 </div>
 
-                <div id="ratings" class="uk-card uk-card-default uk-card-body" data-card="reviews-ratings">
+                <div id="ratings" class="uk-card uk-card-default uk-card-body" data-card="sportsbooks">
                     <h4>Overall Rating</h4>
+                    
                     <?php the_field('overall'); ?>
-                    <?php get_template_part( widget.'sportsbooks-reviews' ); ?>
+
+                    <div class="sportsbooks-lists _alt">
+                        <?php do_action('sportsbook_promos'); ?>
+                    </div>
 
                     <div class="_starRating">
                         <?php starRating( 'overall_rating', '1' ); ?>
@@ -205,11 +212,7 @@
             </div>
 
             <div class="uk-width-1-1 uk-width-large@l">
-                <?php 
-
-                    get_sidebar();
-
-                ?>
+                <?php get_sidebar(); ?>
             </div>
 
         </div>

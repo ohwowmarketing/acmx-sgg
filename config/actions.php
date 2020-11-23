@@ -256,6 +256,11 @@ function get_state_from_code( $code ) {
 }
 
 function sportsbook_promos() {
+  $post = get_post();
+  $selected_promo = '';
+  if ( isset( $post ) && $post->post_type === 'sportsbooks_reviews' ) {
+    $selected_promo = strtolower( $post->post_title );
+  }
   $user_state = get_user_state();
   $sportsbooks = [
     'post_type' => 'sportsbooks',
@@ -267,43 +272,52 @@ function sportsbook_promos() {
   query_posts( $sportsbooks );
 
   while ( have_posts() ) : the_post();
-    $image = get_field('sb_image');
-    $promos = get_field( 'promos' );
-    $summary = get_field('sb_promotion');
-    $details = get_field( 'sb_details' );
-    $has_review = get_field( 'isReviewTrue' );
-    $review_url = get_field( 'review_link_url' );
-    $link = '';
-    $state_code = '';
-    $state_display = '';
-    $links = [];
-    
-    if ( isset( $promos ) ) :
-      foreach ( $promos as $promo ) :
-        $display = get_state_from_code( $promo['state'] );
-        if ( $user_state === $promo['state'] ) {
-          $summary = $promo['summary'];
-          $details = $promo['details'];
-          $link = $promo['link'];
-          $state_code = $promo['state'];
-          $state_display = $display;
-        }
-        $links[ $promo['state'] ] = $display;
-      endforeach;
-    endif;
-    $sb = [
-      'link' => $link,
-      'links' => $links,
-      'state_code' => $state_code,
-      'state_display' => $state_display,
-      'summary' => $summary,
-      'details' => $details,
-      'image_url' => isset($image) ? $image['url'] : '',
-      'image_alt' => isset($image) ? $image['alt'] : '',
-      'review' => ($has_review) ? $review_url : ''
-    ];
-    if ($user_state === '' || ($user_state !== '' && $user_state === $sb['state_code'] )) {
-      display_sportsbook($sb, $user_state);
+    $sportsbook_title = strtolower( get_the_title() );
+    if ( 
+      $selected_promo === '' ||
+      ( $selected_promo !== '' && $selected_promo === $sportsbook_title )
+    ) {
+      $image = get_field('sb_image');
+      $promos = get_field( 'promos' );
+      $summary = get_field('sb_promotion');
+      $details = get_field( 'sb_details' );
+      $has_review = get_field( 'isReviewTrue' );
+      $review_url = get_field( 'review_link_url' );
+      $link = '';
+      $state_code = '';
+      $state_display = '';
+      $links = [];
+      
+      if ( isset( $promos ) ) :
+        foreach ( $promos as $promo ) :
+          $display = get_state_from_code( $promo['state'] );
+          if ( $user_state === $promo['state'] ) {
+            $summary = $promo['summary'];
+            $details = $promo['details'];
+            $link = $promo['link'];
+            $state_code = $promo['state'];
+            $state_display = $display;
+          }
+          $links[ $promo['state'] ] = $display;
+        endforeach;
+      endif;
+      $sb = [
+        'link' => $link,
+        'links' => $links,
+        'state_code' => $state_code,
+        'state_display' => $state_display,
+        'summary' => $summary,
+        'details' => $details,
+        'image_url' => isset($image) ? $image['url'] : '',
+        'image_alt' => isset($image) ? $image['alt'] : '',
+        'review' => ($has_review) ? $review_url : ''
+      ];
+      if (
+        $user_state === '' || 
+        ( $user_state !== '' && $user_state === $sb['state_code'] )
+      ) {
+        display_sportsbook($sb, $user_state);
+      }
     }
   endwhile; 
   wp_reset_query();

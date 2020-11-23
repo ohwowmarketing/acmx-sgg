@@ -117,7 +117,7 @@
                     <a href="<?php echo esc_url( site_url( strtolower($leagueName).'/news' ) ); ?>" class="uk-button uk-button-primary uk-button-large">View All News</a>
                 </div>
 
-                <?php get_template_part( widget.'sportsbooks-alt' ); ?>
+                <?php get_template_part( widget.'sportsbooks' ); ?>
 
                 <div class="uk-card uk-card-default uk-card-body" data-card="content">
                     <?php the_content(); ?>
