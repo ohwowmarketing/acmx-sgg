@@ -197,4 +197,141 @@ function state_check() {
 }
 add_action( 'init', 'state_check' );
 
+
+function get_user_state() {
+  $betting_states = get_field( 'states_operation', 'option' );
+  $valid_states = [];
+  $label = '';
+  $user_state = '';
+  foreach ( $betting_states as $state ) {
+    $valid_states[ $state['label'] ] = $state['value'];
+  }
+  if ( isset( $_COOKIE['state_abbr'] ) && in_array( $_COOKIE['state_abbr'], $valid_states) ) {
+    $user_state = $_COOKIE['state_abbr'];
+  }
+  return $user_state;
+}
+
+function display_sportsbook( $sb, $user_state ) {
+  $header_link = ( $sb['link'] !== '' ) ? $sb['link'] : esc_url( site_url( 'best-books' ) );
+  ?>
+  <ul>
+      <li class="sbl-sportsbook">
+          <div class="sbl-item">
+              <a href="<?php echo $header_link; ?>">
+                  <img src="<?php echo $sb['image_url']; ?>" alt="<?php echo $sb['image_alt']; ?>">
+              </a>
+          </div>
+      </li>
+      <li class="sbl-offers">
+          <div class="sbl-item"><h3><?php echo $sb['summary']; ?></h3></div>
+      </li>
+      <li class="sbl-details">
+          <div class="sbl-item"><?php echo $sb['details']; ?></div>
+      </li>
+      <li class="sbl-link">
+          <div class="sbl-item">
+              <?php if ( $user_state !== '' ) : ?>
+              <a type="button" class="uk-button uk-button-primary">Bet Now</a>
+              <?php else: ?>
+              <button type="button" class="uk-button uk-button-primary">Bet Now <small>Choose State</small></button>
+              <div uk-dropdown="mode: click; pos: bottom-justify; boundary: .sbl-item; offset: 5">
+                  <ul class="uk-nav uk-dropdown-nav">
+                  <?php foreach ( $sb['links'] as $link_state => $link_url ) : ?>
+                      <li><a href="<?php echo $link_url; ?>" target="_blank"><?php echo $link_state; ?></a></li>
+                  <?php endforeach; ?>
+                  </ul>
+              </div>
+              <?php endif; ?>
+              <?php if ( $sb['review'] !== '' ) : ?>
+              <span class="uk-display-block uk-margin-small-top">
+                  <a href="<?php echo $sb['review']; ?>" class="uk-button-text uk-text-bold">Full Review</a>
+              </span>
+              <?php endif; ?>
+          </div>
+      </li>
+  </ul>
+  <?php
+}
+
+function sportsbook_promos() {
+  $user_state = get_user_state();
+  $sportsbooks = [
+    'post_type' => 'sportsbooks',
+    'has_password' => false,
+    'posts_per_page' => -1,
+    'order' => 'asc'
+  ];
+  query_posts( $sportsbooks );
+
+  while ( have_posts() ) : the_post();
+    $state_obj = get_field_object('sb_state');
+    $states = $state_obj['choices'];
+    $image = get_field('sb_image');
+    $promos = get_field( 'promos' );
+    $summary = get_field('sb_promotion');
+    $details = get_field( 'sb_details' );
+    $has_review = get_field( 'isReviewTrue' );
+    $review_url = get_field( 'review_link_url' );
+    $link = '';
+    $state_code = '';
+    $state_display = '';
+    $links = [];
+    
+    if ( isset( $promos ) ) :
+      foreach ( $promos as $promo ) :
+        if ( $user_state === $promo['state'] ) :
+          $summary = $promo['summary'];
+          $details = $promo['details'];
+          $link = $promo['link'];
+          $state_code = $promo['state'];
+          $state_display = $states[ $state_code ];
+        endif;
+        $links[ $states[ $promo['state'] ] ] = $promo['link'];
+      endforeach;
+    endif;
+    $sb = [
+      'link' => $link,
+      'links' => $links,
+      'state_code' => $state_code,
+      'state_display' => $state_display,
+      'summary' => $summary,
+      'details' => $details,
+      'image_url' => isset($image) ? $image['url'] : '',
+      'image_alt' => isset($image) ? $image['alt'] : '',
+      'review' => ($has_review) ? $review_url : ''
+    ];
+    if ($user_state === '' || ($user_state !== '' && $user_state === $sb['state_code'] )) {
+      display_sportsbook($sb, $user_state);
+    }
+  endwhile; 
+  wp_reset_query();
+}
+add_action( 'sportsbook_promos', 'sportsbook_promos' );
+
+function sportsbook_state_select() {
+  $betting_states = get_field( 'states_operation', 'option' );
+  $valid_states = [];
+  foreach ($betting_states as $state) {
+      $valid_states[ $state['label'] ] = $state['value'];
+  }
+  ?>
+  <div class="button-select-wrapper">
+  <?php if ( isset( $_COOKIE['state_abbr'] ) && in_array( $_COOKIE['state_abbr'], $valid_states) ) : ?>
+      <button type="button" class="uk-button uk-button-outline"><?php echo array_search( $_COOKIE['state_abbr'], $valid_states ); ?></button>
+  <?php else : ?>
+      <button type="button" class="uk-button uk-button-outline">Choose Betting Location</button>
+  <?php endif; ?>
+      <div uk-dropdown="mode: click">
+          <ul class="uk-nav uk-dropdown-nav">
+          <?php foreach ( $betting_states as $state ) : ?>
+              <li><a href="<?php echo esc_url( site_url( '/best-books/' ) . '?state_abbr=' . $state['value'] ); ?>"><?php echo $state['label'] ?></a></li>
+          <?php endforeach; ?>
+          </ul>
+      </div>
+  </div>
+  <?php
+}
+add_action( 'sportsbook_state_select', 'sportsbook_state_select' );
+
 //* Add Sticky Post to FAQ

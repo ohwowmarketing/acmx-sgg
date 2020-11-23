@@ -117,19 +117,7 @@
                     <a href="<?php echo esc_url( site_url( strtolower($leagueName).'/news' ) ); ?>" class="uk-button uk-button-primary uk-button-large">View All News</a>
                 </div>
 
-                <?php $betting_states = get_field('states_operation', 'option'); 
-
-                $valid_states = [];
-                foreach ( $betting_states as $state ) {
-                    $valid_states[$state['label']] = $state['value'];
-                }
-
-                // Check if cookie is set and fetching states correctly
-                if ( isset($_COOKIE['state_abbr']) && in_array($_COOKIE['state_abbr'], $valid_states) ) {
-                    get_template_part( widget.'sportsbooks' ); 
-                } else {
-                    get_template_part( widget.'sportsbooks-alt' );     
-                } ?>
+                <?php get_template_part( widget.'sportsbooks-alt' ); ?>
 
                 <div class="uk-card uk-card-default uk-card-body" data-card="content">
                     <?php the_content(); ?>
