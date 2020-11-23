@@ -212,15 +212,11 @@ function get_user_state() {
   return $user_state;
 }
 
-function display_sportsbook( $sb, $user_state ) {
-  $header_link = ( $sb['link'] !== '' ) ? $sb['link'] : esc_url( site_url( 'best-books' ) );
-  ?>
+function display_sportsbook( $sb, $user_state ) { ?>
   <ul>
       <li class="sbl-sportsbook">
           <div class="sbl-item">
-              <a href="<?php echo $header_link; ?>">
-                  <img src="<?php echo $sb['image_url']; ?>" alt="<?php echo $sb['image_alt']; ?>">
-              </a>
+              <img src="<?php echo $sb['image_url']; ?>" alt="<?php echo $sb['image_alt']; ?>">
           </div>
       </li>
       <li class="sbl-offers">
@@ -237,8 +233,8 @@ function display_sportsbook( $sb, $user_state ) {
               <button type="button" class="uk-button uk-button-primary">Bet Now <small>Choose State</small></button>
               <div uk-dropdown="mode: click; pos: bottom-justify; boundary: .sbl-item; offset: 5">
                   <ul class="uk-nav uk-dropdown-nav">
-                  <?php foreach ( $sb['links'] as $link_state => $link_url ) : ?>
-                      <li><a href="<?php echo $link_url; ?>" target="_blank"><?php echo $link_state; ?></a></li>
+                  <?php foreach ( $sb['links'] as $state_code => $state_display ) : ?>
+                      <li><a href="<?php echo esc_url( site_url( '/best-books/?state_abbr=' . $state_code ) ); ?>"><?php echo $state_display; ?></a></li>
                   <?php endforeach; ?>
                   </ul>
               </div>
@@ -265,6 +261,7 @@ function sportsbook_promos() {
     'post_type' => 'sportsbooks',
     'has_password' => false,
     'posts_per_page' => -1,
+    'order_by' => 'menu_order',
     'order' => 'asc'
   ];
   query_posts( $sportsbooks );
@@ -291,7 +288,7 @@ function sportsbook_promos() {
           $state_code = $promo['state'];
           $state_display = $display;
         }
-        $links[ $display ] = $promo['link'];
+        $links[ $promo['state'] ] = $display;
       endforeach;
     endif;
     $sb = [
@@ -313,7 +310,7 @@ function sportsbook_promos() {
 }
 add_action( 'sportsbook_promos', 'sportsbook_promos' );
 
-function sportsbook_state_select() {
+/*function sportsbook_state_select() {
   $betting_states = get_field( 'states_operation', 'option' );
   $valid_states = [];
   foreach ($betting_states as $state) {
@@ -337,5 +334,4 @@ function sportsbook_state_select() {
   <?php
 }
 add_action( 'sportsbook_state_select', 'sportsbook_state_select' );
-
-//* Add Sticky Post to FAQ
+*/
