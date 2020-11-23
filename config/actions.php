@@ -232,7 +232,7 @@ function display_sportsbook( $sb, $user_state ) {
       <li class="sbl-link">
           <div class="sbl-item">
               <?php if ( $user_state !== '' ) : ?>
-              <a type="button" class="uk-button uk-button-primary">Bet Now</a>
+              <a href="<?php echo $sb['link']; ?>" type="button" class="uk-button uk-button-primary">Bet Now</a>
               <?php else: ?>
               <button type="button" class="uk-button uk-button-primary">Bet Now <small>Choose State</small></button>
               <div uk-dropdown="mode: click; pos: bottom-justify; boundary: .sbl-item; offset: 5">
