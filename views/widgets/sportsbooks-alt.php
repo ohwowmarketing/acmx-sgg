@@ -5,9 +5,7 @@
             do_action( 'sportsbook_state_select' );
         } ?>
     </div>
-
     <div class="sportsbooks-lists _alt">
-    <?php do_action('sportsbook_promos'); ?>
+        <?php do_action('sportsbook_promos'); ?>
     </div>
-
 </div>
