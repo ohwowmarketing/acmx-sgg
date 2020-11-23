@@ -39,7 +39,7 @@ for ($i = 1; $i < 18; $i++) {
 }
 $weeks[$current_season . 'POST/1'] = 'Wild Card';
 $weeks[$current_season . 'POST/2'] = 'Division Round';
-$weeks[$current_season . 'POST/3'] = 'Conf Champ';
+$weeks[$current_season . 'POST/3'] = 'Conference Championship';
 $weeks[$current_season . 'POST/4'] = 'Super Bowl';
 $weeks[$current_season . 'STAR/1'] = 'Pro Bowl';
 
@@ -49,8 +49,8 @@ $sportsbooks = [
         'display' => 'BetRivers',
         'badge' => _uri . '/resources/images/sportsbooks/betrivers.jpg',
         'state' => [
-            'PA' => 'https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_3320b_380c_&affid=947&siteid=3320&adid=380&c=',
-            'IL' => 'https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_4043b_817c_&affid=1142&siteid=4043&adid=817&c=900'
+            'PA' => 'https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_4208b_0&affid=947&siteid=3320&adid=380&c=',
+            'IL' => 'https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_4207b_0&affid=1142&siteid=4043&adid=817&c=900'
         ]
     ], 
     [ 
