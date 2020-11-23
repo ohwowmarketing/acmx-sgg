@@ -254,6 +254,11 @@ function display_sportsbook( $sb, $user_state ) {
   <?php
 }
 
+function get_state_from_code( $code ) {
+  $states = ['AL' => 'Alabama', 'AK' => 'Alaska', 'AZ' => 'Arizona', 'AR' => 'Arkansas', 'CA' => 'California', 'CO' => 'Colorado', 'CT' => 'Connecticut', 'DE' => 'Delaware', 'DC' => 'District of Columbia', 'FL' => 'Florida', 'GA' => 'Georgia', 'HI' => 'Hawaii', 'ID' => 'Idaho', 'IL' => 'Illinois', 'IN' => 'Indiana', 'IA' => 'Iowa', 'KS' => 'Kansas', 'KY' => 'Kentucky', 'LA' => 'Louisiana', 'ME' => 'Maine', 'MD' => 'Maryland', 'MA' => 'Massachusetts', 'MI' => 'Michigan', 'MN' => 'Minnesota', 'MS' => 'Mississippi', 'MO' => 'Missouri', 'MT' => 'Montana', 'NE' => 'Nebraska', 'NV' => 'Nevada', 'NH' => 'New Hampshire', 'NJ' => 'New Jersey', 'NM' => 'New Mexico', 'NY' => 'New York', 'NC' => 'North Carolina', 'ND' => 'North Dakota', 'OH' => 'Ohio', 'OK' => 'Oklahoma', 'OR' => 'Oregon', 'PA' => 'Pennsylvania', 'RI' => 'Rhode Island', 'SC' => 'South Carolina', 'SD' => 'South Dakota', 'TN' => 'Tennessee', 'TX' => 'Texas', 'UT' => 'Utah', 'VT' => 'Vermont', 'VA' => 'Virginia', 'WA' => 'Washington', 'WV' => 'West Virginia', 'WI' => 'Wisconsin', 'WY' => 'Wyoming'];
+  return $states[ $code ];
+}
+
 function sportsbook_promos() {
   $user_state = get_user_state();
   $sportsbooks = [
@@ -265,8 +270,6 @@ function sportsbook_promos() {
   query_posts( $sportsbooks );
 
   while ( have_posts() ) : the_post();
-    $state_obj = get_field_object('sb_state');
-    $states = $state_obj['choices'];
     $image = get_field('sb_image');
     $promos = get_field( 'promos' );
     $summary = get_field('sb_promotion');
@@ -280,14 +283,15 @@ function sportsbook_promos() {
     
     if ( isset( $promos ) ) :
       foreach ( $promos as $promo ) :
-        if ( $user_state === $promo['state'] ) :
+        $display = get_state_from_code( $promo['state'] );
+        if ( $user_state === $promo['state'] ) {
           $summary = $promo['summary'];
           $details = $promo['details'];
           $link = $promo['link'];
           $state_code = $promo['state'];
-          $state_display = $states[ $state_code ];
-        endif;
-        $links[ $states[ $promo['state'] ] ] = $promo['link'];
+          $state_display = $display;
+        }
+        $links[ $display ] = $promo['link'];
       endforeach;
     endif;
     $sb = [
