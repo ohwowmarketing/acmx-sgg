@@ -3,28 +3,15 @@
         <div uk-grid class="uk-grid-small">
 
             <div class="uk-width-expand@l">
-            <!-- Start Content -->
-            <?php 
-                // views/taxonomies
-                get_template_part( widget.'news-article' );
-                
-                // viewws/widgets
-                $betting_states = get_field('states_operation', 'option'); 
-
-                $valid_states = [];
-                foreach ( $betting_states as $state ) {
-                    $valid_states[$state['label']] = $state['value'];
-                }
-
-                // Check if cookie is set and fetching states correctly
-                if ( isset($_COOKIE['state_abbr']) && in_array($_COOKIE['state_abbr'], $valid_states) ) {
-                    get_template_part( widget.'sportsbooks' ); 
-                } else {
-                    get_template_part( widget.'sportsbooks-alt' );     
-                }
-
-            ?>
-            <!-- End Content -->
+                <?php get_template_part( widget.'news-article' ); ?>
+                <div class="uk-card uk-card-default uk-card-body" data-card="sportsbooks">
+                    <div class="uk-flex uk-flex-between _headings">
+                        <h1 class="uk-card-title">Best Sportsbooks</h1>
+                    </div>
+                    <div class="sportsbooks-lists _alt">
+                        <?php do_action('sportsbook_promos'); ?>
+                    </div>
+                </div>
             </div>
 
             <div class="uk-width-1-1 uk-width-large@l">
