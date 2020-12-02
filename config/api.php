@@ -320,10 +320,11 @@ function api_news_ajax() {
 
   $news = [];
   foreach( $latest_news as $item) {
+    $updated = new DateTime($item->Updated);
     $news_item = [
       'id' => $item->NewsID,
       'title' => $item->Title,
-      'updated' => $item->Updated,
+      'updated' => $updated->format('Y-m-d'),
       'display' => '',
       'color' => 'E1E2E9'
     ];
@@ -354,9 +355,10 @@ function api_news_ajax() {
       }
     }
     $news_item['link'] = site_url( '/article' . '/' . strtolower( $_POST['league'] ) . 
-      '?newsID=' . $news_item['id'] . 
-      '&imgID=' . $news_item['imageId'] . 
-      '&league=' . strtolower( $_POST['league'] ) );
+      '?news=' . $news_item['id'] . 
+      '&img=' . $news_item['imageId'] . 
+      '&league=' . strtolower( $_POST['league'] ) .
+      '&date=' . $news_item['updated'] );
     $news_item['image'] = wp_get_attachment_image( $news_item['imageId'], [ 60, 60, true ] );
     $news[] = $news_item;
   }

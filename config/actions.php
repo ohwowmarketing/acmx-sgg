@@ -323,3 +323,202 @@ function sportsbook_promos() {
   wp_reset_query();
 }
 add_action( 'sportsbook_promos', 'sportsbook_promos' );
+
+function get_news_article( $league, $date, $article_id, $image_id ) {
+  global $post;
+  $league = strtolower( $league );
+  $new_date = new DateTime( $date );
+  $api_date = strtoupper( $new_date->format('Y-M-d') );
+  $date = new DateTime( get_query_var( 'date' ) );
+  $api_date = strtoupper( $date->format('Y-M-d') );
+  include( locate_template( includes . 'league-keys.php', false, true ) );
+  switch ( $league ) {
+    case 'nfl':
+      $header_npk = $nfl_header_npk;
+      $header_dak = $nfl_header_dak;
+      break;
+    case 'mlb':
+      $header_npk = $mlb_header_npk;
+      $header_dak = $mlb_header_dak;
+      break;
+    case 'nba':
+      $header_npk = $nba_header_npk;
+      $header_dak = $nba_header_dak;
+      break;
+  }
+  $request_url = 'https://api.sportsdata.io/v3/' . $league . '/news-rotoballer/json/RotoBallerPremiumNewsByDate/' . $api_date;
+  $news_request = wp_remote_get( $request_url , $header_npk );
+  $news_body    = json_decode( wp_remote_retrieve_body( $news_request ) );
+  $team_request = wp_remote_get( 'https://api.sportsdata.io/v3/' . $league . '/scores/json/teams', $header_dak );
+  $team_body    = json_decode( wp_remote_retrieve_body( $team_request ) );
+  if ( wp_remote_retrieve_response_code( $news_request ) == 200 ) {
+    foreach ( $news_body as $news ) {
+      if ( (string) $news->NewsID === $article_id ) {
+        $result = [
+          'team_id' => $news->TeamID,
+          'title' => $news->Title,
+          'content' => $news->Content,
+          'date' => $news->Updated,
+          'link' => $news->Url,
+          'team_name' => '',
+          'team_city' => '',
+          'team_full_name' => '',
+          'team_logo' => '',
+          'team_color' => '',
+          'image_url' => '',
+          'image_width' => '',
+          'image_height' => ''
+        ];
+
+        foreach ( $team_body as $team ) {
+          if ( $team->TeamID === $result['team_id'] ) {
+            $result['team_name'] = $team->Name;
+            $result['team_city'] = $team->City;
+            $result['team_full_name'] = ($league === 'nfl') ? $team->FullName : $team->Name;
+            $result['team_logo'] = $team->WikipediaLogoUrl;
+            $result['team_color'] = $team->PrimaryColor;
+          }
+        }
+
+        if ( is_numeric( $image_id ) ) {
+          [$image_url, $image_width, $image_height] = wp_get_attachment_image_src( $image_id, 'full' );
+          $result['image_url'] = $image_url;
+          $result['image_width'] = $image_width;
+          $result['image_height'] = $image_height;
+        }
+        return $result;
+      }
+    } 
+  }
+  return false;
+}
+
+function display_full_news_article() {
+  global $post;
+  $league = strtolower( single_cat_title( '', false ) );
+  $date = new DateTime( get_query_var( 'date' ) );
+  $date_format = $date->format('Y-m-d');
+  $api_date = strtoupper( $date->format('Y-M-d') );
+  $article_id = get_query_var( 'news' );
+  $image_id  = get_query_var( 'img' );
+  $article = get_news_article( $league, $date_format, $article_id, $image_id );
+  if ( $article ) : ?>
+    <figure>
+        <?php echo wp_get_attachment_image( $image_id, 'full' ); ?>
+        <figcaption style="background-color:<?php echo '#'.$article['team_color']; ?>;">
+            <span>
+                <?php echo ! empty($article['team_full_name']) ? $article['team_full_name'] : $article['team_city'] .' '. $article['team_name'] ; ?>
+            </span>
+        </figcaption>
+    </figure>
+    <h1><?php echo $article['title']; ?></h1>
+    <p><?php echo $article['content']; ?></p>
+    <div class="uk-text-meta uk-flex uk-flex-top uk-flex-between">
+        <div>
+            <span>
+                <?php echo strtoupper( $league ); ?>
+            </span>
+            <span>&#x25cf</span>
+            <span>
+                <?php 
+                  $date_format = new DateTime( $article['date'] );
+                  echo $date_format->format( 'D, F j, Y' );
+                ?>
+            </span>
+        </div>
+        <div id="accreditation">
+            <span>Powered by</span>
+            <a href="<?php echo esc_url( $article['link'] ); ?>"><img src="<?php echo _uri.'/resources/images/accreditation/rotoballer-black.png' ?>" height="50" alt="RotoBaller Premium News"></a>
+        </div>
+    </div>
+  <?php endif;
+}
+
+add_action( 'display_full_news_article', 'display_full_news_article' );
+
+function custom_article_presenter( $presenters ) {
+  global $post;
+  if ( ! is_archive() ) {
+      return $presenters;
+  }
+  $remove_list = [
+      'Title_Presenter', // og:title
+      'Meta_Description_Presenter', // description
+      'Description_Presenter', // og:description
+      'Image_Presenter', // og:image, og:image:width, og:image:height
+      'Url_Presenter', // og:url
+      // 'Robots_Presenter', 
+      // 'Canonical_Presenter', 
+      // 'Rel_Prev_Presenter', 
+      // 'Rel_Next_Presenter', 
+      // 'Locale_Presenter', 
+      // 'Type_Presenter', 
+      // 'Title_Presenter', 
+      // 'Site_Name_Presenter', 
+      // 'FB_App_ID_Presenter', 
+      // 'Card_Presenter', 
+      // 'Title_Presenter', 
+      // 'Description_Presenter', 
+      // 'Site_Presenter', 
+      // 'Schema_Presenter', 
+  ];
+
+  $new_presenters = [];
+
+  for( $i = 0; $i <= count( $presenters ); $i++ ) {
+    if ( isset( $presenters[ $i ] ) && is_object( $presenters[ $i ] ) ) {
+      $raw_presenter_name = get_class( $presenters[ $i ] );
+      if ( isset( $raw_presenter_name ) ) {
+        $presenter_name = substr( $raw_presenter_name, strrpos( $raw_presenter_name, "\\" ) + 1 );
+        if ( ! in_array( $presenter_name, $remove_list ) ) {
+          $new_presenters[] = $presenters[ $i ];
+        }
+      }
+    }
+  }
+
+  return $new_presenters;
+}
+add_filter( 'wpseo_frontend_presenters', 'custom_article_presenter' );
+
+function get_article_url() {
+  global $post;
+  if ( is_archive() ) {
+    $news_id = get_query_var( 'news' );
+    $img_id  = get_query_var( 'img' );
+    $date = get_query_var( 'date' );
+    $cat = strtolower( single_cat_title( '', false ) );
+    $url = 'article/' . $cat . '?league=' . $cat . '&date=' . $date  . '&news=' . $news_id . '&img=' . $img_id;
+    return site_url( $url );
+  }
+  return '';
+}
+
+function article_open_graph() {
+  global $post;
+  if ( ! is_archive() ) {
+      return;
+  }
+  global $post;
+  $league = strtolower( single_cat_title( '', false ) );
+  $date = new DateTime( get_query_var( 'date' ) );
+  $date_format = $date->format('Y-m-d');
+  $api_date = strtoupper( $date->format('Y-M-d') );
+  $article_id = get_query_var( 'news' );
+  $image_id  = get_query_var( 'img' );
+  $article = get_news_article( $league, $date_format, $article_id, $image_id );
+  $summary = mb_strimwidth( $article['content'], 0, 120, "..." );
+  $date = new DateTime( $article['date'] );
+  $formatted_date = $date->format('c');
+  echo '<meta property="og:url" content="' . get_article_url() . '">';
+  echo '<meta property="og:title" content="' . $article['title'] . ' - Sports Gambling Guides">';
+  echo '<meta name="description" content="' . $summary . '">';
+  echo '<meta property="og:description" content="' . $summary . '">';
+  echo '<meta property="article:modified_time" content="' . $formatted_date . '">';
+  if ( $article['image_url'] ) {
+    echo '<meta property="og:image" content="' . $article['image_url'] . '">';
+    echo '<meta property="og:image:width" content="' . $article['image_width'] . '">';
+    echo '<meta property="og:image:height" content="' . $article['image_height'] . '">';
+  }
+}
+add_action( 'wp_head', 'article_open_graph' );
