@@ -3,6 +3,7 @@
         <div class="uk-grid-small" uk-grid>
 
             <div class="uk-width-expand@l">
+                <?php do_action( 'display_summary_news_articles' ); ?>
             <!-- Start Content -->
                 <?php
                     // Get Post Name

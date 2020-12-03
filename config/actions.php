@@ -324,13 +324,14 @@ function sportsbook_promos() {
 }
 add_action( 'sportsbook_promos', 'sportsbook_promos' );
 
-function get_news_article( $league, $date, $article_id, $image_id ) {
+function get_news_request( $league, $date = NULL ) {
   global $post;
   $league = strtolower( $league );
-  $new_date = new DateTime( $date );
+  $new_date = new DateTime();
+  if ( $date !== NULL ) {
+    $new_date = new DateTime( $date );
+  }
   $api_date = strtoupper( $new_date->format('Y-M-d') );
-  $date = new DateTime( get_query_var( 'date' ) );
-  $api_date = strtoupper( $date->format('Y-M-d') );
   include( locate_template( includes . 'league-keys.php', false, true ) );
   switch ( $league ) {
     case 'nfl':
@@ -351,8 +352,23 @@ function get_news_article( $league, $date, $article_id, $image_id ) {
   $news_body    = json_decode( wp_remote_retrieve_body( $news_request ) );
   $team_request = wp_remote_get( 'https://api.sportsdata.io/v3/' . $league . '/scores/json/teams', $header_dak );
   $team_body    = json_decode( wp_remote_retrieve_body( $team_request ) );
-  if ( wp_remote_retrieve_response_code( $news_request ) == 200 ) {
-    foreach ( $news_body as $news ) {
+  $response = [
+    'news_request' => $news_request,
+    'news_body' => $news_body,
+    'team_request' => $team_request,
+    'team_body' => $team_body
+  ];
+  return $response;
+}
+
+function get_news_article( $league, $date, $article_id, $image_id ) {
+  global $post;
+  $league = strtolower( $league );
+  $new_date = new DateTime( $date );
+  $response = get_news_request( $league, $new_date->format('Y-m-d') );
+  
+  if ( wp_remote_retrieve_response_code( $response['news_request'] ) == 200 ) {
+    foreach ( $response['news_body'] as $news ) {
       if ( (string) $news->NewsID === $article_id ) {
         $result = [
           'team_id' => $news->TeamID,
@@ -370,7 +386,7 @@ function get_news_article( $league, $date, $article_id, $image_id ) {
           'image_height' => ''
         ];
 
-        foreach ( $team_body as $team ) {
+        foreach ( $response['team_body'] as $team ) {
           if ( $team->TeamID === $result['team_id'] ) {
             $result['team_name'] = $team->Name;
             $result['team_city'] = $team->City;
@@ -433,8 +449,55 @@ function display_full_news_article() {
     </div>
   <?php endif;
 }
-
 add_action( 'display_full_news_article', 'display_full_news_article' );
+
+function get_news_article_summaries( $league, $date ) {
+  global $post;
+  $results = [];
+  $league = strtolower( $league );
+  $new_date = new DateTime( $date );
+  $response = get_news_request( $league, $new_date->format('Y-m-d') );
+  if ( wp_remote_retrieve_response_code( $response['news_request'] ) == 200 ) {
+    
+    foreach ( $response['news_body'] as $news ) {
+      $result = [
+        'team_id' => $news->TeamID,
+        'title' => $news->Title,
+        'content' => $news->Content,
+        'date' => $news->Updated,
+        'link' => $news->Url,
+        'team_name' => '',
+        'team_city' => '',
+        'team_full_name' => '',
+        'team_logo' => '',
+        'team_color' => '',
+        'image_url' => '',
+        'image_width' => '',
+        'image_height' => ''
+      ];
+
+      foreach ( $response['team_body'] as $team ) {
+        if ( $team->TeamID === $result['team_id'] ) {
+          $result['team_name'] = $team->Name;
+          $result['team_city'] = $team->City;
+          $result['team_full_name'] = ($league === 'nfl') ? $team->FullName : $team->Name;
+          $result['team_logo'] = $team->WikipediaLogoUrl;
+          $result['team_color'] = $team->PrimaryColor;
+        }
+      }
+
+      if ( isset( $image_id ) && is_numeric( $image_id ) ) {
+        [$image_url, $image_width, $image_height] = wp_get_attachment_image_src( $image_id, 'full' );
+        $result['image_url'] = $image_url;
+        $result['image_width'] = $image_width;
+        $result['image_height'] = $image_height;
+      }
+        
+      $results[] = $result;
+    } 
+  }
+  return $results;
+}
 
 function custom_article_presenter( $presenters ) {
   global $post;

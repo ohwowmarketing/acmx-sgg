@@ -266,26 +266,22 @@ function api_future_ajax() {
 add_action( 'wp_ajax_api_future', 'api_future_ajax' );
 add_action( 'wp_ajax_nopriv_api_future', 'api_future_ajax' );
 
-function api_news_ajax() {
-  if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
-		die( 'Unable to verify sender.' );
-  }
-
-  // Include API Keys
+function get_news_data( $league ) {
+  $news = [];
+  $league = strtolower( $league );
   include( locate_template( includes.'league-keys.php', false, true ) );
-
-  switch ( $_POST['league'] ) {
-    case 'MLB':
+  switch ( $league ) {
+    case 'mlb':
       $header_npk = $mlb_header_npk;
       $header_dak = $mlb_header_dak;
       $widget = 'widget_gallery_mlbnews';
       break;
-    case 'NBA':
+    case 'nba':
       $header_npk = $nba_header_npk;
       $header_dak = $nba_header_dak;
       $widget = 'widget_gallery_nbanews';
       break;
-    case 'NFL':
+    case 'nfl':
       $header_npk = $nfl_header_npk;
       $header_dak = $nfl_header_dak;
       $widget = 'widget_gallery_nflnews';
@@ -294,12 +290,12 @@ function api_news_ajax() {
   }
 
   // Premium News
-  $news_request = wp_remote_get( 'https://api.sportsdata.io/v3/' . strtolower( $_POST['league'] ).'/news-rotoballer/json/RotoBallerPremiumNews', $header_npk );
+  $news_request = wp_remote_get( 'https://api.sportsdata.io/v3/' . strtolower( $league ).'/news-rotoballer/json/RotoBallerPremiumNews', $header_npk );
   $news_list = json_decode( wp_remote_retrieve_body( $news_request ) );
   $latest_news = array_slice( $news_list, 0, 5 );
   
   // Tier 1 - Score/Teams
-  $team_request = wp_remote_get( 'https://api.sportsdata.io/v3/' . strtolower( $_POST['league'] ).'/scores/json/teams', $header_dak );
+  $team_request = wp_remote_get( 'https://api.sportsdata.io/v3/' . strtolower( $league ).'/scores/json/teams', $header_dak );
   $teams_list = json_decode( wp_remote_retrieve_body( $team_request ) );
   $teams = [];
   foreach( $teams_list as $team ) {
@@ -318,7 +314,7 @@ function api_news_ajax() {
     } 
   }
 
-  $news = [];
+  
   foreach( $latest_news as $item) {
     $updated = new DateTime($item->Updated);
     $news_item = [
@@ -326,7 +322,8 @@ function api_news_ajax() {
       'title' => $item->Title,
       'updated' => $updated->format('Y-m-d'),
       'display' => '',
-      'color' => 'E1E2E9'
+      'color' => 'E1E2E9',
+      'team_id' => $item->TeamID
     ];
     if ( $item->TeamID !== '' && array_key_exists( $item->TeamID, $teams ) ) {
       $news_item['city'] = $teams[ $item->TeamID ]->City;
@@ -346,22 +343,31 @@ function api_news_ajax() {
       }
     } else {
       if ( ! array_key_exists( 'imageId', $news_item ) ) {
-        $image_title = $_POST['league'] . ' Player News';
+        $image_title = strtoupper( $league ) . ' Player News';
         if ( $images[ $image_title ] ) {
           $news_item['imageId'] = $images[ $image_title ];
         } else {
-          $news_item['imageId'] = null;
+          $news_item['imageId'] = '';
         }
       }
     }
-    $news_item['link'] = site_url( '/article' . '/' . strtolower( $_POST['league'] ) . 
+    $news_item['link'] = site_url( '/article/' . $league ) . 
       '?news=' . $news_item['id'] . 
       '&img=' . $news_item['imageId'] . 
-      '&league=' . strtolower( $_POST['league'] ) .
-      '&date=' . $news_item['updated'] );
-    $news_item['image'] = wp_get_attachment_image( $news_item['imageId'], [ 60, 60, true ] );
+      '&league=' . $league .
+      '&date=' . $news_item['updated'];
+    $news_item['sm_image'] = wp_get_attachment_image( $news_item['imageId'], [ 60, 60, true ] );
+    $news_item['lg_image'] = wp_get_attachment_image( $news_item['imageId'], [ 1000, 1000, true ] );
     $news[] = $news_item;
   }
+  return $news;
+}
+
+function api_news_ajax() {
+  if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
+		die( 'Unable to verify sender.' );
+  }
+  $news = get_news_data($_POST['league']);
   ?>
   <ul class="news-lists">
     <?php foreach ( $news as $item ) : ?>
@@ -369,7 +375,7 @@ function api_news_ajax() {
       <div class="uk-width-auto">
         <div style="border-bottom:5px solid #<?php echo $item['color']; ?>">
           <a href="<?php echo $item['link']; ?>" title="<?php echo $item['title']; ?>">
-            <?php echo $item['image']; ?>
+            <?php echo $item['sm_image']; ?>
           </a>
         </div>
       </div>
@@ -395,3 +401,51 @@ function api_news_ajax() {
 }
 add_action( 'wp_ajax_api_news', 'api_news_ajax' );
 add_action( 'wp_ajax_nopriv_api_news', 'api_news_ajax' );
+
+
+function display_summary_news_articles() {
+  
+  global $post;
+  $league = strtolower( get_the_title( $post->post_parent ) );
+  $news = get_news_data($league);
+  if ( is_array( $news ) && count( $news ) > 0 ) : ?>
+    <div class="uk-card uk-card-default uk-card-body" data-card="league-news">
+      <div class="uk-flex uk-flex-between">
+          <h1 class="uk-card-title">Latest <?php echo strtoupper( $league ); ?> Team / Player News</h1>
+      
+          <form class="uk-search uk-search-default">
+              <span class="uk-search-icon-flip" uk-search-icon></span>
+              <input id="searchNews" class="uk-search-input" type="search" placeholder="Search...">
+          </form>
+      </div>
+      
+      <div uk-grid class="uk-grid-match uk-child-width-1-2@s uk-child-width-1-3@xl" uk-height-match="target: > div > article > h3">
+      <?php foreach ( $news as $article ) : ?>
+
+        <div class="article-news">
+          <article class="uk-article">
+            <a href="<?php echo $article['link']; ?>">
+              <?php echo $article['lg_image']; ?>
+            </a>
+            <figure style="background-color:<?php echo '#'.$article['color']; ?>;">
+              <span><?php echo $article['display']; ?>&nbsp;</span>
+            </figure>
+            <h3><a href="<?php echo $article['link'] ?>"><?php echo $article['title']; ?></a></h3>
+            <div class="uk-text-meta">
+              <span>
+                <?php echo strtoupper( $league ); ?>
+              </span>
+              <span>&#x25cf</span>
+              <span>
+                <?php $date = new DateTime( $article['updated'] );
+                echo $date->format('D, F j, Y'); ?>
+              </span>
+            </div>
+          </article>
+        </div>
+      <?php endforeach; ?>
+    </div>
+  </div>
+  <?php endif;
+}
+add_action( 'display_summary_news_articles', 'display_summary_news_articles' );
