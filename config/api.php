@@ -266,7 +266,7 @@ function api_future_ajax() {
 add_action( 'wp_ajax_api_future', 'api_future_ajax' );
 add_action( 'wp_ajax_nopriv_api_future', 'api_future_ajax' );
 
-function get_news_data( $league ) {
+function get_news_data( $league, $limit = 5 ) {
   $news = [];
   $league = strtolower( $league );
   include( locate_template( includes.'league-keys.php', false, true ) );
@@ -292,7 +292,7 @@ function get_news_data( $league ) {
   // Premium News
   $news_request = wp_remote_get( 'https://api.sportsdata.io/v3/' . strtolower( $league ).'/news-rotoballer/json/RotoBallerPremiumNews', $header_npk );
   $news_list = json_decode( wp_remote_retrieve_body( $news_request ) );
-  $latest_news = array_slice( $news_list, 0, 5 );
+  $latest_news = array_slice( $news_list, 0, $limit );
   
   // Tier 1 - Score/Teams
   $team_request = wp_remote_get( 'https://api.sportsdata.io/v3/' . strtolower( $league ).'/scores/json/teams', $header_dak );
@@ -407,7 +407,7 @@ function display_summary_news_articles() {
   
   global $post;
   $league = strtolower( get_the_title( $post->post_parent ) );
-  $news = get_news_data($league);
+  $news = get_news_data($league, 24);
   if ( is_array( $news ) && count( $news ) > 0 ) : ?>
     <div class="uk-card uk-card-default uk-card-body" data-card="league-news">
       <div class="uk-flex uk-flex-between">
