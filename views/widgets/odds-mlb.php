@@ -33,8 +33,8 @@ $sportsbooks = [
         'display' => 'BetRivers',
         'badge' => _uri . '/resources/images/sportsbooks/betrivers.jpg',
         'state' => [
-            'PA' => 'https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_4208b_380c_&affid=947&siteid=4208&adid=380&c=',
-            'IL' => 'https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_4207b_817c_&affid=1142&siteid=4207&adid=817&c='
+            'PA' => 'https://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_3320b_380c_&affid=947&siteid=3320&adid=380&c=',
+            'IL' => 'http://wlsugarhouseaffiliates.adsrv.eacdn.com/C.ashx?btag=a_4043b_817c_&affid=1142&siteid=4043&adid=817&c='
         ]
     ], 
     [ 
