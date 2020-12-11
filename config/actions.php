@@ -199,14 +199,8 @@ add_action( 'init', 'state_check' );
 
 
 function get_user_state() {
-  $betting_states = get_field( 'states_operation', 'option' );
-  $valid_states = [];
-  $label = '';
-  $user_state = '';
-  foreach ( $betting_states as $state ) {
-    $valid_states[ $state['label'] ] = $state['value'];
-  }
-  if ( isset( $_COOKIE['state_abbr'] ) && in_array( $_COOKIE['state_abbr'], $valid_states) ) {
+  $valid_states = get_all_sportsbook_states();
+  if ( isset( $_COOKIE['state_abbr'] ) && array_key_exists( $_COOKIE['state_abbr'], $valid_states) ) {
     $user_state = $_COOKIE['state_abbr'];
   }
   return $user_state;
