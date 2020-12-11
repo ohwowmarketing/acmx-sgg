@@ -180,41 +180,8 @@ var headerValue = "14ab1b17eede492d8996908963d2ebbd";
 ?>
 
 <div uk-grid class="uk-flex-between uk-flex-middle uk-margin-bottom odds-locations">
-    <div class="uk-width-expand@m">
-        <ul class="uk-subnav uk-subnav-pill uk-subnav-divider odds-localnav" uk-margin>
-            <li><a href="<?php echo esc_url( site_url('nfl/odds-betting-lines') ); ?>">NFL</a></li>
-            <li class="uk-active"><a href="<?php echo esc_url( site_url('nba/odds-betting-lines') ); ?>">NBA</a></li>
-            <li><a href="<?php echo esc_url( site_url('mlb/odds-betting-lines') ); ?>">MLB</a></li>
-        </ul>
-    </div>
-    <div class="uk-width-auto@m">
-        <div class="button-select-wrapper">            
-        <?php
-            $betting_states = get_field( 'states_operation', 'option' );
-            $valid_states = [];
-            $label = '';
-            foreach ($betting_states as $state) {
-                $valid_states[$state['label']] = $state['value'];
-            } 
-            
-            if ( isset( $_COOKIE['state_abbr'] ) && in_array( $_COOKIE['state_abbr'], $valid_states) ) : ?>
-            <button type="button" class="uk-button uk-button-outline"><?php echo array_search( $_COOKIE['state_abbr'], $valid_states ); ?></button>
-            <?php else : ?>
-            <button type="button" class="uk-button uk-button-outline">Choose Betting Location</button>
-            <?php endif; ?>
-
-            <div uk-dropdown="mode: click">
-                <ul class="uk-nav uk-dropdown-nav">
-                <?php 
-                foreach ( $betting_states as $state ) : ?>
-                    <?php /* <li><a href="<?php echo get_permalink().'?state_abbr='.$state['value'].''; ?>" target="_self" rel="noopener"><?php echo $state['label'] ?></a></li> */ ?>
-                    <li><a href="<?php echo esc_url( site_url('checking-location.php?key=odds&league='.strtolower($leagueName).'&state_abbr='.$state['value']) ); ?>" target="_self" rel="noopener"><?php echo $state['label'] ?></a></li>                    
-                <?php 
-                endforeach; ?>
-                </ul>
-            </div>
-        </div> 
-    </div>
+    <?php do_action( 'odds_nav', 'nba' ); ?>
+    <?php do_action( 'odds_location', 'nba' ); ?>
 </div>
 
 <div class="odds-filter">

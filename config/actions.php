@@ -324,6 +324,76 @@ function sportsbook_promos() {
 }
 add_action( 'sportsbook_promos', 'sportsbook_promos' );
 
+function odds_nav( $curr_league = 'nfl' ) {
+  $curr_league = strtolower( $curr_league );
+  $leagues = [ 'nfl', 'nba', 'mlb' ];
+  ?>
+  <div class="uk-width-expand@m">
+    <ul class="uk-subnav uk-subnav-pill uk-subnav-divider odds-localnav" uk-margin>
+      <?php foreach ( $leagues as $league ) : ?>
+      <li<?php echo ( $league === $curr_league ) ? ' class="uk-active"' : ''; ?>><a href="<?php echo esc_url( site_url(  $league . '/odds-betting-lines' ) ); ?>"><?php echo strtoupper( $league ); ?></a></li>
+      <?php endforeach; ?>
+    </ul>
+  </div>
+  <?php
+}
+add_action( 'odds_nav', 'odds_nav', 10, 1 );
+
+function get_all_sportsbook_states() {
+  $all_states = [];
+  $sportsbooks = [
+    'post_type' => 'sportsbooks',
+    'has_password' => false,
+    'posts_per_page' => -1,
+    'order_by' => 'menu_order',
+    'order' => 'asc'
+  ];
+  query_posts( $sportsbooks );
+  while ( have_posts() ) {
+    the_post();
+    if ( have_rows( 'promos' ) ) {
+      while ( have_rows( 'promos' ) ) {
+        the_row();
+        if ( ! array_key_exists( get_sub_field( 'state' ), $all_states ) ) {
+          $all_states[ get_sub_field( 'state' ) ] = get_state_from_code( get_sub_field( 'state' ) );
+        }
+      }
+    }
+  }
+  wp_reset_query();
+  return $all_states;
+}
+
+function odds_location( $curr_league = 'nfl' ) {
+  $curr_league = strtolower( $curr_league );
+  $valid_states = get_all_sportsbook_states();
+  ?>
+  <div class="uk-width-auto@m">
+    <div class="button-select-wrapper">            
+      <?php
+      if ( isset( $_COOKIE['state_abbr'] ) && array_key_exists( $_COOKIE['state_abbr'], $valid_states) ) : ?>
+        <button type="button" class="uk-button uk-button-outline"><?php echo $valid_states[ $_COOKIE['state_abbr'] ]; ?></button>
+      <?php else : ?>
+        <button type="button" class="uk-button uk-button-outline">Choose Betting Location</button>
+      <?php endif; ?>
+      <div uk-dropdown="mode: click">
+        <ul class="uk-nav uk-dropdown-nav">
+          <?php foreach ( $valid_states as $state_code => $full_state_name ) : ?>
+            <?php $url = 'checking-location.php?key=odds&league=' . $curr_league . '&state_abbr=' . $state_code ?>
+            <li>
+              <a href="<?php echo esc_url( site_url( $url ) ); ?>" target="_self" rel="noopener">
+                <?php echo $full_state_name; ?>
+              </a>
+            </li>                    
+          <?php endforeach; ?>
+        </ul>
+      </div>
+    </div> 
+  </div>
+  <?php
+}
+add_action( 'odds_location', 'odds_location', 10, 1 );
+
 function get_news_request( $league, $date = NULL ) {
   global $post;
   $league = strtolower( $league );
