@@ -34,10 +34,13 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
                         <a href="#">Best Books</a>
                         <div class="uk-navbar-dropdown uk-dropdown">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
-                                <?php $betting_states = get_field( 'states_operation', 'option' );
-                                foreach ( $betting_states as $state ) :
-                                    echo '<li><a href="'.esc_url(site_url('/best-books').'?state_abbr='.$state['value']).'">'.$state['label'].'</a></li>';
-                                endforeach; ?>
+                                <?php 
+                                $valid_states = get_all_sportsbook_states();
+                                foreach( $valid_states as $key => $value ) {
+                                    $url = '/best-books?state_abbr=' . $key;
+                                    echo '<li><a href="' . esc_url( site_url( $url ) ) . '">' . $value . '</a></li>';
+                                }
+                                ?>
                             </ul>
                         </div>
                     </li>
