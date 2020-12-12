@@ -199,6 +199,7 @@ add_action( 'init', 'state_check' );
 
 
 function get_user_state() {
+  $user_state = '';
   $valid_states = get_all_sportsbook_states();
   if ( isset( $_COOKIE['state_abbr'] ) && array_key_exists( $_COOKIE['state_abbr'], $valid_states) ) {
     $user_state = $_COOKIE['state_abbr'];
