@@ -283,7 +283,7 @@ function sportsbook_promos() {
       $state_display = '';
       $links = [];
       
-      if ( isset( $promos ) ) :
+      if ( is_array( $promos )) :
         foreach ( $promos as $promo ) :
           $display = get_state_from_code( $promo['state'] );
           if ( $user_state === $promo['state'] ) {
