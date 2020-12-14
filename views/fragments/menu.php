@@ -37,7 +37,7 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
                                 <?php 
                                 $valid_states = get_all_sportsbook_states();
                                 foreach( $valid_states as $key => $value ) {
-                                    $url = '/best-books?state_abbr=' . $key;
+                                    $url = '/state?state_abbr=' . $key . '&re=b';
                                     echo '<li><a href="' . esc_url( site_url( $url ) ) . '">' . $value . '</a></li>';
                                 }
                                 ?>

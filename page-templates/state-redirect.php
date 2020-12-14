@@ -8,7 +8,7 @@ if ( isset( $_GET['state_abbr'] ) ) {
   }
 }
 $redirect = site_url('best-books');
-if ( wp_get_referer() ) {
+if ( $_GET['re'] !== 'b' && wp_get_referer() ) {
   if ( stripos( wp_get_referer(), 'odds' ) !== false ) {
     $redirect = wp_get_referer();
   }
