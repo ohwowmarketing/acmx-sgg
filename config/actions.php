@@ -229,7 +229,7 @@ function display_sportsbook( $sb, $user_state ) { ?>
               <div uk-dropdown="mode: click; pos: bottom-justify; boundary: .sbl-item; offset: 5">
                   <ul class="uk-nav uk-dropdown-nav">
                   <?php foreach ( $sb['links'] as $state_code => $state_display ) : ?>
-                      <li><a href="<?php echo esc_url( site_url( '/best-books/?state_abbr=' . $state_code ) ); ?>"><?php echo $state_display; ?></a></li>
+                      <li><a href="<?php echo esc_url( site_url( '/state/?state_abbr=' . $state_code ) ); ?>"><?php echo $state_display; ?></a></li>
                   <?php endforeach; ?>
                   </ul>
               </div>
@@ -374,7 +374,8 @@ function odds_location( $curr_league = 'nfl' ) {
       <div uk-dropdown="mode: click">
         <ul class="uk-nav uk-dropdown-nav">
           <?php foreach ( $valid_states as $state_code => $full_state_name ) : ?>
-            <?php $url = 'checking-location.php?key=odds&league=' . $curr_league . '&state_abbr=' . $state_code ?>
+            <?php /* $url = 'checking-location.php?key=odds&league=' . $curr_league . '&state_abbr=' . $state_code */ ?>
+            <?php $url = 'state/?state_abbr=' . $state_code;  ?>
             <li>
               <a href="<?php echo esc_url( site_url( $url ) ); ?>" target="_self" rel="noopener">
                 <?php echo $full_state_name; ?>
