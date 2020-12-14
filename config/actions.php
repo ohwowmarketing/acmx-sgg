@@ -250,7 +250,7 @@ function get_state_from_code( $code ) {
   return $states[ $code ];
 }
 
-function sportsbook_promos() {
+function sportsbook_promos_ajax() {
   $post = get_post();
   $selected_promo = '';
   if ( isset( $post ) && $post->post_type === 'sportsbooks_reviews' ) {
@@ -316,6 +316,13 @@ function sportsbook_promos() {
     }
   endwhile; 
   wp_reset_query();
+  die();
+}
+add_action( 'wp_ajax_sportsbook_promos', 'sportsbook_promos_ajax' );
+add_action( 'wp_ajax_nopriv_sportsbook_promos', 'sportsbook_promos_ajax' );
+
+function sportsbook_promos() {
+  echo  '<div id="sportsbook-promos-container"></div>';
 }
 add_action( 'sportsbook_promos', 'sportsbook_promos' );
 
