@@ -24,33 +24,6 @@
     }
     footerStack();
 
-
-    // Widget: News
-    // Switch tabs/contents base on Leagues and/or Parent ID
-    jQuery(window).on('load', function() {
-
-        var $body = jQuery('body');
-        // League: NFL
-        if ( $body.hasClass('page-id-23') || $body.hasClass('parent-pageid-23') ) {
-            UIkit.switcher('.widget-league-news').show(0);
-            UIkit.tab('.widget-league-news-tab').show(0);
-        } 
-
-        // League: NBA
-        else if ( $body.hasClass('page-id-25') || $body.hasClass('parent-pageid-25') ) {
-            UIkit.switcher('.widget-league-news').show(1);
-            UIkit.tab('.widget-league-news-tab').show(1);
-        }
-
-        // League: MLB
-        else if ( $body.hasClass('page-id-27') || $body.hasClass('parent-pageid-27') ) {
-            UIkit.switcher('.widget-league-news').show(2);
-            UIkit.tab('.widget-league-news-tab').show(2);
-        }
-
-    });
-
-
     // Cookie Sessions
     // The basic check of site fully loaded
     if(document.readyState === 'complete') {
