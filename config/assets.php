@@ -19,6 +19,7 @@ add_action('wp_enqueue_scripts', function() {
 
     wp_enqueue_style( 'main', _styles.'main.min.css' );
 
+    $postName = '';
     # Not Found
     if ( is_404() ) {
 
@@ -33,7 +34,6 @@ add_action('wp_enqueue_scripts', function() {
 
     # Single | Singular
     elseif ( is_single() ) {
-
         switch ( $post->post_type ) {
 
             case 'sports_guides' : $postName = 'guides'; break;

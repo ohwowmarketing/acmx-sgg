@@ -4,7 +4,23 @@
 //! ===
 
 //* Load All Functions
-$fn_config = [ 'config/actions.php', 'config/assets.php', 'config/acf.php', 'config/controller.php', 'config/yoast.php', 'config/theme.php', 'config/editor.php', 'config/api.php' ];
+$fn_config = [
+    'config/actions.php',
+    'config/assets.php',
+    'config/acf.php',
+    'config/controller.php',
+    'config/yoast.php',
+    'config/theme.php',
+    'config/editor.php',
+    'config/api.php',
+    'config/api/data.php',
+    'config/api/sportsbooks.php',
+    'config/api/news.php',
+    'config/api/odds.php',
+    'config/api/against-the-spread.php',
+    'config/api/futures.php',
+    'config/api/user.php'
+];
 foreach ( $fn_config as $config ) {
 
     if ( ! $files = locate_template( $config ) ) {
