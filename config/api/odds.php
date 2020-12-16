@@ -4,17 +4,11 @@ function odds_table_location( $curr_league = 'nfl' ) {
   $valid_states = get_all_sportsbook_states();
   ?>
   <div class="uk-width-auto@m">
-    <div class="button-select-wrapper">            
-      <?php
-      /*if ( isset( $_COOKIE['state_abbr'] ) && array_key_exists( $_COOKIE['state_abbr'], $valid_states) ) : ?>
-        <button type="button" class="uk-button uk-button-outline"><?php echo $valid_states[ $_COOKIE['state_abbr'] ]; ?></button>
-      <?php else :*/ ?>
-        <button type="button" class="uk-button uk-button-outline">Choose Betting Location</button>
-      <?php /*endif;*/ ?>
+    <div class="button-select-wrapper">
+      <button id="odd-location-btn" type="button" class="uk-button uk-button-outline">Choose Betting Location</button>
       <div uk-dropdown="mode: click">
         <ul class="uk-nav uk-dropdown-nav">
           <?php foreach ( $valid_states as $state_code => $full_state_name ) : ?>
-            <?php /* $url = 'checking-location.php?key=odds&league=' . $curr_league . '&state_abbr=' . $state_code */ ?>
             <?php $url = 'state/?state_abbr=' . $state_code;  ?>
             <li>
               <a href="<?php echo esc_url( site_url( $url ) ); ?>" target="_self" rel="noopener">
@@ -128,7 +122,7 @@ function odds_table_head( $league ) {
           the_post();
           ?>
           <th width="120">
-            <span><?php the_title(); ?></span>
+            <span class="odds-data-sportsbook-title-<?php the_field('sb_odds_id'); ?>"><?php the_title(); ?></span>
           </th>
           <?php
         }
@@ -229,31 +223,31 @@ function odds_table_row_sportsbook_panel_not_found() {
   <?php
 }
 
-function odds_table_row_sportsbook_panel_bookline( $values ) {
+function odds_table_row_sportsbook_panel_bookline( $values, $sportsbook ) {
   if ( $values['spread'] === '' || $values['spread_payout'] === '' ) :
     odds_table_row_sportsbook_panel_not_found();
   else :
   ?>
   <div class="odds-sb-bookline">
-    <span class="sb-bookline-extlink">
+    <a class="sb-bookline-extlink odds-data-sportsbook-<?php echo $sportsbook; ?>" href="#">
         <span class="sb-value-spread">
             <?php echo ($values['spread'] < 0) ? $values['spread'] : '+' . $values['spread']; ?>
             <small class="uk-margin-small-left"><?php echo $values['spread_payout'] ?></small>
         </span>
-        <span class="sb-value-moneyline">
+        <span class="sb-value-moneyline" style="display: none;">
             <?php echo ($values['moneyline'] < 0) ? $values['moneyline'] : '+' . $values['moneyline']; ?>
             <small class="uk-margin-small-left">ML</small>
         </span>
-        <span class="sb-value-total">
+        <span class="sb-value-total" style="display: none;">
             <?php echo ($values['over_under'] < 0) ? $values['over_under'] : '+' . $values['over_under']; ?>
             <small class="uk-margin-small-left"><?php echo $values['over_under_payout'] ?></small>
         </span>
-    </span>
+    </a>
   </div>
   <?php endif;
 }
 
-function odds_table_row_sportsbook_panel_item( $odd ) {
+function odds_table_row_sportsbook_panel_item( $odd, $sportsbook = '' ) {
 
   $away = [
     'spread' => $odd->AwayPointSpread,
@@ -273,8 +267,8 @@ function odds_table_row_sportsbook_panel_item( $odd ) {
   ?>
   <td class="sportsbook-panel">
     <div class="uk-panel">
-      <?php odds_table_row_sportsbook_panel_bookline( $away ); ?>
-      <?php odds_table_row_sportsbook_panel_bookline( $home ); ?>
+      <?php odds_table_row_sportsbook_panel_bookline( $away, $sportsbook ); ?>
+      <?php odds_table_row_sportsbook_panel_bookline( $home, $sportsbook ); ?>
     </div>
   </td>
   <?php
@@ -296,7 +290,7 @@ function odds_table_row_sportsbook_panel( $pregame ) {
     foreach ( $pregame as $odd ) {
       if ( $odd->Sportsbook === get_field('sb_odds_id') ) {
         $found = true;
-        odds_table_row_sportsbook_panel_item( $odd );
+        odds_table_row_sportsbook_panel_item( $odd, $odd->Sportsbook );
       }
     };
     if ( ! $found ) {
@@ -387,3 +381,46 @@ function odds_table_data() {
 }
 add_action( 'wp_ajax_odds_table_data', 'odds_table_data' );
 add_action( 'wp_ajax_nopriv_odds_table_data', 'odds_table_data' );
+
+function odds_user_settings() {
+  if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
+		die( 'Unable to verify sender.' );
+  }
+  $post = get_post();
+  $user_state = get_user_state();
+  if ( $user_state === '' ) {
+    die();
+  }
+
+  $data = [ 'state' => get_state_from_code( $user_state ), 'sportsbooks' => [] ];
+
+  $sportsbooks_query = [
+    'post_type' => 'sportsbooks',
+    'has_password' => false,
+    'posts_per_page' => -1,
+    'order_by' => 'menu_order',
+    'order' => 'asc'
+  ];
+  query_posts( $sportsbooks_query );
+  while ( have_posts() ) {
+    the_post();
+    if ( have_rows( 'promos' ) ) {
+      while ( have_rows( 'promos' ) ) {
+        the_row();
+        if ( $user_state === get_sub_field( 'state' ) ) {
+          $data['sportsbooks'][] = [
+            'id' => get_field( 'sb_odds_id' ),
+            'name' => get_the_title(),
+            'logo' => get_field( 'sb_image' ),
+            'link' => get_sub_field( 'link' )
+          ];
+        }
+      }
+    }
+  }
+  wp_reset_query();
+  echo json_encode( $data );
+  die();
+}
+add_action( 'wp_ajax_odds_user_settings', 'odds_user_settings' );
+add_action( 'wp_ajax_nopriv_odds_user_settings', 'odds_user_settings' );
