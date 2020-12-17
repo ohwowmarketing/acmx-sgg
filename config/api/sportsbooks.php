@@ -62,8 +62,6 @@ function display_sportsbook( $sb, $user_state ) { ?>
   <?php
 }
 
-
-
 function sportsbook_promos_ajax() {
   $post = get_post();
   $selected_promo = '';
@@ -97,8 +95,8 @@ function sportsbook_promos_ajax() {
       $state_display = '';
       $links = [];
       
-      if ( is_array( $promos )) :
-        foreach ( $promos as $promo ) :
+      if ( is_array( $promos )) {
+        foreach ( $promos as $promo ) {
           $display = get_state_from_code( $promo['state'] );
           if ( $user_state === $promo['state'] ) {
             $summary = $promo['summary'];
@@ -108,24 +106,24 @@ function sportsbook_promos_ajax() {
             $state_display = $display;
           }
           $links[ $promo['state'] ] = $display;
-        endforeach;
-      endif;
-      $sb = [
-        'link' => $link,
-        'links' => $links,
-        'state_code' => $state_code,
-        'state_display' => $state_display,
-        'summary' => $summary,
-        'details' => $details,
-        'image_url' => isset($image) ? $image['url'] : '',
-        'image_alt' => isset($image) ? $image['alt'] : '',
-        'review' => ($has_review) ? $review_url : ''
-      ];
-      if (
-        $user_state === '' || 
-        ( $user_state !== '' && $user_state === $sb['state_code'] )
-      ) {
-        display_sportsbook($sb, $user_state);
+        }
+        $sb = [
+          'link' => $link,
+          'links' => $links,
+          'state_code' => $state_code,
+          'state_display' => $state_display,
+          'summary' => $summary,
+          'details' => $details,
+          'image_url' => isset($image) ? $image['url'] : '',
+          'image_alt' => isset($image) ? $image['alt'] : '',
+          'review' => ($has_review) ? $review_url : ''
+        ];
+        if (
+          $user_state === '' || 
+          ( $user_state !== '' && $user_state === $sb['state_code'] )
+        ) {
+          display_sportsbook($sb, $user_state);
+        }
       }
     }
   endwhile; 
