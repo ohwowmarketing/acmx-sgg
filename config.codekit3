@@ -549,6 +549,62 @@
 		"oAP": "/config/api.php",
 		"oF": 0
 		},
+	"/config/api/against-the-spread.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/config/api/against-the-spread.php",
+		"oF": 0
+		},
+	"/config/api/data.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/config/api/data.php",
+		"oF": 0
+		},
+	"/config/api/futures.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/config/api/futures.php",
+		"oF": 0
+		},
+	"/config/api/news.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/config/api/news.php",
+		"oF": 0
+		},
+	"/config/api/odds.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/config/api/odds.php",
+		"oF": 0
+		},
+	"/config/api/sportsbooks.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/config/api/sportsbooks.php",
+		"oF": 0
+		},
+	"/config/api/user.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/config/api/user.php",
+		"oF": 0
+		},
 	"/config/assets.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -627,6 +683,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/index.php",
+		"oF": 0
+		},
+	"/page-templates/state-redirect.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/page-templates/state-redirect.php",
 		"oF": 0
 		},
 	"/page.php": {
@@ -1091,6 +1155,61 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "/resources/scripts/main.min.min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"/resources/scripts/sgg/futures.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/resources/scripts/futures.min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"/resources/scripts/sgg/news.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/resources/scripts/news.min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"/resources/scripts/sgg/odds.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/resources/scripts/odds.min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"/resources/scripts/sgg/promos.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/resources/scripts/promos.min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"/resources/scripts/sgg/spread.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/resources/scripts/spread.min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
@@ -1620,30 +1739,6 @@
 		"oAP": "/views/widgets/news.php",
 		"oF": 0
 		},
-	"/views/widgets/odds-mlb.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/views/widgets/odds-mlb.php",
-		"oF": 0
-		},
-	"/views/widgets/odds-nba.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/views/widgets/odds-nba.php",
-		"oF": 0
-		},
-	"/views/widgets/odds-nfl.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/views/widgets/odds-nfl.php",
-		"oF": 0
-		},
 	"/views/widgets/oddsAjaxInc.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -1658,30 +1753,6 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/views/widgets/oddslines.php",
-		"oF": 0
-		},
-	"/views/widgets/sportsbooks-alt.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/views/widgets/sportsbooks-alt.php",
-		"oF": 0
-		},
-	"/views/widgets/sportsbooks-reviews.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/views/widgets/sportsbooks-reviews.php",
-		"oF": 0
-		},
-	"/views/widgets/sportsbooks.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/views/widgets/sportsbooks.php",
 		"oF": 0
 		}
 	},

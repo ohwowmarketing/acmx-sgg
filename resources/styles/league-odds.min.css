@@ -290,7 +290,7 @@
 
 .odds-locations .uk-subnav-pill > .uk-active > a {
   background: #00A305;
-  color: #FFF;
+  color: #fff;
 }
 .odds-locations .uk-subnav-pill > li > a {
   font-family: OpenSans-SemiBold;
@@ -306,7 +306,7 @@
   margin-top: 0;
 }
 .odds-locations .uk-button-outline {
-  background: #FFF url(../images/ui/arrow-down.png) no-repeat 95% center/8px auto;
+  background: #fff url(../images/ui/arrow-down.png) no-repeat 95% center/8px auto;
   text-align: left;
   text-transform: capitalize;
   line-height: normal;
@@ -329,7 +329,7 @@
   border-radius: 0 0 3px 3px;
   border: 1px solid #E1E2E9;
   overflow: hidden;
-  z-index: 1;
+  z-index: 2;
 }
 .odds-locations .uk-dropdown li > a {
   padding: 12px;
@@ -337,7 +337,7 @@
 }
 .odds-locations .uk-dropdown li > a:focus, .odds-locations .uk-dropdown li > a:hover {
   background: #00A305;
-  color: #FFF;
+  color: #fff;
 }
 @media (min-width: 640px) {
   .odds-locations .uk-button-outline {
