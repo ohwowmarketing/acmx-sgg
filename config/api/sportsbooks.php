@@ -24,6 +24,31 @@ function get_all_sportsbook_states() {
   return $all_states;
 }
 
+function sportsbook_location_selection() {
+  $valid_states = get_all_sportsbook_states();
+  ?>
+  <div uk-grid class="uk-flex uk-flex-right">
+    <div class="uk-width-auto@m">
+      <div class="button-select-wrapper">
+        <button id="odd-location-btn" type="button" class="uk-button uk-button-outline">Choose Location</button>
+        <div uk-dropdown="mode: click">
+          <ul class="uk-nav uk-dropdown-nav">
+            <?php foreach ( $valid_states as $state_code => $full_state_name ) : ?>
+              <?php $url = 'state/?state_abbr=' . $state_code;  ?>
+              <li>
+                <a href="<?php echo esc_url( site_url( $url ) ); ?>" target="_self" rel="noopener">
+                  <?php echo $full_state_name; ?>
+                </a>
+              </li>                    
+            <?php endforeach; ?>
+          </ul>
+        </div>
+      </div> 
+    </div>
+  </div>
+  <?php
+}
+
 function display_sportsbook( $sb, $user_state ) { ?>
   <ul>
       <li class="sbl-sportsbook">
@@ -63,6 +88,7 @@ function display_sportsbook( $sb, $user_state ) { ?>
 }
 
 function sportsbook_promos_ajax() {
+  $sbs = [];
   $post = get_post();
   $selected_promo = '';
   if ( isset( $post ) && $post->post_type === 'sportsbooks_reviews' ) {
@@ -78,7 +104,8 @@ function sportsbook_promos_ajax() {
   ];
   query_posts( $sportsbooks );
 
-  while ( have_posts() ) : the_post();
+  while ( have_posts() ) {
+    the_post();
     $sportsbook_title = strtolower( get_the_title() );
     if ( 
       $selected_promo === '' ||
@@ -95,7 +122,7 @@ function sportsbook_promos_ajax() {
       $state_display = '';
       $links = [];
       
-      if ( is_array( $promos )) {
+      if ( is_array( $promos ) ) {
         foreach ( $promos as $promo ) {
           $display = get_state_from_code( $promo['state'] );
           if ( $user_state === $promo['state'] ) {
@@ -107,7 +134,7 @@ function sportsbook_promos_ajax() {
           }
           $links[ $promo['state'] ] = $display;
         }
-        $sb = [
+        $sbs[] = [
           'link' => $link,
           'links' => $links,
           'state_code' => $state_code,
@@ -118,22 +145,37 @@ function sportsbook_promos_ajax() {
           'image_alt' => isset($image) ? $image['alt'] : '',
           'review' => ($has_review) ? $review_url : ''
         ];
-        if (
-          $user_state === '' || 
-          ( $user_state !== '' && $user_state === $sb['state_code'] )
-        ) {
-          display_sportsbook($sb, $user_state);
-        }
       }
     }
-  endwhile; 
+  }
   wp_reset_query();
+  ?>
+  <div class="uk-card uk-card-default uk-card-body" data-card="sportsbooks">
+    <div class="uk-flex uk-flex-between _headings">
+      <h1 class="uk-card-title">Best Sportsbooks</h1>
+    </div>
+    <?php if ( $user_state !== '') : ?>
+      <div class="uk-flex uk-flex-right uk-margin-bottom">
+        <?php sportsbook_location_selection(); ?>
+      </div>
+    <?php endif; ?>
+    <div class="sportsbooks-lists _alt">
+      <?php 
+      foreach ( $sbs as $sb ) {
+        if ( $user_state === '' || ( $user_state !== '' && $user_state === $sb['state_code'] ) ) {
+          display_sportsbook( $sb, $user_state );
+        }
+      }
+      ?>
+    </div>
+  </div>
+  <?php
   die();
 }
 add_action( 'wp_ajax_sportsbook_promos', 'sportsbook_promos_ajax' );
 add_action( 'wp_ajax_nopriv_sportsbook_promos', 'sportsbook_promos_ajax' );
 
 function sportsbook_promos() {
-  echo  '<div id="sportsbook-promos-container"></div>';
+  echo  '<div id="sportsbook-promos-container"><div uk-spinner="ratio: 0.5" class="uk-margin-bottom uk-margin-top"></div></div>';
 }
 add_action( 'sportsbook_promos', 'sportsbook_promos' );

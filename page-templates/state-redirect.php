@@ -8,10 +8,8 @@ if ( isset( $_GET['state_abbr'] ) ) {
   }
 }
 $redirect = site_url('best-books');
-if ( $_GET['re'] !== 'b' && wp_get_referer() ) {
-  if ( stripos( wp_get_referer(), 'odds' ) !== false ) {
-    $redirect = wp_get_referer();
-  }
+if ( wp_get_referer() ) {
+  $redirect = wp_get_referer();
 }
 wp_safe_redirect( $redirect );
 ?>
