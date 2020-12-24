@@ -30,20 +30,7 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
                 <?php // wp_nav_menu( $hdrMenu ); ?>
                 <ul class="uk-navbar-nav uk-visible@l">
                     <li><a href="<?php echo esc_url( home_url() ); ?>">Home</a></li>
-                    <li class="uk-parent">
-                        <a href="#">Best Books</a>
-                        <div class="uk-navbar-dropdown uk-dropdown">
-                            <ul class="uk-nav uk-navbar-dropdown-nav">
-                                <?php 
-                                $valid_states = get_all_sportsbook_states();
-                                foreach( $valid_states as $key => $value ) {
-                                    $url = '/state?state_abbr=' . $key . '&re=b';
-                                    echo '<li><a href="' . esc_url( site_url( $url ) ) . '">' . $value . '</a></li>';
-                                }
-                                ?>
-                            </ul>
-                        </div>
-                    </li>
+                    <li><a href="<?php echo esc_url( site_url('best-books') ); ?>">Best Books</a></li>
                     <li class="uk-parent">
                         <a href="#">Live Odds</a>
                         <div class="uk-navbar-dropdown uk-dropdown">
