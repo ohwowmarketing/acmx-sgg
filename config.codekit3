@@ -876,6 +876,72 @@
 		"opt": 0,
 		"q": 100
 		},
+	"/resources/images/promo/sggplayoffs/football/lplayer.png": {
+		"ft": 32768,
+		"iS": 64408,
+		"oA": 0,
+		"oAP": "/resources/images/promo/sggplayoffs/football/lplayer.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/resources/images/promo/sggplayoffs/football/player-left-sm.png": {
+		"ft": 32768,
+		"iS": 117707,
+		"oA": 0,
+		"oAP": "/resources/images/promo/sggplayoffs/football/player-left-sm.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/resources/images/promo/sggplayoffs/football/player-left.png": {
+		"ft": 32768,
+		"iS": 150283,
+		"oA": 0,
+		"oAP": "/resources/images/promo/sggplayoffs/football/player-left.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/resources/images/promo/sggplayoffs/football/player-right-sm.png": {
+		"ft": 32768,
+		"iS": 121500,
+		"oA": 0,
+		"oAP": "/resources/images/promo/sggplayoffs/football/player-right-sm.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/resources/images/promo/sggplayoffs/football/player-right.png": {
+		"ft": 32768,
+		"iS": 165030,
+		"oA": 0,
+		"oAP": "/resources/images/promo/sggplayoffs/football/player-right.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/resources/images/promo/sggplayoffs/football/rplayer.png": {
+		"ft": 32768,
+		"iS": 66783,
+		"oA": 0,
+		"oAP": "/resources/images/promo/sggplayoffs/football/rplayer.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
 	"/resources/images/site-SGG-favicon-alt.png": {
 		"ft": 32768,
 		"iS": 0,
@@ -1478,6 +1544,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/views/fragments/mobile.php",
+		"oF": 0
+		},
+	"/views/fragments/promo.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/views/fragments/promo.php",
 		"oF": 0
 		},
 	"/views/fragments/router.php": {

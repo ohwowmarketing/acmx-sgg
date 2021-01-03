@@ -7,5 +7,6 @@
 </head>
 <body <?php body_class(); ?>>
 <?php
+    get_template_part( _promo );
     get_template_part( _nav );
     get_template_part( _hdr );

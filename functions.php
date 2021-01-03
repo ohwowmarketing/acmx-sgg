@@ -48,6 +48,7 @@ define ( '_terms',   'views/taxonomies/' );
 define ( '_article', 'views/taxonomies/leagues-news' );
 // define ( '_article', 'views/taxonomies/league-article' );
 
+define ( '_promo', 'views/fragments/promo' );
 define ( '_nav', 'views/fragments/menu' );
 define ( '_hdr', 'views/fragments/header' );
 define ( '_ftr', 'views/fragments/footer' );
