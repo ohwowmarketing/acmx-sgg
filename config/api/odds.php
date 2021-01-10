@@ -386,6 +386,7 @@ function odds_user_settings() {
   if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
 		die( 'Unable to verify sender.' );
   }
+  
   $post = get_post();
   $user_state = get_user_state();
   if ( $user_state === '' ) {

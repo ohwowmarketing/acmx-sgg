@@ -50,11 +50,14 @@ function api_data_odds_nfl_current_week() {
 }
 
 function api_data_odds_nfl_selected_week( $season, $week ) {
-  $selected = $season . '/' . $week;
-  if ( $week > 17 ) {
-    $post_week = $week - 17;
-    $selected = $season . 'POST/' . $post_week;
-  }
+  // $selected = $season . '/' . $week;
+  // if ( $week > 17 ) {
+  //   $post_week = $week - 17;
+  //   $selected = $season . 'POST/' . $post_week;
+  // }
+
+  $selected = $season . 'POST/' . $week;
+
   return $selected;
 }
 
