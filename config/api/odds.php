@@ -413,6 +413,7 @@ function odds_user_settings() {
             'id' => get_field( 'sb_odds_id' ),
             'name' => get_the_title(),
             'logo' => get_field( 'sb_image' ),
+            'badge' => get_field( 'badge' ),
             'link' => get_sub_field( 'link' )
           ];
         }
