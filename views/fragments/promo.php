@@ -25,7 +25,7 @@
           </a>
         </p>
         <p>
-          <a href="https://sggplayoffs.com" role="button" type="button" class="uk-button uk-button-primarys" style="padding: 5px 10px; border-radius: 3px; background-color: #00A305; color: #FFF; font-size: .7rem; line-height: .9rem;">Create Your Bracket</a>
+          <a href="https://sggplayoffs.com" role="button" type="button" class="uk-button uk-button-primarys" style="padding: 5px 10px; border-radius: 3px; background-color: #00A305; color: #FFF; font-size: .7rem; line-height: .9rem;">Sign In | Check Leaderboard</a>
         </p>
       </div>
     </div>
