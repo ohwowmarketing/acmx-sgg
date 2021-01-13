@@ -57,6 +57,8 @@
                 <div class="uk-card uk-card-default uk-card-body" data-card="content">
                     <?php the_content(); ?>
                 </div>
+
+                <div id="state-best-book-section"></div>
                 
             </div>
 

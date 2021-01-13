@@ -179,3 +179,24 @@ function sportsbook_promos() {
   echo  '<div id="sportsbook-promos-container"><div uk-spinner="ratio: 0.5" class="uk-margin-bottom uk-margin-top"></div></div>';
 }
 add_action( 'sportsbook_promos', 'sportsbook_promos' );
+
+function sportsbook_state_section_ajax() {
+  if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
+		die( 'Unable to verify sender.' );
+  }
+  $user_state = get_user_state();
+  if ( $user_state === '' ) {
+    die();
+  }
+  if ( have_rows( 'state_section', 6 ) ) {
+    while ( have_rows( 'state_section', 6 ) ) {
+      the_row();
+      if ( get_sub_field( 'state' ) === $user_state ) {
+        the_sub_field( 'section' );
+      }
+    }
+  }
+  die();
+}
+add_action( 'wp_ajax_sportsbook_state_section', 'sportsbook_state_section_ajax' );
+add_action( 'wp_ajax_nopriv_sportsbook_state_section', 'sportsbook_state_section_ajax' );
