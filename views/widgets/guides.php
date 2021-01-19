@@ -1,4 +1,4 @@
-<?php $guides = ['post_type'=>'sports_guides','has_password'=>false,'posts_per_page'=>5,'order'=>'desc'];
+<?php $guides = ['post_type'=>'sports_guides','post_status'=>'publish','has_password'=>false,'posts_per_page'=>5,'orderby'=>'menu_order','order'=>'ASC'];
 query_posts( $guides ); ?>
 <div class="uk-card uk-card-default uk-card-body" data-card="guides">
     <h1 class="uk-card-title"><?php the_field('widget_title_guides', 'option'); ?></h1>
