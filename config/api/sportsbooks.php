@@ -5,8 +5,8 @@ function get_all_sportsbook_states() {
     'post_type' => 'sportsbooks',
     'has_password' => false,
     'posts_per_page' => -1,
-    'order_by' => 'menu_order',
-    'order' => 'asc'
+    'orderby' => 'menu_order',
+    'order' => 'ASC'
   ];
   query_posts( $sportsbooks );
   while ( have_posts() ) {
@@ -99,8 +99,8 @@ function sportsbook_promos_ajax() {
     'post_type' => 'sportsbooks',
     'has_password' => false,
     'posts_per_page' => -1,
-    'order_by' => 'menu_order',
-    'order' => 'asc'
+    'orderby' => 'menu_order',
+    'order' => 'ASC'
   ];
   query_posts( $sportsbooks );
 

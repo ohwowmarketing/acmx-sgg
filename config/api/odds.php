@@ -114,7 +114,7 @@ function odds_table_head( $league ) {
           'post_type' => 'sportsbooks',
           'has_password' => false,
           'posts_per_page' => -1,
-          'order_by' => 'menu_order',
+          'orderby' => 'menu_order',
           'order' => 'asc'
         ];
         query_posts( $sportsbook_query );
@@ -280,8 +280,8 @@ function odds_table_row_sportsbook_panel( $pregame ) {
     'post_type' => 'sportsbooks',
     'has_password' => false,
     'posts_per_page' => -1,
-    'order_by' => 'menu_order',
-    'order' => 'asc'
+    'orderby' => 'menu_order',
+    'order' => 'ASC'
   ];
   query_posts( $sportsbooks );
   while ( have_posts() ) {
@@ -399,8 +399,8 @@ function odds_user_settings() {
     'post_type' => 'sportsbooks',
     'has_password' => false,
     'posts_per_page' => -1,
-    'order_by' => 'menu_order',
-    'order' => 'asc'
+    'orderby' => 'menu_order',
+    'order' => 'ASC'
   ];
   query_posts( $sportsbooks_query );
   while ( have_posts() ) {
