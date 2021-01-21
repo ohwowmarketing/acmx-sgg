@@ -3,7 +3,9 @@
         <div class="uk-grid-small" uk-grid>
             <div class="uk-width-expand@l">
                 <div class="uk-card uk-card-default uk-card-body" data-card="leaderboard">
-                    <img src="<?php echo get_template_directory_uri(); ?>/resources/images/sportsbooks/dk-leaderboard.gif" style="width: 100%" alt="Draft Kings Sportsbook Promotion" />
+                    <a href="https://sportsbook.draftkings.com/1000-deposit-bonus?referrer=singular_click_id%3d80c5de1c-7e32-4549-b81f-faf88a0c2eb5&wpcid=124180&wpcn=1000DB&wpcrid=&wpsrc=Sports+Gambling+Guides">
+                        <img src="<?php echo get_template_directory_uri(); ?>/resources/images/sportsbooks/dk-leaderboard.gif" style="width: 100%; border: none;" alt="Draft Kings Sportsbook Promotion" />
+                    </a>
                 </div>
                 <?php get_template_part( widget . 'oddslines' ); ?>
                 <?php do_action('sportsbook_promos'); ?>
