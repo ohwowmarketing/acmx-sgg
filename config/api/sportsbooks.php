@@ -24,13 +24,13 @@ function get_all_sportsbook_states() {
   return $all_states;
 }
 
-function sportsbook_location_selection() {
+function sportsbook_location_selection( $user_state ) {
   $valid_states = get_all_sportsbook_states();
   ?>
   <div uk-grid class="uk-flex uk-flex-right">
     <div class="uk-width-auto@m">
       <div class="button-select-wrapper">
-        <button id="odd-location-btn" type="button" class="uk-button uk-button-outline">Choose Location</button>
+        <button id="odd-location-btn" type="button" class="uk-button uk-button-outline"><?php echo get_state_from_code( $user_state ); ?></button>
         <div uk-dropdown="mode: click">
           <ul class="uk-nav uk-dropdown-nav">
             <?php foreach ( $valid_states as $state_code => $full_state_name ) : ?>
@@ -156,7 +156,7 @@ function sportsbook_promos_ajax() {
     </div>
     <?php if ( $user_state !== '') : ?>
       <div class="uk-flex uk-flex-right uk-margin-bottom">
-        <?php sportsbook_location_selection(); ?>
+        <?php sportsbook_location_selection( $user_state ); ?>
       </div>
     <?php endif; ?>
     <div class="sportsbooks-lists _alt">
