@@ -36,7 +36,7 @@ function future_thead( $meta, $sportsbooks ) {
   $out .= '</div>
     </th>';
   foreach ( $sportsbooks as $sportsbook ) {
-    $out .= '<th width="120"><span>' . $sportsbook . '</span></th>';
+    $out .= '<th width="120"><span class="futures-data-sportsbook-title-' . $sportsbook . '">' . $sportsbook . '</span></th>';
   }
   $out .= '</tr>
   </thead>';
@@ -44,12 +44,16 @@ function future_thead( $meta, $sportsbooks ) {
 }
 
 function future_tbody( $rows, $sportsbooks ) {
+  if (count($rows) < 1) {
+    return '';
+  }
   $out = '<tbody>';
   foreach ( $rows as $row ) {
+    
     $out .= '<tr>';
     $out .= future_participant_td( $row->display, $row->logo );
     foreach( $sportsbooks as $sportsbook ) {
-      $out .= future_sportsbook_td( $row->participantBets->{$sportsbook} );
+      $out .= future_sportsbook_td( $sportsbook, $row->participantBets->{$sportsbook} );
     }
     $out .= '</tr>';
   }
@@ -69,13 +73,15 @@ function future_participant_td( $display, $logo ) {
   return $out;
 }
 
-function future_sportsbook_td( $sportsbook ) {
+function future_sportsbook_td( $sportsbook, $payouts ) {
   $out = '<td class="sportsbook-panel">
     <div class="uk-panel">
       <div class="odds-sb-bookline">
-        <span class="sb-bookline-extlink">
+        <span class="sb-bookline-extlink futures-data-sportsbook-';
+  $out .= $sportsbook;
+  $out .= '">
           <span>';
-  $out .= future_sportsbook_payout( $sportsbook );
+  $out .= future_sportsbook_payout( $payouts );
   $out .= '</span>
         </span>
       </div>
@@ -168,25 +174,101 @@ function api_future_ajax() {
   $url = 'https://sgg.vercel.app/api/' . $_POST['league'] . '/future/' . $_POST['future'];
   $data = api_data( $url );
   if ( ! isset( $data ) ) {
-    echo '<div class="uk-placeholder uk-text-center uk-text-meta uk-text-uppercase _notice"> <span uk-icon="warning"></span> Futures are currently unavailable.</div>';
+    echo '<div class="uk-placeholder uk-text-center uk-text-meta uk-text-uppercase _notice"> <span uk-icon="warning"></span> Please refresh the page.</div>';
     die();
   }
+  // Sort Sportsbooks by WP menu order
   if ( !in_array( 'Consensus', $data->sportsbooks ) ) {
-    $sportsbooks = array_merge(['Consensus'], $data->sportsbooks);
+    $sportsbooksWithConsensus = array_merge(['Consensus'], $data->sportsbooks);
   } else {
-    $sportsbooks = $data->sportsbooks;
+    $sportsbooksWithConsensus = $data->sportsbooks;
   }
+  $sportsbooksQuery = [
+    'post_type' => 'sportsbooks',
+    'has_password' => false,
+    'posts_per_page' => -1,
+    'orderby' => 'menu_order',
+    'order' => 'ASC'
+  ];
+  query_posts( $sportsbooksQuery );
+  $orderedSportsbooks = ['Consensus'];
+  while ( have_posts() ) {
+    the_post();
+    if (get_field('futures_display')) {
+      $orderedSportsbooks[] = get_field('sb_odds_id');
+    }
+  }
+  wp_reset_query();
+
+  
+
+  $sportsbooks = [];
+  foreach ( $orderedSportsbooks as $orderedSportsbook ) {
+    if ( in_array( $orderedSportsbook, $sportsbooksWithConsensus ) ) {
+      for ( $i = 0; $i < count($sportsbooksWithConsensus); $i++ )  {
+        if ( $sportsbooksWithConsensus[$i] === $orderedSportsbook ) {
+          $sportsbooks[] = $orderedSportsbook;
+        }
+      }
+    }
+  }
+
   $out = '';
-  $out .= future_thead( $data->meta, $data->sportsbooks );
-  $out .= future_tbody( $data->rows, $data->sportsbooks );
+  $out .= future_thead( $data->meta, $sportsbooks );
+  $out .= future_tbody( $data->rows, $sportsbooks );
   if ( $out !== '' ) {
     $minutes = 10;
     $seconds = 60;
     $cache_time = $minutes * $seconds;
-    set_transient( 'sgg_api_future_' . $_POST['league'] . '_market_' . $_POST['future'], $out, $cache_time );
+    // set_transient( 'sgg_api_future_' . $_POST['league'] . '_market_' . $_POST['future'], $out, $cache_time );
     echo $out;
   }
   die();
 }
 add_action( 'wp_ajax_api_future', 'api_future_ajax' );
 add_action( 'wp_ajax_nopriv_api_future', 'api_future_ajax' );
+
+function futures_user_settings() {
+  if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
+		die( 'Unable to verify sender.' );
+  }
+  
+  $post = get_post();
+  $user_state = get_user_state();
+  if ( $user_state === '' ) {
+    die();
+  }
+
+  $data = [ 'state' => get_state_from_code( $user_state ), 'sportsbooks' => [] ];
+
+  $sportsbooks_query = [
+    'post_type' => 'sportsbooks',
+    'has_password' => false,
+    'posts_per_page' => -1,
+    'orderby' => 'menu_order',
+    'order' => 'ASC'
+  ];
+  query_posts( $sportsbooks_query );
+  while ( have_posts() ) {
+    the_post();
+    if ( have_rows( 'promos' ) ) {
+      while ( have_rows( 'promos' ) ) {
+        the_row();
+        if ( $user_state === get_sub_field( 'state' ) ) {
+          $data['sportsbooks'][] = [
+            'id' => get_field( 'sb_odds_id' ),
+            'name' => get_the_title(),
+            'logo' => get_field( 'sb_image' ),
+            'badge' => get_field( 'badge' ),
+            'link' => get_sub_field( 'link' )
+          ];
+        }
+      }
+    }
+  }
+  wp_reset_query();
+  echo json_encode( $data );
+  die();
+}
+add_action( 'wp_ajax_futures_user_settings', 'futures_user_settings' );
+add_action( 'wp_ajax_nopriv_futures_user_settings', 'futures_user_settings' );
