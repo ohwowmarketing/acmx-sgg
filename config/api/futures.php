@@ -220,7 +220,7 @@ function api_future_ajax() {
     $minutes = 10;
     $seconds = 60;
     $cache_time = $minutes * $seconds;
-    // set_transient( 'sgg_api_future_' . $_POST['league'] . '_market_' . $_POST['future'], $out, $cache_time );
+    set_transient( 'sgg_api_future_' . $_POST['league'] . '_market_' . $_POST['future'], $out, $cache_time );
     echo $out;
   }
   die();
