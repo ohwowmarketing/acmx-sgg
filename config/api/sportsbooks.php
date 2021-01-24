@@ -53,7 +53,7 @@ function display_sportsbook( $sb, $user_state ) { ?>
   <ul>
       <li class="sbl-sportsbook">
           <div class="sbl-item">
-              <img src="<?php echo $sb['image_url']; ?>" alt="<?php echo $sb['image_alt']; ?>">
+              <a href="<?php echo $sb['link']; ?>"><img src="<?php echo $sb['image_url']; ?>" alt="<?php echo $sb['image_alt']; ?>"></a>
           </div>
       </li>
       <li class="sbl-offers">
