@@ -47,7 +47,7 @@ jQuery(document).ready(function ($) {
         if (json_data.length) {
           const data = JSON.parse(json_data);
           if (data.state) {
-            // $('#futures-location-btn').html(data.state);
+            $('#futures-location-btn').html(data.state);
             data.sportsbooks.map((sportsbook) => {
               $(`.futures-data-sportsbook-${sportsbook.id}`).each(function () {
                 $(this).append('<span class="sb-extlink-hover"><svg viewBox="0 0 24 24" width="15" height="15" xmlns="https://www.w3.org/2000/svg" class="" fill="#F7F8FD"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"></path></svg><span>Bet Now</span></span>');

@@ -1,4 +1,28 @@
 <?php
+function futures_table_location( $curr_league = 'nfl' ) {
+  $curr_league = strtolower( $curr_league );
+  $valid_states = get_all_sportsbook_states();
+  ?>
+  <div class="uk-width-auto@m">
+    <div class="button-select-wrapper">
+      <button id="futures-location-btn" type="button" class="uk-button uk-button-outline">Choose Betting Location</button>
+      <div uk-dropdown="mode: click">
+        <ul class="uk-nav uk-dropdown-nav">
+          <?php foreach ( $valid_states as $state_code => $full_state_name ) : ?>
+            <?php $url = 'state/?state_abbr=' . $state_code;  ?>
+            <li>
+              <a href="<?php echo esc_url( site_url( $url ) ); ?>" target="_self" rel="noopener">
+                <?php echo $full_state_name; ?>
+              </a>
+            </li>                    
+          <?php endforeach; ?>
+        </ul>
+      </div>
+    </div> 
+  </div>
+  <?php
+}
+
 function api_market_ajax() {
   if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
 		die( 'Unable to verify sender.' );
@@ -173,8 +197,8 @@ function api_future_ajax() {
 
   $url = 'https://sgg.vercel.app/api/' . $_POST['league'] . '/future/' . $_POST['future'];
   $data = api_data( $url );
-  if ( ! isset( $data ) ) {
-    echo '<div class="uk-placeholder uk-text-center uk-text-meta uk-text-uppercase _notice"> <span uk-icon="warning"></span> Please refresh the page.</div>';
+  if ( !isset( $data ) ) {
+    echo '<div class="uk-placeholder uk-text-center uk-text-meta uk-text-uppercase _notice"> <span uk-icon="warning"></span> Please refresh the page.<br /><a href="' . get_permalink() . '" id="futures-location-btn" type="button" class="uk-button uk-button-default">Refresh</a></div>';
     die();
   }
   // Sort Sportsbooks by WP menu order
