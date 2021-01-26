@@ -997,6 +997,14 @@
 		"opt": 0,
 		"q": 100
 		},
+	"/resources/images/sportsbooks/dk-leaderboard.gif": {
+		"ft": 4194304,
+		"iS": 36788,
+		"oA": 0,
+		"oAP": "/resources/images/sportsbooks/dk-leaderboard.gif",
+		"oF": 0,
+		"opt": 0
+		},
 	"/resources/images/sportsbooks/unibet.jpg": {
 		"ft": 16384,
 		"iS": 7144,
@@ -1221,6 +1229,17 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "/resources/scripts/main.min.min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"/resources/scripts/sgg/bestbooks.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/resources/scripts/bestbooks.min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
