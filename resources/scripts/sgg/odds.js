@@ -23,6 +23,7 @@ jQuery(document).ready(function ($) {
       function (data) {
         $('#odds-list-body').html(data);
         updateOddsValueDisplay($('#odds-type-selection :selected').val());
+        updateUserSpecificSettings();
       }
     );
   }
