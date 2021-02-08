@@ -870,6 +870,7 @@ address {
 .wpforms-newsletter .wpforms-field-container input[type=email].wpforms-error,
 .wpforms-newsletter .wpforms-field-container input[type=tel].wpforms-error,
 .wpforms-newsletter .wpforms-field-container textarea.wpforms-error {
+  background-color: rgba(216, 80, 48, 0.15) !important;
   border-color: #D85030 !important;
 }
 .wpforms-newsletter .wpforms-field-container .wpforms-field-checkbox ul li {
@@ -879,13 +880,16 @@ address {
 }
 .wpforms-newsletter .wpforms-field-container .wpforms-field-checkbox ul input {
   position: relative;
-  top: 2px;
+  top: 0;
 }
 .wpforms-newsletter .wpforms-field-container .wpforms-field-checkbox ul label {
   font-size: 14px !important;
 }
 .wpforms-newsletter .wpforms-field-container label.wpforms-error {
   display: none !important;
+}
+.wpforms-newsletter .wpforms-field-container .wpforms-error + label {
+  color: #D85030 !important;
 }
 @media (min-width: 640px) {
   .wpforms-newsletter .wpforms-field-container .wpforms-field {

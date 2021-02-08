@@ -151,6 +151,7 @@
             appearance: none !important;
 
             &.wpforms-error {
+                background-color: rgba($dangered, .15) !important;
                 border-color: $dangered !important;
             }
         }
@@ -164,7 +165,7 @@
 
             ul input {
                 position: relative;
-                top: 2px;
+                top: 0;
             }
 
             ul label {
@@ -174,6 +175,10 @@
 
         label.wpforms-error {
             display: none !important;
+        }
+
+        .wpforms-error + label {
+            color: $dangered !important;
         }
 
         @media ( min-width: 640px ) {
