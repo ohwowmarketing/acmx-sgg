@@ -512,7 +512,7 @@ function odds_header_data() {
   die();
 
 }
-add_action( 'wp_ajax_odds_header_data', 'odds_header_datas' );
+add_action( 'wp_ajax_odds_header_data', 'odds_header_data' );
 add_action( 'wp_ajax_nopriv_odds_header_data', 'odds_header_data' );
 
 function odds_header() {
