@@ -7,7 +7,11 @@
 </head>
 <body <?php body_class(); ?>>
 <?php
-    // do_action( 'odds_header' );
+    global $post;
+    $post_slug = $post->post_name;
+    if ($post_slug === 'header-test') {
+        do_action( 'odds_header' );
+    }
     get_template_part( _promo );
     get_template_part( _nav );
     get_template_part( _hdr );
