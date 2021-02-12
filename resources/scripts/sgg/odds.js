@@ -105,6 +105,15 @@ jQuery(document).ready(function ($) {
     )
   }
 
+  $('body').on('DOMSubtreeModified', '#dateOdds', function () {
+    if ($('#dateOdds').html() !== '') {
+      var currDate = new Date()
+      var fullDate = $('#dateOdds').html() + ', ' + currDate.getFullYear()
+      var isoDate = new Date(fullDate).toISOString().split('T')[0]
+      updateOddsData(isoDate)
+    }
+  })
+
   if ($('#odds-list-body').length) {
     if ($('#odds-type-selection').length) {
       $('#odds-type-selection').on('change', function () {

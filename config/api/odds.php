@@ -64,9 +64,9 @@ function odds_table_schedule( $league = 'nfl', $week = '', $season = '' ) {
   <?php else : ?>
     <div class="odds-schedule">
       <div>
-        <button type="button" onclick="updateDateChange(false);" class="uk-icon-link _prevDay" uk-icon="triangle-left"></button>
+        <button type="button" class="uk-icon-link _prevDay" uk-icon="triangle-left"></button>
         <span id="dateOdds"></span>
-        <button type="button" onclick="updateDateChange(true);" class="uk-icon-link _nextDay" uk-icon="triangle-right"></button>
+        <button type="button" class="uk-icon-link _nextDay" uk-icon="triangle-right"></button>
       </div>
     </div>
   <?php endif;
@@ -139,7 +139,7 @@ function odds_table_row_date_status( $date_time, $status ) {
   <tr class="schedule-row">
     <td colspan="1" class="schedule-panel">
       <div>
-        <?php echo $d->format( 'D n/d, g:i A' ); ?> | <?php echo 'Status: ' . $status; ?>
+        <?php echo $d->format( 'D n/d, g:i A' ); ?> | <?php echo $status; ?>
       </div>
     </td>
     <td colspan="6">
@@ -150,11 +150,14 @@ function odds_table_row_date_status( $date_time, $status ) {
 }
 
 function odds_table_row_team_by_id( $id, $teams ) {
-  foreach ( $teams as $team ) {
-    if ( isset( $team->TeamID ) && (string) $id === (string) $team->TeamID ) {
-      return [ 'name' => $team->Name, 'logo' => $team->WikipediaLogoUrl ];
+  if ( isset( $id ) && is_numeric( $id ) ) {
+    foreach ( $teams as $team ) {
+      if ( isset( $team->TeamID ) && (string) $id === (string) $team->TeamID ) {
+        return [ 'name' => $team->Name, 'logo' => $team->WikipediaLogoUrl ];
+      }
     }
   }
+  
   return NULL;
 }
 
@@ -175,9 +178,11 @@ function odds_table_row_team_panel( $teams = [], $home_id, $home_score, $away_id
   ?>
     <td>
       <div class="team-panel">
-        <?php if ( is_array( $teams ) && count( $teams ) > 0 ) : 
+        <?php 
+        if ( is_array( $teams ) && count( $teams ) > 0 && is_numeric($home_id) && is_numeric($away_id) ) : 
           $home = odds_table_row_team_by_id( $home_id, $teams );
-          $away = odds_table_row_team_by_id( $away_id, $teams ); ?>
+          $away = odds_table_row_team_by_id( $away_id, $teams );
+        ?>
           <div class="uk-panel">
             <?php odds_table_row_team_score( false, $away['name'], $away['logo'], $away_score ); ?>
             <?php odds_table_row_team_score( true, $home['name'], $home['logo'], $home_score ); ?>
@@ -319,6 +324,18 @@ function odds_table_row( $odd, $teams = [] ) {
   <?php odds_table_row_date_status( $odd->DateTime, $odd->Status );
 }
 
+function valid_odds( $odds ) {
+  $valid = false;
+  if ( is_array( $odds ) ) {
+    foreach ( $odds as $odd ) {
+      if ( isset( $odd->HomeTeamId ) && isset( $odd->AwayTeamId ) ) {
+        $valid = true;
+      }
+    }
+  }
+  return $valid;
+}
+
 function odds_table() {
   $league = api_league();
   $selected_week = '';
@@ -338,6 +355,7 @@ function odds_table() {
   <?php odds_table_filter( $league, $selected_week, $current_season ); ?>
   <div class="uk-position-relative">
     <div class="uk-overflow-auto">
+      <?php if ( valid_odds( $odds ) ) : ?>
       <table id="odds-list" class="uk-table uk-table-divider">
         <?php odds_table_head( $league ); ?>
         <tbody id="odds-list-body">
@@ -350,6 +368,7 @@ function odds_table() {
           ?>
         </tbody>
       </table>
+      <?php endif; ?>
     </div>
   </div>
   <?php
@@ -360,8 +379,7 @@ function odds_table_data() {
   if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
 		die( 'Unable to verify sender.' );
   }
-  $league = 'nfl';
-  if ( ! isset( $_POST['league'] ) ) {
+  if ( isset( $_POST['league'] ) ) {
     $league = strtolower( $_POST['league'] );
   }
 

@@ -79,11 +79,12 @@ function api_data_odds( $league, $selection = '' ) {
     $odds = api_data_odds_nfl( $selection );
   } else {
     $selected_date = $selection;
-    if ( $selected_date === '' ) {
-      $selected_date = date( 'Y-m-d' );
+    $formatted_date = date( 'Y-m-d' );
+    if ( $selected_date !== '' ) {
+      $formatted_date = date( 'Y-m-d', strtotime( $selected_date ) );
     }
     
-    $url = 'https://api.sportsdata.io/v3/' . $league . '/odds/json/GameOddsByDate/' . $selected_date;
+    $url = 'https://api.sportsdata.io/v3/' . $league . '/odds/json/GameOddsByDate/' . $formatted_date;
     $headers = api_headers_with_key( $league, 'odds' );
     $odds = api_data( $url, $headers );
   }
