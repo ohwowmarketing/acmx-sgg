@@ -1,5 +1,5 @@
 <div class="top-promo" style="margin: 0; padding: 0; background-color: #fafafa">
-  <div class="uk-container-centere">
+  <div class="uk-container-center">
     <div class="uk-flex-center" uk-grid>
       <div class="uk-width-1-2 uk-visible@m" style="text-align: center; padding: 20px">
         <a href="https://sggplayoffs.com" style="font-family: 'PassionOne-Regular'; font-size: 36px; color: #00A305; line-height: 0.9; margin: 0; text-align: center;">

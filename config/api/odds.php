@@ -312,12 +312,8 @@ function odds_table_row( $odd, $teams = [] ) {
   <tr>
     <?php 
     odds_table_row_team_panel($teams, $odd->HomeTeamId, $odd->HomeTeamScore, $odd->AwayTeamId, $odd->AwayTeamScore );
-    if ( ! empty( $odd->PregameOdds ) ) {
-      odds_table_row_consensus_panel( $odd->PregameOdds );
-      odds_table_row_sportsbook_panel( $odd->PregameOdds );
-    } else {
-      odds_table_row_sportsbook_panel_not_found();
-    }
+    odds_table_row_consensus_panel( $odd->PregameOdds );
+    odds_table_row_sportsbook_panel( $odd->PregameOdds );
     ?>
   </tr>
   <?php odds_table_row_date_status( $odd->DateTime, $odd->Status );
@@ -426,3 +422,105 @@ function odds_user_settings() {
 }
 add_action( 'wp_ajax_odds_user_settings', 'odds_user_settings' );
 add_action( 'wp_ajax_nopriv_odds_user_settings', 'odds_user_settings' );
+
+function odds_header_data() {
+  if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
+		die( 'Unable to verify sender.' );
+  }
+  
+  if ( isset( $_POST['league'] ) ) {
+    $league = strtolower( $_POST['league'] );
+  } else {
+    $league = api_league();
+  }
+
+  $odds = api_data_odds( $league );
+
+  $dates = [];
+  if ( isset( $odds ) ) {
+    foreach ( $odds as $odd ) {
+      $slot = [
+        'home' => $odd->HomeTeamName,
+        'away' => $odd->AwayTeamName,
+        'time' => date('g:i A', strtotime($odd->DateTime)),
+        'homeSpread' => '.',
+        'awaySpread' => '.',
+        'overUnder' => '.'
+      ];
+      if ( isset( $odd->PregameOdds ) ) {
+        foreach ( $odd->PregameOdds as $pregameOdd ) {
+          if ( $pregameOdd->Sportsbook === 'Consensus' ) {
+            $slot['homeSpread'] = api_bet_display($pregameOdd->HomePointSpread);
+            $slot['awaySpread'] = api_bet_display($pregameOdd->AwayPointSpread);
+            $slot['overUnder'] = is_numeric( $pregameOdd->OverUnder ) ? $pregameOdd->OverUnder : '..';
+            break;
+          }
+        }
+      }
+      $dates[$odd->Day][] = $slot;
+    }
+  }
+
+  if ( isset( $odds ) ) {
+    $date_displayed = false;
+    foreach ( $dates as $date => $games ) {
+      $formatted_date = date( 'F j, Y', strtotime( $date ) );
+      foreach ( $games as $game ) {
+        echo '<li>
+          <div class="uk-position-left uk-panel game">
+            <div class="timeslot">' . $game['time'] . '</div>
+            <div class="uk-flex">
+              <div class="team-column">
+                <div>' . $game['away'] . '</div>
+                <div>' . $game['home'] . '</div>
+              </div>
+              <div class="spread-column">
+                <div>' . $game['awaySpread'] . '</div>
+                <div>' . $game['homeSpread'] . '</div>
+              </div>
+              <div class="totals-column">' . $game['overUnder'] . '</div>
+            </div>
+            <div class="date-display">';
+        if ($date_displayed === false) {
+          echo $formatted_date;
+          $date_displayed = true;
+        }
+        echo '</div>
+          </div>
+        </li>';
+      }
+    }
+  }
+  die();
+
+}
+add_action( 'wp_ajax_odds_header_data', 'odds_header_datas' );
+add_action( 'wp_ajax_nopriv_odds_header_data', 'odds_header_data' );
+
+function odds_header() {
+  $league = api_league();
+  ?>
+  <div class="quick-odds uk-light">
+    <div class="sport-select">
+      <form>
+        <div class="uk-form-select" data-uk-form-select>
+          <select id="quick-odds-sport" class="uk-select">
+            <option <?php echo ($league === 'nba') ? 'selected' : ''; ?>>NBA</option>
+            <option <?php echo ($league === 'mlb') ? 'selected' : ''; ?>>MLB</option>
+            <option <?php echo ($league === 'nfl') ? 'selected' : ''; ?>>NFL</option>
+          </select>
+        </div>
+      </form>
+    </div>
+    <div class="slider-section uk-position-relative uk-visible-toggle" tabindex="-1" uk-slider="sets: true; finite: true">
+    <!-- <div class="slider-section uk-position-relative uk-visible-toggle" tabindex="-1"> -->
+      <div class="uk-slider-container uk-light">
+        <ul class="uk-slider-items"></ul>
+        <a class="uk-position-center-left uk-position-small bg-grad" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+        <a class="uk-position-center-right uk-position-small bg-grad" href="#" uk-slidenav-next uk-slider-item="next"></a>
+      </div>
+    </div>
+  </div>
+  <?php
+}
+add_action( 'odds_header', 'odds_header' );

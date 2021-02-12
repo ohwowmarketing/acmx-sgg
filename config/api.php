@@ -1,5 +1,5 @@
 <?php
-function api_league( $default = 'nfl') {
+function api_league( $default = 'nba') {
   global $post;
   $league = $default;
   $leagues = [ 'nfl' => 23, 'nba' => 25, 'mlb' => 27 ];
@@ -33,8 +33,9 @@ function api_enqueue_scripts() {
   $scripts = ['promos', 'futures', 'spread', 'news', 'odds', 'bestbooks'];
   $root = get_stylesheet_directory_uri() . '/resources/scripts/sgg/';
   foreach ( $scripts as $script ) {
-    wp_enqueue_script( $script, $root . $script . '.js', [ 'jquery' ] );
+    wp_enqueue_script( $script, $root . $script . '.js', [ 'jquery', 'uikit' ] );
   }
+  wp_enqueue_style('extra', get_template_directory_uri() . '/resources/styles/extra.css');
 }
 add_action( 'wp_enqueue_scripts', 'api_enqueue_scripts' );
 
@@ -43,4 +44,14 @@ function api_score( $wins, $losses, $draws = 0 ) {
   if ($draws > 0) {
     echo ' - ' . $draws;
   }
+}
+
+function api_bet_display($num) {
+  if ( ! isset( $num ) || $num === '' ) {
+    return '..';
+  }
+  if (is_numeric( $num ) && $num > 0) {
+    return '+' . $num;
+  }
+  return $num;
 }
