@@ -20,6 +20,7 @@ function api_global_script_variables() {
       'ajax_url' => admin_url( 'admin-ajax.php' ),
       'nonce' => wp_create_nonce( 'sgg-nonce' ),
       'permalink' => get_permalink(),
+      'directory' => get_template_directory_uri(),
       'league' => api_league(),
       'future' => ( isset( $_GET['future'] ) ) ? $_GET['future'] : null,
     ]); ?>;

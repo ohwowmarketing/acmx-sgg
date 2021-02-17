@@ -84,3 +84,20 @@
   padding-top: 30px;
   padding-left: 30px;
 }
+
+.odds-game-bet-now {
+  margin-left: 12px;
+}
+
+.odds-game-bet-now a {
+  border-radius: 2px !important;
+  color: #666 im !important;
+}
+
+[data-card='betting-odds'] tbody td img.dk {
+  width: 25px;
+  max-width: 25px;
+  height: 25px;
+  max-height: 25px;
+  padding-right: 0;
+}

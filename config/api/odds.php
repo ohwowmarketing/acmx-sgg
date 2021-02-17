@@ -139,7 +139,8 @@ function odds_table_row_date_status( $date_time, $status ) {
   <tr class="schedule-row">
     <td colspan="1" class="schedule-panel">
       <div>
-        <?php echo $d->format( 'D n/d, g:i A' ); ?> | <?php echo $status; ?>
+        <?php echo $d->format( 'D n/d, g:i A' ); ?> | <?php echo $status; ?>&nbsp;
+        <span class='odds-game-bet-now'></span>
       </div>
     </td>
     <td colspan="6">
