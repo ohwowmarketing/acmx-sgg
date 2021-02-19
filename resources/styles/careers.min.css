@@ -120,3 +120,7 @@
   font-family: OpenSans-SemiBold;
   font-size: 18px;
 }
+[data-card=careers] .uk-accordion .uk-accordion-content a {
+  color: #00A305;
+  border-bottom: 1px dotted rgba(0, 163, 5, 0.75);
+}

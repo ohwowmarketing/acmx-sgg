@@ -43,6 +43,11 @@
                 font-family: $sbold;
                 font-size: 18px;
             }
+
+            a {
+                color: $sgg-green;
+                border-bottom: 1px dotted rgba($sgg-green, .75);
+            }
         }
     }
 
