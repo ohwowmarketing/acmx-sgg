@@ -35,9 +35,19 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
                         <a href="#">Live Odds</a>
                         <div class="uk-navbar-dropdown uk-dropdown">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
-                                <li><a href="<?php echo esc_url( site_url('nfl/odds-betting-lines') ); ?>">NFL Odds &amp; Betting Lines</a></li>
-                                <li><a href="<?php echo esc_url( site_url('nba/odds-betting-lines') ); ?>">NBA Odds &amp; Betting Lines</a></li>
-                                <li><a href="<?php echo esc_url( site_url('mlb/odds-betting-lines') ); ?>">MLB Odds &amp; Betting Lines</a></li>
+                                <li><a href="<?php echo esc_url( site_url('nfl/odds-betting-lines') ); ?>">NFL</a></li>
+                                <li><a href="<?php echo esc_url( site_url('nba/odds-betting-lines') ); ?>">NBA</a></li>
+                                <li><a href="<?php echo esc_url( site_url('mlb/odds-betting-lines') ); ?>">MLB</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="uk-parent">
+                        <a href="#">Futures</a>
+                        <div class="uk-navbar-dropdown uk-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li><a href="<?php echo esc_url( site_url('nba/futures') ); ?>">NBA</a></li>
+                                <li><a href="<?php echo esc_url( site_url('mlb/futures') ); ?>">MLB</a></li>
+                                <li><a href="<?php echo esc_url( site_url('nfl/futures') ); ?>">NFL</a></li>
                             </ul>
                         </div>
                     </li>
