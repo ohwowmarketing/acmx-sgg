@@ -1,7 +1,9 @@
 // Import mixins
 @import "common/mixins";
 
-// Main Content
+// Sidebar Content
+@import 'widgets/bestbooks', 'widgets/guides', 'widgets/news';
+
 [data-card="careers"] {
 
     .uk-accordion {
