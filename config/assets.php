@@ -70,6 +70,7 @@ add_action('wp_enqueue_scripts', function() {
             case '21':   $pageName = 'sitemap'; break;
 
             case '552':  $pageName = 'guides'; break;
+            case '839':  $pageName = 'careers'; break;
 
             // Legal
             case '3':

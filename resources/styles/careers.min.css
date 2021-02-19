@@ -1,0 +1,32 @@
+[data-card=careers] .uk-accordion > li {
+  margin-top: 15px;
+  padding-top: 29px;
+  padding-bottom: 15px;
+  border-top: 1px solid #F5F5F5;
+}
+[data-card=careers] .uk-accordion > li:first-child {
+  border-top: 0;
+}
+[data-card=careers] .uk-accordion .uk-accordion-title {
+  font-family: OpenSans-SemiBold;
+  font-size: 24px;
+  overflow: visible;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[data-card=careers] .uk-accordion .uk-accordion-title::before {
+  float: left;
+  position: relative;
+  top: -2px;
+  background-color: rgba(204, 204, 204, 0.25);
+  margin-left: 0;
+  margin-right: 20px;
+  border-radius: 50px;
+}
+[data-card=careers] .uk-accordion .uk-accordion-content {
+  padding-left: 55px;
+}
+[data-card=careers] .uk-accordion .uk-accordion-content h4 {
+  font-family: OpenSans-SemiBold;
+  font-size: 18px;
+}

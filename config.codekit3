@@ -57,6 +57,19 @@
 		"oS": 0,
 		"sct": 0
 		},
+	"/build/scss/careers.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"ec": 1,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/resources/styles/careers.min.css",
+		"oF": 0,
+		"oS": 0,
+		"sct": 0
+		},
 	"/build/scss/common/fonts.scss": {
 		"aP": 1,
 		"bl": 0,
@@ -997,6 +1010,25 @@
 		"opt": 0,
 		"q": 100
 		},
+	"/resources/images/sportsbooks/dk-d-crown.png": {
+		"ft": 32768,
+		"iS": 47627,
+		"oA": 0,
+		"oAP": "/resources/images/sportsbooks/dk-d-crown.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/resources/images/sportsbooks/dk-leaderboard-1.gif": {
+		"ft": 4194304,
+		"iS": 42314,
+		"oA": 0,
+		"oAP": "/resources/images/sportsbooks/dk-leaderboard-1.gif",
+		"oF": 0,
+		"opt": 0
+		},
 	"/resources/images/sportsbooks/dk-leaderboard.gif": {
 		"ft": 4194304,
 		"iS": 36788,
@@ -1319,6 +1351,16 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"/resources/styles/extra.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/resources/styles/extra-min.css",
+		"oF": 0,
+		"oS": 3
+		},
 	"/resources/styles/guides.min.css": {
 		"aP": 1,
 		"bl": 0,
@@ -1611,6 +1653,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/views/pages/best-books.php",
+		"oF": 0
+		},
+	"/views/pages/careers.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/views/pages/careers.php",
 		"oF": 0
 		},
 	"/views/pages/contact.php": {
