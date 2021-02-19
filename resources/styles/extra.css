@@ -101,3 +101,10 @@
   max-height: 25px;
   padding-right: 0;
 }
+
+.footer-social-icon {
+  width: 50px !important;
+  height: 50px !important;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  color: #111 !important;
+}
