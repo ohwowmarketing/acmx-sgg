@@ -98,6 +98,7 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
                             </ul>
                         </div>
                     </li>
+                    <li><a href="<?php echo esc_url( site_url('careers') ); ?>">Careers</a></li>
                     <li><a href="<?php echo esc_url( site_url('contact') ); ?>">Contact</a></li>
                 </ul>
                 
