@@ -126,7 +126,9 @@
                     <h4>Promos</h4>
 
                     <div class="sportsbooks-lists _alt">
-                        <?php do_action('sportsbook_promos'); ?>
+                        <div id="sb">
+                            <?php do_action('sportsbook_promos'); ?>
+                        </div>
                     </div>
 
                     <?php the_field('promos'); ?>
@@ -202,7 +204,9 @@
                     <?php the_field('overall'); ?>
 
                     <div class="sportsbooks-lists _alt">
-                        <?php do_action('sportsbook_promos'); ?>
+                        <div id="sb">
+                            <?php do_action('sportsbook_promos'); ?>
+                        </div>
                     </div>
 
                     <div class="_starRating">

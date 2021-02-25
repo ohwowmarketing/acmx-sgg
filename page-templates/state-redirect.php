@@ -1,6 +1,5 @@
 <?php 
 /* Template Name: State Redirect */
-echo wp_get_referer();
 if ( isset( $_GET['state_abbr'] ) ) {
   $valid_states = get_all_sportsbook_states();
   if ( array_key_exists( $_GET['state_abbr'], $valid_states ) ) {
@@ -10,6 +9,9 @@ if ( isset( $_GET['state_abbr'] ) ) {
 $redirect = site_url('best-books');
 if ( wp_get_referer() ) {
   $redirect = wp_get_referer();
+  if (strpos('#', $redirect) === false) {
+    $redirect .= '#sb';
+  } 
 }
 wp_safe_redirect( $redirect );
 ?>

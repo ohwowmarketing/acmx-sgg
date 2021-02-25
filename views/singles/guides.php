@@ -13,7 +13,9 @@
                     ?>
                     </article>
                 </div>
-                <?php do_action('sportsbook_promos'); ?>
+                <div id="sb">
+                    <?php do_action('sportsbook_promos'); ?>
+                </div>
             </div>
             <div class="uk-width-1-1 uk-width-large@l">
                 <?php get_template_part( widget . 'news' ); ?>

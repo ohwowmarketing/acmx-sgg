@@ -52,7 +52,9 @@
                     </table>
                 </div>
 
-                <?php do_action('sportsbook_promos'); ?>
+                <div id="sb">
+                    <?php do_action('sportsbook_promos'); ?>
+                </div>
 
                 <div class="uk-card uk-card-default uk-card-body" data-card="content">
                     <?php the_content(); ?>
