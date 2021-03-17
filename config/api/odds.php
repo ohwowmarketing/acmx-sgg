@@ -23,9 +23,9 @@ function odds_table_location( $curr_league = 'nfl' ) {
   <?php
 }
 
-function odds_table_nav( $curr_league = 'nfl' ) {
+function odds_table_nav( $curr_league = 'nba' ) {
   $curr_league = strtolower( $curr_league );
-  $leagues = [ 'nfl', 'nba', 'mlb' ];
+  $leagues = [ 'nba', 'mlb', 'nfl' ];
   ?>
   <div class="uk-width-expand@m">
     <ul class="uk-subnav uk-subnav-pill uk-subnav-divider odds-localnav" uk-margin>
