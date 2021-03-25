@@ -1,7 +1,7 @@
 <?php
 global $post;
 $post_slug = $post->post_name;
-if ($post_slug === 'header-test' || is_page([ 810 ])) :?>
+if ($post_slug === 'header-test' || is_page([ 810 ])) : ?>
 
 <div id="bet-now" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
