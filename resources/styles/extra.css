@@ -108,3 +108,210 @@
   background-color: rgba(255, 255, 255, 0.7) !important;
   color: #111 !important;
 }
+
+.hero-sb {
+  background: url('https://sportsgamblingguides.com/wp-content/uploads/2020/08/Vegas-Strip-Header-Photo.jpg')
+    rgba(0, 0, 0, 0.74) 50% 50% no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.hero-sb h1 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.hero-sb-item {
+  background-image: url('https://sportsgamblingguides.com/wp-content/uploads/2021/03/Oregon-St.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: 4px solid #00a305;
+  position: relative;
+}
+
+.with-overlay:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-sb-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-sb-logo {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.hero-sb-logo img {
+  max-width: 50%;
+}
+
+/* .hero-sb-data {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  text-align: left;
+  color: #fff;
+  width: 100%;
+  height: auto;
+} */
+
+.hero-sb-data {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  text-align: left;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.inner-data {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+}
+
+.hero-sb-data h4 {
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.hero-sb-data p {
+  color: white;
+  font-size: 0.75rem;
+  margin-bottom: 0;
+  margin-top: 0;
+  min-height: 32px;
+}
+
+.hero-sb-action {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-sb-action a {
+  color: #fff;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  line-height: 16px;
+}
+
+.hero-sb-action a:hover,
+.hero-sb-action a:active {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.no-right-br {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.7) !important;
+  padding: 7px 7px !important;
+  font-size: 0.7rem !important;
+}
+
+.no-left-br {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.2) !important;
+  font-size: 0.7rem !important;
+}
+
+#bet-now {
+  z-index: 99999;
+  text-align: center;
+}
+
+#bet-now .uk-modal-dialog {
+  border-radius: 10px;
+}
+
+#bet-now .uk-modal-dialog p {
+  max-width: 60%;
+  margin: 0 auto 20px;
+}
+
+.modal-logo {
+  max-width: 30%;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.bet-now-header {
+  background: url('https://sportsgamblingguides.com/wp-content/uploads/2020/08/Vegas-Strip-Header-Photo.jpg'),
+    rgba(0, 0, 0, 0.5) 50% 50% no-repeat;
+  background-size: 600px 125px;
+  background-blend-mode: multiply;
+  width: 600px;
+  height: 125px;
+  margin: -30px -30px 0 -30px;
+}
+
+.bet-now-header img {
+  max-width: 30%;
+  text-align: center;
+  margin: 20px auto;
+}
+
+h2.uk-modal-title {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+.rating-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 4px;
+}
+
+.rating-circle {
+  background: #c67d24;
+  border-radius: 999px;
+  padding: 2px;
+  width: 14px;
+  height: 14px;
+  margin-right: 2px;
+}
+.rating-circle.half {
+  background: linear-gradient(to right, #c67d24 50%, #babab9 0);
+}
+.rating-circle.empty {
+  background: #babab9;
+}
+.rating-numeric {
+  color: #c67d24;
+  font-size: 0.7rem;
+  margin-left: 5px;
+}
+.rating {
+  margin-top: -16px;
+}

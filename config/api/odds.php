@@ -532,7 +532,6 @@ function odds_header() {
       </form>
     </div>
     <div class="slider-section uk-position-relative uk-visible-toggle" tabindex="-1" uk-slider="sets: true; finite: true">
-    <!-- <div class="slider-section uk-position-relative uk-visible-toggle" tabindex="-1"> -->
       <div class="uk-slider-container uk-light">
         <ul class="uk-slider-items"></ul>
         <a class="uk-position-center-left uk-position-small bg-grad" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
