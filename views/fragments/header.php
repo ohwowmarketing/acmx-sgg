@@ -1,7 +1,7 @@
 <?php
 global $post;
 $post_slug = $post->post_name;
-if ($post_slug === 'header-test') :
+if ($post_slug === 'header-test' || is_page([ 810 ])) :
 $home_bg = get_field('hero_background', 2);
 $home_hc = get_field('hero_content', 2); ?>
 
