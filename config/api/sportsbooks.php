@@ -200,3 +200,272 @@ function sportsbook_state_section_ajax() {
 }
 add_action( 'wp_ajax_sportsbook_state_section', 'sportsbook_state_section_ajax' );
 add_action( 'wp_ajax_nopriv_sportsbook_state_section', 'sportsbook_state_section_ajax' );
+
+function star_rating( $val, $max ) {
+  ?>
+    <div class="rating-container">
+      <?php for ( $i = 0; $i < $max; $i++) : ?>
+        <?php if ( $val >= $i + 1 ) : ?>
+          <div class="rating-circle">
+            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+          </div>
+        <?php elseif( $val > $i + 0.25) : ?> 
+          <div class="rating-circle half">
+            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+          </div>
+        <?php else : ?>
+          <div class="rating-circle empty">
+            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+          </div>
+        <?php endif; ?>
+      <?php endfor; ?>
+      <div class="rating-numeric"><?php echo $val; ?>/<?php echo $max; ?></div>
+  </div>
+  <?php
+}
+
+function sportsbook_header() {
+  $sbs = [];
+  $sportsbooks = [
+    'post_type' => 'sportsbooks',
+    'has_password' => false,
+    'posts_per_page' => -1,
+    'orderby' => 'menu_order',
+    'order' => 'ASC',
+    'meta_key' => 'header_display',
+    'meta_value' => true
+  ];
+  query_posts( $sportsbooks );
+
+  while ( have_posts() ) {
+    the_post();
+    $sbs[] = [
+      'title' => get_the_title(),
+      'rating' => get_field('rating'),
+      'logo' => get_field('light_transparent_logo'),
+      'background' => get_field('background_image'),
+      'state_links' => get_field('state_affiliate_links'),
+      'link' => get_field('global_affiliate_link'),
+      'states' => get_field('available_states'),
+      'has_review' => get_field( 'isReviewTrue' ),
+      'review_url' => get_field( 'review_link_url' ),
+      'bonus' => get_field('sb_promotion')
+    ];
+  }
+  wp_reset_query();
+  foreach ($sbs as $sb) : ?>
+    <div class="hero-sb-item with-overlay" <?php echo $sb['background'] !== '' ? 'style="background-image: url(' . $sb['background'] . ')"' : ''; ?>>
+      <div class="hero-sb-item-full-overlay"></div>
+      <div class="hero-sb-content">
+        <div class="hero-sb-logo">
+            <img src="<?php echo $sb['logo']; ?>" alt="<?php echo $sb['title']; ?>" />
+        </div>
+        <div class="hero-sb-data">
+            <h4><?php echo $sb['title']; ?></h4>
+
+            <?php if ( $sb['bonus'] ) : ?>
+            <p><?php echo $sb['bonus']; ?></p>
+            <?php endif; ?>
+
+            <?php if ( $sb['rating'] ) : ?>
+              <?php star_rating($sb['rating'], 5); ?>
+            <?php endif; ?>
+            
+            <div class="hero-sb-action">
+                <div>
+                  <?php if ( $sb['has_review'] ) : ?>
+                    <a href="<?php echo $sb['review_url']; ?>">Read Review</a>
+                  <?php endif; ?>
+                </div>
+                <div class="uk-button-group">
+                    <!-- <button class="uk-button uk-button-primary uk-button-small no-right-br"><a href="#" class="uk-icon" uk-icon="icon: info; ratio: 0.8"></a></button> -->
+                    <a href="<?php echo $sb['link'] !== '' ? $sb['link'] : '#bet-now'; ?>" class="uk-button uk-button-primary uk-button-small no-left-br" uk-toggle>BET NOW</a>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  <?php endforeach; ?>
+  <?php 
+  /*
+  <div class="hero-sb-item with-overlay">
+      <div class="hero-sb-content">
+          <div class="hero-sb-logo">
+              <img src="<?php echo get_template_directory_uri(); ?>/resources/images/sportsbooks/logos/fanduel.png" alt="FanDuel" />
+          </div>
+          <div class="hero-sb-data">
+              <h4>FanDuel</h4>
+              <p>
+                  Bonus: Get your first bet RISK FREE up to $1,000
+              </p>
+              <?php star_rating(0, 5); ?>
+              <div class="hero-sb-action">
+                  <div>
+                      <a href="#">Read Review</a>
+                  </div>
+                  <div class="uk-button-group">
+                      <button class="uk-button uk-button-primary uk-button-small no-right-br"><a href="#" class="uk-icon" uk-icon="icon: info; ratio: 0.8"></a></button>
+                      <a href="#bet-now" class="uk-button uk-button-primary uk-button-small no-left-br" uk-toggle>BET NOW</a>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="hero-sb-item with-overlay">
+      <div class="hero-sb-content">
+          <div class="hero-sb-logo">    
+              <img src="<?php echo get_template_directory_uri(); ?>/resources/images/sportsbooks/logos/draftkings.png" alt="DraftKings" />
+          </div>
+          <div class="hero-sb-data">
+              <h4>DraftKings</h4>
+              <p>Bonus: Deposit BONUS up to $1,000</p>
+              <div class="rating-container">
+                  <div class="rating-circle">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-circle">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-circle">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-circle">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-circle">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-numeric">5/5</div>
+              </div>
+              <div class="hero-sb-action">
+                  <div>
+                      <a href="#">Read Review</a>
+                  </div>
+                  <div class="uk-button-group">
+                      <button class="uk-button uk-button-primary uk-button-small no-right-br"><a href="#" class="uk-icon" uk-icon="icon: info; ratio: 0.8"></a></button>
+                      <button class="uk-button uk-button-primary uk-button-small no-left-br">BET NOW</button>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+  <div class="hero-sb-item with-overlay">
+      <div class="hero-sb-content">
+          <div class="hero-sb-logo">    
+              <img src="<?php echo get_template_directory_uri(); ?>/resources/images/sportsbooks/logos/betmgm.png" alt="BetMGM" />
+          </div>
+          <div class="hero-sb-data">
+              <h4>BetMGM</h4>
+              <p>Bonus: Join the Action Today with BetMGM</p>
+              <div class="rating-container">
+                  <div class="rating-circle">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-circle">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-circle">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-circle">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-circle half">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-numeric">4.5/5</div>
+              </div>
+              <div class="hero-sb-action">
+                  <div>
+                      <a href="#">Read Review</a>
+                  </div>
+                  <div class="uk-button-group">
+                      <button class="uk-button uk-button-primary uk-button-small no-right-br"><a href="#" class="uk-icon" uk-icon="icon: info; ratio: 0.8"></a></button>
+                      <button class="uk-button uk-button-primary uk-button-small no-left-br">BET NOW</button>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+  <div class="hero-sb-item with-overlay">
+      <div class="hero-sb-content">
+          <div class="hero-sb-logo">    
+              <img src="<?php echo get_template_directory_uri(); ?>/resources/images/sportsbooks/logos/betrivers.png" alt="Bet Rivers" />
+          </div>
+          <div class="hero-sb-data">
+              <h4>Bet Rivers</h4>
+              <p>Bonus: Match your first deposit up to $250</p>
+              <div class="rating-container">
+                  <div class="rating-circle">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-circle">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-circle">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-circle">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-circle empty">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-numeric">4/5</div>
+              </div>
+              <div class="hero-sb-action">
+                  <div>
+                      <a href="#">Read Review</a>
+                  </div>
+                  <div class="uk-button-group">
+                      <button class="uk-button uk-button-primary uk-button-small no-right-br"><a href="#" class="uk-icon" uk-icon="icon: info; ratio: 0.8"></a></button>
+                      <button class="uk-button uk-button-primary uk-button-small no-left-br">BET NOW</button>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+  <div class="hero-sb-item with-overlay">
+      <div class="hero-sb-content">
+          <div class="hero-sb-logo">    
+              <img src="<?php echo get_template_directory_uri(); ?>/resources/images/sportsbooks/logos/unibet.png" alt="Unibet" />
+          </div>
+          <div class="hero-sb-data">
+              <h4>Unibet</h4>
+              <p>Bonus: $30 free bets AND a Risk Free Bet up to $600</p>
+              <div class="rating-container">
+                  <div class="rating-circle">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-circle">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-circle">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-circle half">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-circle empty">
+                      <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
+                  </div>
+                  <div class="rating-numeric">3.5/5</div>
+              </div>
+              <div class="hero-sb-action">
+                  <div>
+                      <a href="#">Read Review</a>
+                  </div>
+                  <div class="uk-button-group">
+                      <button class="uk-button uk-button-primary uk-button-small no-right-br"><a href="#" class="uk-icon" uk-icon="icon: info; ratio: 0.8"></a></button>
+                      <button class="uk-button uk-button-primary uk-button-small no-left-br">BET NOW</button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <?php */
+}
+add_action( 'sportsbook_header', 'sportsbook_header' );

@@ -130,15 +130,15 @@
 }
 
 .hero-sb-item {
-  background-image: url('https://sportsgamblingguides.com/wp-content/uploads/2021/03/Oregon-St.jpg');
+  /* background-image: url('https://sportsgamblingguides.com/wp-content/uploads/2021/03/Oregon-St.jpg'); */
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  border-bottom: 4px solid #00a305;
+  border-bottom: 3px solid #00a305;
   position: relative;
 }
 
-.with-overlay:after {
+.hero-sb-item-full-overlay {
   content: '';
   position: absolute;
   left: 0;
@@ -146,6 +146,30 @@
   top: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
+.with-overlay:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 160px;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 0;
+}
+
+@media (min-width: 960px) {
+  .with-overlay:after {
+    top: 90px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .with-overlay:after {
+    top: 120px;
+  }
 }
 
 .hero-sb-content {
@@ -159,6 +183,7 @@
 .hero-sb-logo {
   padding-top: 20px;
   padding-bottom: 20px;
+  /* z-index: 2; */
 }
 
 .hero-sb-logo img {
@@ -181,17 +206,7 @@
   padding: 10px;
   text-align: left;
   color: #fff;
-  background: rgba(0, 0, 0, 0.7);
-}
-
-.inner-data {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  z-index: 2;
+  /* background: rgba(0, 0, 0, 0.7); */
 }
 
 .hero-sb-data h4 {
@@ -226,7 +241,7 @@
 .hero-sb-action a:hover,
 .hero-sb-action a:active {
   color: #fff;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .no-right-br {
@@ -238,9 +253,9 @@
 }
 
 .no-left-br {
-  border-top-left-radius: 0 !important;
+  /* border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
-  border-left: 1px solid rgba(0, 0, 0, 0.2) !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.2) !important; */
   font-size: 0.7rem !important;
 }
 
