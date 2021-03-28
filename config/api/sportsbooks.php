@@ -277,10 +277,11 @@ function sportsbook_header() {
                     <a href="<?php echo $sb['review_url']; ?>">Read Review</a>
                   <?php endif; ?>
                 </div>
-                <div class="uk-button-group">
-                    <!-- <button class="uk-button uk-button-primary uk-button-small no-right-br"><a href="#" class="uk-icon" uk-icon="icon: info; ratio: 0.8"></a></button> -->
+                <a href="<?php echo $sb['link'] !== '' ? $sb['link'] : '#bet-now'; ?>" class="uk-button uk-button-primary uk-button-small hero-sb-bet-now">BET NOW</a>
+                <!-- <div class="uk-button-group">
+                    <button class="uk-button uk-button-primary uk-button-small no-right-br"><a href="#" class="uk-icon" uk-icon="icon: info; ratio: 0.8"></a></button>
                     <a href="<?php echo $sb['link'] !== '' ? $sb['link'] : '#bet-now'; ?>" class="uk-button uk-button-primary uk-button-small no-left-br" uk-toggle>BET NOW</a>
-                </div>
+                </div> -->
             </div>
         </div>
       </div>

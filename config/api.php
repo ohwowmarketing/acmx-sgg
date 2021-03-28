@@ -31,7 +31,7 @@ add_action( 'wp_head', 'api_global_script_variables' );
 
 
 function api_enqueue_scripts() {
-  $scripts = ['promos', 'futures', 'spread', 'news', 'odds', 'bestbooks'];
+  $scripts = ['promos', 'futures', 'spread', 'news', 'odds', 'bestbooks', 'header'];
   $root = get_stylesheet_directory_uri() . '/resources/scripts/sgg/';
   foreach ( $scripts as $script ) {
     wp_enqueue_script( $script, $root . $script . '.js', [ 'jquery', 'uikit' ] );

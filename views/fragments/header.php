@@ -7,15 +7,13 @@ if ($post_slug === 'header-test') :
 <div id="bet-now" uk-modal>
     <div class="uk-modal-dialog uk-modal-body">
         <div class="bet-now-header">
-            <div class="bet-now-sb-logo">
-                <img src="<?php echo get_template_directory_uri(); ?>/resources/images/sportsbooks/logos/fanduel.png" alt="FanDuel" />
-            </div>
+            <div class="bet-now-sb-logo"></div>
         </div>
         <img src="https://sgg.local/wp-content/uploads/2020/07/site-SGG-logo.png" class="modal-logo">
         <button class="uk-modal-close-default" type="button" uk-close></button>
-        <h2 class="uk-modal-title">Sportsbook</h2>
-        <p>Grab the code <strong>SGGPA250</strong> and we'll match your  first deposit up to $250</p>
-        <button class="uk-button uk-button-primary uk-button-small" type="button">Continue</button>
+        <h2 class="uk-modal-title"></h2>
+        <p></p>
+        <a class="uk-button uk-button-primary uk-button-small" type="button">Continue</a>
     </div>
 </div>
 <header class="hero-sb">
