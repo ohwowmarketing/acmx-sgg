@@ -9,7 +9,7 @@ if ($post_slug === 'header-test') :
         <div class="bet-now-header">
             <div class="bet-now-sb-logo"></div>
         </div>
-        <img src="https://sgg.local/wp-content/uploads/2020/07/site-SGG-logo.png" class="modal-logo">
+        <img src="<?php echo get_template_directory_uri(); ?>/resources/images/site-SGG-logo.png" class="modal-logo">
         <button class="uk-modal-close-default" type="button" uk-close></button>
         <h2 class="uk-modal-title"><span></span></h2>
         <div class="outside">It appears that you are visiting from an area where <span class="primary">SportsGamblingGuides.com</span> does not yet feature this sportsbook.</div>
