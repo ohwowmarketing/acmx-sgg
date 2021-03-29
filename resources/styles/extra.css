@@ -268,7 +268,7 @@
   border-radius: 10px;
 }
 
-#bet-now .uk-modal-dialog p {
+#bet-now .uk-modal-dialog .bonus {
   max-width: 60%;
   margin: 0 auto 20px;
 }
@@ -293,6 +293,29 @@
   max-width: 30%;
   text-align: center;
   margin: 20px auto;
+}
+
+#bet-now .outside {
+  display: none;
+  font-size: 0.9em;
+  max-width: 70%;
+  margin: 20px auto;
+}
+
+#bet-now .primary {
+  color: #00a305;
+}
+
+#bet-now .select-container {
+  max-width: 70%;
+  margin: 10px auto;
+}
+
+#bet-now .select-container .uk-button {
+  background-color: #00a305;
+  border-radius: 3px;
+  color: white;
+  font-family: OpenSans-Bold;
 }
 
 h2.uk-modal-title {
