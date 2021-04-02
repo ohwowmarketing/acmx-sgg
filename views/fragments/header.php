@@ -52,7 +52,7 @@ if ($post_slug === 'header-test') :
                 </div>
                 <div class="uk-width-expand@m">
                     <div class="sb-info-col">
-                        <div class="sb-info-description"><p>Here is some text. Here is some even longer text that will hopefully expand the width.</p></div>
+                        <div class="sb-info-description"><p></p></div>
                     </div>
                 </div>
                 <div class="uk-width-auto@m">

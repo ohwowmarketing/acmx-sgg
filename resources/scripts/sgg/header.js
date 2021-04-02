@@ -54,12 +54,12 @@ jQuery(document).ready(function ($) {
       },
       function (data) {
         const sb = JSON.parse(data)
-        // $('.sb-info a.hero-sb-bet-now').data('sbid', sb.slug)
         $('.sb-info .hero-sb-bet-now').data('sbid', sb.slug)
         $('.sb-info h2 span').html(sb.title)
         $('.sb-info-terms p').html(sb.bonus)
         $('.sb-info-description').html(sb.description)
         $('.sb-info table tbody').html('')
+        $('.hero-sb-info').css('background-image', `url('${sb.logo}')`)
         if (sb.ratings) {
           sb.ratings.map((rating) => {
             const stars = star_rating(rating.rating, 5)
@@ -69,8 +69,6 @@ jQuery(document).ready(function ($) {
           })
         }
         percentageRating.setProgress(sb.rating)
-        // $('.hero-sb-info').css('visibility', 'visible')
-        // $('.hero-sb .hero-sb-info').css('display')
         $('.hero-sb-info').show()
       }
     )
