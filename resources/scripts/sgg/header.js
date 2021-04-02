@@ -1,14 +1,16 @@
 jQuery(document).ready(function ($) {
   const star = `<img src="${SGGAPI.directory}/resources/images/ui/star.svg" class="rating" />`
   const filled = `<div class="rating-circle">${star}</div>`
-  const empty = `<div class="rating-circle half">${star}</div>`
-  const half = `<div class="rating-circle empty">${star}</div>`
+  const empty = `<div class="rating-circle empty">${star}</div>`
+  const half = `<div class="rating-circle half">${star}</div>`
   function star_rating(val, max) {
+    const rating = parseFloat(val)
+    const maxRating = parseInt(max)
     let result = '<div class="rating-container">'
-    for (let i = 0; i < max; i++) {
-      if (val >= i + 1) {
+    for (let i = 0; i < maxRating; i++) {
+      if (rating >= i + 1) {
         result += filled
-      } else if (val > i + 0.25) {
+      } else if (rating > i && rating < i + 1) {
         result += half
       } else {
         result += empty
