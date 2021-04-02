@@ -28,6 +28,43 @@ if ($post_slug === 'header-test') :
         <div uk-grid class="uk-grid-collapse uk-child-width-expand@m uk-text-center">
             <?php do_action( 'sportsbook_header' ); ?>
         </div>
+        <div class="sb-info">
+            <div uk-grid class="hero-sb-info uk-grid-collapse uk-child-width-expand@m uk-visible@m">
+                <div class="uk-width-expand@m">
+                    <div class="sb-info-col">
+                        <h2><span></span> Review & Signup Offer</h2>
+                        <table><tbody></tbody></table>
+                        <div class="sb-info-row">
+                            <div>
+                                <a href="#bet-now" data-sbid="" class="uk-button uk-button-primary uk-button-small hero-sb-bet-now" uk-toggle="">Bet Now</a>
+                            </div>
+                            <div class="sb-info-terms">
+                                <p></p>
+                                <span>Terms and Conditions Apply</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="uk-width-auto@m">
+                    <div class="sb-info-col uk-text-center">
+                        <div id="top-loader"></div>
+                    </div>
+                </div>
+                <div class="uk-width-expand@m">
+                    <div class="sb-info-col">
+                        <div class="sb-info-description"><p>Here is some text. Here is some even longer text that will hopefully expand the width.</p></div>
+                    </div>
+                </div>
+                <div class="uk-width-auto@m">
+                    <div class="sb-info-col">
+                        <button class="uk-modal-close-default close-info" type="button" uk-close></button>
+                    </div>
+                </div>
+            </div>
+            <div class="sb-reviews-link">
+                <!-- <a href="#">All Sportsbook Reviews</a> -->
+            </div>
+        </div>
     </div>
 </header>
 <?php

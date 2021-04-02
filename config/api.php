@@ -33,8 +33,9 @@ add_action( 'wp_head', 'api_global_script_variables' );
 function api_enqueue_scripts() {
   $scripts = ['promos', 'futures', 'spread', 'news', 'odds', 'bestbooks', 'header'];
   $root = get_stylesheet_directory_uri() . '/resources/scripts/sgg/';
+  wp_enqueue_script( 'percentageloader', get_template_directory_uri() . '/resources/scripts/percentageloader.js', [ 'jquery' ] );
   foreach ( $scripts as $script ) {
-    wp_enqueue_script( $script, $root . $script . '.js', [ 'jquery', 'uikit' ] );
+    wp_enqueue_script( $script, $root . $script . '.js', [ 'jquery', 'uikit',  'percentageloader' ] );
   }
   wp_enqueue_style('extra', get_template_directory_uri() . '/resources/styles/extra.css');
 }

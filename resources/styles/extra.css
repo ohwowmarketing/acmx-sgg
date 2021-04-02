@@ -138,6 +138,101 @@
   position: relative;
 }
 
+.sb-info {
+  position: relative;
+}
+
+.hero-sb-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  width: 100%;
+  height: auto;
+  color: #ffffff;
+  background: rgba(0, 0, 0, 0.85);
+  border-radius: 10px;
+  /* visibility: hidden; */
+}
+
+.sb-info-col {
+  padding: 30px;
+}
+
+/* .sb-info-col > div {
+  padding-left: 20px;
+  padding-right: 20px;
+} */
+
+.sb-info-col table {
+  margin-bottom: 20px;
+}
+
+.sb-info-col table th {
+  font-size: 0.9rem;
+  font-weight: normal;
+  text-align: left;
+}
+
+td .rating-container {
+  padding-left: 15px;
+}
+
+.sb-info h2 {
+  color: #fff;
+  font-family: OpenSans-Bold;
+  font-size: 1.2rem;
+}
+
+.sb-reviews-link {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.sb-reviews-link a {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 0.8em;
+}
+
+.sb-reviews-link a:hover,
+.sb-reviews-link a:active {
+  color: #00a305;
+}
+
+#top-loader {
+  width: 200px;
+  height: 200px;
+}
+
+#top-loader > div > div:nth-child(2) {
+  margin-top: -20px !important;
+}
+
+#top-loader > div > div:nth-child(3) {
+  margin-top: -40px !important;
+}
+
+.sb-info-row {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.sb-info-row .sb-info-terms {
+  margin-left: 20px;
+}
+.sb-info-row .sb-info-terms p {
+  font-size: 0.9em;
+  line-height: 1.1;
+  margin-bottom: 0;
+}
+
+.sb-info-row .sb-info-terms span {
+  font-size: 0.7em;
+  color: #ccc;
+}
+
 .hero-sb-item-full-overlay {
   content: '';
   position: absolute;
@@ -253,9 +348,9 @@
 }
 
 .no-left-br {
-  /* border-top-left-radius: 0 !important;
+  border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
-  border-left: 1px solid rgba(0, 0, 0, 0.2) !important; */
+  border-left: 1px solid rgba(0, 0, 0, 0.2) !important;
   font-size: 0.7rem !important;
 }
 
@@ -352,4 +447,33 @@ h2.uk-modal-title {
 }
 .rating {
   margin-top: -16px;
+}
+
+.sb-info-description p {
+  font-size: 0.9em;
+}
+
+[data-card='guides-full'] .uk-grid a {
+  color: #000;
+  font-weight: bold;
+  font-family: OpenSans-Bold;
+  font-size: 0.9em;
+}
+
+[data-card='guides-full'] .uk-grid a:hover,
+[data-card='guides-full'] .uk-grid a:active {
+  color: #00a305;
+  text-decoration: none;
+}
+
+[data-card='states'] .state-display {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+[data-card='states'] .state-display img {
+  filter: invert(31%) sepia(36%) saturate(7494%) hue-rotate(119deg)
+    brightness(104%) contrast(104%);
+  max-width: 40px;
 }

@@ -1,4 +1,25 @@
 jQuery(document).ready(function ($) {
+  const star = `<img src="${SGGAPI.directory}/resources/images/ui/star.svg" class="rating" />`
+  const filled = `<div class="rating-circle">${star}</div>`
+  const empty = `<div class="rating-circle half">${star}</div>`
+  const half = `<div class="rating-circle empty">${star}</div>`
+  function star_rating(val, max) {
+    let result = '<div class="rating-container">'
+    for (let i = 0; i < max; i++) {
+      if (val >= i + 1) {
+        result += filled
+      } else if (val > i + 0.25) {
+        result += half
+      } else {
+        result += empty
+      }
+    }
+    result += `<div class="rating-numeric">${val}/${max.toFixed(1)}</div></div>`
+    return result
+  }
+
+  const percentageRating = $('#top-loader').percentageLoader()
+  $('.hero-sb-info').hide()
   $('body').on('change', '.state-select', function () {
     const state = $('option:selected', this)
     if (state.data('bonus') === '' && state.data('link') !== '') {
@@ -14,8 +35,48 @@ jQuery(document).ready(function ($) {
     $('#bet-now a.continue').show()
   })
 
+  $('.hero-sb').on('click', '.close-info', function () {
+    console.log('Close has been clicked')
+    $('.hero-sb-info').hide()
+  })
+
+  $('.hero-sb').on('click', '.sb-more-info', function (e) {
+    e.preventDefault()
+    const slug = $(this, '.sb-more-info').data('sbid')
+    $.post(
+      SGGAPI.ajax_url,
+      {
+        action: 'sportsbook_info',
+        nonce: SGGAPI.nonce,
+        slug: slug
+      },
+      function (data) {
+        const sb = JSON.parse(data)
+        // $('.sb-info a.hero-sb-bet-now').data('sbid', sb.slug)
+        $('.sb-info .hero-sb-bet-now').data('sbid', sb.slug)
+        $('.sb-info h2 span').html(sb.title)
+        $('.sb-info-terms p').html(sb.bonus)
+        $('.sb-info-description').html(sb.description)
+        $('.sb-info table tbody').html('')
+        if (sb.ratings) {
+          sb.ratings.map((rating) => {
+            const stars = star_rating(rating.rating, 5)
+            $('.sb-info table tbody').append(
+              `<tr><th>${rating.label}</th><td>${stars}</td></tr>`
+            )
+          })
+        }
+        percentageRating.setProgress(sb.rating)
+        // $('.hero-sb-info').css('visibility', 'visible')
+        // $('.hero-sb .hero-sb-info').css('display')
+        $('.hero-sb-info').show()
+      }
+    )
+  })
+
   $('.hero-sb').on('click', '.hero-sb-bet-now', function (e) {
     e.preventDefault()
+    $('.hero-sb-info').hide()
     const slug = $(this, '.hero-sb-bet-now').data('sbid')
     $.post(
       SGGAPI.ajax_url,

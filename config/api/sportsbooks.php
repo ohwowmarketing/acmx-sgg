@@ -202,24 +202,19 @@ add_action( 'wp_ajax_sportsbook_state_section', 'sportsbook_state_section_ajax' 
 add_action( 'wp_ajax_nopriv_sportsbook_state_section', 'sportsbook_state_section_ajax' );
 
 function star_rating( $val, $max ) {
+  $star = '<img src="' . get_template_directory_uri() . '/resources/images/ui/star.svg" class="rating" />';
   ?>
     <div class="rating-container">
       <?php for ( $i = 0; $i < $max; $i++) : ?>
         <?php if ( $val >= $i + 1 ) : ?>
-          <div class="rating-circle">
-            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
-          </div>
+          <div class="rating-circle"><?php echo $star; ?></div>
         <?php elseif( $val > $i + 0.25) : ?> 
-          <div class="rating-circle half">
-            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
-          </div>
+          <div class="rating-circle half"><?php echo $star; ?></div>
         <?php else : ?>
-          <div class="rating-circle empty">
-            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/ui/star.svg" class="rating" />
-          </div>
+          <div class="rating-circle empty"><?php echo $star; ?></div>
         <?php endif; ?>
       <?php endfor; ?>
-      <div class="rating-numeric"><?php echo $val; ?>/<?php echo $max; ?></div>
+      <div class="rating-numeric"><?php echo $val; ?>/<?php echo number_format( $max, 1 ); ?></div>
   </div>
   <?php
 }
@@ -289,6 +284,38 @@ function sportsbook_modal_ajax() {
 add_action( 'wp_ajax_sportsbook_modal', 'sportsbook_modal_ajax' );
 add_action( 'wp_ajax_nopriv_sportsbook_modal', 'sportsbook_modal_ajax' );
 
+function sportsbook_info_ajax() {
+  if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
+		die( 'Unable to verify sender.' );
+  }
+  if ( ! $_POST['slug'] ) {
+    die( 'Did not receive Sportsbook.' );
+  }
+  $sportsbook_query = [
+    'post_type' => 'sportsbooks',
+    'name' => $_POST['slug'],
+  ];
+  query_posts( $sportsbook_query );
+  while ( have_posts() ) {
+    the_post();
+    $sb = [
+      'slug' => get_post_field( 'post_name' ),
+      'title' => get_the_title(),
+      'rating' => get_field( 'rating' ),
+      'ratings' => get_field( 'ratings' ),
+      'logo' => get_field( 'light_transparent_logo' ),
+      'bonus' => get_field( 'sb_promotion' ),
+      'details' => get_field( 'sb_details' ),
+      'description' => get_field( 'description' ),
+    ];
+    echo json_encode( $sb );
+  }
+  wp_reset_query();
+  die();
+}
+add_action( 'wp_ajax_sportsbook_info', 'sportsbook_info_ajax' );
+add_action( 'wp_ajax_nopriv_sportsbook_info', 'sportsbook_info_ajax' );
+
 function sportsbook_header() {
   $sbs = [];
   $sportsbooks_query = [
@@ -311,7 +338,6 @@ function sportsbook_header() {
       'logo' => get_field( 'light_transparent_logo' ),
       'background' => get_field( 'background_image' ),
       'state_links' => get_field( 'state_affiliate_links' ),
-      'link' => get_field( 'global_affiliate_link' ),
       'states' => get_field( 'available_states' ),
       'has_review' => get_field( 'isReviewTrue' ),
       'review_url' => get_field( 'review_link_url' ),
@@ -343,11 +369,11 @@ function sportsbook_header() {
                 <a href="<?php echo $sb['review_url']; ?>">Read Review</a>
               <?php endif; ?>
             </div>
-            <a href="#bet-now" data-sbid="<?php echo $sb['slug']; ?>" class="uk-button uk-button-primary uk-button-small hero-sb-bet-now">BET NOW</a>
-            <!-- <div class="uk-button-group">
-                <button class="uk-button uk-button-primary uk-button-small no-right-br"><a href="#" class="uk-icon" uk-icon="icon: info; ratio: 0.8"></a></button>
-                <a href="<?php echo $sb['link'] !== '' ? $sb['link'] : '#bet-now'; ?>" class="uk-button uk-button-primary uk-button-small no-left-br" uk-toggle>BET NOW</a>
-            </div> -->
+            <!-- <a href="#bet-now" data-sbid="<?php echo $sb['slug']; ?>" class="uk-button uk-button-primary uk-button-small hero-sb-bet-now">BET NOW</a> -->
+            <div class="uk-button-group">
+                <button class="uk-button uk-button-primary uk-button-small no-right-br"><a href="#sb-info" data-sbid="<?php echo $sb['slug']; ?>" class="uk-icon sb-more-info" uk-icon="icon: info; ratio: 0.8"></a></button>
+                <a href="#bet-now" data-sbid="<?php echo $sb['slug']; ?>" class="uk-button uk-button-primary uk-button-small no-left-br hero-sb-bet-now" uk-toggle>BET NOW</a>
+            </div>
           </div>
         </div>
       </div>

@@ -8,6 +8,14 @@
                     </a>
                 </div>
                 <?php get_template_part( widget . 'oddslines' ); ?>
+                <?php 
+                global $post;
+                $post_slug = $post->post_name;
+                if ( $post_slug === 'header-test' ) : ?>
+                <?php get_template_part( widget . 'guides-large' ); ?>
+                <?php get_template_part( widget . 'states' ); ?>
+                <?php endif; ?>
+                
                 <div id="sb">
                     <?php do_action('sportsbook_promos'); ?>
                 </div>
