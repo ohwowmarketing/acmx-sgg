@@ -34,20 +34,11 @@ if ($post_slug === 'header-test') :
                     <div class="sb-info-col">
                         <h2><span></span> Review & Signup Offer</h2>
                         <table><tbody></tbody></table>
-                        <div class="sb-info-row">
-                            <div>
-                                <a href="#bet-now" data-sbid="" class="uk-button uk-button-primary uk-button-small hero-sb-bet-now" uk-toggle="">Bet Now</a>
-                            </div>
-                            <div class="sb-info-terms">
-                                <p></p>
-                                <span>Terms and Conditions Apply</span>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="uk-width-auto@m">
                     <div class="sb-info-col uk-text-center">
-                        <div id="top-loader"></div>
+                        <div id="top-loader" class="rating-dial"></div>
                     </div>
                 </div>
                 <div class="uk-width-expand@m">
@@ -58,6 +49,17 @@ if ($post_slug === 'header-test') :
                 <div class="uk-width-auto@m">
                     <div class="sb-info-col">
                         <button class="uk-modal-close-default close-info" type="button" uk-close></button>
+                    </div>
+                </div>
+                <div class="uk-width-1-1">
+                    <div class="sb-info-row">
+                        <div>
+                            <a href="#bet-now" data-sbid="" class="uk-button uk-button-primary uk-button-small hero-sb-bet-now" uk-toggle="">Bet Now</a>
+                        </div>
+                        <div class="sb-info-terms">
+                            <p></p>
+                            <span>Terms and Conditions Apply</span>
+                        </div>
                     </div>
                 </div>
             </div>

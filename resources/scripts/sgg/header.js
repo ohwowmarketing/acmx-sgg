@@ -1,4 +1,23 @@
 jQuery(document).ready(function ($) {
+  const percentageRating = $('#top-loader').percentageLoader()
+  $.post(
+    SGGAPI.ajax_url,
+    {
+      action: 'sportsbook_dials',
+      nonce: SGGAPI.nonce
+    },
+    function (data) {
+      const slugs = JSON.parse(data)
+      slugs.map((sb) => {
+        $(`#top-loader-${sb.slug}`).percentageLoader({
+          width: 120,
+          height: 120,
+          progress: parseFloat(sb.rating),
+          value: 'OVERALL'
+        })
+      })
+    }
+  )
   const star = `<img src="${SGGAPI.directory}/resources/images/ui/star.svg" class="rating" />`
   const filled = `<div class="rating-circle">${star}</div>`
   const empty = `<div class="rating-circle empty">${star}</div>`
@@ -20,8 +39,7 @@ jQuery(document).ready(function ($) {
     return result
   }
 
-  const percentageRating = $('#top-loader').percentageLoader()
-  $('.hero-sb-info').hide()
+  // $('.hero-sb-info').hide()
   $('body').on('change', '.state-select', function () {
     const state = $('option:selected', this)
     if (state.data('bonus') === '' && state.data('link') !== '') {
@@ -38,13 +56,14 @@ jQuery(document).ready(function ($) {
   })
 
   $('.hero-sb').on('click', '.close-info', function () {
-    console.log('Close has been clicked')
     $('.hero-sb-info').hide()
+    $('.hero-sb-info-sm').hide()
   })
 
   $('.hero-sb').on('click', '.sb-more-info', function (e) {
     e.preventDefault()
     const slug = $(this, '.sb-more-info').data('sbid')
+    // const sbPercentageLoader = $(`#top-loader-${slug}`).percentageLoader()
     $.post(
       SGGAPI.ajax_url,
       {
@@ -69,7 +88,10 @@ jQuery(document).ready(function ($) {
           })
         }
         percentageRating.setProgress(sb.rating)
+        // sbPercentageLoader.setProgress(sb.rating)
         $('.hero-sb-info').show()
+        $('.hero-sb-info.uk-grid').css('display', 'flex')
+        $(`.hero-sb-info-${slug}`).show()
       }
     )
   })

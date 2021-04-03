@@ -138,6 +138,16 @@
   position: relative;
 }
 
+.hero-sb-info-sm {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  text-align: left;
+  color: #fff;
+  display: none;
+}
+
 .sb-info {
   position: relative;
 }
@@ -155,7 +165,10 @@
   background-position: right 15px bottom 0;
   background-repeat: no-repeat;
   border-radius: 10px;
-  /* visibility: hidden; */
+}
+
+.hero-sb-info.uk-grid {
+  display: none;
 }
 
 .sb-info-col {
@@ -181,7 +194,8 @@ td .rating-container {
   padding-left: 15px;
 }
 
-.sb-info h2 {
+.sb-info h2,
+.hero-sb-info-sm h2 {
   color: #fff;
   font-family: OpenSans-Bold;
   font-size: 1.2rem;
@@ -203,22 +217,37 @@ td .rating-container {
   color: #00a305;
 }
 
-#top-loader {
+.rating-dial {
   width: 200px;
   height: 200px;
 }
 
-#top-loader > div > div:nth-child(2) {
+.rating-dial > div > div:nth-child(2) {
   margin-top: -20px !important;
 }
 
-#top-loader > div > div:nth-child(3) {
+.rating-dial > div > div:nth-child(3) {
   margin-top: -40px !important;
+}
+
+.rating-dial-sm {
+  width: 120px;
+  height: 120px;
+}
+
+.rating-dial-sm > div > div:nth-child(2) {
+  margin-top: -14px !important;
+}
+
+.rating-dial-sm > div > div:nth-child(3) {
+  margin-top: -30px !important;
 }
 
 .sb-info-row {
   display: flex;
   justify-content: flex-start;
+  margin-left: 30px;
+  padding-bottom: 30px;
 }
 
 .sb-info-row .sb-info-terms {
