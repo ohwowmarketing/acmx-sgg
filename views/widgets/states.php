@@ -6,28 +6,44 @@ $upcoming_states = get_field('upcoming_states', 'option');
   <div style="position: relative">
     <div uk-grid>
       <div class="uk-width-1-1@s uk-width-1-2@m">
-        <h1 class="uk-card-title">U.S. Betting States</h1>
-        <div uk-grid>
+        <div class="uk-width-1-1">
+          <h1 class="uk-card-title">U.S. Betting States</h1>
+        </div>
+        <div uk-grid class="uk-grid-collapse state-top-border">
         <?php foreach ( $betting_states as $state ) : ?>
-          <div class="uk-width-1-2">
-            <div class="state-display">
-              <img src="<?php echo get_template_directory_uri(); ?>/resources/images/states/<?php echo $state; ?>.svg" />
-              <p><?php echo get_state_from_code( $state ); ?></p>
+          <div class="uk-width-1-2 state-outer-border">
+            <div uk-grid class="state-borders">
+              <div class="uk-width-1-6">
+                <div class="state-img">
+                  <img src="<?php echo get_template_directory_uri(); ?>/resources/images/states/<?php echo $state; ?>.svg" />
+                </div>
+              </div>
+              <div class="uk-width-auto">
+                <div class="state-name"><?php echo get_state_from_code( $state ); ?></div>
+              </div>
             </div>
           </div>
         <?php endforeach; ?>
         </div>
       </div>
-      <div class="uk-width-1-1@s  uk-width-1-2@m">
-        <h1 class="uk-card-title">Upcoming Betting States</h1>
-        <div uk-grid>
-        <?php foreach ( $upcoming_states as $state ) : ?>
-          <div class="uk-width-1-2">
-            <div class="state-display">
-              <img src="<?php echo get_template_directory_uri(); ?>/resources/images/states/<?php echo $state; ?>.svg" />
-              <p><?php echo get_state_from_code( $state ); ?></p>
-            </div>
+      <div class="uk-width-1-1@s uk-width-1-2@m">
+        <div class="uk-width-1-1">
+            <h1 class="uk-card-title">Upcoming Betting States</h1>
           </div>
+          <div uk-grid class="uk-grid-collapse state-top-border">
+          <?php foreach ( $upcoming_states as $state ) : ?>
+            <div class="uk-width-1-2 state-outer-border">
+              <div uk-grid class="state-borders">
+                <div class="uk-width-1-6">
+                  <div class="state-img">
+                    <img src="<?php echo get_template_directory_uri(); ?>/resources/images/states/<?php echo $state; ?>.svg" />
+                  </div>
+                </div>
+                <div class="uk-width-auto">
+                  <div class="state-name"><?php echo get_state_from_code( $state ); ?></div>
+                </div>
+              </div>
+            </div>
         <?php endforeach; ?>
         </div>
       </div>

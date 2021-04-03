@@ -497,14 +497,54 @@ h2.uk-modal-title {
   text-decoration: none;
 }
 
-[data-card='states'] .state-display {
+/* [data-card='states'] .state-display {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+} */
+
+.state-outer-border {
+  color: #000;
+  margin-top: 0 !important;
+  font-weight: bold;
+  height: 61px;
+  border-bottom: 1px solid #e1e2e9;
 }
 
-[data-card='states'] .state-display img {
+.state-top-border {
+  border-top: 1px solid #e1e2e9;
+}
+
+.state-borders {
+  height: 60px;
+  border-right: 1px solid #e1e2e9;
+}
+
+.state-outer-border.uk-first-column {
+  border-left: 1px solid #e1e2e9;
+}
+
+.state-img {
+  padding: 10px;
+  height: 60px;
+  width: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.state-img img {
   filter: invert(31%) sepia(36%) saturate(7494%) hue-rotate(119deg)
     brightness(104%) contrast(104%);
-  max-width: 40px;
+  max-width: 25px;
+  max-height: 30px;
+}
+
+.state-name {
+  padding-left: 10px;
+  border-left: 1px solid #e1e2e9;
+  height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
