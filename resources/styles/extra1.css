@@ -497,12 +497,6 @@ h2.uk-modal-title {
   text-decoration: none;
 }
 
-/* [data-card='states'] .state-display {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-} */
-
 .state-top-border > div:first-child,
 .state-top-border > div:nth-child(2) {
   border-top: 1px solid #e1e2e9;
@@ -514,10 +508,6 @@ h2.uk-modal-title {
   font-weight: bold;
   height: 61px;
   border-bottom: 1px solid #e1e2e9;
-}
-
-.state-top-border {
-  /* border-top: 1px solid #e1e2e9; */
 }
 
 .state-borders {

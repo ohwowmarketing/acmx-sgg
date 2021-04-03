@@ -134,7 +134,7 @@ jQuery(document).ready(function ($) {
           $('#bet-now a.continue').hide()
         } else {
           $('#bet-now .outside').hide()
-          $('#bet-now .select-container').hide()
+          $('#bet-now .select-container').show()
           $('#bet-now a.continue').show()
         }
 
