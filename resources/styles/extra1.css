@@ -503,6 +503,11 @@ h2.uk-modal-title {
   justify-content: space-around;
 } */
 
+.state-top-border > div:first-child,
+.state-top-border > div:nth-child(2) {
+  border-top: 1px solid #e1e2e9;
+}
+
 .state-outer-border {
   color: #000;
   margin-top: 0 !important;
@@ -512,7 +517,7 @@ h2.uk-modal-title {
 }
 
 .state-top-border {
-  border-top: 1px solid #e1e2e9;
+  /* border-top: 1px solid #e1e2e9; */
 }
 
 .state-borders {
