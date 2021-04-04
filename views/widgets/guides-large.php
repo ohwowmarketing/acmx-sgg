@@ -13,12 +13,15 @@ query_posts( $guides ); ?>
   <!-- <div class="guides-full-lists"> -->
   <div style="position: relative">
     <div uk-grid>
-      <?php while ( have_posts() ) : the_post();
-        $img = get_field('feature_image'); ?>
+      <?php while ( have_posts() ) : the_post(); ?>
         <div class="uk-width-1-2@s uk-width-1-3@m">
           <figure>
               <a href="<?php the_permalink(); ?>">
-                <?php echo wp_get_attachment_image( $img['id'], [ 640, 360, true ] ); ?>
+                <?php if ( has_post_thumbnail() ) : ?>
+                 <?php echo wp_get_attachment_image( get_post_thumbnail_id(), [ 640, 360, true ] ); ?>
+                <?php else : ?>
+                  <?php the_title(); ?>
+                <?php endif; ?>
               </a>
           </figure>
           <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
