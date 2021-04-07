@@ -77,7 +77,11 @@ jQuery(document).ready(function ($) {
           $('.sb-info .hero-sb-bet-now').prop('href', '#bet-now')
           $('.sb-info .hero-sb-bet-now').data('sbid', sb.slug)
         } else {
-          $('.sb-info .hero-sb-bet-now').prop('href', sb.url)
+          $('.sb-info .sb-info-row a').prop('href', sb.url)
+          $('.sb-info .sb-info-row a').removeClass('hero-sb-bet-now')
+          $('.sb-info .sb-info-row a').removeClass('uk-toggle')
+          $('.sb-info .sb-info-row a').removeProp('uk-toggle')
+          $('.sb-info .sb-info-row a').removeProp('data-sbid')
         }
         $('.sb-info h2 span').html(sb.title)
         $('.sb-info-terms p').html(sb.bonus)

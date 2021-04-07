@@ -414,7 +414,7 @@ function sportsbook_header() {
               <?php if ($sb['state_links']) : ?>
               <a href="#bet-now" data-sbid="<?php echo $sb['slug']; ?>" class="uk-button uk-button-primary uk-button-small no-left-br hero-sb-bet-now" uk-toggle>BET NOW</a>
               <?php else : ?>
-              <a href="<?php echo $sb['url']; ?>" class="uk-button uk-button-primary uk-button-small no-left-br hero-sb-bet-now" uk-toggle>BET NOW</a>
+              <a href="<?php echo $sb['url']; ?>" class="uk-button uk-button-primary uk-button-small no-left-br">BET NOW</a>
               <?php endif; ?>
             </div>
           </div>
@@ -450,7 +450,7 @@ function sportsbook_header() {
                           <?php if ($sb['state_links']) : ?>
                           <a href="#bet-now" data-sbid="<?php echo $sb['slug']; ?>" class="uk-button uk-button-primary uk-button-small hero-sb-bet-now" uk-toggle="">Bet Now</a>
                           <?php else: ?>
-                          <a href="<?php echo $sb['url']; ?>" class="uk-button uk-button-primary uk-button-small" uk-toggle="">Bet Now</a>
+                          <a href="<?php echo $sb['url']; ?>" class="uk-button uk-button-primary uk-button-small">Bet Now</a>
                           <?php endif; ?>
                         </div>
                         <div class="sb-info-terms">
