@@ -125,11 +125,11 @@
                 <div id="promos" class="uk-card uk-card-default uk-card-body" data-card="sportsbooks">
                     <h4>Promos</h4>
 
-                    <div class="sportsbooks-lists _alt">
+                    <!-- <div class="sportsbooks-lists _alt">
                         <div id="sb">
-                            <?php do_action('sportsbook_promos'); ?>
+                            <?php // do_action('sportsbook_promos'); ?>
                         </div>
-                    </div>
+                    </div> -->
 
                     <?php the_field('promos'); ?>
 
