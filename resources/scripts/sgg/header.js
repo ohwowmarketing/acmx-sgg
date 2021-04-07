@@ -121,7 +121,9 @@ jQuery(document).ready(function ($) {
         $('#bet-now h2').html(`${sb.title}<span></span>`)
         $('#bet-now .bonus').html(sb.bonus)
         $('#bet-now a.continue').prop('href', sb.link)
-        $('#bet-now select.state-select').html('')
+        $('#bet-now select.state-select').html(
+          '<option selected="selected">Select State:</option>'
+        )
         sb.states.map((state) => {
           $('#bet-now select.state-select').append(
             `<option value="${state.abbr}" data-bonus="${state.bonus}" data-link="${state.link}">${state.full}</option>`

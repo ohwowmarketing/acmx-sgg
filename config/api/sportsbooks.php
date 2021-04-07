@@ -379,7 +379,9 @@ function sportsbook_header() {
       <div class="hero-sb-item-full-overlay"></div>
       <div class="hero-sb-content">
         <div class="hero-sb-logo">
-            <img src="<?php echo $sb['logo']; ?>" alt="<?php echo $sb['title']; ?>" />
+          <a href="#bet-now" data-sbid="<?php echo $sb['slug']; ?>" class="hero-sb-bet-now">
+            <img src="<?php echo $sb['logo']; ?>" alt="<?php echo $sb['title']; ?>" />  
+          </a>
         </div>
         <div class="hero-sb-data">
           <h4><?php echo $sb['title']; ?></h4>
