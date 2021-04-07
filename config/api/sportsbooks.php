@@ -334,6 +334,8 @@ function sportsbook_info_ajax() {
       'bonus' => get_field( 'sb_promotion' ),
       'details' => get_field( 'sb_details' ),
       'description' => get_field( 'description' ),
+      'state_links' => get_field( 'state_affiliate_links' ),
+      'url' => get_field( 'global_affiliate_link' ),
     ];
     echo json_encode( $sb );
   }
@@ -367,6 +369,7 @@ function sportsbook_header() {
       'logo' => get_field( 'light_transparent_logo' ),
       'background' => get_field( 'background_image' ),
       'state_links' => get_field( 'state_affiliate_links' ),
+      'url' => get_field( 'global_affiliate_link' ),
       'states' => get_field( 'available_states' ),
       'has_review' => get_field( 'isReviewTrue' ),
       'review_url' => get_field( 'review_link_url' ),
@@ -379,9 +382,15 @@ function sportsbook_header() {
       <div class="hero-sb-item-full-overlay"></div>
       <div class="hero-sb-content">
         <div class="hero-sb-logo">
+          <?php if ($sb['state_links']) : ?>
           <a href="#bet-now" data-sbid="<?php echo $sb['slug']; ?>" class="hero-sb-bet-now">
             <img src="<?php echo $sb['logo']; ?>" alt="<?php echo $sb['title']; ?>" />  
           </a>
+          <?php else : ?>
+          <a href="<?php echo $sb['url']; ?>">
+            <img src="<?php echo $sb['logo']; ?>" alt="<?php echo $sb['title']; ?>" />  
+          </a>
+          <?php endif; ?>
         </div>
         <div class="hero-sb-data">
           <h4><?php echo $sb['title']; ?></h4>
@@ -402,7 +411,11 @@ function sportsbook_header() {
             </div>
             <div class="uk-button-group">
               <button class="uk-button uk-button-primary uk-button-small no-right-br"><a href="#sb-info" data-sbid="<?php echo $sb['slug']; ?>" class="uk-icon sb-more-info" uk-icon="icon: info; ratio: 0.8"></a></button>
+              <?php if ($sb['state_links']) : ?>
               <a href="#bet-now" data-sbid="<?php echo $sb['slug']; ?>" class="uk-button uk-button-primary uk-button-small no-left-br hero-sb-bet-now" uk-toggle>BET NOW</a>
+              <?php else : ?>
+              <a href="<?php echo $sb['url']; ?>" class="uk-button uk-button-primary uk-button-small no-left-br hero-sb-bet-now" uk-toggle>BET NOW</a>
+              <?php endif; ?>
             </div>
           </div>
         </div>
@@ -434,7 +447,11 @@ function sportsbook_header() {
                   <div class="sb-info-col">
                       <div class="sb-info-row">
                         <div>
+                          <?php if ($sb['state_links']) : ?>
                           <a href="#bet-now" data-sbid="<?php echo $sb['slug']; ?>" class="uk-button uk-button-primary uk-button-small hero-sb-bet-now" uk-toggle="">Bet Now</a>
+                          <?php else: ?>
+                          <a href="<?php echo $sb['url']; ?>" class="uk-button uk-button-primary uk-button-small" uk-toggle="">Bet Now</a>
+                          <?php endif; ?>
                         </div>
                         <div class="sb-info-terms">
                           <p><?php echo $sb['bonus']; ?></p>

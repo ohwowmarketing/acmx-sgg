@@ -73,7 +73,12 @@ jQuery(document).ready(function ($) {
       },
       function (data) {
         const sb = JSON.parse(data)
-        $('.sb-info .hero-sb-bet-now').data('sbid', sb.slug)
+        if (sb.state_links) {
+          $('.sb-info .hero-sb-bet-now').prop('href', '#bet-now')
+          $('.sb-info .hero-sb-bet-now').data('sbid', sb.slug)
+        } else {
+          $('.sb-info .hero-sb-bet-now').prop('href', sb.url)
+        }
         $('.sb-info h2 span').html(sb.title)
         $('.sb-info-terms p').html(sb.bonus)
         $('.sb-info-description').html(sb.description)
