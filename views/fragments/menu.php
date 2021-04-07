@@ -30,7 +30,7 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
                 <?php // wp_nav_menu( $hdrMenu ); ?>
                 <ul class="uk-navbar-nav uk-visible@l">
                     <li><a href="<?php echo esc_url( home_url() ); ?>">Home</a></li>
-                    <li><a href="<?php echo esc_url( site_url('best-books') ); ?>">Best Books</a></li>
+                    <!-- <li><a href="<?php // echo esc_url( site_url('best-books') ); ?>">Best Books</a></li> -->
                     <li class="uk-parent">
                         <a href="#">Live Odds</a>
                         <div class="uk-navbar-dropdown uk-dropdown">

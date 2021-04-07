@@ -203,11 +203,11 @@
                     
                     <?php the_field('overall'); ?>
 
-                    <div class="sportsbooks-lists _alt">
+                    <!-- <div class="sportsbooks-lists _alt">
                         <div id="sb">
-                            <?php do_action('sportsbook_promos'); ?>
+                            <?php // do_action('sportsbook_promos'); ?>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="_starRating">
                         <?php starRating( 'overall_rating', '1' ); ?>

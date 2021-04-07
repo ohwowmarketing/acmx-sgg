@@ -4,9 +4,9 @@
 
             <div class="uk-width-expand@l">
                 <?php get_template_part( widget.'news-article' ); ?>
-                <div id="sb">
-                    <?php do_action('sportsbook_promos'); ?>
-                </div>
+                <!-- <div id="sb">
+                    <?php // do_action('sportsbook_promos'); ?>
+                </div> -->
             </div>
 
             <div class="uk-width-1-1 uk-width-large@l">
