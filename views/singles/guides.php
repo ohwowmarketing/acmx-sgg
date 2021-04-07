@@ -14,12 +14,12 @@
                     </article>
                 </div>
                 <div id="sb">
-                    <?php do_action('sportsbook_promos'); ?>
+                    <?php // do_action('sportsbook_promos'); ?>
                 </div>
             </div>
             <div class="uk-width-1-1 uk-width-large@l">
                 <?php get_template_part( widget . 'news' ); ?>
-                <?php get_template_part( widget . 'guides' ); ?>
+                <?php // get_template_part( widget . 'guides' ); ?>
             </div>
         </div>
     </div>
