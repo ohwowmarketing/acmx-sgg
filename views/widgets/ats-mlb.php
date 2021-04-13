@@ -7,13 +7,13 @@ $leagueName = get_the_title( $post->post_parent );
 include( locate_template( includes.'league-keys.php', false, true ) ); 
 
 // Dev API Unlimited
-$season_request = wp_remote_get( 'https://api.sportsdata.io/v3/mlb/scores/json/CurrentSeason', $mlb_header_dak );
+$season_request = wp_remote_get( 'https://fly.sportsdata.io/v3/mlb/scores/json/CurrentSeason', $mlb_header_dak );
 $season_body    = json_decode( wp_remote_retrieve_body( $season_request ) );
 
-$standing_request = wp_remote_get( 'https://api.sportsdata.io/v3/mlb/scores/json/Standings/'.$season_body->Season.'',  $mlb_header_dak );
+$standing_request = wp_remote_get( 'https://fly.sportsdata.io/v3/mlb/scores/json/Standings/'.$season_body->Season.'',  $mlb_header_dak );
 $standing_body    = json_decode( wp_remote_retrieve_body( $standing_request ) );
 
-$team_request = wp_remote_get( 'https://api.sportsdata.io/v3/mlb/scores/json/teams', $mlb_header_dak );
+$team_request = wp_remote_get( 'https://fly.sportsdata.io/v3/mlb/scores/json/teams', $mlb_header_dak );
 $team_body    = json_decode( wp_remote_retrieve_body( $team_request ) );
 
 // echo '<pre>';

@@ -23,12 +23,12 @@ function get_news_data( $league, $limit = 5 ) {
   }
 
   // Premium News
-  $news_request = wp_remote_get( 'https://api.sportsdata.io/v3/' . strtolower( $league ).'/news-rotoballer/json/RotoBallerPremiumNews', $header_npk );
+  $news_request = wp_remote_get( 'https://fly.sportsdata.io/v3/' . strtolower( $league ).'/news-rotoballer/json/RotoBallerPremiumNews', $header_npk );
   $news_list = json_decode( wp_remote_retrieve_body( $news_request ) );
   $latest_news = array_slice( $news_list, 0, $limit );
   
   // Tier 1 - Score/Teams
-  $team_request = wp_remote_get( 'https://api.sportsdata.io/v3/' . strtolower( $league ).'/scores/json/teams', $header_dak );
+  $team_request = wp_remote_get( 'https://fly.sportsdata.io/v3/' . strtolower( $league ).'/scores/json/teams', $header_dak );
   $teams_list = json_decode( wp_remote_retrieve_body( $team_request ) );
   $teams = [];
   foreach( $teams_list as $team ) {
@@ -206,10 +206,10 @@ function get_news_request( $league, $date = NULL ) {
       $header_dak = $nba_header_dak;
       break;
   }
-  $request_url = 'https://api.sportsdata.io/v3/' . $league . '/news-rotoballer/json/RotoBallerPremiumNewsByDate/' . $api_date;
+  $request_url = 'https://fly.sportsdata.io/v3/' . $league . '/news-rotoballer/json/RotoBallerPremiumNewsByDate/' . $api_date;
   $news_request = wp_remote_get( $request_url , $header_npk );
   $news_body    = json_decode( wp_remote_retrieve_body( $news_request ) );
-  $team_request = wp_remote_get( 'https://api.sportsdata.io/v3/' . $league . '/scores/json/teams', $header_dak );
+  $team_request = wp_remote_get( 'https://fly.sportsdata.io/v3/' . $league . '/scores/json/teams', $header_dak );
   $team_body    = json_decode( wp_remote_retrieve_body( $team_request ) );
   $response = [
     'news_request' => $news_request,

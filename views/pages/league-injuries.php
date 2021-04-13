@@ -25,11 +25,11 @@
                     }
 
                     // Premium News
-                    $news_request = wp_remote_get( 'https://api.sportsdata.io/v3/'.strtolower($leagueName).'/news-rotoballer/json/RotoBallerPremiumNews', $header_npk );
+                    $news_request = wp_remote_get( 'https://fly.sportsdata.io/v3/'.strtolower($leagueName).'/news-rotoballer/json/RotoBallerPremiumNews', $header_npk );
                     $news_body    = json_decode( wp_remote_retrieve_body( $news_request ) );
 
                     // Trial - Score/Players
-                    $player_request = wp_remote_get( 'https://api.sportsdata.io/v3/'.strtolower($leagueName).'/scores/json/players', $header_atk );
+                    $player_request = wp_remote_get( 'https://fly.sportsdata.io/v3/'.strtolower($leagueName).'/scores/json/players', $header_atk );
                     $player_body    = json_decode( wp_remote_retrieve_body( $player_request ) );
 
                     // Widget Images

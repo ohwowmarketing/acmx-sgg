@@ -6,11 +6,11 @@ $leagueName = get_the_title( $post->post_parent );
 // Include API Keys
 include( locate_template( includes.'league-keys.php', false, true ) );
 
-$season_request = wp_remote_get( 'https://api.sportsdata.io/v3/nba/scores/json/CurrentSeason', $nba_header_dak );
+$season_request = wp_remote_get( 'https://fly.sportsdata.io/v3/nba/scores/json/CurrentSeason', $nba_header_dak );
 $season_body    = json_decode( wp_remote_retrieve_body( $season_request ) );
 
 // Premium Odds
-$bettingfutures_request = wp_remote_get( 'https://api.sportsdata.io/v3/nba/odds/json/BettingFuturesBySeason/'.$season_body->Season.'', $nba_header_opk );
+$bettingfutures_request = wp_remote_get( 'https://fly.sportsdata.io/v3/nba/odds/json/BettingFuturesBySeason/'.$season_body->Season.'', $nba_header_opk );
 $bettingfutures_body    = json_decode( wp_remote_retrieve_body( $bettingfutures_request ) );
 
 foreach ( $bettingfutures_body as $bettingfutures ) {
@@ -21,11 +21,11 @@ foreach ( $bettingfutures_body as $bettingfutures ) {
 
 }
 
-$bettingfuturesEast_request = wp_remote_get( 'https://api.sportsdata.io/v3/nba/odds/json/BettingMarkets/'.$futuresIDEast.'', $nba_header_opk );
+$bettingfuturesEast_request = wp_remote_get( 'https://fly.sportsdata.io/v3/nba/odds/json/BettingMarkets/'.$futuresIDEast.'', $nba_header_opk );
 $bettingmarketsEast_body = json_decode( wp_remote_retrieve_body( $bettingfuturesEast_request ), true );
 $bettingmarketsEast_body2 = json_decode( wp_remote_retrieve_body( $bettingfuturesEast_request ) );
 
-$team_request = wp_remote_get( 'https://api.sportsdata.io/v3/nba/scores/json/teams', $nba_header_dak );
+$team_request = wp_remote_get( 'https://fly.sportsdata.io/v3/nba/scores/json/teams', $nba_header_dak );
 $team_body    = json_decode( wp_remote_retrieve_body( $team_request ) );
 
 // echo '<pre>';
