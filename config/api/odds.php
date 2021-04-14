@@ -135,16 +135,26 @@ function odds_table_head( $league ) {
 
 function odds_table_row_date_status( $date_time, $status ) {
   $d = new DateTime( $date_time );
+  $sportsbooks = [
+    'post_type' => 'sportsbooks',
+    'has_password' => false,
+    'posts_per_page' => -1,
+    'orderby' => 'menu_order',
+    'order' => 'ASC'
+  ];
+  $columns = 2; // teams + consensus
+  query_posts( $sportsbooks );
+  while ( have_posts() ) {
+    the_post();
+    $columns++;
+  }
   ?>
   <tr class="schedule-row">
-    <td colspan="1" class="schedule-panel">
+    <td colspan="<?php echo $columns; ?>" class="schedule-panel">
       <div>
         <?php echo $d->format( 'D n/d, g:i A' ); ?> | <?php echo $status; ?>&nbsp;
         <span class='odds-game-bet-now'></span>
       </div>
-    </td>
-    <td colspan="6">
-      <div>&nbsp;</div>
     </td>
   </tr>
   <?php
