@@ -28,10 +28,10 @@ switch ( $post->post_parent ) {
                                 <th width="120"><span>Home</span></th>
                                 <th width="120"><span>Away</span></th>
                                 <?php endif; ?>
-                                <th width="120"><span>ATS Home</span></th>
-                                <th width="120"><span>ATS Away</span></th>
-                                <th width="120"><span>OV/UN Home</span></th>
-                                <th width="120"><span>OV/UN Away</span></th>
+                                <th width="120"><span>ATS Home<br />(Last 10 Games)</span></th>
+                                <th width="120"><span>ATS Away<br />(Last 10 Games)</span></th>
+                                <th width="120"><span>OV/UN Home<br />(Last 10 Games)</span></th>
+                                <th width="120"><span>OV/UN Away<br />(Last 10 Games)</span></th>
                             </tr>
                         </thead>
                         <tbody></tbody>
