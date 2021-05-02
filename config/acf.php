@@ -55,8 +55,8 @@ if ( function_exists( 'acf_add_options_page' ) ) :
     ]);
 
         acf_add_options_sub_page([
-            'menu_title'  => 'Sportsbook States',
-            'page_title'  => 'Sportsbook States Operation',
+            'menu_title'  => 'Sportsbook Settings',
+            'page_title'  => 'Sportsbook Settings',
             'parent_slug' => 'theme-widgets'
         ]);
 

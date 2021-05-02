@@ -100,12 +100,12 @@ jQuery(document).ready(function ($) {
         // sbPercentageLoader.setProgress(sb.rating)
         $('.hero-sb-info').show()
         $('.hero-sb-info.uk-grid').css('display', 'flex')
-        $(`.hero-sb-info-${slug}`).show()
+        // $(`.hero-sb-info-${slug}`).show()
       }
     )
   })
 
-  $('.hero-sb').on('click', '.hero-sb-bet-now', function (e) {
+  $('body').on('click', '.hero-sb-bet-now', function (e) {
     e.preventDefault()
     $('.hero-sb-info').hide()
     const slug = $(this, '.hero-sb-bet-now').data('sbid')
@@ -152,14 +152,11 @@ jQuery(document).ready(function ($) {
         UIkit.modal('#bet-now').show()
       }
     )
-    // const link = $(this).prop('href')
-    // const content = $(this).closest('div.hero-sb-content')
-    // const logo = content.find('.hero-sb-logo img').clone()
-    // const bonus = content.find('p').html()
+  })
 
-    // $('#bet-now .bet-now-sb-logo').html(logo)
-    // $('#bet-now h2').html(sportsbook)
-    // $('#bet-now p').html(bonus)
-    // $('#bet-now a').prop('href', link)
+  $('body').on('click', '.daily-trigger', function (e) {
+    e.preventDefault()
+    $('.daily-promos').show()
+    $('.daily-promos-trigger').hide()
   })
 })

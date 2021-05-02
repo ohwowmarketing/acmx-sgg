@@ -14,6 +14,13 @@
 .set-nav {
   width: 50px;
 }
+/* .sportsbook-header-slider-section {
+  width: auto;
+}
+.sportsbook-header-slider-section li {
+  display: flex;
+  flex-direction: column;
+} */
 .slider-section {
   background-color: #000;
   width: calc(100% - 100px);
@@ -130,7 +137,6 @@
 }
 
 .hero-sb-item {
-  /* background-image: url('https://sportsgamblingguides.com/wp-content/uploads/2021/03/Oregon-St.jpg'); */
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -282,7 +288,7 @@ td .rating-container {
   right: 0;
   top: 160px;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7);
+  /* background: rgba(0, 0, 0, 0.7); */
   z-index: 0;
 }
 
@@ -332,7 +338,7 @@ td .rating-container {
   padding: 10px;
   text-align: left;
   color: #fff;
-  /* background: rgba(0, 0, 0, 0.7); */
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .hero-sb-data h4 {

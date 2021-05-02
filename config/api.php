@@ -37,7 +37,7 @@ function api_enqueue_scripts() {
   foreach ( $scripts as $script ) {
     wp_enqueue_script( $script, $root . $script . '.js', [ 'jquery', 'uikit',  'percentageloader' ] );
   }
-  wp_enqueue_style('extra', get_template_directory_uri() . '/resources/styles/extra1.css');
+  wp_enqueue_style('extra', get_template_directory_uri() . '/resources/styles/extra2.css');
 }
 add_action( 'wp_enqueue_scripts', 'api_enqueue_scripts' );
 

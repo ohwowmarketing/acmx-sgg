@@ -103,31 +103,24 @@ function odds_table_filter( $league, $week, $season ) {
   <?php
 }
 
-function odds_table_head( $league ) {
+function odds_table_head( $league, $sbs ) {
   ?>
   <thead>
     <tr>
       <th><div class="team-label"><?php echo strtoupper( $league ); ?></div></th>
       <th width="120"><span>Consensus</span></th>
-      <?php
-        $sportsbook_query = [
-          'post_type' => 'sportsbooks',
-          'has_password' => false,
-          'posts_per_page' => -1,
-          'orderby' => 'menu_order',
-          'order' => 'asc'
-        ];
-        query_posts( $sportsbook_query );
-        while ( have_posts() ) {
-          the_post();
-          ?>
-          <th width="120">
-            <span class="odds-data-sportsbook-title-<?php the_field('sb_odds_id'); ?>"><?php the_title(); ?></span>
-          </th>
-          <?php
-        }
-        wp_reset_query();
-      ?>
+      <?php foreach ( $sbs as $sb ) : ?>
+        <?php $display = $sb['badge'] === NULL ? $sb['name'] : $sb['badge']; ?>
+        <th width="120">
+          <?php if ( $sb['url'] !== NULL ) : ?>
+            <a href="<?php echo $sb['url']; ?>"><?php echo $display; ?></a>
+          <?php elseif ( $sb['id'] ) : ?>
+            <a href="#bet-now" class="hero-sb-bet-now" data-sbid="<?php echo $sb['id']; ?>"><?php echo $display; ?></a>
+          <?php else : ?>
+            <span><?php echo $sb['name']; ?></span>
+          <?php endif; ?>
+        </th>
+      <?php endforeach; ?>
     </tr>
   </thead>
   <?php
@@ -239,31 +232,51 @@ function odds_table_row_sportsbook_panel_not_found() {
   <?php
 }
 
-function odds_table_row_sportsbook_panel_bookline( $values, $sportsbook ) {
+function odds_table_row_sportsbook_panel_bookline( $values, $sb ) {
   if ( $values['spread'] === '' || $values['spread_payout'] === '' ) :
     odds_table_row_sportsbook_panel_not_found();
-  else :
-  ?>
-  <div class="odds-sb-bookline">
-    <a class="sb-bookline-extlink odds-data-sportsbook-<?php echo $sportsbook; ?>" href="#">
-        <span class="sb-value-spread">
-            <?php echo ($values['spread'] < 0) ? $values['spread'] : '+' . $values['spread']; ?>
-            <small class="uk-margin-small-left"><?php echo $values['spread_payout'] ?></small>
-        </span>
-        <span class="sb-value-moneyline" style="display: none;">
-            <?php echo ($values['moneyline'] < 0) ? $values['moneyline'] : '+' . $values['moneyline']; ?>
-            <small class="uk-margin-small-left">ML</small>
-        </span>
-        <span class="sb-value-total" style="display: none;">
-            <?php echo ($values['over_under'] < 0) ? $values['over_under'] : '+' . $values['over_under']; ?>
-            <small class="uk-margin-small-left"><?php echo $values['over_under_payout'] ?></small>
-        </span>
-    </a>
-  </div>
+  else : 
+    $hover = '<span class="sb-extlink-hover"><svg viewBox="0 0 24 24" width="15" height="15" xmlns="https://www.w3.org/2000/svg" class="" fill="#F7F8FD"><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"></path></svg><span>Bet Now</span></span>';
+    $inner = '<span class="sb-value-spread">';
+    if ($values['spread'] >= 0) {
+      $inner .= '+';
+    }
+    $inner .= $values['spread'];
+    $inner .= '<small class="uk-margin-small-left">' . $values['spread_payout'] . '</small></span>
+      <span class="sb-value-moneyline" style="display: none;">';
+    if ($values['moneyline'] >= 0) {
+      $inner .= '+';
+    }
+    $inner .= $values['moneyline'];
+    $inner .= '<small class="uk-margin-small-left">ML</small></span>
+      <span class="sb-value-total" style="display: none;">';
+    if ($values['over_under'] >= 0) {
+      $inner .= '+';
+    }
+    $inner .= $values['over_under'];
+    $inner .= '<small class="uk-margin-small-left">' . $values['over_under_payout'] . '</small></span>';
+    ?>
+    <div class="odds-sb-bookline">
+      <?php if ( $sb['url'] !== NULL ) : ?>
+      <a class="sb-bookline-extlink odds-data-sportsbook-<?php echo $sb['id']; ?>" href="<?php echo $sb['url']; ?>">
+        <?php echo $inner; ?>
+        <?php echo $hover; ?>
+      </a>
+      <?php elseif ( $sb['id'] !== NULL )  : ?>
+        <a class="sb-bookline-extlink odds-data-sportsbook-<?php echo $sb['id']; ?> hero-sb-bet-now" data-sbid="<?php echo $sb['id']; ?>" href="#bet-now">
+        <?php echo $inner; ?>
+        <?php echo $hover; ?>
+      </a>
+      <?php else : ?>
+      <a class="sb-bookline-extlink" href="#">
+        <?php echo $inner; ?>
+      </a>
+      <?php endif; ?>
+    </div>
   <?php endif;
 }
 
-function odds_table_row_sportsbook_panel_item( $odd, $sportsbook = '' ) {
+function odds_table_row_sportsbook_panel_item( $odd, $sb ) {
 
   $away = [
     'spread' => $odd->AwayPointSpread,
@@ -283,53 +296,40 @@ function odds_table_row_sportsbook_panel_item( $odd, $sportsbook = '' ) {
   ?>
   <td class="sportsbook-panel">
     <div class="uk-panel">
-      <?php odds_table_row_sportsbook_panel_bookline( $away, $sportsbook ); ?>
-      <?php odds_table_row_sportsbook_panel_bookline( $home, $sportsbook ); ?>
+      <?php odds_table_row_sportsbook_panel_bookline( $away, $sb ); ?>
+      <?php odds_table_row_sportsbook_panel_bookline( $home, $sb ); ?>
     </div>
   </td>
   <?php
 }
 
-function odds_table_row_sportsbook_panel( $pregame ) {
-  $all_states = [];
-  $sportsbooks = [
-    'post_type' => 'sportsbooks',
-    'has_password' => false,
-    'posts_per_page' => -1,
-    'orderby' => 'menu_order',
-    'order' => 'ASC'
-  ];
-  query_posts( $sportsbooks );
-  while ( have_posts() ) {
-    the_post();
+function odds_table_row_sportsbook_panel( $pregame, $sbs ) {
+  foreach ( $sbs as $sb ) {
     $found = false;
     foreach ( $pregame as $odd ) {
-      if ( $odd->Sportsbook === get_field('sb_odds_id') ) {
+      if ( $odd->Sportsbook === $sb['sdio'] ) {
         $found = true;
-        odds_table_row_sportsbook_panel_item( $odd, $odd->Sportsbook );
+        odds_table_row_sportsbook_panel_item( $odd, $sb );
       }
-    };
-    if ( ! $found ) {
-      ?>
+    }
+    if ( ! $found ) : ?>
       <td class="sportsbook-panel">
         <div class="uk-panel">
           <?php odds_table_row_sportsbook_panel_not_found(); ?>
           <?php odds_table_row_sportsbook_panel_not_found(); ?>
         </div>
       </td>
-      <?php
-    }
+    <?php endif;
   }
-  wp_reset_query();
 }
 
-function odds_table_row( $odd, $teams = [] ) {
+function odds_table_row( $odd, $teams, $sbs ) {
   ?>
   <tr>
     <?php 
     odds_table_row_team_panel($teams, $odd->HomeTeamId, $odd->HomeTeamScore, $odd->AwayTeamId, $odd->AwayTeamScore );
     odds_table_row_consensus_panel( $odd->PregameOdds );
-    odds_table_row_sportsbook_panel( $odd->PregameOdds );
+    odds_table_row_sportsbook_panel( $odd->PregameOdds, $sbs );
     ?>
   </tr>
   <?php odds_table_row_date_status( $odd->DateTime, $odd->Status );
@@ -347,6 +347,34 @@ function valid_odds( $odds ) {
   return $valid;
 }
 
+function odds_sportsbooks() {
+  $sbs = [];
+  $sportsbooks_query = [
+    'post_type' => 'sportsbooks',
+    'has_password' => false,
+    'posts_per_page' => -1,
+    'orderby' => 'menu_order',
+    'order' => 'ASC',
+    'meta_key' => 'odds_display',
+    'meta_value' => true
+  ];
+    
+  query_posts( $sportsbooks_query );
+
+  while ( have_posts() ) {
+    the_post();
+    $sbs[] = [
+      'name' => get_the_title(),
+      'badge' => get_field( 'badge' ) ? '<img src="' . get_field( 'badge' ) . '" width="120" height="40" alt="' . get_the_title() . '" />' : NULL,
+      'id' => get_field( 'header_display' ) ? get_post_field( 'post_name' ) : NULL,
+      'sdio' => get_field('sb_odds_id'),
+      'url' => get_field( 'state_affiliate_links' ) ? NULL : get_field( 'global_affiliate_link' ),
+    ];
+  }
+  wp_reset_query();
+  return $sbs;
+}
+
 function odds_table() {
   $league = api_league();
   $selected_week = '';
@@ -358,22 +386,23 @@ function odds_table() {
   }
   $odds = api_data_odds( $league );
   $teams = api_data_odds_teams( $league );
+  $sbs = odds_sportsbooks();
   ?>
   <div uk-grid class="uk-flex-between uk-flex-middle uk-margin-bottom odds-locations">
     <?php odds_table_nav( $league ); ?>
-    <?php odds_table_location( $league ); ?>
+    <?php //odds_table_location( $league ); ?>
   </div>
   <?php odds_table_filter( $league, $selected_week, $current_season ); ?>
   <div class="uk-position-relative">
     <div class="uk-overflow-auto">
       <?php if ( valid_odds( $odds ) ) : ?>
       <table id="odds-list" class="uk-table uk-table-divider">
-        <?php odds_table_head( $league ); ?>
+        <?php odds_table_head( $league, $sbs ); ?>
         <tbody id="odds-list-body">
           <?php 
           if ( isset( $odds ) ) {
             foreach ( $odds as $odd ) {
-              odds_table_row( $odd, $teams );
+              odds_table_row( $odd, $teams, $sbs );
             }
           }
           ?>

@@ -345,7 +345,20 @@ function sportsbook_info_ajax() {
 add_action( 'wp_ajax_sportsbook_info', 'sportsbook_info_ajax' );
 add_action( 'wp_ajax_nopriv_sportsbook_info', 'sportsbook_info_ajax' );
 
+function get_width_class( $columns, $is_mobile ) {
+  $width = 'uk-child-width-1-' . $columns;
+  if ( ! $is_mobile ) {
+    $width .= '@m';
+  }
+  return $width;
+}
+
 function sportsbook_header() {
+  $mobile = get_field('sportsbooks_per_page_mobile', 'option');
+  $mobile_width = get_width_class( $mobile, true );
+  $desktop = get_field('sportsbooks_per_page_desktop', 'option');
+  $desktop_width = get_width_class( $desktop, false );
+  
   $sbs = [];
   $sportsbooks_query = [
     'post_type' => 'sportsbooks',
@@ -376,52 +389,54 @@ function sportsbook_header() {
       'bonus' => get_field( 'sb_promotion' )
     ];
   }
-  wp_reset_query();
-  foreach ($sbs as $sb) : ?>
-    <div class="hero-sb-item with-overlay" <?php echo $sb['background'] !== '' ? 'style="background-image: url(' . $sb['background'] . ')"' : ''; ?>>
-      <div class="hero-sb-item-full-overlay"></div>
-      <div class="hero-sb-content">
-        <div class="hero-sb-logo">
-          <?php if ($sb['state_links']) : ?>
-          <a href="#bet-now" data-sbid="<?php echo $sb['slug']; ?>" class="hero-sb-bet-now">
-            <img src="<?php echo $sb['logo']; ?>" alt="<?php echo $sb['title']; ?>" />  
-          </a>
-          <?php else : ?>
-          <a href="<?php echo $sb['url']; ?>">
-            <img src="<?php echo $sb['logo']; ?>" alt="<?php echo $sb['title']; ?>" />  
-          </a>
-          <?php endif; ?>
-        </div>
-        <div class="hero-sb-data">
-          <h4><?php echo $sb['title']; ?></h4>
+  wp_reset_query(); ?>
+  <ul class="uk-slider-items <?php echo $mobile_width . ' ' . $desktop_width; ?>">
+    <?php foreach ($sbs as $sb) : ?>
+    <li>
+      <div class="hero-sb-item with-overlay" <?php echo $sb['background'] !== '' ? 'style="background-image: url(' . $sb['background'] . ')"' : ''; ?>>
+        <div class="hero-sb-item-full-overlay"></div>
+        <div class="hero-sb-content">
+          <div class="hero-sb-logo">
+            <?php if ($sb['state_links']) : ?>
+            <a href="#bet-now" data-sbid="<?php echo $sb['slug']; ?>" class="hero-sb-bet-now">
+              <img src="<?php echo $sb['logo']; ?>" alt="<?php echo $sb['title']; ?>" />  
+            </a>
+            <?php else : ?>
+            <a href="<?php echo $sb['url']; ?>">
+              <img src="<?php echo $sb['logo']; ?>" alt="<?php echo $sb['title']; ?>" />  
+            </a>
+            <?php endif; ?>
+          </div>
+          <div class="hero-sb-data">
+            <h4><?php echo $sb['title']; ?></h4>
 
-          <?php if ( $sb['bonus'] ) : ?>
-          <p><?php echo $sb['bonus']; ?></p>
-          <?php endif; ?>
+            <?php if ( $sb['bonus'] ) : ?>
+            <p><?php echo $sb['bonus']; ?></p>
+            <?php endif; ?>
 
-          <?php if ( $sb['rating'] ) : ?>
-            <?php star_rating($sb['rating'], 5); ?>
-          <?php endif; ?>
-          
-          <div class="hero-sb-action">
-            <div>
-              <?php if ( $sb['has_review'] ) : ?>
-                <a href="<?php echo $sb['review_url']; ?>">Read Review</a>
-              <?php endif; ?>
-            </div>
-            <div class="uk-button-group">
-              <button class="uk-button uk-button-primary uk-button-small no-right-br"><a href="#sb-info" data-sbid="<?php echo $sb['slug']; ?>" class="uk-icon sb-more-info" uk-icon="icon: info; ratio: 0.8"></a></button>
-              <?php if ($sb['state_links']) : ?>
-              <a href="#bet-now" data-sbid="<?php echo $sb['slug']; ?>" class="uk-button uk-button-primary uk-button-small no-left-br hero-sb-bet-now" uk-toggle>BET NOW</a>
-              <?php else : ?>
-              <a href="<?php echo $sb['url']; ?>" class="uk-button uk-button-primary uk-button-small no-left-br">BET NOW</a>
-              <?php endif; ?>
+            <?php if ( $sb['rating'] ) : ?>
+              <?php star_rating($sb['rating'], 5); ?>
+            <?php endif; ?>
+            
+            <div class="hero-sb-action">
+              <div>
+                <?php if ( $sb['has_review'] ) : ?>
+                  <a href="<?php echo $sb['review_url']; ?>">Read Review</a>
+                <?php endif; ?>
+              </div>
+              <div class="uk-button-group">
+                <button class="uk-button uk-button-primary uk-button-small no-right-br"><a href="#sb-info" data-sbid="<?php echo $sb['slug']; ?>" class="uk-icon sb-more-info" uk-icon="icon: info; ratio: 0.8"></a></button>
+                <?php if ($sb['state_links']) : ?>
+                <a href="#bet-now" data-sbid="<?php echo $sb['slug']; ?>" class="uk-button uk-button-primary uk-button-small no-left-br hero-sb-bet-now" uk-toggle>BET NOW</a>
+                <?php else : ?>
+                <a href="<?php echo $sb['url']; ?>" class="uk-button uk-button-primary uk-button-small no-left-br">BET NOW</a>
+                <?php endif; ?>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="hero-sb-info-sm hero-sb-info-<?php echo $sb['slug']; ?> uk-hidden@m">
-          <div uk-grid class="uk-grid-collapse uk-child-width-expand">
-            <div class="uk-width-expand">
+          <!-- <div class="hero-sb-info-sm hero-sb-info-<?php echo $sb['slug']; ?> uk-hidden@m">
+            <div uk-grid class="uk-grid-collapse uk-child-width-expand">
+              <div class="uk-width-expand">
                 <div class="sb-info-col">
                   <h2><?php echo $sb['title']; ?> Review & Signup Offer</h2>
                   <?php if ( $sb['ratings'] ) : ?>
@@ -444,30 +459,77 @@ function sportsbook_header() {
                 </div>
               </div>
               <div class="uk-width-1-1">
-                  <div class="sb-info-col">
-                      <div class="sb-info-row">
-                        <div>
-                          <?php if ($sb['state_links']) : ?>
-                          <a href="#bet-now" data-sbid="<?php echo $sb['slug']; ?>" class="uk-button uk-button-primary uk-button-small hero-sb-bet-now" uk-toggle="">Bet Now</a>
-                          <?php else: ?>
-                          <a href="<?php echo $sb['url']; ?>" class="uk-button uk-button-primary uk-button-small">Bet Now</a>
-                          <?php endif; ?>
-                        </div>
-                        <div class="sb-info-terms">
-                          <p><?php echo $sb['bonus']; ?></p>
-                          <span>Terms and Conditions Apply</span>
-                        </div>
-                      </div>
-                      <div class="sb-info-description"><p><?php echo $sb['description']; ?></p></div>
+                <div class="sb-info-col">
+                  <div class="sb-info-row">
+                    <div>
+                      <?php if ( $sb['state_links'] ) : ?>
+                      <a href="#bet-now" data-sbid="<?php echo $sb['slug']; ?>" class="uk-button uk-button-primary uk-button-small hero-sb-bet-now" uk-toggle="">Bet Now</a>
+                      <?php else: ?>
+                      <a href="<?php echo $sb['url']; ?>" class="uk-button uk-button-primary uk-button-small">Bet Now</a>
+                      <?php endif; ?>
+                    </div>
+                    <div class="sb-info-terms">
+                      <p><?php echo $sb['bonus']; ?></p>
+                      <span>Terms and Conditions Apply</span>
+                    </div>
                   </div>
+                  <div class="sb-info-description"><p><?php echo $sb['description']; ?></p></div>
+                </div>
               </div>
-          </div>
-          <div class="sb-reviews-link">
-              <!-- <a href="#">All Sportsbook Reviews</a> -->
-          </div>
+            </div>
+          </div> -->
         </div>
       </div>
-    </div>
-  <?php endforeach;
+    </li>
+    <?php endforeach; ?>
+  </ul>
+  <?php
 }
 add_action( 'sportsbook_header', 'sportsbook_header' );
+
+
+function sportsbook_daily_promos() {
+  if ( get_field( 'enable_daily_promos', 'option' ) ) :
+    $daily_promo_image = get_field( 'daily_promotion_image', 'option' );
+    $daily_promos = [];
+    $sportsbooks_query = [
+      'post_type' => 'sportsbooks',
+      'has_password' => false,
+      'posts_per_page' => -1,
+      'orderby' => 'menu_order',
+      'order' => 'ASC',
+      'meta_key' => 'header_display',
+      'meta_value' => true
+    ];
+    query_posts( $sportsbooks_query );
+
+    while ( have_posts() ) {
+      the_post();
+      if ( get_field( 'daily_promo' ) ) {
+        $daily_promos[] = [
+          'img' => '<img src="' . get_field( 'daily_promo' ) . '" alt="' . get_the_title() . '" />',
+          'url' => get_field( 'state_affiliate_links' ) ? NULL : get_field( 'global_affiliate_link' ),
+          'id' => get_field( 'state_affiliate_links' ) ? get_post_field( 'post_name' ) : NULL
+        ];
+      }
+    }
+    wp_reset_query();
+    ?>
+    <div uk-grid class="uk-grid-collapse uk-child-width-expand daily-promos-trigger">
+      <div>
+        <a href="#" class="daily-trigger"><img src="<?php echo $daily_promo_image; ?>" style="max-width: 100%" /></a>
+      </div>
+    </div>
+    <div uk-grid class="uk-grid-collapse uk-child-width-expand daily-promos" style="display: none;">
+    <?php foreach ( $daily_promos as $promo ) : ?>
+      <div>
+        <a href="<?php echo $promo['url'] !== NULL ? $promo['url'] : '#bet-now'; ?>" <?php echo $promo['id'] !== NULL ? 'data-sbid="' . $promo['id'] . '" class="hero-sb-bet-now"' : ''; ?>>
+          <?php echo $promo['img']; ?>
+        </a>
+      </div>
+    <?php endforeach; ?>
+    </div>
+    <?php
+  endif;
+}
+add_action( 'sportsbook_daily_promos', 'sportsbook_daily_promos' );

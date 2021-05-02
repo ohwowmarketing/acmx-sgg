@@ -19,28 +19,35 @@
 <header class="hero-sb">
     <div class="uk-container uk-container-xlarge">
         <h1>Best Sports Betting Sites</h1>
-        <div uk-grid class="uk-grid-collapse uk-child-width-expand@m uk-text-center">
-            <?php do_action( 'sportsbook_header' ); ?>
+        <!-- <div uk-grid class="uk-grid-collapse uk-child-width-expand@m uk-text-center">
+            <?php //do_action( 'sportsbook_header' ); ?>
+        </div> -->
+        <div class="sportsbook-header-slider-section uk-position-relative uk-visible-toggle uk-text-center" tabindex="-1" uk-slider="sets: true; finite: true">
+            <div class="uk-slider-container">
+                <?php do_action( 'sportsbook_header' ); ?>
+                <a class="uk-position-center-left uk-position-small bg-grad" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+                <a class="uk-position-center-right uk-position-small bg-grad" href="#" uk-slidenav-next uk-slider-item="next"></a>
+            </div>
         </div>
         <div class="sb-info">
-            <div uk-grid class="hero-sb-info uk-grid-collapse uk-child-width-expand@m uk-visible@m">
-                <div class="uk-width-expand@m">
+            <div uk-grid class="hero-sb-info uk-grid-collapse uk-child-width-expand">
+                <div class="uk-width-expand">
                     <div class="sb-info-col">
                         <h2><span></span> Review & Signup Offer</h2>
                         <table><tbody></tbody></table>
                     </div>
                 </div>
-                <div class="uk-width-auto@m">
+                <div class="uk-width-auto">
                     <div class="sb-info-col uk-text-center">
                         <div id="top-loader" class="rating-dial"></div>
                     </div>
                 </div>
-                <div class="uk-width-expand@m">
+                <div class="uk-width-expand">
                     <div class="sb-info-col">
                         <div class="sb-info-description"><p></p></div>
                     </div>
                 </div>
-                <div class="uk-width-auto@m">
+                <div class="uk-width-auto">
                     <div class="sb-info-col">
                         <button class="uk-modal-close-default close-info" type="button" uk-close></button>
                     </div>
@@ -58,7 +65,7 @@
                 </div>
             </div>
             <div class="sb-reviews-link">
-                <!-- <a href="#">All Sportsbook Reviews</a> -->
+                <?php do_action( 'sportsbook_daily_promos' ); ?>
             </div>
         </div>
     </div>
