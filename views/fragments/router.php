@@ -1,7 +1,7 @@
 <div id="newsletter" class="uk-background-muted uk-padding uk-light" data-globals="newsletter">
     <div class="uk-container uk-container-small">
 
-        <div class="uk-panel">
+        <div class="uk-panel uk-margin-medium-bottom">
             <?php echo do_shortcode( '[elfsight_instagram_feed id="1"]' ); ?>
         </div>
 
