@@ -889,6 +889,17 @@
 		"opt": 0,
 		"q": 100
 		},
+	"/resources/images/promo/sggplayoffs/basketball/birch-court.jpg": {
+		"ft": 16384,
+		"iS": 26112,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/resources/images/promo/sggplayoffs/basketball/birch-court.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
 	"/resources/images/promo/sggplayoffs/football/lplayer.png": {
 		"ft": 32768,
 		"iS": 64408,
@@ -999,6 +1010,27 @@
 		"oT": 1,
 		"q": 100
 		},
+	"/resources/images/sportsbooks/betmgm.png": {
+		"ft": 32768,
+		"iS": 9951,
+		"oA": 0,
+		"oAP": "/resources/images/sportsbooks/betmgm.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/resources/images/sportsbooks/betmgm.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/sportsbooks/betmgm.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
 	"/resources/images/sportsbooks/betrivers.jpg": {
 		"ft": 16384,
 		"iS": 5508,
@@ -1009,6 +1041,16 @@
 		"oIPL": 0,
 		"opt": 0,
 		"q": 100
+		},
+	"/resources/images/sportsbooks/betrivers.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/sportsbooks/betrivers.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
 		},
 	"/resources/images/sportsbooks/dk-d-crown.png": {
 		"ft": 32768,
@@ -1029,6 +1071,14 @@
 		"oF": 0,
 		"opt": 0
 		},
+	"/resources/images/sportsbooks/dk-leaderboard-2.gif": {
+		"ft": 4194304,
+		"iS": 39627,
+		"oA": 0,
+		"oAP": "/resources/images/sportsbooks/dk-leaderboard-2.gif",
+		"oF": 0,
+		"opt": 0
+		},
 	"/resources/images/sportsbooks/dk-leaderboard.gif": {
 		"ft": 4194304,
 		"iS": 36788,
@@ -1036,6 +1086,103 @@
 		"oAP": "/resources/images/sportsbooks/dk-leaderboard.gif",
 		"oF": 0,
 		"opt": 0
+		},
+	"/resources/images/sportsbooks/draftkings.png": {
+		"ft": 32768,
+		"iS": 13307,
+		"oA": 0,
+		"oAP": "/resources/images/sportsbooks/draftkings.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/resources/images/sportsbooks/draftkings.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/sportsbooks/draftkings.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/sportsbooks/fanduel.png": {
+		"ft": 32768,
+		"iS": 9021,
+		"oA": 0,
+		"oAP": "/resources/images/sportsbooks/fanduel.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/resources/images/sportsbooks/fanduel.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/sportsbooks/fanduel.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/sportsbooks/logos/betmgm.png": {
+		"ft": 32768,
+		"iS": 7375,
+		"oA": 0,
+		"oAP": "/resources/images/sportsbooks/logos/betmgm.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/resources/images/sportsbooks/logos/betrivers.png": {
+		"ft": 32768,
+		"iS": 7435,
+		"oA": 0,
+		"oAP": "/resources/images/sportsbooks/logos/betrivers.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/resources/images/sportsbooks/logos/draftkings.png": {
+		"ft": 32768,
+		"iS": 12720,
+		"oA": 0,
+		"oAP": "/resources/images/sportsbooks/logos/draftkings.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/resources/images/sportsbooks/logos/fanduel.png": {
+		"ft": 32768,
+		"iS": 8317,
+		"oA": 0,
+		"oAP": "/resources/images/sportsbooks/logos/fanduel.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/resources/images/sportsbooks/logos/unibet.png": {
+		"ft": 32768,
+		"iS": 7249,
+		"oA": 0,
+		"oAP": "/resources/images/sportsbooks/logos/unibet.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
 		},
 	"/resources/images/sportsbooks/unibet.jpg": {
 		"ft": 16384,
@@ -1047,6 +1194,547 @@
 		"oIPL": 0,
 		"opt": 0,
 		"q": 100
+		},
+	"/resources/images/sportsbooks/unibet.png": {
+		"ft": 32768,
+		"iS": 8348,
+		"oA": 0,
+		"oAP": "/resources/images/sportsbooks/unibet.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/resources/images/sportsbooks/unibet.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/sportsbooks/unibet.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/AK.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/AK.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/AL.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/AL.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/AR.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/AR.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/AZ.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/AZ.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/CA.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/CA.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/CO.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/CO.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/CT.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/CT.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/DC.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/DC.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/DE.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/DE.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/FL.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/FL.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/GA.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/GA.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/HI.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/HI.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/IA.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/IA.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/ID.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/ID.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/IL.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/IL.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/IN.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/IN.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/KS.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/KS.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/KY.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/KY.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/LA.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/LA.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/MA.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/MA.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/MD.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/MD.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/ME.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/ME.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/MI.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/MI.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/MN.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/MN.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/MO.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/MO.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/MS.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/MS.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/MT.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/MT.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/NC.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/NC.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/ND.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/ND.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/NE.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/NE.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/NH.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/NH.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/NJ.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/NJ.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/NM.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/NM.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/NV.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/NV.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/NY.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/NY.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/OH.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/OH.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/OK.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/OK.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/OR.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/OR.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/PA.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/PA.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/RI.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/RI.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/SC.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/SC.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/SD.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/SD.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/TN.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/TN.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/TX.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/TX.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/USA.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/USA.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/UT.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/UT.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/VA.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/VA.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/VT.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/VT.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/WA.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/WA.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/WI.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/WI.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/WV.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/WV.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/states/WY.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/states/WY.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
 		},
 	"/resources/images/temp/betrivers-ads.jpg": {
 		"ft": 16384,
@@ -1166,6 +1854,27 @@
 		"oF": 0,
 		"opt": 0
 		},
+	"/resources/images/ui/star.svg": {
+		"ft": 2097152,
+		"miP": 0,
+		"oA": 2,
+		"oAP": "/resources/images/ui/star.svg",
+		"oF": 0,
+		"opt": 0,
+		"plM": 52780316221407,
+		"prP": 0
+		},
+	"/resources/images/ui/vegas.jpg": {
+		"ft": 16384,
+		"iS": 277942,
+		"jF": 0,
+		"oA": 0,
+		"oAP": "/resources/images/ui/vegas.jpg",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"q": 100
+		},
 	"/resources/scripts/best-books.min.js": {
 		"bF": 0,
 		"ft": 64,
@@ -1265,6 +1974,17 @@
 		"sC": 0,
 		"tS": 0
 		},
+	"/resources/scripts/percentageloader.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/resources/scripts/percentageloader.min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
 	"/resources/scripts/sgg/bestbooks.js": {
 		"bF": 0,
 		"ft": 64,
@@ -1283,6 +2003,17 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "/resources/scripts/futures.min.js",
+		"oF": 0,
+		"sC": 0,
+		"tS": 0
+		},
+	"/resources/scripts/sgg/header.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/resources/scripts/header.min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
@@ -1341,6 +2072,16 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"/resources/styles/careers.min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/resources/styles/careers.min-min.css",
+		"oF": 0,
+		"oS": 3
+		},
 	"/resources/styles/contact.min.css": {
 		"aP": 1,
 		"bl": 0,
@@ -1351,13 +2092,13 @@
 		"oF": 0,
 		"oS": 3
 		},
-	"/resources/styles/extra.css": {
+	"/resources/styles/extra1.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "/resources/styles/extra-min.css",
+		"oAP": "/resources/styles/extra1-min.css",
 		"oF": 0,
 		"oS": 3
 		},
@@ -1847,6 +2588,14 @@
 		"oAP": "/views/widgets/futures-nfl.php",
 		"oF": 0
 		},
+	"/views/widgets/guides-large.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/views/widgets/guides-large.php",
+		"oF": 0
+		},
 	"/views/widgets/guides.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -1896,6 +2645,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/views/widgets/oddslines.php",
+		"oF": 0
+		},
+	"/views/widgets/states.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/views/widgets/states.php",
 		"oF": 0
 		}
 	},
