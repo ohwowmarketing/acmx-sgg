@@ -2092,13 +2092,13 @@
 		"oF": 0,
 		"oS": 3
 		},
-	"/resources/styles/extra1.css": {
+	"/resources/styles/extra2.css": {
 		"aP": 1,
 		"bl": 0,
 		"ft": 16,
 		"ma": 0,
 		"oA": 0,
-		"oAP": "/resources/styles/extra1-min.css",
+		"oAP": "/resources/styles/extra2-min.css",
 		"oF": 0,
 		"oS": 3
 		},
