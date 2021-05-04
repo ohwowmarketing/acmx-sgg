@@ -2,7 +2,7 @@
     <div class="uk-container uk-container-xlarge">
         <div class="uk-panel uk-margin-medium-bottom">
             <div class="uk-text-center">
-                <h3><span uk-icon="icon: instagram;"></span> <br> <a href="https://www.instagram.com/sportsgamblingguides.com" target="_blank" rel="follow">Follow Us on Instagram</a></h3>
+                <h3><span uk-icon="icon: instagram;"></span> <br> <a href="https://www.instagram.com/sportsgamblingguides" target="_blank" rel="follow">Follow Us on Instagram</a></h3>
             </div>
             <?php echo do_shortcode( '[elfsight_instagram_feed id="1"]' ); ?>
         </div>        
