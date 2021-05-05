@@ -434,50 +434,6 @@ function sportsbook_header() {
               </div>
             </div>
           </div>
-          <!-- <div class="hero-sb-info-sm hero-sb-info-<?php echo $sb['slug']; ?> uk-hidden@m">
-            <div uk-grid class="uk-grid-collapse uk-child-width-expand">
-              <div class="uk-width-expand">
-                <div class="sb-info-col">
-                  <h2><?php echo $sb['title']; ?> Review & Signup Offer</h2>
-                  <?php if ( $sb['ratings'] ) : ?>
-                  <table><tbody>
-                    <?php foreach ( $sb['ratings'] as $rating ) : ?>
-                      <tr><th><?php echo $rating['label']; ?></th><td><?php star_rating($rating['rating'], 5); ?></td></tr>
-                    <?php endforeach; ?>
-                  </tbody></table>
-                  <?php endif; ?>
-                </div>
-              </div>
-              <div class="uk-width-auto">
-                <div class="sb-info-col">
-                  <button class="uk-modal-close-default close-info" type="button" uk-close></button>
-                </div>
-              </div>
-              <div class="uk-width-1-1">
-                <div class="sb-info-col uk-text-center">
-                  <div id="top-loader-<?php echo $sb['slug']; ?>" class="rating-dial-sm"></div>
-                </div>
-              </div>
-              <div class="uk-width-1-1">
-                <div class="sb-info-col">
-                  <div class="sb-info-row">
-                    <div>
-                      <?php if ( $sb['state_links'] ) : ?>
-                      <a href="#bet-now" data-sbid="<?php echo $sb['slug']; ?>" class="uk-button uk-button-primary uk-button-small hero-sb-bet-now" uk-toggle="">Bet Now</a>
-                      <?php else: ?>
-                      <a href="<?php echo $sb['url']; ?>" class="uk-button uk-button-primary uk-button-small">Bet Now</a>
-                      <?php endif; ?>
-                    </div>
-                    <div class="sb-info-terms">
-                      <p><?php echo $sb['bonus']; ?></p>
-                      <span>Terms and Conditions Apply</span>
-                    </div>
-                  </div>
-                  <div class="sb-info-description"><p><?php echo $sb['description']; ?></p></div>
-                </div>
-              </div>
-            </div>
-          </div> -->
         </div>
       </div>
     </li>
@@ -514,22 +470,22 @@ function sportsbook_daily_promos() {
       }
     }
     wp_reset_query();
-    ?>
-    <div uk-grid class="uk-grid-collapse uk-child-width-expand daily-promos-trigger">
-      <div>
-        <a href="#" class="daily-trigger"><img src="<?php echo $daily_promo_image; ?>" style="max-width: 100%" /></a>
+    if ( count( $daily_promos ) > 0 ) : ?>
+      <div uk-grid class="uk-grid-collapse uk-child-width-expand daily-promos-trigger">
+        <div>
+          <a href="#" class="daily-trigger"><img src="<?php echo $daily_promo_image; ?>" style="max-width: 100%" /></a>
+        </div>
       </div>
-    </div>
-    <div uk-grid class="uk-grid-collapse uk-child-width-expand daily-promos" style="display: none;">
-    <?php foreach ( $daily_promos as $promo ) : ?>
-      <div>
-        <a href="<?php echo $promo['url'] !== NULL ? $promo['url'] : '#bet-now'; ?>" <?php echo $promo['id'] !== NULL ? 'data-sbid="' . $promo['id'] . '" class="hero-sb-bet-now"' : ''; ?>>
-          <?php echo $promo['img']; ?>
-        </a>
+      <div uk-grid class="uk-grid-collapse uk-child-width-expand daily-promos" style="display: none;">
+      <?php foreach ( $daily_promos as $promo ) : ?>
+        <div>
+          <a href="<?php echo $promo['url'] !== NULL ? $promo['url'] : '#bet-now'; ?>" <?php echo $promo['id'] !== NULL ? 'data-sbid="' . $promo['id'] . '" class="hero-sb-bet-now"' : ''; ?>>
+            <?php echo $promo['img']; ?>
+          </a>
+        </div>
+      <?php endforeach; ?>
       </div>
-    <?php endforeach; ?>
-    </div>
-    <?php
+    <?php endif;
   endif;
 }
 add_action( 'sportsbook_daily_promos', 'sportsbook_daily_promos' );
