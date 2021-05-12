@@ -65,7 +65,6 @@ jQuery(document).ready(function ($) {
             $('#futures-select').removeAttr('hidden')
           }
         })
-        updateUserFuturesSpecificSettings()
       }
     )
   }
