@@ -13,7 +13,6 @@ switch ( $post->post_parent ) {
 
             <header class="uk-flex uk-flex-middle">
                 <h1 class="uk-card-title"><?php echo get_the_title( $post->post_parent ) . ' Futures'; ?></h1>
-                <?php futures_table_location( $league ); ?>
                 <form hidden id="futures-select" class="uk-form" action="<?php the_permalink(); ?>" method="get" data-league="<?php echo $league; ?>" data-future="<?php echo isset( $_GET['future'] ) ? $_GET['future'] : '' ; ?>">
                     <div class="uk-inline">
                         <div id="select-loading" uk-spinner="ratio: 0.5"></div>

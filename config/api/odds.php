@@ -137,8 +137,12 @@ function odds_table_row_date_status( $date_time, $status ) {
   ];
   $columns = 2; // teams + consensus
   query_posts( $sportsbooks );
+  $dk_link = '';
   while ( have_posts() ) {
     the_post();
+    if ( get_the_title() === 'DraftKings' ) {
+      $dk_link = get_field( 'global_affiliate_link' );
+    }
     $columns++;
   }
   ?>
@@ -146,7 +150,14 @@ function odds_table_row_date_status( $date_time, $status ) {
     <td colspan="<?php echo $columns; ?>" class="schedule-panel">
       <div>
         <?php echo $d->format( 'D n/d, g:i A' ); ?> | <?php echo $status; ?>&nbsp;
-        <span class='odds-game-bet-now'></span>
+        <span class='odds-game-bet-now'>
+        <?php if ( $dk_link !== '' ) : ?>
+          <a href="<?php echo $dk_link; ?>" role="button" type="button" class="uk-button uk-button-default uk-button-small">
+            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/sportsbooks/dk-d-crown.png" width="75" height="75" class="dk" />
+            &nbsp;Bet Now
+          </a>
+        <?php endif; ?>
+        </span>
       </div>
     </td>
   </tr>
