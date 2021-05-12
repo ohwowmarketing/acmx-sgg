@@ -447,51 +447,6 @@ function odds_table_data() {
 add_action( 'wp_ajax_odds_table_data', 'odds_table_data' );
 add_action( 'wp_ajax_nopriv_odds_table_data', 'odds_table_data' );
 
-function odds_user_settings() {
-  if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
-		die( 'Unable to verify sender.' );
-  }
-  
-  $post = get_post();
-  $user_state = get_user_state();
-  if ( $user_state === '' ) {
-    die();
-  }
-
-  $data = [ 'state' => get_state_from_code( $user_state ), 'sportsbooks' => [] ];
-
-  $sportsbooks_query = [
-    'post_type' => 'sportsbooks',
-    'has_password' => false,
-    'posts_per_page' => -1,
-    'orderby' => 'menu_order',
-    'order' => 'ASC'
-  ];
-  query_posts( $sportsbooks_query );
-  while ( have_posts() ) {
-    the_post();
-    if ( have_rows( 'promos' ) ) {
-      while ( have_rows( 'promos' ) ) {
-        the_row();
-        if ( $user_state === get_sub_field( 'state' ) ) {
-          $data['sportsbooks'][] = [
-            'id' => get_field( 'sb_odds_id' ),
-            'name' => get_the_title(),
-            'logo' => get_field( 'sb_image' ),
-            'badge' => get_field( 'badge' ),
-            'link' => get_sub_field( 'link' )
-          ];
-        }
-      }
-    }
-  }
-  wp_reset_query();
-  echo json_encode( $data );
-  die();
-}
-add_action( 'wp_ajax_odds_user_settings', 'odds_user_settings' );
-add_action( 'wp_ajax_nopriv_odds_user_settings', 'odds_user_settings' );
-
 function odds_header_data() {
   if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
 		die( 'Unable to verify sender.' );

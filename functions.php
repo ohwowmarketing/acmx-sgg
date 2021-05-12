@@ -14,7 +14,6 @@ $fn_config = [
     'config/editor.php',
     'config/api.php',
     'config/api/data.php',
-    'config/api/user.php',
     'config/api/sportsbooks.php',
     'config/api/news.php',
     'config/api/odds.php',

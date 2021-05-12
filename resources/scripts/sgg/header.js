@@ -50,8 +50,7 @@ jQuery(document).ready(function ($) {
     $('#bet-now .bonus').html(state.data('bonus'))
     $('#bet-now h2 span').html(`: ${state.text()}`)
     $('#bet-now a.continue').prop('href', state.data('link'))
-    $('#bet-now .select-container').hide()
-    $('#bet-now .outside').hide()
+    // $('#bet-now .select-container').hide()
     $('#bet-now a.continue').show()
   })
 
@@ -119,10 +118,10 @@ jQuery(document).ready(function ($) {
       function (data) {
         const sb = JSON.parse(data)
 
-        if (sb.in_state && !sb.state_specific) {
-          window.location.href = sb.link
-          return
-        }
+        // if (sb.in_state && !sb.state_specific) {
+        //   window.location.href = sb.link
+        //   return
+        // }
 
         $('#bet-now .bet-now-sb-logo').html(
           `<img src="${sb.logo}" alt="${sb.title}" />`

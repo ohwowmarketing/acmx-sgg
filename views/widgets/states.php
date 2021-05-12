@@ -19,7 +19,7 @@ $upcoming_states = get_field('upcoming_states', 'option');
                 </div>
               </div>
               <div class="uk-width-auto">
-                <div class="state-name"><?php echo get_state_from_code( $state ); ?></div>
+                <div class="state-name"><?php echo api_state_from_code( $state ); ?></div>
               </div>
             </div>
           </div>
@@ -40,7 +40,7 @@ $upcoming_states = get_field('upcoming_states', 'option');
                   </div>
                 </div>
                 <div class="uk-width-auto">
-                  <div class="state-name"><?php echo get_state_from_code( $state ); ?></div>
+                  <div class="state-name"><?php echo api_state_from_code( $state ); ?></div>
                 </div>
               </div>
             </div>

@@ -6,12 +6,10 @@
         <img src="<?php echo get_template_directory_uri(); ?>/resources/images/site-SGG-logo.png" class="modal-logo">
         <button class="uk-modal-close-default" type="button" uk-close></button>
         <h2 class="uk-modal-title"><span></span></h2>
-        <div class="outside">It appears that you are visiting from an area where <span class="primary">SportsGamblingGuides.com</span> does not yet feature this sportsbook.</div>
         <div class="bonus"></div>
-        
         <div uk-form-custom="target: true" class='select-container'>
             <select class='uk-select state-select'></select>
-            <button type="button" class="uk-button">Change State</button>
+            <button type="button" class="uk-button uk-button-primary uk-button-small">Select State</button>
         </div>
         <a class="uk-button uk-button-primary uk-button-small continue" type="button">Continue</a>
     </div>
@@ -19,9 +17,6 @@
 <header class="hero-sb">
     <div class="uk-container uk-container-xlarge">
         <h1>Best Sports Betting Sites</h1>
-        <!-- <div uk-grid class="uk-grid-collapse uk-child-width-expand@m uk-text-center">
-            <?php //do_action( 'sportsbook_header' ); ?>
-        </div> -->
         <div class="sportsbook-header-slider-section uk-position-relative uk-visible-toggle uk-text-center" tabindex="-1" uk-slider="sets: true; finite: true">
             <div class="uk-slider-container">
                 <?php do_action( 'sportsbook_header' ); ?>

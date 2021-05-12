@@ -217,11 +217,11 @@ function api_future_ajax() {
     }
   }
 
-  $transient = get_transient( 'sgg_api_future_' . $_POST['league'] . '_market_' . $_POST['future'] );
-  if ( ! empty( $transient ) ) {
-    // echo $transient;
-    // die();
-  }
+  // $transient = get_transient( 'sgg_api_future_' . $_POST['league'] . '_market_' . $_POST['future'] );
+  // if ( ! empty( $transient ) ) {
+  //   echo $transient;
+  //   die();
+  // }
 
   $url = 'https://sgg.vercel.app/api/' . $_POST['league'] . '/future/' . $_POST['future'];
   $data = api_data( $url );
@@ -277,59 +277,14 @@ function api_future_ajax() {
   $out = '';
   $out .= future_thead( $data->meta, $sportsbooks, $sbs );
   $out .= future_tbody( $data->rows, $sportsbooks, $sbs );
-  if ( $out !== '' ) {
-    $minutes = 10;
-    $seconds = 60;
-    $cache_time = $minutes * $seconds;
-    // set_transient( 'sgg_api_future_' . $_POST['league'] . '_market_' . $_POST['future'], $out, $cache_time );
-  }
+  // if ( $out !== '' ) {
+  //   $minutes = 10;
+  //   $seconds = 60;
+  //   $cache_time = $minutes * $seconds;
+  //   set_transient( 'sgg_api_future_' . $_POST['league'] . '_market_' . $_POST['future'], $out, $cache_time );
+  // }
   echo $out;
   die();
 }
 add_action( 'wp_ajax_api_future', 'api_future_ajax' );
 add_action( 'wp_ajax_nopriv_api_future', 'api_future_ajax' );
-
-// function futures_user_settings() {
-//   if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
-// 		die( 'Unable to verify sender.' );
-//   }
-  
-//   $post = get_post();
-//   $user_state = get_user_state();
-//   if ( $user_state === '' ) {
-//     die();
-//   }
-
-//   $data = [ 'state' => get_state_from_code( $user_state ), 'sportsbooks' => [] ];
-
-//   $sportsbooks_query = [
-//     'post_type' => 'sportsbooks',
-//     'has_password' => false,
-//     'posts_per_page' => -1,
-//     'orderby' => 'menu_order',
-//     'order' => 'ASC'
-//   ];
-//   query_posts( $sportsbooks_query );
-//   while ( have_posts() ) {
-//     the_post();
-//     if ( have_rows( 'promos' ) ) {
-//       while ( have_rows( 'promos' ) ) {
-//         the_row();
-//         if ( $user_state === get_sub_field( 'state' ) ) {
-//           $data['sportsbooks'][] = [
-//             'id' => get_field( 'sb_odds_id' ),
-//             'name' => get_the_title(),
-//             'logo' => get_field( 'sb_image' ),
-//             'badge' => get_field( 'badge' ),
-//             'link' => get_sub_field( 'link' )
-//           ];
-//         }
-//       }
-//     }
-//   }
-//   wp_reset_query();
-//   echo json_encode( $data );
-//   die();
-// }
-// add_action( 'wp_ajax_futures_user_settings', 'futures_user_settings' );
-// add_action( 'wp_ajax_nopriv_futures_user_settings', 'futures_user_settings' );
