@@ -517,7 +517,7 @@ h2.uk-modal-title {
 }
 
 .state-borders {
-  height: 60px;
+  min-height: 60px;
   border-right: 1px solid #e1e2e9;
 }
 
@@ -527,7 +527,7 @@ h2.uk-modal-title {
 
 .state-img {
   padding: 10px;
-  height: 60px;
+  min-height: 60px;
   width: 45px;
   display: flex;
   flex-direction: column;
@@ -544,7 +544,7 @@ h2.uk-modal-title {
 .state-name {
   padding-left: 10px;
   border-left: 1px solid #e1e2e9;
-  height: 60px;
+  min-height: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
