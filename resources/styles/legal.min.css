@@ -92,6 +92,14 @@
   color: #444;
 }
 
+[data-card=instagram] h3 {
+  font-family: OpenSans-SemiBold;
+  color: #000;
+}
+[data-card=instagram] h3 a {
+  color: #000;
+}
+
 p a {
   color: #00A305;
   border-bottom: 1px dotted rgba(0, 163, 5, 0.25);

@@ -32,6 +32,7 @@
                 <?php 
 
                     get_template_part( widget.'news' );
+                    get_template_part( widget.'instagram' );
 
                 ?>
                 <!-- End Content -->                

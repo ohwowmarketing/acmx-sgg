@@ -3,7 +3,7 @@ $guides = [
   'post_type' => 'sports_guides',
   'post_status' => 'publish',
   'has_password' => false,
-  'posts_per_page' => 6,
+  'posts_per_page' => 9,
   'orderby' => 'menu_order',
   'order' => 'ASC'
 ];

@@ -321,3 +321,11 @@
 [data-card=news] .news-lists .uk-panel a:focus, [data-card=news] .news-lists .uk-panel a:hover {
   color: #444;
 }
+
+[data-card=instagram] h3 {
+  font-family: OpenSans-SemiBold;
+  color: #000;
+}
+[data-card=instagram] h3 a {
+  color: #000;
+}

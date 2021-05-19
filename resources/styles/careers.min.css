@@ -88,6 +88,14 @@
   color: #444;
 }
 
+[data-card=instagram] h3 {
+  font-family: OpenSans-SemiBold;
+  color: #000;
+}
+[data-card=instagram] h3 a {
+  color: #000;
+}
+
 [data-card=careers] .uk-accordion > li {
   margin-top: 15px;
   padding-top: 29px;

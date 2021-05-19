@@ -402,12 +402,13 @@ function sportsbook_daily_promos() {
     }
     wp_reset_query();
     if ( count( $daily_promos ) > 0 ) : ?>
-      <div uk-grid class="uk-grid-collapse uk-child-width-expand daily-promos-trigger">
+      <?php /* <div uk-grid class="uk-grid-collapse uk-child-width-expand daily-promos-trigger"> 
         <div>
           <a href="#" class="daily-trigger"><img src="<?php echo $daily_promo_image; ?>" style="max-width: 100%" /></a>
         </div>
       </div>
-      <div uk-grid class="uk-grid-collapse uk-child-width-expand daily-promos" style="display: none;">
+      <div uk-grid class="uk-grid-collapse uk-child-width-expand daily-promos" style="display: none;"> */ ?>
+      <div uk-grid class="uk-grid-collapse uk-child-width-expand daily-promos">
       <?php foreach ( $daily_promos as $promo ) : ?>
         <div>
           <a href="<?php echo $promo['url'] !== NULL ? $promo['url'] : '#bet-now'; ?>" <?php echo $promo['id'] !== NULL ? 'data-sbid="' . $promo['id'] . '" class="hero-sb-bet-now"' : ''; ?>>

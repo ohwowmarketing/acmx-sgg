@@ -447,6 +447,19 @@
 		"oS": 0,
 		"sct": 0
 		},
+	"/build/scss/widgets/instagram.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"ec": 1,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/resources/styles/instagram.min.css",
+		"oF": 0,
+		"oS": 0,
+		"sct": 0
+		},
 	"/build/scss/widgets/news.scss": {
 		"aP": 1,
 		"bl": 0,
@@ -610,14 +623,6 @@
 		"oAP": "/config/api/sportsbooks.php",
 		"oF": 0
 		},
-	"/config/api/user.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/config/api/user.php",
-		"oF": 0
-		},
 	"/config/assets.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -696,14 +701,6 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/index.php",
-		"oF": 0
-		},
-	"/page-templates/state-redirect.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/page-templates/state-redirect.php",
 		"oF": 0
 		},
 	"/page.php": {
@@ -1897,17 +1894,6 @@
 		"sC": 0,
 		"tS": 0
 		},
-	"/resources/scripts/inc/best-books.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "/resources/scripts/best-books.min.js",
-		"oF": 1,
-		"sC": 0,
-		"tS": 0
-		},
 	"/resources/scripts/inc/betting-odds.js": {
 		"bF": 0,
 		"ft": 64,
@@ -1981,17 +1967,6 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "/resources/scripts/percentageloader.min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"/resources/scripts/sgg/bestbooks.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "/resources/scripts/bestbooks.min.js",
 		"oF": 0,
 		"sC": 0,
 		"tS": 0
@@ -2388,14 +2363,6 @@
 		"oAP": "/views/pages/about.php",
 		"oF": 0
 		},
-	"/views/pages/best-books.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/views/pages/best-books.php",
-		"oF": 0
-		},
 	"/views/pages/careers.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -2602,6 +2569,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/views/widgets/guides.php",
+		"oF": 0
+		},
+	"/views/widgets/instagram.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/views/widgets/instagram.php",
 		"oF": 0
 		},
 	"/views/widgets/jquery.tmpl.js": {

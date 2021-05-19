@@ -9,7 +9,7 @@
             </div>
             <div class="uk-width-1-1 uk-width-large@l">
                 <?php get_template_part( widget . 'news' ); ?>
-                <?php // get_template_part( widget . 'guides' ); ?>
+                <?php get_template_part( widget . 'instagram' ); ?>
             </div>
         </div>
     </div>
