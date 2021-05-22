@@ -64,4 +64,18 @@
             </div>
         </div>
     </div>
+
+    <?php // ScrollTo for Guide only 
+    if ( is_singular( 'sports_guides' ) ) : ?>
+    <div class="uk-margin-medium-top uk-flex uk-flex-center __scrollTo">
+        <a href="#guide-content" type="button" role="button" class="uk-button uk-button-primary uk-button-small" uk-scroll="offset: 100">
+            <?php if ( wp_is_mobile() ) {
+                echo 'Tap to Article';
+            } else {
+                echo 'Skip to Article';
+            } ?>
+        </a>
+    </div>
+    <?php endif; ?>
 </header>
+

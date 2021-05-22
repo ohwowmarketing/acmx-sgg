@@ -418,6 +418,15 @@ address {
   }
 }
 
+.__scrollTo {
+  margin-bottom: -20px;
+}
+.__scrollTo a {
+  font-size: 12px;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
 [data-globals=menu] {
   position: relative;
   background: #FFF;

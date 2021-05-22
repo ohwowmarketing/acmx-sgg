@@ -25,9 +25,11 @@
 
             <div class="uk-width-1-1 uk-width-large@l">
                 <!-- Start Content -->
+                <?php /*
                 <div class="uk-card uk-card-default uk-card-body" data-card="Gtag">
                     <?php (!function_exists('dynamic_sidebar')) || !dynamic_sidebar('guides_tag') ? null : null ; ?>
                 </div>
+                */ ?>
 
                 <?php 
 

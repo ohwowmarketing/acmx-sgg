@@ -2,7 +2,7 @@
     <div class="uk-container uk-container-xlarge">
         <div class="uk-grid-small" uk-grid>
             <div class="uk-width-expand@l">
-                <div class="uk-card uk-card-default uk-card-body" data-card="content">
+                <div id="guide-content" class="uk-card uk-card-default uk-card-body" data-card="content">
                     <article class="uk-article uk-margin-bottom">
                     <?php
                         if ( has_post_thumbnail() ) {

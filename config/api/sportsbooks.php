@@ -408,14 +408,17 @@ function sportsbook_daily_promos() {
         </div>
       </div>
       <div uk-grid class="uk-grid-collapse uk-child-width-expand daily-promos" style="display: none;"> */ ?>
-      <div uk-grid class="uk-grid-collapse uk-child-width-expand daily-promos">
-      <?php foreach ( $daily_promos as $promo ) : ?>
-        <div>
-          <a href="<?php echo $promo['url'] !== NULL ? $promo['url'] : '#bet-now'; ?>" <?php echo $promo['id'] !== NULL ? 'data-sbid="' . $promo['id'] . '" class="hero-sb-bet-now"' : ''; ?>>
-            <?php echo $promo['img']; ?>
-          </a>
+      <div uk-grid class="uk-grid-medium uk-flex-center daily-promos">
+        <div class="uk-width-1-1">
+          <img src="<?php echo $daily_promo_image; ?>" style="max-width: 100%" />
         </div>
-      <?php endforeach; ?>
+        <?php foreach ( $daily_promos as $promo ) : ?>
+          <div class="uk-child-width-expand">
+            <a href="<?php echo $promo['url'] !== NULL ? $promo['url'] : '#bet-now'; ?>" <?php echo $promo['id'] !== NULL ? 'data-sbid="' . $promo['id'] . '" class="hero-sb-bet-now"' : ''; ?>>
+              <?php echo $promo['img']; ?>
+            </a>
+          </div>
+        <?php endforeach; ?>
       </div>
     <?php endif;
   endif;
