@@ -268,6 +268,22 @@ function get_news_article( $league, $date, $article_id, $image_id ) {
   return false;
 }
 
+// Added by Mark Rivera
+// June 15 2021
+function display_league_category_title() {
+  global $post;
+  $league = strtolower( single_cat_title( '', false ) );
+  $date = new DateTime( get_query_var( 'date' ) );
+  $date_format = $date->format('Y-m-d');
+  $article_id = get_query_var( 'news' );
+  $image_id  = get_query_var( 'img' );
+  $wpTitle = get_news_article( $league, $date_format, $article_id, $image_id );
+  if ( $wpTitle ) : ?>
+    <title><?php echo strtoupper($league); ?>: <?php echo $wpTitle['title']; ?> | <?php bloginfo(); ?></title>
+  <?php endif;
+}
+add_action( 'display_league_category_title', 'display_league_category_title' );
+
 function display_full_news_article() {
   global $post;
   $league = strtolower( single_cat_title( '', false ) );

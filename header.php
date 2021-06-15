@@ -3,7 +3,22 @@
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
-    <?php wp_head(); ?>
+    <?php 
+    // Yoast Bug and not displaying CPT for Custom Taxonomy
+    $taxonomyName = get_query_var( 'taxonomy' );
+    if ( $taxonomyName == 'guides_tag' ) : ?>
+        <title><?php wp_title(); ?></title>
+    <?php
+
+    // Post Category
+    $catLeague = $_GET['league'];
+    $category = single_cat_title();
+
+    elseif ( $catLeague == $category ) :
+        do_action('display_league_category_title');
+    endif;
+
+    wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>
 <?php
