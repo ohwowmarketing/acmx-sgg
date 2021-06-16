@@ -7,7 +7,8 @@
                     <?php
                         if ( has_post_thumbnail() ) {
                             the_post_thumbnail();
-                            echo '<div class="uk-text-right uk-text-meta">'.get_the_post_thumbnail_caption().'</div>';
+                            $description = get_post(get_post_thumbnail_id())->post_content;
+                            echo '<div class="uk-text-right uk-text-meta">'. makeUrltoLink($description) .'</div>';
                         }
 
                         the_title('<h2 class="uk-article-title">','</h2>');
