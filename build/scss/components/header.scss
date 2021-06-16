@@ -172,10 +172,6 @@
     overflow: hidden;
 }
 
-.sb-info {
-    top: -33px;
-}
-
 .__scrollTo {
     position: relative;
     z-index: 1;
@@ -184,5 +180,9 @@
         font-size: 12px;
         border-top-left-radius: 0 !important;
         border-top-right-radius: 0 !important;
+    }
+
+    + .sb-info {
+        top: -33px;
     }
 }
