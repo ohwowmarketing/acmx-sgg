@@ -427,6 +427,10 @@ address {
   top: -33px;
 }
 
+.__scrollTo {
+  position: relative;
+  z-index: 1;
+}
 .__scrollTo a {
   font-size: 12px;
   border-top-left-radius: 0 !important;

@@ -177,6 +177,9 @@
 }
 
 .__scrollTo {
+    position: relative;
+    z-index: 1;
+
     a {
         font-size: 12px;
         border-top-left-radius: 0 !important;
