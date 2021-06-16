@@ -7,7 +7,7 @@
                     <?php
                         if ( has_post_thumbnail() ) {
                             the_post_thumbnail();
-                            $description = get_post(get_post_thumbnail_id())->post_content;
+                            $description = get_post(get_post_thumbnail_id())->post_excerpt;
                             echo '<div class="uk-text-right uk-text-meta">'. makeUrltoLink($description) .'</div>';
                         }
 
