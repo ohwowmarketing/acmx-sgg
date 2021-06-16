@@ -42,7 +42,7 @@
                         <?php $mlb = wp_list_pages([
                             'exclude'  => '31, 33, 39, 41, 47, 49',
                             'title_li' => 'MLB Sports Gambling Data',
-                            'child_of' => 25,
+                            'child_of' => 27,
                             'echo'     => 0,
                         ]); ?>
                         <ul>
