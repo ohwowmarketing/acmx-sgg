@@ -9,14 +9,18 @@
 
 [data-card='guides'] {
   .uk-article img {
-    max-width: 100%;
-    height: 180px;
-    object-fit: cover;
+    width: 100%;
     border-radius: 3px;
   }
 
-  .uk-article h3 {
-    font-size: 18px;
+  .uk-article .uk-text-meta {
+    font-size: 13px;
+    margin-top: 5px;
+  }
+
+  .uk-article h2 {
+    display: block;
+    font-size: 32px;
     margin: 10px 0;
 
     a {
