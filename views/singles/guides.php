@@ -8,11 +8,12 @@
                         if ( has_post_thumbnail() ) {
                             the_post_thumbnail();
                             $description = get_post(get_post_thumbnail_id())->post_excerpt;
-                            echo '<div class="uk-text-right uk-text-meta">'. makeUrltoLink($description) .'</div>';
                         }
 
                         the_title('<h2 class="uk-article-title">','</h2>');
                         the_content();
+
+                        echo '<div class="uk-text-meta uk-margin">'. makeUrltoLink($description) .'</div>';
                     ?>
                     </article>
                 </div>
