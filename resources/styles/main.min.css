@@ -418,13 +418,19 @@ address {
   }
 }
 
-.__scrollTo {
-  margin-bottom: -20px;
+.sportsbook-header-slider-section {
+  height: 299px;
+  overflow: hidden;
 }
+
+.sb-info {
+  top: -33px;
+}
+
 .__scrollTo a {
   font-size: 12px;
-  border-bottom-left-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
 }
 
 [data-globals=menu] {
