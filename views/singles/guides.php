@@ -9,7 +9,7 @@
                             the_post_thumbnail();
                         }
 
-                        echo '<small class="uk-text-meta uk-align-right">'.get_the_post_thumbnail_caption().'</small>';
+                        echo '<small class="uk-text-meta uk-align-right uk-margin-top">'.get_the_post_thumbnail_caption().'</small>';
 
                         the_title('<h2 class="uk-article-title">','</h2>');
                         the_content();
