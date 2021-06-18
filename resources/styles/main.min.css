@@ -418,12 +418,9 @@ address {
   }
 }
 
-.sportsbook-header-slider-section {
+.sportsbook-header-slider-section .uk-slider-items li {
   height: 299px;
   overflow: hidden;
-}
-.sportsbook-header-slider-section .uk-slider-items li {
-  min-height: 299px;
 }
 .sportsbook-header-slider-section .hero-sb-item {
   min-height: 299px !important;

@@ -169,11 +169,12 @@
 
 
 .sportsbook-header-slider-section {
-    height: 299px;
-    overflow: hidden;
+    // height: 299px;
+    
 
     .uk-slider-items li {
-        min-height: 299px;
+        height: 299px;
+        overflow: hidden;
     }
 
     .hero-sb-item {
