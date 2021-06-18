@@ -167,9 +167,19 @@
 
 } // end
 
+
 .sportsbook-header-slider-section {
     height: 299px;
     overflow: hidden;
+
+    .uk-slider-items li {
+        min-height: 299px;
+    }
+
+    .hero-sb-item {
+        min-height: 299px !important;
+    }
+
 }
 
 .__scrollTo {
@@ -183,6 +193,12 @@
     }
 
     + .sb-info {
-        top: -33px;
+        // top: -33px;
     }
+}
+
+@media ( min-width: 1280px ) {
+
+
+
 }

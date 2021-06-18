@@ -422,6 +422,12 @@ address {
   height: 299px;
   overflow: hidden;
 }
+.sportsbook-header-slider-section .uk-slider-items li {
+  min-height: 299px;
+}
+.sportsbook-header-slider-section .hero-sb-item {
+  min-height: 299px !important;
+}
 
 .__scrollTo {
   position: relative;
@@ -432,10 +438,6 @@ address {
   border-top-left-radius: 0 !important;
   border-top-right-radius: 0 !important;
 }
-.__scrollTo + .sb-info {
-  top: -33px;
-}
-
 [data-globals=menu] {
   position: relative;
   background: #FFF;
