@@ -5,7 +5,6 @@
     'posts_per_page'    => 9,
     'orderby'           => 'menu_order',
     'order'             => 'ASC',
-    'taxonomy'          => 'guides_category'
 ];
 
 query_posts( $guides ); ?>
@@ -25,9 +24,7 @@ query_posts( $guides ); ?>
 
     <div class="uk-position-relative">
         <div class="uk-grid-small uk-child-width-1-2@s uk-child-width-1-3@m" uk-grid uk-height-match="target: > div > figure > figcaption">
-            <?php while ( have_posts() ) : the_post(); 
-
-             ?>
+            <?php while ( have_posts() ) : the_post(); ?>
             <div class="guides-lists">
                 <figure class="uk-card uk-grid uk-grid-collapse">
                     <?php if ( has_post_thumbnail() ) :
