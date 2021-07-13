@@ -265,6 +265,81 @@
   color: #444;
 }
 
+[data-card=guides-full] .uk-flex {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
+[data-card=guides-full] .uk-flex #search-category {
+  flex: 1 0 100%;
+  margin-bottom: 15px;
+}
+[data-card=guides-full] .uk-button-secondary {
+  background: #00A305;
+  text-shadow: none;
+  line-height: normal;
+}
+[data-card=guides-full] .uk-button-secondary.uk-button-small {
+  font-family: OpenSans-Bold;
+  padding: 7px 15px;
+  border-radius: 3px;
+}
+[data-card=guides-full] .uk-button-secondary:focus, [data-card=guides-full] .uk-button-secondary:hover {
+  background: #008a04;
+}
+[data-card=guides-full] .uk-grid.uk-child-width-1-1 .guides-lists .uk-card .uk-card-media-top {
+  max-width: 360px;
+  margin-right: 15px;
+}
+[data-card=guides-full] .uk-grid.uk-child-width-1-1 .guides-lists .uk-card .uk-card-body a {
+  font-size: 18px;
+}
+[data-card=guides-full] .uk-grid .uk-grid-margin {
+  margin-top: 0 !important;
+}
+[data-card=guides-full] .uk-grid .guides-lists .uk-card-body p {
+  display: none;
+}
+[data-card=guides-full] figure {
+  margin-bottom: 15px !important;
+}
+[data-card=guides-full] figure figcaption,
+[data-card=guides-full] figure span {
+  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-left: 0;
+  padding-right: 0;
+}
+[data-card=guides-full] figure .uk-inline-clip {
+  border-radius: 3px;
+}
+[data-card=guides-full] figure span {
+  padding: 5px 0 0;
+  border-top: 0 !important;
+}
+[data-card=guides-full] figure span::before {
+  content: "";
+  display: block;
+  width: 50px;
+  padding-top: 5px;
+  border-top: 1px solid #DDD;
+}
+[data-card=guides-full] figure span > a {
+  font-family: OpenSans-Regular !important;
+  font-size: 11px !important;
+  font-weight: normal !important;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+[data-card=guides-full] figure span > a::after {
+  content: ",";
+  display: inline-block;
+}
+[data-card=guides-full] figure span > a:last-child::after {
+  display: none;
+}
+
 [data-card=news] .news-lists {
   list-style: none;
   margin: 0;

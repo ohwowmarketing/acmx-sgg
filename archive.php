@@ -1,7 +1,10 @@
-<?php get_header();
+archive
+<?php 
 
-    $current_category = single_cat_title("", false);
+// get_header();
 
-    get_template_part( _article, null );
+//     $current_category = single_cat_title("", false);
 
-get_footer();
+//     get_template_part( _article, null );
+
+// get_footer();

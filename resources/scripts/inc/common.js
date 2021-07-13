@@ -52,6 +52,39 @@
 
     });
 
+    // Switch Layout for Homepage Guides
+    $("button.--switcher").bind("click", function(e) {
+        e.preventDefault();
+
+        var theID       = $(this).attr('id'),
+            theGuides   = $('.uk-position-relative > .uk-grid'),
+            theCard     = $('.guides-lists .uk-card-body');
+
+        if ( $(this).hasClass("active") ) {
+
+            return false;
+
+        } else {
+
+            if ( theID == 'listview' ) {
+                $(this).addClass('active');
+                $('#gridview').removeClass('active');
+                theGuides.removeClass('uk-child-width-1-2@s uk-child-width-1-3@m');
+                theGuides.addClass('uk-child-width-1-1');
+                theCard.find('p').show();
+            } 
+
+            else if (theID == "gridview") {
+                $(this).addClass('active');
+                $('#listview').removeClass('active');
+                theGuides.removeClass('uk-child-width-1-1');
+                theGuides.addClass('uk-child-width-1-2@s uk-child-width-1-3@m');
+                theCard.find('p').hide();
+            }
+
+        }
+    });
+         
 
 }) (jQuery);
 

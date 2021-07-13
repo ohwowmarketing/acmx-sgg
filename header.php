@@ -6,13 +6,13 @@
     <?php 
     // Yoast Bug and not displaying CPT for Custom Taxonomy
     $taxonomyName = get_query_var( 'taxonomy' );
-    if ( $taxonomyName == 'guides_tag' ) : ?>
+    if ( $taxonomyName == 'guides_category' ) : ?>
         <title><?php wp_title(); ?></title>
     <?php
 
     // Post Category
     $catLeague = $_GET['league'];
-    $category = single_cat_title();
+    $category = single_cat_title('', false);
 
     elseif ( $catLeague == $category ) :
         do_action('display_league_category_title');

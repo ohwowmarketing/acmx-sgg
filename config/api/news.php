@@ -103,6 +103,11 @@ function api_news_ajax() {
   $news = get_news_data($_POST['league']);
   ?>
   <ul class="news-lists">
+    <?php
+
+      // print_r($news);
+
+    ?>
     <?php foreach ( $news as $item ) : ?>
     <li class="uk-grid-collapse uk-flex-middle" uk-grid>
       <div class="uk-width-auto">
@@ -113,8 +118,10 @@ function api_news_ajax() {
         </div>
       </div>
       <div class="uk-width-expand">
-        <div class="uk-panel">                      
-          <small><?php echo $_POST['league']; ?> <span>&#x25cf;</span> <?php echo date_format( date_create( $news->Updated ), 'D, F j, Y' ); ?></small>
+        <div class="uk-panel">
+          <small><?php echo $_POST['league']; ?> <span>&#x25cf;</span> 
+            <?php // Correct old date format
+            echo date_format( date_create( $item['updated'] ), 'D, F j, Y' ); ?></small>
           <h1><?php echo $item['display']; ?></h1>
           <h4>
             <a href="<?php echo $item['link']; ?>"><?php echo $item['title']; ?></a>

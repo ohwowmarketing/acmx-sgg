@@ -149,3 +149,18 @@ function fetchPostViews($postID) {
   }
   return $count.' Views';
 }
+
+// Custom Excerpt function for Advanced Custom Fields
+function custom_field_excerpt( $content, $length ) {
+  global $post;
+  $text = $content; //Replace 'your_field_name'
+  if ( '' != $text ) {
+    $text = strip_shortcodes( $text );
+    $text = apply_filters('the_content', $text);
+    $text = str_replace(']]&gt;', ']]&gt;', $text);
+    $excerpt_length = $length;
+    $excerpt_more = apply_filters('excerpt_more', '' . '...');
+    $text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
+  }
+  return apply_filters('the_excerpt', $text);
+}

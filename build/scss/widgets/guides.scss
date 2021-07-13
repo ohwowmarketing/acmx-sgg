@@ -42,3 +42,111 @@
     }
 
 } // end
+
+[data-card="guides-full"] {
+
+    // Headings
+    .uk-flex {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: stretch;
+
+        #search-category {
+            flex: 1 0 100%;
+            margin-bottom: 15px;
+        }
+    }
+
+    .uk-button-secondary {
+        background: $sgg-green;
+        text-shadow: none;
+        line-height: normal;
+
+        &.uk-button-small {
+            font-family: $bold;
+            padding: 7px 15px;
+            border-radius: 3px;
+        }
+
+        &:focus,
+        &:hover {
+            background: darken($sgg-green, 5%);
+        }
+    }
+
+    // List View
+    .uk-grid {
+
+        &.uk-child-width-1-1 {
+
+            .guides-lists .uk-card .uk-card-media-top {
+                max-width: 360px;
+                margin-right: 15px;
+            }
+
+            .guides-lists .uk-card .uk-card-body a {
+                font-size: 18px;
+            }
+
+        }
+
+        .uk-grid-margin {
+            margin-top: 0 !important;
+        }
+
+        .guides-lists .uk-card-body p {
+            display: none;
+        }
+
+    }
+
+    // Guides Lists
+    figure {
+        margin-bottom: 15px !important;
+    }
+
+    figure figcaption,
+    figure span {
+        padding-top: 10px;
+        padding-bottom: 5px;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    figure .uk-inline-clip {
+        border-radius: 3px;
+    }
+
+    figure span {
+        padding: 5px 0 0;
+        border-top: 0 !important;
+
+        &::before {
+            content: '';
+            display: block;
+            width: 50px;
+            padding-top: 5px;
+            border-top: 1px solid #DDD;
+        }
+
+    }
+
+    figure span > a {
+        font-family: $regular !important;
+        font-size: 11px !important;
+        font-weight: normal !important;
+        text-transform: uppercase;
+        opacity: .8;
+
+        &::after {
+            content: ',';
+            display: inline-block;
+        }
+
+        &:last-child::after {
+            display: none;
+        }
+    }
+
+}

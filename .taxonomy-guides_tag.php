@@ -1,4 +1,4 @@
-<?php get_header(); ?>
+<?php get_header(); /* ?>
 
 <main id="main" class="main" role="main">
     <div class="uk-container uk-container-xlarge">
@@ -42,4 +42,4 @@
     </div>
 </main>
 
-<?php get_footer(); ?>
+<?php */ get_footer(); ?>

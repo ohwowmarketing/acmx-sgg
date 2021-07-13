@@ -17,6 +17,22 @@
 		"oAP": "/.gitignore",
 		"oF": 0
 		},
+	"/.search.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/.search.php",
+		"oF": 0
+		},
+	"/.taxonomy-guides_tag.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/.taxonomy-guides_tag.php",
+		"oF": 0
+		},
 	"/404.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -2242,14 +2258,6 @@
 		"oAP": "/style-min.css",
 		"oF": 0,
 		"oS": 3
-		},
-	"/taxonomy-guides_tag.php": {
-		"cB": 0,
-		"ft": 8192,
-		"hM": 0,
-		"oA": 0,
-		"oAP": "/taxonomy-guides_tag.php",
-		"oF": 0
 		},
 	"/taxonomy.php": {
 		"cB": 0,

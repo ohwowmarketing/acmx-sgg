@@ -49,7 +49,7 @@ add_action('wp_enqueue_scripts', function() {
 
         switch ( get_query_var( 'taxonomy' ) ) {
             
-            case 'guides_tag':
+            case 'guides_category':
                 $postName = 'guides';
                 break;
             

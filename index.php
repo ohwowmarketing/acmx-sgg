@@ -1,3 +1,6 @@
-<?php get_header();
+index 
+<?php 
 
-get_footer();
+// get_header();
+
+// get_footer();
