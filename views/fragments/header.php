@@ -3,7 +3,7 @@
         <div class="bet-now-header">
             <div class="bet-now-sb-logo"></div>
         </div>
-        <img src="<?php echo get_template_directory_uri(); ?>/resources/images/site-SGG-logo.png" class="modal-logo">
+        <img src="<?php echo get_template_directory_uri(); ?>/resources/images/site-SGG-logo.png" alt="<?php bloginfo(); ?>" class="modal-logo">
         <button class="uk-modal-close-default" type="button" uk-close></button>
         <h2 class="uk-modal-title"><span></span></h2>
         <div class="bonus"></div>

@@ -3,7 +3,7 @@ $betting_states = get_field('betting_states', 'option');
 $upcoming_states = get_field('upcoming_states', 'option');
 ?>
 <div class="uk-card uk-card-default uk-card-body" data-card="states">
-  <div style="position: relative">
+  <div class="uk-position-relative">
     <div uk-grid>
       <div class="uk-width-1-1@s uk-width-1-2@m">
         <div class="uk-width-1-1">
@@ -15,7 +15,7 @@ $upcoming_states = get_field('upcoming_states', 'option');
             <div uk-grid class="uk-grid-collapse state-borders">
               <div class="uk-width-auto">
                 <div class="state-img">
-                  <img src="<?php echo get_template_directory_uri(); ?>/resources/images/states/<?php echo $state; ?>.svg" />
+                  <img src="<?php echo get_template_directory_uri(); ?>/resources/images/states/<?php echo $state; ?>.svg" alt="<?php echo api_state_from_code( $state ); ?>" />
                 </div>
               </div>
               <div class="uk-width-expand">
@@ -36,7 +36,7 @@ $upcoming_states = get_field('upcoming_states', 'option');
               <div uk-grid class="uk-grid-collapse state-borders">
                 <div class="uk-width-auto">
                   <div class="state-img">
-                    <img src="<?php echo get_template_directory_uri(); ?>/resources/images/states/<?php echo $state; ?>.svg" />
+                    <img src="<?php echo get_template_directory_uri(); ?>/resources/images/states/<?php echo $state; ?>.svg" alt="<?php echo api_state_from_code( $state ); ?>" />
                   </div>
                 </div>
                 <div class="uk-width-expand">

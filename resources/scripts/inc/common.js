@@ -84,7 +84,21 @@
 
         }
     });
-         
+
+    $(window).on('load', function() {
+        // Fill missing alt for WPForms Ajax
+        $('img.wpforms-submit-spinner').attr('alt','Spinner Loading');
+
+        // Fill missing ALT text to all banners
+        $("body.single-sports_guides article.uk-article img").each(function() {
+            if (this.alt) {
+                // Leave the current text as is
+            } else {
+                $(this).attr('alt', 'SGG SportsBook Banner');
+            }
+        });
+    });
+
 
 }) (jQuery);
 

@@ -137,7 +137,7 @@ function sportsbook_promos() {
 add_action( 'sportsbook_promos', 'sportsbook_promos' );
 
 function star_rating( $val, $max ) {
-  $star = '<img src="' . get_template_directory_uri() . '/resources/images/ui/star.svg" class="rating" />';
+  $star = '<img src="' . get_template_directory_uri() . '/resources/images/ui/star.svg" class="rating" alt="start-rating" />';
   ?>
     <div class="rating-container">
       <?php for ( $i = 0; $i < $max; $i++) : ?>
@@ -410,7 +410,7 @@ function sportsbook_daily_promos() {
       <div uk-grid class="uk-grid-collapse uk-child-width-expand daily-promos" style="display: none;"> */ ?>
       <div uk-grid class="uk-grid-medium uk-flex-center daily-promos">
         <div class="uk-width-1-1">
-          <img src="<?php echo $daily_promo_image; ?>" style="max-width: 100%" />
+          <img src="<?php echo $daily_promo_image; ?>" style="max-width: 100%" alt="SGG Promotions Banner" />
         </div>
         <?php foreach ( $daily_promos as $promo ) : ?>
           <div class="uk-child-width-expand">
