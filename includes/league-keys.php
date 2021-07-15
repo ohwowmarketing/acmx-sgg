@@ -34,7 +34,8 @@ $nba_header_dak = [
 ];
 
 ################### MLB API Keys
-################################
+################################ 
+/* Activate this if necessary
 // News Premium Key
 $mlb_header_npk = [
     'headers' => [ 'Ocp-Apim-Subscription-Key' => 'eb6004895b3740f19afdaa5780a9a0c5' ]
@@ -49,4 +50,4 @@ $mlb_header_opk = [
 $mlb_header_dak = [
     'headers' => [ 'Ocp-Apim-Subscription-Key' => 'aebf9d3f48774f94a9e31e228c57a15c' ]
 ];
-
+*/

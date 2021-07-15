@@ -3,12 +3,12 @@ function get_news_data( $league, $limit = 5 ) {
   $news = [];
   $league = strtolower( $league );
   include( locate_template( includes.'league-keys.php', false, true ) );
-  switch ( $league ) {
-    case 'mlb':
-      $header_npk = $mlb_header_npk;
-      $header_dak = $mlb_header_dak;
-      $widget = 'widget_gallery_mlbnews';
-      break;
+  switch ( $league ) {  
+    // case 'mlb':
+    //   $header_npk = $mlb_header_npk;
+    //   $header_dak = $mlb_header_dak;
+    //   $widget = 'widget_gallery_mlbnews';
+    //   break;
     case 'nba':
       $header_npk = $nba_header_npk;
       $header_dak = $nba_header_dak;
@@ -106,6 +106,9 @@ function api_news_ajax() {
     <?php
 
       // print_r($news);
+    
+      // MLB category is deleted at Post -> Categories
+      // if the league is return, re-create back the deleted Category of MLB
 
     ?>
     <?php foreach ( $news as $item ) : ?>

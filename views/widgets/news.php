@@ -8,8 +8,10 @@ if ( isset( $_GET['league'] ) ) {
     <h1 class="uk-card-title"><?php the_field( 'widget_title_news', 'option' ); ?></h1>
     <ul uk-tab="animation: uk-animation-fade">
         <li<?php echo ( $league === 'nba' ) ? ' class="uk-active"' : ''; ?>><a href="#" id="nba-news">NBA</a></li>
-        <li<?php echo ( $league === 'mlb' ) ? ' class="uk-active"' : ''; ?>><a href="#" id="mlb-news">MLB</a></li>
         <li<?php echo ( $league === 'nfl' ) ? ' class="uk-active"' : ''; ?>><a href="#" id="nfl-news">NFL</a></li>
+        <?php /*
+        <li<?php echo ( $league === 'mlb' ) ? ' class="uk-active"' : ''; ?>><a href="#" id="mlb-news">MLB</a></li>
+        */ ?>
     </ul>
     <div class="uk-switcher uk-margin">
         <div id="news-holder"></div>

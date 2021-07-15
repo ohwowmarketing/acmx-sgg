@@ -15,7 +15,7 @@
                         </ul>
                         <p>
                             <a href="https://twitter.com/sgamblingguides" class="uk-icon-button uk-margin-small-right footer-social-icon" uk-icon="icon: twitter; ratio: 1.4"></a>
-                            <!-- <a href="#" class="uk-icon-button uk-margin-small-right footer-social-icon" uk-icon="icon: facebook; ratio: 1.4"></a> -->
+                            <?php /* <a href="#" class="uk-icon-button uk-margin-small-right footer-social-icon" uk-icon="icon: facebook; ratio: 1.4"></a> */ ?>
                             <a href="https://www.instagram.com/sportsgamblingguides/" class="uk-icon-button footer-social-icon" uk-icon="icon: instagram; ratio: 1.4"></a>
                         </p>
                     </div>
@@ -40,7 +40,9 @@
                                 <ul class="uk-nav">
                                     <li><a href="<?php echo esc_html( site_url('/nfl') ) ?>">NFL Sports Gambling Data</a></li>
                                     <li><a href="<?php echo esc_html( site_url('/nba') ) ?>">NBA Sports Gambling Data</a></li>
+                                    <?php /* Activate this if necessary
                                     <li><a href="<?php echo esc_html( site_url('/mlb') ) ?>">MLB Sports Gambling Data</a></li>
+                                    */ ?>
                                 </ul>
                             </div>
                         </li>
@@ -50,7 +52,9 @@
                                 <ul class="uk-nav">
                                     <li><a href="<?php echo esc_html( site_url('/nfl/odds') ) ?>">NFL Odds & Betting Lines</a></li>
                                     <li><a href="<?php echo esc_html( site_url('/nba/odds') ) ?>">NBA Odds & Betting Lines</a></li>
+                                    <?php /* Activate this if necessary
                                     <li><a href="<?php echo esc_html( site_url('/mbl/odds') ) ?>">MLB Odds & Betting Lines</a></li>
+                                    */ ?>
                                 </ul>
                             </div>
                         </li>

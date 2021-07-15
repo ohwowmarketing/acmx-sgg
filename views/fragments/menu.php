@@ -36,8 +36,10 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
                         <div class="uk-navbar-dropdown uk-dropdown">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li><a href="<?php echo esc_url( site_url('nba/odds-betting-lines') ); ?>">NBA</a></li>
-                                <li><a href="<?php echo esc_url( site_url('mlb/odds-betting-lines') ); ?>">MLB</a></li>
                                 <li><a href="<?php echo esc_url( site_url('nfl/odds-betting-lines') ); ?>">NFL</a></li>
+                                <?php /* Activate this if necessary 
+                                <li><a href="<?php echo esc_url( site_url('mlb/odds-betting-lines') ); ?>">MLB</a></li>
+                                */ ?>
                             </ul>
                         </div>
                     </li>
@@ -46,8 +48,10 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
                         <div class="uk-navbar-dropdown uk-dropdown">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
                                 <li><a href="<?php echo esc_url( site_url('nba/futures') ); ?>">NBA</a></li>
-                                <li><a href="<?php echo esc_url( site_url('mlb/futures') ); ?>">MLB</a></li>
                                 <li><a href="<?php echo esc_url( site_url('nfl/futures') ); ?>">NFL</a></li>
+                                <?php /* Activate this if necessary 
+                                <li><a href="<?php echo esc_url( site_url('mlb/futures') ); ?>">MLB</a></li>
+                                */ ?>
                             </ul>
                         </div>
                     </li>
@@ -65,19 +69,6 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
                         </div>
                     </li>
                     <li class="uk-parent">
-                        <a href="#">MLB</a>
-                        <div class="uk-navbar-dropdown uk-dropdown">
-                            <ul class="uk-nav uk-navbar-dropdown-nav">
-                                <li><a href="<?php echo esc_url( site_url('mlb') ); ?>">Sports Gambling Data</a></li>
-                                <li><a href="<?php echo esc_url( site_url('mlb/odds-betting-lines') ); ?>">Odds &amp; Betting Lines</a></li>
-                                <li><a href="<?php echo esc_url( site_url('mlb/futures') ); ?>">Futures</a></li>
-                                <li><a href="<?php echo esc_url( site_url('mlb/ats-standings') ); ?>">ATS Standings</a></li>
-                                <li><a href="<?php echo esc_url( site_url('mlb/injuries') ); ?>">Injuries</a></li>
-                                <li><a href="<?php echo esc_url( site_url('mlb/news') ); ?>">News</a></li>
-                            </ul>
-                        </div>
-                    </li>
-                    <li class="uk-parent">
                         <a href="#">NFL</a>
                         <div class="uk-navbar-dropdown uk-dropdown">
                             <ul class="uk-nav uk-navbar-dropdown-nav">
@@ -90,6 +81,21 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
                             </ul>
                         </div>
                     </li>
+                    <?php /* Activate this if necessary
+                    <li class="uk-parent">
+                        <a href="#">MLB</a>
+                        <div class="uk-navbar-dropdown uk-dropdown">
+                            <ul class="uk-nav uk-navbar-dropdown-nav">
+                                <li><a href="<?php echo esc_url( site_url('mlb') ); ?>">Sports Gambling Data</a></li>
+                                <li><a href="<?php echo esc_url( site_url('mlb/odds-betting-lines') ); ?>">Odds &amp; Betting Lines</a></li>
+                                <li><a href="<?php echo esc_url( site_url('mlb/futures') ); ?>">Futures</a></li>
+                                <li><a href="<?php echo esc_url( site_url('mlb/ats-standings') ); ?>">ATS Standings</a></li>
+                                <li><a href="<?php echo esc_url( site_url('mlb/injuries') ); ?>">Injuries</a></li>
+                                <li><a href="<?php echo esc_url( site_url('mlb/news') ); ?>">News</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                    */ ?>
                     <li class="uk-parent">
                         <a href="#">Media</a>
                         <div class="uk-navbar-dropdown uk-dropdown">

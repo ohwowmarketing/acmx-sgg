@@ -153,7 +153,7 @@ function odds_table_row_date_status( $date_time, $status ) {
         <span class='odds-game-bet-now'>
         <?php if ( $dk_link !== '' ) : ?>
           <a href="<?php echo $dk_link; ?>" role="button" type="button" class="uk-button uk-button-default uk-button-small">
-            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/sportsbooks/dk-d-crown.png" width="75" height="75" class="dk" />
+            <img src="<?php echo get_template_directory_uri(); ?>/resources/images/sportsbooks/dk-d-crown.png" width="75" height="75" class="dk" alt="DraftKings" />
             &nbsp;Bet Now
           </a>
         <?php endif; ?>
