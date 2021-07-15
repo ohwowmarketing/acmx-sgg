@@ -90,7 +90,7 @@
         $('img.wpforms-submit-spinner').attr('alt','Spinner Loading');
 
         // Fill missing ALT text to all banners
-        $("body.single-sports_guides article.uk-article img").each(function() {
+        $("body.single-sports_guides article.uk-article a > img").each(function() {
             if (this.alt) {
                 // Leave the current text as is
             } else {
