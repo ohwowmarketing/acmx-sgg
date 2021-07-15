@@ -25,7 +25,8 @@ function odds_table_location( $curr_league = 'nfl' ) {
 
 function odds_table_nav( $curr_league = 'nba' ) {
   $curr_league = strtolower( $curr_league );
-  $leagues = [ 'nba', 'mlb', 'nfl' ];
+  // $leagues = [ 'nba', 'mlb', 'nfl' ]; // MLB is disabled
+  $leagues = [ 'nba', 'nfl' ];
   ?>
   <div class="uk-width-expand@m">
     <ul class="uk-subnav uk-subnav-pill uk-subnav-divider odds-localnav" uk-margin>
@@ -530,8 +531,10 @@ function odds_header() {
         <div class="uk-form-select" data-uk-form-select>
           <select id="quick-odds-sport" class="uk-select">
             <option <?php echo ($league === 'nba') ? 'selected' : ''; ?>>NBA</option>
-            <option <?php echo ($league === 'mlb') ? 'selected' : ''; ?>>MLB</option>
             <option <?php echo ($league === 'nfl') ? 'selected' : ''; ?>>NFL</option>
+            <?php /* Activate this if necessary
+            <option <?php echo ($league === 'mlb') ? 'selected' : ''; ?>>MLB</option>
+            */ ?>
           </select>
         </div>
       </form>

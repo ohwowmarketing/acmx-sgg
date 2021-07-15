@@ -2,7 +2,7 @@
 switch ( $post->post_parent ) { 
     case '23': $league = 'nfl'; break;
     case '25': $league = 'nba'; break;
-    case '27': $league = 'mlb'; break;
+    // case '27': $league = 'mlb'; break;
     default: $league = ''; break;
 }
 $content = [ 'post_type' => 'page', 'page_id' => 8 ];

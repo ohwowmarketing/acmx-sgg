@@ -39,7 +39,9 @@
                             <?php echo $nba; ?>
                         </ul>
 
-                        <?php $mlb = wp_list_pages([
+                        <?php 
+                        /* Activate this if necessary
+                        $mlb = wp_list_pages([
                             'exclude'  => '31, 33, 39, 41, 47, 49',
                             'title_li' => 'MLB Sports Gambling Data',
                             'child_of' => 27,
@@ -48,6 +50,7 @@
                         <ul>
                             <?php echo $mlb; ?>
                         </ul>
+                        */ ?>
                     </div>
                 </div>
             </div>
