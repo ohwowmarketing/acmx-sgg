@@ -44,9 +44,10 @@ jQuery(document).ready(function ($) {
             $('#futures-select select option[value="38"]').prop('selected', true);
           } else if ($('#futures-select').data('league') === 'nba') {
             $('#futures-select select option[value="36"]').prop('selected', true);
-          } else if ($('#futures-select').data('league') === 'mlb') {
+          } 
+          // else if ($('#futures-select').data('league') === 'mlb') {
             // $('#futures-select select option[value=""]').prop('selected', true);
-          }
+          // }
         }
         $('#select-loading').attr('hidden', '');
         if ($('#futures-table').data('future') === '') {
@@ -117,9 +118,9 @@ jQuery(document).ready(function ($) {
     getNews('nfl');
   });
 
-  $('#mlb-news').on('click', function () {
-    getNews('mlb');
-  });
+  // $('#mlb-news').on('click', function () {
+  //   getNews('mlb');
+  // });
 
   getNews(SGGAPI.league);
 });

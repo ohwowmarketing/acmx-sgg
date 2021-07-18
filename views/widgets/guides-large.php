@@ -18,7 +18,7 @@ query_posts( $guides ); ?>
             <button class="uk-button uk-button-secondary uk-button-small" uk-search-icon uk-toggle="target: #search-category; animation: uk-animation-slide-top-small"></button>
         </div>
         <div id="search-category" hidden>
-            <?php echo do_shortcode('[ivory-search id="1329"]'); ?>
+            <?php echo do_shortcode('[ivory-search id="1333"]'); ?>
         </div>
     </div>
 
@@ -47,7 +47,7 @@ query_posts( $guides ); ?>
             <?php endwhile; wp_reset_query(); ?>
         </div>
         <div class="uk-margin-medium-top">
-            <a href="<?php echo esc_url( site_url('gambling-guides') ); ?>" class="uk-button uk-button-primary uk-button-small">View All Guides</a>
+            <a href="<?php echo esc_url( site_url('gambling-guides#skipContents') ); ?>" class="uk-button uk-button-primary uk-button-small">View All Guides</a>
         </div>
     </div>
 </div>

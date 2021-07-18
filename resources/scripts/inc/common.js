@@ -24,24 +24,6 @@
     }
     footerStack();
 
-    // Cookie Sessions
-    // The basic check of site fully loaded
-    if(document.readyState === 'complete') {
-        jQuery.getScript('https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js', function(){
-
-            // Session Cookie
-            $kukie = Cookies.get('sgg-accept-cookies');
-            if ( ! $kukie ) {
-                jQuery('.sgg-accept-cookies').removeAttr('hidden').attr('uk-scrollspy', 'cls: uk-animation-fast uk-animation-slide-bottom; delay: 2500');
-                jQuery('.sgg-accept-cookies').find('.uk-alert-accept').on('click', function() {
-                    Cookies.set('sgg-accept-cookies', 'true', { expires: 7 });
-                    UIkit.alert('.sgg-accept-cookies').close();
-                });
-            }
-
-        });
-    }
-
     // Search News
     jQuery('#searchNews').on('keyup', function() {
 
@@ -85,20 +67,85 @@
         }
     });
 
-    $(window).on('load', function() {
-        // Fill missing alt for WPForms Ajax
-        $('img.wpforms-submit-spinner').attr('alt','Spinner Loading');
+    // Fill missing alt for WPForms Ajax
+    $('img.wpforms-submit-spinner').attr('alt','Spinner Loading');
 
-        // Fill missing ALT text to all banners
-        $("body.single-sports_guides article.uk-article a > img").each(function() {
-            if (this.alt) {
-                // Leave the current text as is
-            } else {
-                $(this).attr('alt', 'SGG SportsBook Banner');
-            }
+    // Fill missing ALT text to all banners
+    // $("body.single-sports_guides article.uk-article a > img").each(function() {
+    //     if (this.alt) {
+    //         // Leave the current text as is
+    //     } else {
+    //         $(this).attr('alt', 'SGG SportsBook Banner');
+    //     }
+    // });
+
+    // SmoothScroll to content section    
+    $.getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js', function() {
+
+        $origins = window.location.href;
+        // console.log($origins);
+        // console.log( 'a[href="https://'+$origins+'"]' );
+        $('a[href="https://'+$origins+'/#Contents"]').attr('href', function() {
+            var hrefParts = this.href.split(/#/);
+            hrefParts[1] = 'skip' + hrefParts[1];
+            return hrefParts.join('#');
         });
+
+        var reSmooth = /^#skip/;
+        var id;
+
+        // Check if localnav is active
+        if ( $('nav.--localnav').is(':visible') ) {
+            $offset = -126;
+        } else {
+            $offset = -80;
+        }
+
+        // Trigger Smooth Call
+        if ( reSmooth.test(location.hash) ) {
+            id = '#' + location.hash.replace(reSmooth, '');
+            $.smoothScroll({
+                scrollTarget: id,
+                offset: $offset,
+                speed: 1000
+            });
+        }
+
+        // Find all a[href] a localnav & mainnav
+        $('.--localnav a').each(function() {
+            $(this).attr('href', $(this).attr('href')+'#skipContents');
+        });
+
+        $('.--mainnav .uk-parent .uk-navbar-dropdown-nav a').each(function() {
+            if ( $(this).hasClass('wp-video-popup') ) {
+                return false;
+            } else {
+                $(this).attr('href', $(this).attr('href')+'#skipContents');
+            }
+        });        
     });
 
+    // Cookie Sessions
+    // The basic check of site fully loaded
+    if(document.readyState === 'complete') {
+
+        // var elmnt = document.getElementById("Contents");
+        // elmnt.scrollIntoView({behavior: "smooth"});
+
+        jQuery.getScript('https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js', function(){
+
+            // Session Cookie
+            $kukie = Cookies.get('sgg-accept-cookies');
+            if ( ! $kukie ) {
+                jQuery('.sgg-accept-cookies').removeAttr('hidden').attr('uk-scrollspy', 'cls: uk-animation-fast uk-animation-slide-bottom; delay: 2500');
+                jQuery('.sgg-accept-cookies').find('.uk-alert-accept').on('click', function() {
+                    Cookies.set('sgg-accept-cookies', 'true', { expires: 7 });
+                    UIkit.alert('.sgg-accept-cookies').close();
+                });
+            }
+
+        });       
+    }
 
 }) (jQuery);
 

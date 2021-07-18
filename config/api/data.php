@@ -13,13 +13,13 @@ function api_data_score( $wins, $losses, $draws = 0 ) {
 function api_headers_with_key( $league, $privilege = '' ) {
   $news = [
     'nfl' => 'd6ac62df2ca7404babadf22c278dbc8d',
-    'mlb' => 'eb6004895b3740f19afdaa5780a9a0c5',
-    'nba' => '29c1b1b73ed54138bad9dc260ae3595e'
+    'nba' => '29c1b1b73ed54138bad9dc260ae3595e',
+    // 'mlb' => 'eb6004895b3740f19afdaa5780a9a0c5',
   ];
   $odds = [
     'nfl' => '2a2e46fcc4504134aadced092416ba1e',
-    'mlb' => 'b426343c15c843c3ab56930d2a919e2c',
-    'nba' => '14ab1b17eede492d8996908963d2ebbd'
+    'nba' => '14ab1b17eede492d8996908963d2ebbd',
+    // 'mlb' => 'b426343c15c843c3ab56930d2a919e2c',
   ];
   switch ( $privilege ) {
     case 'news':
@@ -76,7 +76,7 @@ function api_data_odds_nfl( $selection ) {
 
 function api_data_odds( $league, $selection = '' ) {
   if ( $league === 'nfl' ) {
-    $odds = api_data_odds_nfl( $selection );
+    $odds = api_data_odds_nfl( $selection );  
   } else {
     $selected_date = $selection;
     $formatted_date = date( 'Y-m-d' );
@@ -90,6 +90,8 @@ function api_data_odds( $league, $selection = '' ) {
   }
   return $odds;
 }
+
+
 
 function api_data_odds_teams( $league ) {
   $url = 'https://fly.sportsdata.io/v3/' . $league . '/scores/json/teams';

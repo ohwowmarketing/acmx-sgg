@@ -20,7 +20,7 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
 <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; offset: -400; animation: uk-animation-slide-top" class="uk-position-z-index" data-globals="menu">
     <div class="uk-container uk-container-xlarge">
 
-        <nav uk-navbar class="uk-navbar-container uk-navbar-transparent">
+        <nav uk-navbar class="uk-navbar-container uk-navbar-transparent --mainnav">
             <div class="uk-navbar-left">
                 <a href="<?php echo esc_url( home_url() ); ?>" class="uk-logo">
                     <?php echo '<img src="'. $logo[0] .'" alt="'. get_bloginfo() .'">'; ?>
@@ -117,7 +117,7 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
 
     <?php if ( is_page([ 23, 25, 27 ]) || $post->post_parent > 0 ) : 
     $post_parent = strtolower(get_the_title( $post->post_parent )); ?>
-    <nav class="uk-background-primary uk-light">
+    <nav class="uk-background-primary uk-light --localnav">
         <div class="uk-container uk-container-xlarge">
         <?php
         if ( $post->post_parent ) {

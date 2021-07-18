@@ -16,6 +16,6 @@ jQuery(document).ready(function ($) {
   }
   $('#nba-news').on('click', function () { getNews('nba'); });
   $('#nfl-news').on('click', function () { getNews('nfl'); });
-  $('#mlb-news').on('click', function () { getNews('mlb'); });
+  // $('#mlb-news').on('click', function () { getNews('mlb'); });
   getNews(SGGAPI.league);
 });

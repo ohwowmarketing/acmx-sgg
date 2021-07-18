@@ -3,7 +3,6 @@
     <h1 class="uk-card-title"><?php the_field('widget_title_oddslines', 'option'); ?></h1>
     <?php the_field('widget_content_oddslines', 'option'); ?>
     
-
     <div class="oddslines-lists">
         <?php while ( have_rows('widget_repeater_oddslines', 'option') ) : the_row();
         $imgFeature = get_sub_field('league_photo', 'option');

@@ -429,7 +429,7 @@ add_action( 'odds_table', 'odds_table' );
 
 function odds_table_data() {
   if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
-		die( 'Unable to verify sender.' );
+    die( 'Unable to verify sender.' );
   }
   if ( isset( $_POST['league'] ) ) {
     $league = strtolower( $_POST['league'] );
@@ -437,10 +437,11 @@ function odds_table_data() {
 
   $odds = api_data_odds( $league, $_POST['selection'] );
   $teams = api_data_odds_teams( $league );
+  $sbs = odds_sportsbooks();
 
   if ( isset( $odds ) ) {
     foreach ( $odds as $odd ) {
-      odds_table_row( $odd, $teams );
+      odds_table_row( $odd, $teams, $sbs );
     }
   }
   die();
@@ -450,7 +451,7 @@ add_action( 'wp_ajax_nopriv_odds_table_data', 'odds_table_data' );
 
 function odds_header_data() {
   if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
-		die( 'Unable to verify sender.' );
+    die( 'Unable to verify sender.' );
   }
   
   if ( isset( $_POST['league'] ) ) {

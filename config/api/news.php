@@ -134,7 +134,7 @@ function api_news_ajax() {
     </li>
     <?php endforeach; ?>
     <li class="uk-margin-top uk-border-remove">
-      <a href="<?php echo esc_url( site_url( strtolower( $_POST['league'] ) . '/news' ) ); ?>" class="uk-button uk-button-primary uk-button-small">
+      <a href="<?php echo esc_url( site_url( strtolower( $_POST['league'] ) . '/news#skipContents' ) ); ?>" class="uk-button uk-button-primary uk-button-small">
         View All <?php echo $_POST['league']; ?> News
       </a>
     </li>
@@ -167,13 +167,13 @@ function display_summary_news_articles() {
 
         <div class="article-news">
           <article class="uk-article">
-            <a href="<?php echo $article['link']; ?>">
+            <a href="<?php echo $article['link']; ?>#skipContents">
               <?php echo $article['lg_image']; ?>
             </a>
             <figure style="background-color:<?php echo '#'.$article['color']; ?>;">
               <span><?php echo $article['display']; ?>&nbsp;</span>
             </figure>
-            <h3><a href="<?php echo $article['link'] ?>"><?php echo $article['title']; ?></a></h3>
+            <h3><a href="<?php echo $article['link'] ?>#skipContents"><?php echo $article['title']; ?></a></h3>
             <div class="uk-text-meta">
               <span>
                 <?php echo strtoupper( $league ); ?>

@@ -9,14 +9,15 @@
     if ( $taxonomyName == 'guides_category' ) : ?>
         <title><?php wp_title(); ?></title>
     <?php
+    endif;
 
     // Post Category
-    $catLeague = $_GET['league'];
-    $category = single_cat_title('', false);
+    // $catLeague = $_GET['league'];
+    // $category = single_cat_title('', false);
 
-    elseif ( $catLeague == $category ) :
-        do_action('display_league_category_title');
-    endif;
+    // elseif ( $catLeague == $category ) :
+    //     do_action('display_league_category_title');
+    // endif;
 
     wp_head(); ?>
 </head>

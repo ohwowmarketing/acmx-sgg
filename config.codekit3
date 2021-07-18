@@ -1888,17 +1888,6 @@
 		"opt": 0,
 		"q": 100
 		},
-	"/resources/scripts/best-books.min.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "/resources/scripts/best-books.min.min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
 	"/resources/scripts/inc/api.js": {
 		"bF": 0,
 		"ft": 64,
@@ -2604,6 +2593,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/views/widgets/news-article.php",
+		"oF": 0
+		},
+	"/views/widgets/news-large.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/views/widgets/news-large.php",
 		"oF": 0
 		},
 	"/views/widgets/news.php": {

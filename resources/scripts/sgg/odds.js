@@ -2,13 +2,13 @@ jQuery(document).ready(function ($) {
   function displayQuickOddsSpinner() {
     var spinner =
       "<div uk-spinner='ratio: 0.6' class='odds-header-spinner'></div>"
-    $('.quick-odds ul.uk-slider-items').html(spinner)
+    $('.quick-odds ul.uk-slider-items').html(spinner);
   }
 
   function getQuickOdds(league = '') {
     displayQuickOddsSpinner()
     if (league === '') {
-      league = SGGAPI.league.toUpperCase()
+      league = SGGAPI.league.toUpperCase();
     }
     $.post(
       SGGAPI.ajax_url,
@@ -19,11 +19,11 @@ jQuery(document).ready(function ($) {
       },
       function (data) {
         var items = $('.quick-odds ul.uk-slider-items')
-        items.html(data)
+        items.html(data);
         try {
           UIkit.update((element = items), (type = 'update'))
         } catch (e) {
-          console.log(e)
+          console.log(e);
         }
       }
     )
@@ -61,29 +61,27 @@ jQuery(document).ready(function ($) {
 
   function updateOddsData(selection) {
     $.post(
-      SGGAPI.ajax_url,
-      {
+      SGGAPI.ajax_url, {
         action: 'odds_table_data',
         nonce: SGGAPI.nonce,
         league: SGGAPI.league,
-        selection: selection
+        selection: selection   
       },
       function (data) {
-        $('#odds-list-body').html(data)
-        updateOddsValueDisplay($('#odds-type-selection :selected').val())
-        updateUserSpecificSettings()
-      }
+        $('#odds-list-body').html(data);
+        updateOddsValueDisplay($('#odds-type-selection :selected').val());
+      }      
     )
   }
 
   $('body').on('DOMSubtreeModified', '#dateOdds', function () {
     if ($('#dateOdds').html() !== '') {
-      var currDate = new Date()
-      var fullDate = $('#dateOdds').html() + ', ' + currDate.getFullYear()
-      var isoDate = new Date(fullDate).toISOString().split('T')[0]
-      updateOddsData(isoDate)
+      var currDate = new Date();
+      var fullDate = $('#dateOdds').html() + ', ' + currDate.getFullYear();
+      var isoDate = new Date(fullDate).toISOString().split('T')[0];
+      updateOddsData(isoDate);
     }
-  })
+  });
 
   if ($('#odds-list-body').length) {
     if ($('#odds-type-selection').length) {
@@ -97,7 +95,6 @@ jQuery(document).ready(function ($) {
         updateOddsData(this.value)
       })
     }
-    updateOddsValueDisplay()
-    updateUserSpecificSettings()
+    updateOddsValueDisplay();
   }
-})
+});
