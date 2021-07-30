@@ -33,13 +33,12 @@
 }
 
 .wp-block-image {
-    clear: both;
 
     > .alignright {
         float: right;
         width: 300px;
         padding-left: 30px;
-        padding-block; 30px;
+        padding-block: 30px;
     }
 
     > .alignright.size-full img {
