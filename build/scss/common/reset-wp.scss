@@ -34,7 +34,8 @@
 
 .wp-block-image {
 
-    > .alignright {
+    // Right Align
+    > .alignright.size-full {
         float: right;
         width: 300px;
         margin: 30px 0 30px 30px;
@@ -44,6 +45,14 @@
 
     > .alignright.size-full img {
         width: 300px;
+    }
+
+    > .alignright.size-thumbnail {
+        float: right;
+        width: 150px;
+        margin: 30px 0 30px 30px;
+        border: 1px solid #DDD;
+        border-radius: 3px;
     }
 
     > .alignright.size-thumbnail img {
@@ -56,6 +65,39 @@
         text-align: justify;
         padding: 15px;
     }
+
+    // Left Align
+    > .alignleft.size-full {
+        float: left;
+        width: 300px;
+        margin: 30px 30px 30px 0;
+        border: 1px solid #DDD;
+        border-radius: 3px;
+    }
+
+    > .alignleft.size-full img {
+        width: 300px;
+    }
+
+    > .alignleft.size-thumbnail {
+        float: left;
+        width: 150px;
+        margin: 30px 30px 30px 0;
+        border: 1px solid #DDD;
+        border-radius: 3px;
+    }
+
+    > .alignleft.size-thumbnail img {
+        width: 150px;
+    }
+
+    > .alignleft figcaption {
+        font-size: 13px;
+        color: #888;
+        text-align: justify;
+        padding: 15px;
+    }
+
 }
 
 .alignleft img {
