@@ -43,7 +43,7 @@ jQuery(document).ready(function ($) {
       getQuickOdds(selectedLeague)
     }
 
-    // $('#odds-header-league').html(league)
+    $('#odds-header-league').html(league)
   })
 
   function updateOddsValueDisplay(type = 'Spread') {
@@ -65,11 +65,14 @@ jQuery(document).ready(function ($) {
         action: 'odds_table_data',
         nonce: SGGAPI.nonce,
         league: SGGAPI.league,
-        selection: selection   
+        selection: selection,
       },
       function (data) {
         $('#odds-list-body').html(data);
         updateOddsValueDisplay($('#odds-type-selection :selected').val());
+
+
+        console.log(data);
       }      
     )
   }
@@ -79,6 +82,9 @@ jQuery(document).ready(function ($) {
       var currDate = new Date();
       var fullDate = $('#dateOdds').html() + ', ' + currDate.getFullYear();
       var isoDate = new Date(fullDate).toISOString().split('T')[0];
+
+      console.log(isoDate);
+
       updateOddsData(isoDate);
     }
   });

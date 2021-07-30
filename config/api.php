@@ -1,7 +1,7 @@
 <?php
 function api_league() {
   global $post;
-  $league = 'nba';
+  $league = 'nfl';
   $leagues = [ 'nfl' => 23, 'nba' => 25 ];
   // $leagues = [ 'nfl' => 23, 'nba' => 25, 'mlb' => 27 ];
   if ( isset( $post->post_parent ) && in_array( $post->post_parent, $leagues ) ) {

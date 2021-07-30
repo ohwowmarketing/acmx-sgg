@@ -407,7 +407,9 @@ function odds_table() {
   <?php odds_table_filter( $league, $selected_week, $current_season ); ?>
   <div class="uk-position-relative">
     <div class="uk-overflow-auto">
-      <?php if ( valid_odds( $odds ) ) : ?>
+      <?php 
+      /* disable this temporary
+      if ( valid_odds( $odds ) ) : */ ?>
       <table id="odds-list" class="uk-table uk-table-divider">
         <?php odds_table_head( $league, $sbs ); ?>
         <tbody id="odds-list-body">
@@ -420,7 +422,7 @@ function odds_table() {
           ?>
         </tbody>
       </table>
-      <?php endif; ?>
+      <?php /* endif; */ ?>
     </div>
   </div>
   <?php
@@ -531,8 +533,8 @@ function odds_header() {
       <form>
         <div class="uk-form-select" data-uk-form-select>
           <select id="quick-odds-sport" class="uk-select">
-            <option <?php echo ($league === 'nba') ? 'selected' : ''; ?>>NBA</option>
             <option <?php echo ($league === 'nfl') ? 'selected' : ''; ?>>NFL</option>
+            <option <?php echo ($league === 'nba') ? 'selected' : ''; ?>>NBA</option>
             <?php /* Activate this if necessary
             <option <?php echo ($league === 'mlb') ? 'selected' : ''; ?>>MLB</option>
             */ ?>

@@ -56,7 +56,8 @@ function api_data_odds_nfl_selected_week( $season, $week ) {
   //   $selected = $season . 'POST/' . $post_week;
   // }
 
-  $selected = $season . 'POST/' . $week;
+  // $selected = $season . 'POST/' . $week;
+  $selected = $season . '/' . $week;
 
   return $selected;
 }
@@ -65,7 +66,8 @@ function api_data_odds_nfl( $selection ) {
   $selected_week = $selection;
   if ( $selected_week === '' ) {
     $current_season = api_data_odds_nfl_current_season();
-    $current_week = api_data_odds_nfl_current_week();
+    // $current_week = api_data_odds_nfl_current_week();
+    $current_week = '1';
     $selected_week = api_data_odds_nfl_selected_week( $current_season, $current_week );
   }
   $url = 'https://fly.sportsdata.io/v3/nfl/odds/json/GameOddsByWeek/' . $selected_week;
@@ -90,8 +92,6 @@ function api_data_odds( $league, $selection = '' ) {
   }
   return $odds;
 }
-
-
 
 function api_data_odds_teams( $league ) {
   $url = 'https://fly.sportsdata.io/v3/' . $league . '/scores/json/teams';

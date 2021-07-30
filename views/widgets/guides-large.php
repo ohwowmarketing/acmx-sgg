@@ -39,7 +39,7 @@ query_posts( $guides ); ?>
                     <span class="uk-card-footer uk-width-1-1">
                         <?php $terms = wp_get_post_terms( $post->ID, 'guides_category' );
                         foreach ( $terms as $term ) : ?>
-                        <a href="<?php echo site_url( 'guides-category/'.$term->slug ); ?>"><?php echo $term->name; ?></a>
+                        <a href="<?php echo site_url( 'guides-category/'.$term->slug .'#skipContents' ); ?>"><?php echo $term->name; ?></a>
                         <?php endforeach; ?>
                     </span>
                 </figure>
