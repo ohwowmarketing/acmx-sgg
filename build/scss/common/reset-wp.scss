@@ -22,6 +22,16 @@
     max-width: 1024px;
 }
 
+.wp-block-image > .aligncenter {
+    max-width: 740px;
+    margin: auto;
+
+    img {
+        width: 100%;
+        object-fit: contain;
+    }
+}
+
 .alignleft img {
     float: left;
 }
