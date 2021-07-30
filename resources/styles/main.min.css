@@ -718,6 +718,16 @@ address {
   max-width: 1024px;
 }
 
+.wp-block-image > .aligncenter {
+  max-width: 740px;
+  margin: auto;
+}
+.wp-block-image > .aligncenter img {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
 .alignleft img {
   float: left;
 }
