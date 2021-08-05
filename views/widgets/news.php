@@ -1,5 +1,5 @@
 <?php
-$league = 'nba';
+$league = 'nfl';
 if ( isset( $_GET['league'] ) ) {
     $league = strtolower( $_GET['league'] );
 }

@@ -50,6 +50,7 @@ jQuery(document).ready(function ($) {
     $.post(
       SGGAPI.ajax_url,
       {
+        cache: false,
         action: 'api_future',
         nonce: SGGAPI.nonce,
         league: $('#futures-table').data('league'),
