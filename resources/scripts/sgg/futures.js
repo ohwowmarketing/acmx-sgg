@@ -3,6 +3,7 @@ jQuery(document).ready(function ($) {
     $.post(
       SGGAPI.ajax_url,
       {
+        cache: false,
         action: 'api_market',
         nonce: SGGAPI.nonce,
         league: $('#futures-select').data('league'),
