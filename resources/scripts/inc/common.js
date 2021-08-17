@@ -1,4 +1,4 @@
-(function($) {
+(function($) {    
 
     //* Mobile Menu
     jQuery(window).on('load', function() {
@@ -80,57 +80,20 @@
     // });
 
     // SmoothScroll to content section    
-    $.getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js', function() {
-
-        $origins = window.location.href;
-        // console.log($origins);
-        // console.log( 'a[href="https://'+$origins+'"]' );
-        $('a[href="https://'+$origins+'/#Contents"]').attr('href', function() {
-            var hrefParts = this.href.split(/#/);
-            hrefParts[1] = 'skip' + hrefParts[1];
-            return hrefParts.join('#');
-        });
-
-        var reSmooth = /^#skip/;
-        var id;
-
-        // Check if localnav is active
-        if ( $('nav.--localnav').is(':visible') ) {
-            $offset = -126;
-        } else {
-            $offset = -80;
-        }
-
-        // Trigger Smooth Call
-        if ( reSmooth.test(location.hash) ) {
-            id = '#' + location.hash.replace(reSmooth, '');
-            $.smoothScroll({
-                scrollTarget: id,
-                offset: $offset,
+    jQuery.getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js', function() {
+        jQuery( "#skipToLink" ).on( "click", function() {
+            jQuery.smoothScroll({
+                scrollTarget: '#Contents',
+                offset: -126,
                 speed: 1000
             });
-        }
-
-        // Find all a[href] a localnav & mainnav
-        $('.--localnav a').each(function() {
-            $(this).attr('href', $(this).attr('href')+'#skipContents');
         });
-
-        $('.--mainnav .uk-parent .uk-navbar-dropdown-nav a').each(function() {
-            if ( $(this).hasClass('wp-video-popup') ) {
-                return false;
-            } else {
-                $(this).attr('href', $(this).attr('href')+'#skipContents');
-            }
-        });        
+        jQuery('#skipToLink').trigger('click');
     });
 
     // Cookie Sessions
     // The basic check of site fully loaded
     if(document.readyState === 'complete') {
-
-        // var elmnt = document.getElementById("Contents");
-        // elmnt.scrollIntoView({behavior: "smooth"});
 
         jQuery.getScript('https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js', function(){
 
@@ -144,10 +107,12 @@
                 });
             }
 
-        });       
+        });
+
     }
 
 }) (jQuery);
+
 
 // Polling for the sake of my Cookies
 var interval = setInterval(function() {
