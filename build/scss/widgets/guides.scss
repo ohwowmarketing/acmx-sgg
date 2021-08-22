@@ -43,111 +43,394 @@
 
 } // end
 
+[data-card="guides-large"] {
+
+    // Headings
+    .--headings {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+
+        h1 {
+            font-size: 20px;
+            width: calc( 100% - 42px );
+            margin: 0;
+            padding-right: 30px;
+        }
+
+        .uk-button-secondary {
+            display: flex;
+            align-items: center;
+            background: $sgg-green;
+            font-family: $regular !important;
+            font-size: 12px;
+            text-shadow: none;
+            line-height: normal;
+
+            &.uk-button-small {
+                padding: 7px 10px 8px;
+                border-radius: 3px;
+            }
+
+            span.uk-icon {
+                position: relative;
+                top: 1px;
+            }
+
+            &:focus,
+            &:hover {
+                background: darken($sgg-green, 5%);
+            }
+        }
+
+        .uk-button-primary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: $regular !important;
+            font-size: 12px;
+            width: 100%;
+            height: 36px;
+            margin-bottom: 5px;
+            padding: 2px 15px 0 15px;
+            border-radius: 0;
+        }
+
+        @media ( min-width: 640px ) {
+            h1 {
+                font-size: 24px;
+                width: calc( 100% - 90px );
+            }
+
+            .uk-button-secondary {
+                &::before {
+                    content: 'Filter';
+                    display: inline;
+                    margin-right: 10px;
+                }
+            }
+
+            .uk-button-primary {
+                width: 200px;
+            }
+        }
+
+        .uk-dropdown {
+            padding: 15px 0;
+        }
+
+        .uk-dropdown-nav li {
+            padding: 3px 25px;
+
+            &:focus,
+            &:hover {
+                background: $sgg-green;
+
+                a {
+                    color: #FFF;
+                }
+            }
+
+            a {
+                font-family: $regular;
+                font-size: 14px;
+                text-transform: uppercase;
+                @include sharpText();
+            }
+
+        }
+    }
+
+    // Filter Control
+    #filter-control {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-content: stretch;
+        justify-content: flex-end;
+        align-content: stretch;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 15px;
+
+        .--list-categories,
+        .--search-articles {
+            flex: 1 0 100%;
+        }
+
+        @media ( min-width: 640px ) {
+            flex-wrap: nowrap;
+            
+            .--list-categories {
+                order: 1;
+                flex: 0 1 200px;
+                width: 200px;
+            }
+
+            .--search-articles {
+                order: 0;
+                flex: 0 1 calc( 100% - 200px );
+                margin-right: 1px;
+            }
+        }
+    }
+
+    // Ivory Search
+    .is-search-icon svg path {
+        fill: #FFFFFF;
+    }
+
+    // Articles
+    .uk-article {
+        margin-top: 25px;
+
+        img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 0 0 3px $sgg-green;
+        }
+
+        h3 {
+            font-size: 18px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+
+            a {
+                font-family: $regular;
+                @include sharpText();
+            }
+        }
+
+        .uk-text-small {
+            opacity: 0.8;
+        }
+
+        .--categories {
+            &::before {
+                content: '';
+                display: block;
+                max-width: 250px;
+                width: 100%;
+                padding-top: 15px;
+                border-top: 1px solid #DDD;
+            }
+
+            a {
+                font-family: $light;
+                font-size: 12px;
+                color: $sgg-green;
+                text-transform: uppercase;
+                @include sharpText();
+
+                &::after {
+                    content: ',';
+                    display: inline-block;
+                    margin-right: 5px;
+                }
+
+                &:last-child::after {
+                    display: none;
+                }
+            }
+        }
+
+    }
+} // End
+
 [data-card="guides-full"] {
 
     // Headings
-    .uk-flex {
-        flex-direction: row;
+    .--headings {
+        display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
-        align-items: stretch;
+        justify-content: flex-start;
+        align-items: flex-start;
 
-        #search-category {
+        h1 {
+            font-size: 20px;
+            width: calc( 100% - 42px );
+            margin: 0;
+            padding-right: 30px;
+        }
+
+        .uk-button-secondary {
+            display: flex;
+            align-items: center;
+            background: $sgg-green;
+            font-family: $regular !important;
+            font-size: 12px;
+            text-shadow: none;
+            line-height: normal;
+
+            &.uk-button-small {
+                padding: 7px 10px 8px;
+                border-radius: 3px;
+            }
+
+            span.uk-icon {
+                position: relative;
+                top: 1px;
+            }
+
+            &:focus,
+            &:hover {
+                background: darken($sgg-green, 5%);
+            }
+        }
+
+        .uk-button-primary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: $regular !important;
+            font-size: 12px;
+            width: 100%;
+            height: 36px;
+            margin-bottom: 5px;
+            padding: 2px 15px 0 15px;
+            border-radius: 0;
+        }
+
+        @media ( min-width: 640px ) {
+            h1 {
+                font-size: 24px;
+                width: calc( 100% - 90px );
+            }
+
+            .uk-button-secondary {
+                &::before {
+                    content: 'Filter';
+                    display: inline;
+                    margin-right: 10px;
+                }
+            }
+
+            .uk-button-primary {
+                width: 200px;
+            }
+        }
+
+        .uk-dropdown {
+            padding: 15px 0;
+        }
+
+        .uk-dropdown-nav li {
+            padding: 3px 25px;
+
+            &:focus,
+            &:hover {
+                background: $sgg-green;
+
+                a {
+                    color: #FFF;
+                }
+            }
+
+            a {
+                font-family: $regular;
+                font-size: 14px;
+                text-transform: uppercase;
+                @include sharpText();
+            }
+
+        }
+    }
+
+    // Filter Control
+    #filter-control {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-content: stretch;
+        justify-content: flex-end;
+        align-content: stretch;
+        align-items: flex-start;
+        width: 100%;
+        margin-top: 15px;
+
+        .--list-categories,
+        .--search-articles {
             flex: 1 0 100%;
-            margin-bottom: 15px;
-        }
-    }
-
-    .uk-button-secondary {
-        background: $sgg-green;
-        text-shadow: none;
-        line-height: normal;
-
-        &.uk-button-small {
-            font-family: $bold;
-            padding: 7px 15px;
-            border-radius: 3px;
         }
 
-        &:focus,
-        &:hover {
-            background: darken($sgg-green, 5%);
-        }
-    }
-
-    // List View
-    .uk-grid {
-
-        &.uk-child-width-1-1 {
-
-            .guides-lists .uk-card .uk-card-media-top {
-                max-width: 360px;
-                margin-right: 15px;
+        @media ( min-width: 640px ) {
+            flex-wrap: nowrap;
+            
+            .--list-categories {
+                order: 1;
+                flex: 0 1 200px;
+                width: 200px;
             }
 
-            .guides-lists .uk-card .uk-card-body a {
+            .--search-articles {
+                order: 0;
+                flex: 0 1 calc( 100% - 200px );
+                margin-right: 1px;
+            }
+        }
+    }
+
+    // Ivory Search
+    .is-search-icon svg path {
+        fill: #FFFFFF;
+    }
+
+    article .uk-card {
+
+        .uk-card-media-top img {
+            width: 100%;
+            border-radius: 5px;
+            box-shadow: 0 0 0 3px $sgg-green;
+        }
+
+        .uk-card-body {
+            padding-left: 0;
+            padding-right: 0;
+
+            h3 {
                 font-size: 18px;
+                text-transform: uppercase;
+                margin-bottom: 15px;
+
+                a {
+                    font-family: $light;
+                    @include sharpText();
+                }
             }
 
+            .uk-text-small {
+                opacity: 0.8;
+            }
+
+            p {
+                margin: 0;
+            }
         }
 
-        .uk-grid-margin {
-            margin-top: 0 !important;
+        .uk-card-footer {
+            padding-left: 0;
+            padding-right: 0;
+
+            &.--categories a {
+                font-family: $light;
+                font-size: 12px;
+                color: $sgg-green;
+                text-transform: uppercase;
+                @include sharpText();
+
+                &::after {
+                    content: ',';
+                    display: inline-block;
+                    margin-right: 5px;
+                }
+
+                &:last-child::after {
+                    display: none;
+                }
+            }
         }
 
-        .guides-lists .uk-card-body p {
-            display: none;
-        }
-
-    }
-
-    // Guides Lists
-    figure {
-        margin-bottom: 15px !important;
-    }
-
-    figure figcaption,
-    figure span {
-        padding-top: 10px;
-        padding-bottom: 5px;
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    figure .uk-inline-clip {
-        border-radius: 3px;
-    }
-
-    figure span {
-        padding: 5px 0 0;
-        border-top: 0 !important;
-
-        &::before {
-            content: '';
-            display: block;
-            width: 50px;
-            padding-top: 5px;
-            border-top: 1px solid #DDD;
-        }
-
-    }
-
-    figure span > a {
-        font-family: $regular !important;
-        font-size: 11px !important;
-        font-weight: normal !important;
-        color: $sgg-green !important;
-        text-transform: uppercase;
-        opacity: .8;
-
-        &::after {
-            content: ',';
-            display: inline-block;
-        }
-
-        &:last-child::after {
-            display: none;
-        }
     }
 
 }

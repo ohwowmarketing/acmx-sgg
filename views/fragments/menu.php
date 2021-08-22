@@ -16,7 +16,7 @@
 $customLogoID = get_theme_mod( 'custom_logo' );
 $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
 
-<a href="#main" class="skip-to-content-link">Skip to Content</a>
+<a id="skipToLink" href="#main" class="skip-to-content-link">Skip to Content</a>
 <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; offset: -400; animation: uk-animation-slide-top" class="uk-position-z-index" data-globals="menu">
     <div class="uk-container uk-container-xlarge">
 
@@ -30,7 +30,7 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
                 <?php // wp_nav_menu( $hdrMenu ); ?>
                 <ul class="uk-navbar-nav uk-visible@l">
                     <li><a href="<?php echo esc_url( home_url() ); ?>">Home</a></li>
-                    <!-- <li><a href="<?php // echo esc_url( site_url('best-books') ); ?>">Best Books</a></li> -->
+                    <?php /* <li><a href="<?php // echo esc_url( site_url('best-books') ); ?>">Best Books</a></li> */ ?>
                     <li class="uk-parent">
                         <a href="#">Live Odds</a>
                         <div class="uk-navbar-dropdown uk-dropdown">

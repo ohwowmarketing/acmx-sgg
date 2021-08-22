@@ -292,79 +292,315 @@
   color: #444;
 }
 
-[data-card=guides-full] .uk-flex {
-  flex-direction: row;
+[data-card=guides-large] .--headings {
+  display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: stretch;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
-[data-card=guides-full] .uk-flex #search-category {
-  flex: 1 0 100%;
-  margin-bottom: 15px;
+[data-card=guides-large] .--headings h1 {
+  font-size: 20px;
+  width: calc( 100% - 42px );
+  margin: 0;
+  padding-right: 30px;
 }
-[data-card=guides-full] .uk-button-secondary {
+[data-card=guides-large] .--headings .uk-button-secondary {
+  display: flex;
+  align-items: center;
   background: #00A305;
+  font-family: OpenSans-Regular !important;
+  font-size: 12px;
   text-shadow: none;
   line-height: normal;
 }
-[data-card=guides-full] .uk-button-secondary.uk-button-small {
-  font-family: OpenSans-Bold;
-  padding: 7px 15px;
+[data-card=guides-large] .--headings .uk-button-secondary.uk-button-small {
+  padding: 7px 10px 8px;
   border-radius: 3px;
 }
-[data-card=guides-full] .uk-button-secondary:focus, [data-card=guides-full] .uk-button-secondary:hover {
+[data-card=guides-large] .--headings .uk-button-secondary span.uk-icon {
+  position: relative;
+  top: 1px;
+}
+[data-card=guides-large] .--headings .uk-button-secondary:focus, [data-card=guides-large] .--headings .uk-button-secondary:hover {
   background: #008a04;
 }
-[data-card=guides-full] .uk-grid.uk-child-width-1-1 .guides-lists .uk-card .uk-card-media-top {
-  max-width: 360px;
-  margin-right: 15px;
+[data-card=guides-large] .--headings .uk-button-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: OpenSans-Regular !important;
+  font-size: 12px;
+  width: 100%;
+  height: 36px;
+  margin-bottom: 5px;
+  padding: 2px 15px 0 15px;
+  border-radius: 0;
 }
-[data-card=guides-full] .uk-grid.uk-child-width-1-1 .guides-lists .uk-card .uk-card-body a {
+@media (min-width: 640px) {
+  [data-card=guides-large] .--headings h1 {
+    font-size: 24px;
+    width: calc( 100% - 90px );
+  }
+  [data-card=guides-large] .--headings .uk-button-secondary::before {
+    content: "Filter";
+    display: inline;
+    margin-right: 10px;
+  }
+  [data-card=guides-large] .--headings .uk-button-primary {
+    width: 200px;
+  }
+}
+[data-card=guides-large] .--headings .uk-dropdown {
+  padding: 15px 0;
+}
+[data-card=guides-large] .--headings .uk-dropdown-nav li {
+  padding: 3px 25px;
+}
+[data-card=guides-large] .--headings .uk-dropdown-nav li:focus, [data-card=guides-large] .--headings .uk-dropdown-nav li:hover {
+  background: #00A305;
+}
+[data-card=guides-large] .--headings .uk-dropdown-nav li:focus a, [data-card=guides-large] .--headings .uk-dropdown-nav li:hover a {
+  color: #FFF;
+}
+[data-card=guides-large] .--headings .uk-dropdown-nav li a {
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[data-card=guides-large] #filter-control {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: stretch;
+  justify-content: flex-end;
+  align-content: stretch;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 15px;
+}
+[data-card=guides-large] #filter-control .--list-categories,
+[data-card=guides-large] #filter-control .--search-articles {
+  flex: 1 0 100%;
+}
+@media (min-width: 640px) {
+  [data-card=guides-large] #filter-control {
+    flex-wrap: nowrap;
+  }
+  [data-card=guides-large] #filter-control .--list-categories {
+    order: 1;
+    flex: 0 1 200px;
+    width: 200px;
+  }
+  [data-card=guides-large] #filter-control .--search-articles {
+    order: 0;
+    flex: 0 1 calc( 100% - 200px );
+    margin-right: 1px;
+  }
+}
+[data-card=guides-large] .is-search-icon svg path {
+  fill: #FFFFFF;
+}
+[data-card=guides-large] .uk-article {
+  margin-top: 25px;
+}
+[data-card=guides-large] .uk-article img {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 0 0 3px #00A305;
+}
+[data-card=guides-large] .uk-article h3 {
   font-size: 18px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
 }
-[data-card=guides-full] .uk-grid .uk-grid-margin {
-  margin-top: 0 !important;
+[data-card=guides-large] .uk-article h3 a {
+  font-family: OpenSans-Regular;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-[data-card=guides-full] .uk-grid .guides-lists .uk-card-body p {
+[data-card=guides-large] .uk-article .uk-text-small {
+  opacity: 0.8;
+}
+[data-card=guides-large] .uk-article .--categories::before {
+  content: "";
+  display: block;
+  max-width: 250px;
+  width: 100%;
+  padding-top: 15px;
+  border-top: 1px solid #DDD;
+}
+[data-card=guides-large] .uk-article .--categories a {
+  font-family: OpenSans-Light;
+  font-size: 12px;
+  color: #00A305;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[data-card=guides-large] .uk-article .--categories a::after {
+  content: ",";
+  display: inline-block;
+  margin-right: 5px;
+}
+[data-card=guides-large] .uk-article .--categories a:last-child::after {
   display: none;
 }
-[data-card=guides-full] figure {
-  margin-bottom: 15px !important;
+
+[data-card=guides-full] .--headings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
-[data-card=guides-full] figure figcaption,
-[data-card=guides-full] figure span {
-  padding-top: 10px;
-  padding-bottom: 5px;
+[data-card=guides-full] .--headings h1 {
+  font-size: 20px;
+  width: calc( 100% - 42px );
+  margin: 0;
+  padding-right: 30px;
+}
+[data-card=guides-full] .--headings .uk-button-secondary {
+  display: flex;
+  align-items: center;
+  background: #00A305;
+  font-family: OpenSans-Regular !important;
+  font-size: 12px;
+  text-shadow: none;
+  line-height: normal;
+}
+[data-card=guides-full] .--headings .uk-button-secondary.uk-button-small {
+  padding: 7px 10px 8px;
+  border-radius: 3px;
+}
+[data-card=guides-full] .--headings .uk-button-secondary span.uk-icon {
+  position: relative;
+  top: 1px;
+}
+[data-card=guides-full] .--headings .uk-button-secondary:focus, [data-card=guides-full] .--headings .uk-button-secondary:hover {
+  background: #008a04;
+}
+[data-card=guides-full] .--headings .uk-button-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: OpenSans-Regular !important;
+  font-size: 12px;
+  width: 100%;
+  height: 36px;
+  margin-bottom: 5px;
+  padding: 2px 15px 0 15px;
+  border-radius: 0;
+}
+@media (min-width: 640px) {
+  [data-card=guides-full] .--headings h1 {
+    font-size: 24px;
+    width: calc( 100% - 90px );
+  }
+  [data-card=guides-full] .--headings .uk-button-secondary::before {
+    content: "Filter";
+    display: inline;
+    margin-right: 10px;
+  }
+  [data-card=guides-full] .--headings .uk-button-primary {
+    width: 200px;
+  }
+}
+[data-card=guides-full] .--headings .uk-dropdown {
+  padding: 15px 0;
+}
+[data-card=guides-full] .--headings .uk-dropdown-nav li {
+  padding: 3px 25px;
+}
+[data-card=guides-full] .--headings .uk-dropdown-nav li:focus, [data-card=guides-full] .--headings .uk-dropdown-nav li:hover {
+  background: #00A305;
+}
+[data-card=guides-full] .--headings .uk-dropdown-nav li:focus a, [data-card=guides-full] .--headings .uk-dropdown-nav li:hover a {
+  color: #FFF;
+}
+[data-card=guides-full] .--headings .uk-dropdown-nav li a {
+  font-family: OpenSans-Regular;
+  font-size: 14px;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[data-card=guides-full] #filter-control {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  align-content: stretch;
+  justify-content: flex-end;
+  align-content: stretch;
+  align-items: flex-start;
+  width: 100%;
+  margin-top: 15px;
+}
+[data-card=guides-full] #filter-control .--list-categories,
+[data-card=guides-full] #filter-control .--search-articles {
+  flex: 1 0 100%;
+}
+@media (min-width: 640px) {
+  [data-card=guides-full] #filter-control {
+    flex-wrap: nowrap;
+  }
+  [data-card=guides-full] #filter-control .--list-categories {
+    order: 1;
+    flex: 0 1 200px;
+    width: 200px;
+  }
+  [data-card=guides-full] #filter-control .--search-articles {
+    order: 0;
+    flex: 0 1 calc( 100% - 200px );
+    margin-right: 1px;
+  }
+}
+[data-card=guides-full] .is-search-icon svg path {
+  fill: #FFFFFF;
+}
+[data-card=guides-full] article .uk-card .uk-card-media-top img {
+  width: 100%;
+  border-radius: 5px;
+  box-shadow: 0 0 0 3px #00A305;
+}
+[data-card=guides-full] article .uk-card .uk-card-body {
   padding-left: 0;
   padding-right: 0;
 }
-[data-card=guides-full] figure .uk-inline-clip {
-  border-radius: 3px;
-}
-[data-card=guides-full] figure span {
-  padding: 5px 0 0;
-  border-top: 0 !important;
-}
-[data-card=guides-full] figure span::before {
-  content: "";
-  display: block;
-  width: 50px;
-  padding-top: 5px;
-  border-top: 1px solid #DDD;
-}
-[data-card=guides-full] figure span > a {
-  font-family: OpenSans-Regular !important;
-  font-size: 11px !important;
-  font-weight: normal !important;
-  color: #00A305 !important;
+[data-card=guides-full] article .uk-card .uk-card-body h3 {
+  font-size: 18px;
   text-transform: uppercase;
+  margin-bottom: 15px;
+}
+[data-card=guides-full] article .uk-card .uk-card-body h3 a {
+  font-family: OpenSans-Light;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[data-card=guides-full] article .uk-card .uk-card-body .uk-text-small {
   opacity: 0.8;
 }
-[data-card=guides-full] figure span > a::after {
+[data-card=guides-full] article .uk-card .uk-card-body p {
+  margin: 0;
+}
+[data-card=guides-full] article .uk-card .uk-card-footer {
+  padding-left: 0;
+  padding-right: 0;
+}
+[data-card=guides-full] article .uk-card .uk-card-footer.--categories a {
+  font-family: OpenSans-Light;
+  font-size: 12px;
+  color: #00A305;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+[data-card=guides-full] article .uk-card .uk-card-footer.--categories a::after {
   content: ",";
   display: inline-block;
+  margin-right: 5px;
 }
-[data-card=guides-full] figure span > a:last-child::after {
+[data-card=guides-full] article .uk-card .uk-card-footer.--categories a:last-child::after {
   display: none;
 }
 

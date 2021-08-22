@@ -85,4 +85,10 @@ if ( function_exists( 'acf_add_options_page' ) ) :
             'parent_slug' => 'theme-widgets'
         ]);
 
+        acf_add_options_sub_page([
+            'menu_title'  => 'Instagram Settings',
+            'page_title'  => 'Instagram Heading',
+            'parent_slug' => 'theme-widgets'
+        ]);
+
 endif;

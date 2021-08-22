@@ -5,7 +5,6 @@
         jQuery('.uk-nav-mobile').find('.menu-item-has-children').addClass('uk-parent');
     });
 
-
     function footerStack() {
         if ( jQuery(window).width() <= 959 ) {
             jQuery('.footer-directory .uk-accordion li').removeClass('uk-open');
@@ -80,16 +79,16 @@
     // });
 
     // SmoothScroll to content section    
-    jQuery.getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js', function() {
-        jQuery( "#skipToLink" ).on( "click", function() {
-            jQuery.smoothScroll({
-                scrollTarget: '#Contents',
-                offset: -126,
-                speed: 1000
-            });
-        });
-        jQuery('#skipToLink').trigger('click');
-    });
+    // jQuery.getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js', function() {
+    //     jQuery( "#skipToLink" ).on( "click", function() {
+    //         jQuery.smoothScroll({
+    //             scrollTarget: '#Contents',
+    //             offset: -126,
+    //             speed: 1000
+    //         });
+    //     });
+    //     jQuery('#skipToLink').trigger('click');
+    // });
 
     // Cookie Sessions
     // The basic check of site fully loaded
