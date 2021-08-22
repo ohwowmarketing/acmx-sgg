@@ -398,6 +398,9 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+[data-card=guides-large] .uk-article h3 a:hover {
+  color: #00A305;
+}
 [data-card=guides-large] .uk-article .uk-text-small {
   margin-bottom: 15px;
   opacity: 0.8;
