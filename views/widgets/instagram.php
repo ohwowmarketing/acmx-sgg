@@ -19,3 +19,7 @@
 
     echo do_shortcode( '[elfsight_instagram_feed id="1"]' ); ?>
 </div>
+
+<div class="uk-card uk-card-default uk-card-body" data-card="instagram">
+    <?php echo do_shortcode( '[elfsight_instagram_feed id="8"]' ); ?>
+</div>
