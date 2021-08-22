@@ -203,7 +203,17 @@
         }
 
         .uk-text-small {
+            margin-bottom: 15px;
             opacity: 0.8;
+
+            p, a {
+                display: inline;
+            }
+
+            a {
+                font-family: $light;
+                color: $sgg-green;
+            }
         }
 
         .--categories {
@@ -389,9 +399,9 @@
             padding-right: 0;
 
             h3 {
-                font-size: 18px;
+                font-size: 16px;
                 text-transform: uppercase;
-                margin-bottom: 15px;
+                margin-bottom: 0;
 
                 a {
                     font-family: $light;

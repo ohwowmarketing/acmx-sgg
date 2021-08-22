@@ -66,7 +66,7 @@ query_posts( $guides ); ?>
                                         endif; ?>
                                         <div class="uk-card-body">
                                             <h3><a href="<?php the_permalink(); ?>" class="uk-link-text"><?php the_title(); ?></a></h3>
-                                            <div class="uk-text-small">
+                                            <div class="uk-text-small" hidden>
                                                 <?php echo custom_field_excerpt( get_the_content(), 50 ); ?>
                                             </div>
                                         </div>

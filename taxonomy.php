@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="uk-width-1-1@s uk-width-expand@m">
                                     <h3><a href="<?php the_permalink(); ?>" class="uk-link-text"><?php the_title(); ?></a></h3>
-                                    <div class="uk-text-small"><?php echo custom_field_excerpt( get_the_content(), 50 ); ?></div>
+                                    <div class="uk-text-small"><?php echo custom_field_excerpt( get_the_content(), 50 ); ?> <a href="<?php the_permalink(); ?>" class="uk-link-text">Read more</a></div>
                                     <div class="--categories">
                                         <?php $terms = wp_get_post_terms( $post->ID, 'guides_category' );
                                         foreach ( $terms as $term ) : ?>

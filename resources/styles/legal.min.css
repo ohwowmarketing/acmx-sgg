@@ -169,7 +169,15 @@
   -moz-osx-font-smoothing: grayscale;
 }
 [data-card=guides-large] .uk-article .uk-text-small {
+  margin-bottom: 15px;
   opacity: 0.8;
+}
+[data-card=guides-large] .uk-article .uk-text-small p, [data-card=guides-large] .uk-article .uk-text-small a {
+  display: inline;
+}
+[data-card=guides-large] .uk-article .uk-text-small a {
+  font-family: OpenSans-Light;
+  color: #00A305;
 }
 [data-card=guides-large] .uk-article .--categories::before {
   content: "";
@@ -316,9 +324,9 @@
   padding-right: 0;
 }
 [data-card=guides-full] article .uk-card .uk-card-body h3 {
-  font-size: 18px;
+  font-size: 16px;
   text-transform: uppercase;
-  margin-bottom: 15px;
+  margin-bottom: 0;
 }
 [data-card=guides-full] article .uk-card .uk-card-body h3 a {
   font-family: OpenSans-Light;
