@@ -1,4 +1,5 @@
 <?php
+
 function api_market_ajax() {
   if ( ! wp_verify_nonce( $_POST['nonce'], 'sgg-nonce') ) {
 		die( 'Unable to verify sender.' );
@@ -8,7 +9,8 @@ function api_market_ajax() {
     echo $transient;
     die();
   }
-  $url = 'https://sgg.vercel.app/api/' . $_POST['league'] . '/market';
+  $url = 'https://sggpro.vercel.app/api/' . $_POST['league'] . '/market';
+
   $markets = api_data( $url );
   $defaults = ['NFL Championship Winner', 'World Series Winner', 'NBA Champion'];
   $out = '';
@@ -223,12 +225,14 @@ function api_future_ajax() {
   //   die();
   // }
 
-  $url = 'https://sgg.vercel.app/api/' . $_POST['league'] . '/future/' . $_POST['future'];
+  $url = 'https://sggpro.vercel.app/api/' . $_POST['league'] . '/future/' . $_POST['future'];
   $data = api_data( $url );
+
   if ( !isset( $data ) ) {
     echo '<div class="uk-placeholder uk-text-center uk-text-meta uk-text-uppercase _notice"> <span uk-icon="warning"></span> Please refresh the page.<br /><a href="' . get_permalink() . '" id="futures-location-btn" type="button" class="uk-button uk-button-default">Refresh</a></div>';
     die();
   }
+
   // Sort Sportsbooks by WP menu order
   if ( !in_array( 'Consensus', $data->sportsbooks ) ) {
     $sportsbooksWithConsensus = array_merge(['Consensus'], $data->sportsbooks);
