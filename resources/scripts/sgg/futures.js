@@ -4,9 +4,10 @@ jQuery(document).ready(function ($) {
     if ( jQuery('#futures-select').length ) {
         jQuery.post( SGGAPI.ajax_url, {
 
-            cache: false,
+            cache: true,
             action: 'api_market',
             nonce: SGGAPI.nonce,
+            timeout: 15000,
             league: jQuery('#futures-select').data('league'),
             future: jQuery('#futures-select').data('future')
 
@@ -53,13 +54,17 @@ jQuery(document).ready(function ($) {
 
         jQuery.post( SGGAPI.ajax_url, {
             
-            cache: false,
+            cache: true,
             action: 'api_future',
             nonce: SGGAPI.nonce,
+            timeout: 15000,
             league: jQuery('#futures-table').data('league'),
-            future: jQuery('#futures-table').data('future')
+            future: jQuery('#futures-table').data('future'),
 
         }, function (table) {
+
+            // console.log(league);
+
 
             jQuery('#futures-table').html(table);
             jQuery('#table-loading').hide();
@@ -78,9 +83,9 @@ jQuery(document).ready(function ($) {
     // Call the function
     if ( jQuery('#futures-table').length ) {
         if (jQuery('#futures-table').data('future') !== '') {
-            getFuturesTable();
+            setTimeout(getFuturesTable(), 15000);
         } else {
-           getFuturesTable();
+            setTimeout(getFuturesTable(), 15000);
         }
     }
 
