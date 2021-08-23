@@ -9,7 +9,7 @@ function api_market_ajax() {
     echo $transient;
     die();
   }
-  $url = 'https://sgg.vercel.app/api/' . $_POST['league'] . '/market';
+  $url = 'https://sggpro.vercel.app/api/' . $_POST['league'] . '/market';
 
   $markets = api_data( $url );
   $defaults = ['NFL Championship Winner', 'World Series Winner', 'NBA Champion'];
@@ -225,7 +225,7 @@ function api_future_ajax() {
   //   die();
   // }
 
-  $url = 'https://sgg.vercel.app/api/' . $_POST['league'] . '/future/' . $_POST['future'];
+  $url = 'https://sggpro.vercel.app/api/' . $_POST['league'] . '/future/' . $_POST['future'];
   $data = api_data( $url );
 
   if ( !isset( $data ) ) {
