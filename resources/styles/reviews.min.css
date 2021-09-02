@@ -264,7 +264,7 @@
 }
 [data-card=guides-large] .--headings h1 {
   font-size: 20px;
-  width: calc( 100% - 42px );
+  width: calc(100% - 42px);
   margin: 0;
   padding-right: 30px;
 }
@@ -303,7 +303,7 @@
 @media (min-width: 640px) {
   [data-card=guides-large] .--headings h1 {
     font-size: 24px;
-    width: calc( 100% - 90px );
+    width: calc(100% - 90px);
   }
   [data-card=guides-large] .--headings .uk-button-secondary::before {
     content: "Filter";
@@ -345,12 +345,30 @@
   margin-top: 15px;
 }
 [data-card=guides-large] #filter-control .--list-categories,
-[data-card=guides-large] #filter-control .--search-articles {
+[data-card=guides-large] #filter-control .--search-articles,
+[data-card=guides-large] #filter-control .--default-categories {
   flex: 1 0 100%;
+}
+[data-card=guides-large] #filter-control .--default-categories {
+  margin-top: 15px;
+}
+[data-card=guides-large] #filter-control .--default-categories .uk-subnav li a,
+[data-card=guides-large] #filter-control .--default-categories .uk-subnav li span {
+  font-size: 12px;
+}
+[data-card=guides-large] #filter-control .--default-categories .uk-subnav li a:hover,
+[data-card=guides-large] #filter-control .--default-categories .uk-subnav li a:focus {
+  color: #00A305;
+}
+[data-card=guides-large] #filter-control .--default-categories .uk-subnav li span {
+  font-family: OpenSans-Bold;
+}
+[data-card=guides-large] #filter-control .--default-categories .uk-subnav li:nth-child(2)::before {
+  display: none;
 }
 @media (min-width: 640px) {
   [data-card=guides-large] #filter-control {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
   }
   [data-card=guides-large] #filter-control .--list-categories {
     order: 1;
@@ -359,8 +377,12 @@
   }
   [data-card=guides-large] #filter-control .--search-articles {
     order: 0;
-    flex: 0 1 calc( 100% - 200px );
+    flex: 0 1 calc(100% - 201px);
     margin-right: 1px;
+  }
+  [data-card=guides-large] #filter-control .--default-categories {
+    order: 2;
+    flex: 1 0 100%;
   }
 }
 [data-card=guides-large] .is-search-icon svg path {
@@ -391,7 +413,8 @@
   margin-bottom: 15px;
   opacity: 0.8;
 }
-[data-card=guides-large] .uk-article .uk-text-small p, [data-card=guides-large] .uk-article .uk-text-small a {
+[data-card=guides-large] .uk-article .uk-text-small p,
+[data-card=guides-large] .uk-article .uk-text-small a {
   display: inline;
 }
 [data-card=guides-large] .uk-article .uk-text-small a {
@@ -431,7 +454,7 @@
 }
 [data-card=guides-full] .--headings h1 {
   font-size: 20px;
-  width: calc( 100% - 42px );
+  width: calc(100% - 42px);
   margin: 0;
   padding-right: 30px;
 }
@@ -470,7 +493,7 @@
 @media (min-width: 640px) {
   [data-card=guides-full] .--headings h1 {
     font-size: 24px;
-    width: calc( 100% - 90px );
+    width: calc(100% - 90px);
   }
   [data-card=guides-full] .--headings .uk-button-secondary::before {
     content: "Filter";
@@ -512,12 +535,30 @@
   margin-top: 15px;
 }
 [data-card=guides-full] #filter-control .--list-categories,
-[data-card=guides-full] #filter-control .--search-articles {
+[data-card=guides-full] #filter-control .--search-articles,
+[data-card=guides-full] #filter-control .--default-categories {
   flex: 1 0 100%;
+}
+[data-card=guides-full] #filter-control .--default-categories {
+  margin-top: 15px;
+}
+[data-card=guides-full] #filter-control .--default-categories .uk-subnav li a,
+[data-card=guides-full] #filter-control .--default-categories .uk-subnav li span {
+  font-size: 12px;
+}
+[data-card=guides-full] #filter-control .--default-categories .uk-subnav li a:hover,
+[data-card=guides-full] #filter-control .--default-categories .uk-subnav li a:focus {
+  color: #00A305;
+}
+[data-card=guides-full] #filter-control .--default-categories .uk-subnav li span {
+  font-family: OpenSans-Bold;
+}
+[data-card=guides-full] #filter-control .--default-categories .uk-subnav li:nth-child(2)::before {
+  display: none;
 }
 @media (min-width: 640px) {
   [data-card=guides-full] #filter-control {
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
   }
   [data-card=guides-full] #filter-control .--list-categories {
     order: 1;
@@ -526,8 +567,12 @@
   }
   [data-card=guides-full] #filter-control .--search-articles {
     order: 0;
-    flex: 0 1 calc( 100% - 200px );
+    flex: 0 1 calc(100% - 201px);
     margin-right: 1px;
+  }
+  [data-card=guides-full] #filter-control .--default-categories {
+    order: 2;
+    flex: 1 0 100%;
   }
 }
 [data-card=guides-full] .is-search-icon svg path {

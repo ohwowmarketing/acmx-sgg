@@ -4,7 +4,7 @@ function api_spread_ajax() {
 		die( 'Unable to verify sender.' );
   }
   $league = $_POST['league'];
-  $url = 'https://sgg.vercel.app/api/' . $league . '/spread';
+  $url = 'https://sggpro.vercel.app/api/' . $league . '/spread';
   $teams = api_data( $url );
   if ( isset ( $teams ) && is_array( $teams ) && count( $teams ) > 0 ) :
     foreach ( $teams as $team ) : ?>

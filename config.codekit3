@@ -41,6 +41,38 @@
 		"oAP": "/404.php",
 		"oF": 0
 		},
+	"/_temp/dropdown-nba-selected.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/_temp/dropdown-nba-selected.html",
+		"oF": 0
+		},
+	"/_temp/dropdown-nba.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/_temp/dropdown-nba.html",
+		"oF": 0
+		},
+	"/_temp/dropdown-nfl-selected.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/_temp/dropdown-nfl-selected.html",
+		"oF": 0
+		},
+	"/_temp/dropdown-nfl.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/_temp/dropdown-nfl.html",
+		"oF": 0
+		},
 	"/archive.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -661,6 +693,14 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/config/editor.php",
+		"oF": 0
+		},
+	"/config/rss.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/config/rss.php",
 		"oF": 0
 		},
 	"/config/theme.php": {
@@ -1888,69 +1928,20 @@
 		"opt": 0,
 		"q": 100
 		},
-	"/resources/scripts/inc/api.js": {
+	"/resources/scripts/inc": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "/build/resources/scripts/inc",
+		"oF": 0
+		},
+	"/resources/scripts/jquery.tmpl.min.js": {
 		"bF": 0,
 		"ft": 64,
 		"ma": 0,
 		"mi": 1,
 		"oA": 0,
-		"oAP": "/resources/scripts/api.min.js",
+		"oAP": "/resources/scripts/jquery.tmpl.min.min.js",
 		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"/resources/scripts/inc/betting-odds.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "/resources/scripts/betting-odds.min.js",
-		"oF": 1,
-		"sC": 0,
-		"tS": 0
-		},
-	"/resources/scripts/inc/common.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "/resources/scripts/common.min.js",
-		"oF": 1,
-		"sC": 0,
-		"tS": 0
-		},
-	"/resources/scripts/inc/home.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "/resources/scripts/home.min.js",
-		"oF": 1,
-		"sC": 0,
-		"tS": 0
-		},
-	"/resources/scripts/inc/market.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "/resources/scripts/market.min.js",
-		"oF": 1,
-		"sC": 0,
-		"tS": 0
-		},
-	"/resources/scripts/inc/markettype.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 1,
-		"oAP": "/resources/scripts/markettype.min.js",
-		"oF": 1,
 		"sC": 0,
 		"tS": 0
 		},
@@ -1976,71 +1967,11 @@
 		"sC": 0,
 		"tS": 0
 		},
-	"/resources/scripts/sgg/futures.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "/resources/scripts/futures.min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"/resources/scripts/sgg/header.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "/resources/scripts/header.min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"/resources/scripts/sgg/news.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "/resources/scripts/news.min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"/resources/scripts/sgg/odds.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "/resources/scripts/odds.min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"/resources/scripts/sgg/promos.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "/resources/scripts/promos.min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
-		},
-	"/resources/scripts/sgg/spread.js": {
-		"bF": 0,
-		"ft": 64,
-		"ma": 0,
-		"mi": 1,
-		"oA": 0,
-		"oAP": "/resources/scripts/spread.min.js",
-		"oF": 0,
-		"sC": 0,
-		"tS": 0
+	"/resources/scripts/sgg": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "/build/resources/scripts/sgg",
+		"oF": 0
 		},
 	"/resources/styles/best-books.min.css": {
 		"aP": 1,
@@ -2221,6 +2152,14 @@
 		"oAP": "/resources/styles/wp-editor.min-min.css",
 		"oF": 0,
 		"oS": 3
+		},
+	"/rss.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/rss.php",
+		"oF": 0
 		},
 	"/sidebar.php": {
 		"cB": 0,
@@ -4755,7 +4694,7 @@
 	"rollupExternals": "",
 	"rollupReplacements": "process.env.NODE_ENV:::$NODE_ENV,,,ENVIRONMENT:::$NODE_ENV",
 	"rollupTreeshakingEnabled": 1,
-	"skippedFoldersString": "log, _logs, logs, _cache, cache, .idea, /storage/framework/sessions, node_modules",
+	"skippedFoldersString": "log, _logs, logs, _cache, cache, .idea, /storage/framework/sessions, node_modules, /resources/scripts/inc, /resources/scripts/sgg",
 	"sourceFolderName": "source",
 	"susyVersion": 3,
 	"tsAllowSyntheticDefaultImports": 0,

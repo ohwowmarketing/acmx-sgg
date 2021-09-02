@@ -2,8 +2,8 @@
 /**
  * Template Name: Custom RSS Template - Gambling Guides
  */
-$postCount = 20; // The number of posts to show in the feed
-$guides = ['post_type'=>'sports_guides','orderby'=>'date','showposts'=>$postCount];
+$postCount = 15; // The number of posts to show in the feed
+$guides = ['post_type'=>'sports_guides','order'=>'DESC','orderby'=>'date','showposts'=>$postCount];
 query_posts( $guides );
 header('Content-Type: '.feed_content_type('rss-http').'; charset='.get_option('blog_charset'), true);
 echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>';

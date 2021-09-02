@@ -16,7 +16,7 @@ query_posts( $guides ); ?>
         <div class="--filter-control">
             <button class="uk-button uk-button-secondary uk-button-small" uk-toggle="target: #filter-control;" uk-tooltip="title: Filter Search"> <span uk-icon="settings"></span> </button>
         </div>
-        <div id="filter-control" hidden>
+        <div id="filter-control">
             <div class="--list-categories">
                     <button class="uk-button uk-button-primary uk-button-small">View All Categories <span uk-icon="icon: album" class="uk-margin-small-left"></span></button>
                     <div uk-dropdown="mode: click; pos: bottom-right; offset: 0; animation: uk-animation-slide-bottom-small;">
@@ -45,6 +45,16 @@ query_posts( $guides ); ?>
             </div>
             <div class="--search-articles">
                 <?php echo do_shortcode('[ivory-search id="1333"]'); ?>
+            </div>
+            <div class="--default-categories">
+                <ul class="uk-subnav uk-subnav-divider">
+                    <li><span>Top Categories:</span></li>
+                    <li><a href="<?php echo __(site_url('/guides-category/nfl')); ?>">NFL</a></li>
+                    <li><a href="<?php echo __(site_url('/guides-category/ncaaf')); ?>">NCAAF</a></li>
+                    <li><a href="<?php echo __(site_url('/guides-category/mlb')); ?>">MLB</a></li>
+                    <li><a href="<?php echo __(site_url('/guides-category/nba')); ?>">NBA</a></li>
+                    <li><a href="<?php echo __(site_url('/guides-category/gambling-info-guides')); ?>">Sports Gambling Info</a></li>
+                </ul>
             </div>
         </div>
     </div>
