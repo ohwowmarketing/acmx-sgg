@@ -7,7 +7,7 @@
             <div class="uk-width-expand@l">
                 <div class="uk-card uk-card-default uk-card-body" data-card="guides-large">
                     <div class="--headings">
-                        <h1 class="uk-card-title">Articles Keyword: <?php single_term_title(); ?></h1>
+                        <h1 class="uk-card-title">Featured Articles: <?php single_term_title(); ?></h1>
                         <div class="--filter-control">
                             <button class="uk-button uk-button-secondary uk-button-small" uk-toggle="target: #filter-control;" uk-tooltip="title: Filter Search"> <span uk-icon="settings"></span> </button>
                         </div>
