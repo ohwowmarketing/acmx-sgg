@@ -11,7 +11,20 @@
                             echo '<div class="uk-text-right uk-text-meta">'. makeUrltoLink($description) .'</div>';
                         }
 
-                        the_title('<h2 class="uk-article-title">','</h2>');
+                        the_title('<h2 class="uk-article-title">','</h2>'); ?>
+                        <address class="uk-grid-small uk-flex-middle" uk-grid>
+                            <div class="uk-width-auto">
+                                <?php echo get_avatar( get_the_author_meta('ID'), 40); ?>
+                            </div>
+                            <div class="uk-width-expand">
+                                <span rel="author" class="uk-text-small uk-link-reset"><?php 
+                                    $author_id = get_the_author_meta( 'ID' );
+	                                echo get_the_author_meta('display_name', $author_id);  
+                                ?></span>
+                                <span class="uk-display-block uk-text-meta uk-margin-remove"><?php the_date(); ?></span>
+                            </div>
+                        </address>
+                        <?php 
                         the_content();
                     ?>
                     </article>
