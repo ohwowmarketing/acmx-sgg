@@ -44,7 +44,7 @@ function odds_table_nav( $curr_league = 'nba' ) {
 
 function odds_table_schedule( $league = 'nfl', $week = '', $season = '' ) {
   $league = strtolower( $league );
-  if ( $league ===  'nfl' ) : 
+  if ( $league ===  'nfl' ) :
     $weeks = [];
     for ($i = 1; $i < 18; $i++) {
         $weeks[ $season . '/' . $i ] = 'Week ' . $i;
@@ -57,8 +57,19 @@ function odds_table_schedule( $league = 'nfl', $week = '', $season = '' ) {
     ?>
     <div class="odds-schedule">
       <select id="odds-schedule-selection" class="uk-select" placeholder="Odds Schedule">
-        <?php foreach( $weeks as $week_value => $week_display ): ?>
+        <?php foreach( $weeks as $week_value => $week_display ):
+
+          // Odds Line Control from Widgets Admin
+          $widget_schedule = get_field( 'activate_odds_schedule', 'option' );
+          $widget_week     = get_field( 'odds_schedule_selection', 'option' );
+
+          if ( $widget_schedule ) :
+          $widget_week = $season.'/'.$widget_week;
+          ?>
+          <option <?php echo ($week_value === $widget_week) ? 'selected ' : ''; ?>value="<?php echo $week_value; ?>"><?php echo $week_display; ?></option>
+          <?php else : ?>
           <option <?php echo ($week_value === $week) ? 'selected ' : ''; ?>value="<?php echo $week_value; ?>"><?php echo $week_display; ?></option>
+          <?php endif; ?>
         <?php endforeach; ?>
       </select>
     </div>
@@ -74,7 +85,7 @@ function odds_table_schedule( $league = 'nfl', $week = '', $season = '' ) {
 }
 
 function odds_table_type( $curr_type = 'Spread' ) {
-  $types = ['Spread', 'Total', 'Moneyline'];
+  $types = ['Spread', 'Total', 'Moneyline',];
   ?>
   <div class="odds-type">
     <select id="odds-type-selection" class="uk-select" name="typeOdds">
