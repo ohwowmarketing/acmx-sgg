@@ -3,7 +3,7 @@
  * Template Name: Custom RSS Template - Gambling Guides
  */
 $postCount = 15; // The number of posts to show in the feed
-$guides = ['post_type'=>'sports_guides','order'=>'DESC','orderby'=>'date','showposts'=>$postCount];
+$guides = ['post_type'=>'sports_guides','order'=>'DESC','showposts'=>$postCount];
 query_posts( $guides );
 header('Content-Type: '.feed_content_type('rss-http').'; charset='.get_option('blog_charset'), true);
 echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>';
@@ -31,12 +31,16 @@ echo '<?xml version="1.0" encoding="'.get_option('blog_charset').'"?'.'>';
                         <title><?php the_title_rss(); ?></title>
                         <link><?php the_permalink_rss(); ?></link>
                         <pubDate><?php echo mysql2date('D, d M Y H:i:s +0000', get_post_time('Y-m-d H:i:s', true), false); ?></pubDate>
-                        <!-- <dc:creator><?php the_author(); ?></dc:creator> -->
+                        <?php // <dc:creator>the_author();</dc:creator> ?>
                         <guid isPermaLink="false"><?php the_guid(); ?></guid>
-                        <description><![CDATA[<?php the_excerpt_rss() ?>]]></description>
+                        <description>
+                                <![CDATA[<?php the_excerpt_rss() ?>]]>
+                        </description>
                         <content:encoded><![CDATA[<?php the_excerpt_rss() ?>]]></content:encoded>
+                        
                         <?php rss_enclosure(); ?>
                         <?php do_action('rss2_item'); ?>
+                        
                 </item>
         <?php endwhile; ?>
 </channel>
