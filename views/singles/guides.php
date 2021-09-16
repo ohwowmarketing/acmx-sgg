@@ -8,23 +8,29 @@
                         if ( has_post_thumbnail() ) {
                             the_post_thumbnail();
                             $description = get_post(get_post_thumbnail_id())->post_excerpt;
-                            echo '<div class="uk-text-right uk-text-meta">'. makeUrltoLink($description) .'</div>';
+                            echo '<div class="uk-text-meta">'. makeUrltoLink($description) .'</div>';
                         }
 
-                        the_title('<h2 class="uk-article-title">','</h2>'); ?>
-                        <address class="uk-grid-small uk-flex-middle" uk-grid>
+                        the_title('<h2 class="uk-article-title">','</h2>'); 
+                        
+                        $author_display = get_field( 'activate_author' );
+                        if ( $author_display ) :
+                        ?>
+                        <address class="uk-grid-collapse uk-flex-middle" uk-grid>
                             <div class="uk-width-auto">
-                                <?php echo get_avatar( get_the_author_meta('ID'), 40); ?>
+                                <?php echo get_avatar( get_the_author_meta('ID'), 40, '', '', [ 'class' => 'uk-border-rounded' ]); ?>
                             </div>
                             <div class="uk-width-expand">
                                 <span rel="author" class="uk-text-small uk-link-reset"><?php 
                                     $author_id = get_the_author_meta( 'ID' );
 	                                echo get_the_author_meta('display_name', $author_id);  
                                 ?></span>
-                                <span class="uk-display-block uk-text-meta uk-margin-remove"><?php the_date(); ?></span>
+                                <time class="uk-display-block uk-text-meta uk-margin-remove" datetime="<?php echo get_the_date('m-d-Y'); ?>"><?php the_date(); ?></time>
                             </div>
                         </address>
-                        <?php 
+                        <?php
+                        endif;
+
                         the_content();
                     ?>
                     </article>

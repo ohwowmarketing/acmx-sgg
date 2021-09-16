@@ -698,12 +698,29 @@
   color: #000;
 }
 
-[data-card=guides] .uk-article img {
+[data-card=guides] .uk-article .wp-block-image img {
   border-radius: 3px;
 }
-[data-card=guides] .uk-article .uk-text-meta {
-  font-size: 13px;
-  margin-top: 5px;
+[data-card=guides] .uk-article .wp-post-image {
+  width: 100%;
+  border-radius: 3px 3px 0 0;
+}
+[data-card=guides] .uk-article .wp-post-image + div.uk-text-meta {
+  background-color: rgba(34, 34, 34, 0.8);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 0;
+  margin-bottom: 15px;
+  padding: 10px;
+  border-radius: 0 0 3px 3px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+[data-card=guides] .uk-article address {
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+[data-card=guides] .uk-article address .uk-width-expand {
+  padding-left: 10px;
 }
 [data-card=guides] .uk-article h2 {
   display: block;

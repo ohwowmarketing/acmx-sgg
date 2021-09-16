@@ -8,14 +8,34 @@
 @import 'widgets/bestbooks', 'widgets/guides', 'widgets/news', "widgets/instagram";
 
 [data-card='guides'] {
-  .uk-article img {
+  .uk-article .wp-block-image img {
     // width: 100%;
     border-radius: 3px;
   }
 
-  .uk-article .uk-text-meta {
-    font-size: 13px;
-    margin-top: 5px;
+  .uk-article .wp-post-image {
+    width: 100%;
+    border-radius: 3px 3px 0 0;
+
+    +div.uk-text-meta {
+      background-color: rgba(#222, .8);
+      font-size: 11px;
+      color: rgba(#FFF, .8);
+      margin-top: 0;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 0 0 3px 3px;
+      box-shadow: 0 5px 15px rgb(0 0 0 / 8%);
+    }
+  }
+
+  .uk-article address {
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(#000, .15);
+
+    .uk-width-expand {
+      padding-left: 10px;
+    }
   }
 
   .uk-article h2 {
