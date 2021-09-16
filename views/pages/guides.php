@@ -4,7 +4,8 @@ $guides = [
     'post_status'       => 'publish',
     'has_password'      => false,
     'posts_per_page'    => -1,
-    'order'             => 'ASC',
+    'orderby'           => 'none',
+    'order'             => 'DESC',
 ];
 
 query_posts( $guides ); ?>
