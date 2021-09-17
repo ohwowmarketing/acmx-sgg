@@ -2,7 +2,7 @@
 // Widget 1 : SGG
 while ( have_rows( 'IG_widgetOne', 'option' ) ) : the_row(); 
 
-    $toggle = get_sub_field( 'display_toggle' ); 
+    $toggle = get_sub_field( 'display_toggle', 'option' ); 
     if ( $toggle == 1 ) : ?>
     <div class="uk-card uk-card-default uk-card-body" data-card="instagram">
         <?php
@@ -34,7 +34,7 @@ endwhile;
 // Widget 2 : Off The Board
 while ( have_rows( 'IG_widgetTwo', 'option' ) ) : the_row();
 
-    $toggle = get_sub_field( 'display_toggle' ); 
+    $toggle = get_sub_field( 'display_toggle', 'option' ); 
     if ( $toggle == 1 ) : ?>
     <div class="uk-card uk-card-default uk-card-body" data-card="instagram">
         <?php

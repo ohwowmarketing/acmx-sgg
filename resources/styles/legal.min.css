@@ -467,6 +467,9 @@
 [data-card=instagram] h3 a {
   color: #000;
 }
+[data-card=instagram] img {
+  width: 100%;
+}
 
 p a {
   color: #00A305;
