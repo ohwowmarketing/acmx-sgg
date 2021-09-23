@@ -14,7 +14,8 @@
                             <li><a href="<?php echo __( site_url('/responsible-gambling') ) ?>">Responsible Gambling</a></li>
                         </ul>
                         <p>
-                            <a href="https://twitter.com/sgamblingguides" class="uk-icon-button uk-margin-small-right footer-social-icon" uk-icon="icon: twitter; ratio: 1.4"></a>
+                            <?php /* <a href="https://twitter.com/sgamblingguides" class="uk-icon-button uk-margin-small-right footer-social-icon" uk-icon="icon: twitter; ratio: 1.4"></a>  */ ?>
+                            <a href="https://twitter.com/SGG_HQ" class="uk-icon-button uk-margin-small-right footer-social-icon" uk-icon="icon: twitter; ratio: 1.4"></a>
                             <?php /* <a href="#" class="uk-icon-button uk-margin-small-right footer-social-icon" uk-icon="icon: facebook; ratio: 1.4"></a> */ ?>
                             <a href="https://www.instagram.com/sportsgamblingguides/" class="uk-icon-button footer-social-icon" uk-icon="icon: instagram; ratio: 1.4"></a>
                         </p>
