@@ -41,6 +41,22 @@
 		"oAP": "/404.php",
 		"oF": 0
 		},
+	"/_temp/nba-dropdown.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/_temp/nba-dropdown.html",
+		"oF": 0
+		},
+	"/_temp/nfl-dropdown.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/_temp/nfl-dropdown.html",
+		"oF": 0
+		},
 	"/archive.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -868,7 +884,7 @@
 		},
 	"/resources/images/accreditation/rotoballer-black.png": {
 		"ft": 32768,
-		"iS": 54580,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/accreditation/rotoballer-black.png",
 		"oF": 0,
@@ -883,8 +899,8 @@
 		"oA": 0,
 		"oAP": "/resources/images/img-copyright-800-gambler.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -912,7 +928,7 @@
 		},
 	"/resources/images/promo/sggplayoffs/basketball/birch-court.jpg": {
 		"ft": 16384,
-		"iS": 26112,
+		"iS": 0,
 		"jF": 0,
 		"oA": 0,
 		"oAP": "/resources/images/promo/sggplayoffs/basketball/birch-court.jpg",
@@ -923,18 +939,18 @@
 		},
 	"/resources/images/promo/sggplayoffs/football/lplayer.png": {
 		"ft": 32768,
-		"iS": 64408,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/promo/sggplayoffs/football/lplayer.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
 	"/resources/images/promo/sggplayoffs/football/player-left-sm.png": {
 		"ft": 32768,
-		"iS": 117707,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/promo/sggplayoffs/football/player-left-sm.png",
 		"oF": 0,
@@ -945,7 +961,7 @@
 		},
 	"/resources/images/promo/sggplayoffs/football/player-left.png": {
 		"ft": 32768,
-		"iS": 150283,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/promo/sggplayoffs/football/player-left.png",
 		"oF": 0,
@@ -956,7 +972,7 @@
 		},
 	"/resources/images/promo/sggplayoffs/football/player-right-sm.png": {
 		"ft": 32768,
-		"iS": 121500,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/promo/sggplayoffs/football/player-right-sm.png",
 		"oF": 0,
@@ -967,7 +983,7 @@
 		},
 	"/resources/images/promo/sggplayoffs/football/player-right.png": {
 		"ft": 32768,
-		"iS": 165030,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/promo/sggplayoffs/football/player-right.png",
 		"oF": 0,
@@ -978,18 +994,18 @@
 		},
 	"/resources/images/promo/sggplayoffs/football/rplayer.png": {
 		"ft": 32768,
-		"iS": 66783,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/promo/sggplayoffs/football/rplayer.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
 	"/resources/images/site-SGG-favicon-alt.png": {
 		"ft": 32768,
-		"iS": 0,
+		"iS": 4515,
 		"oA": 0,
 		"oAP": "/resources/images/site-SGG-favicon-alt.png",
 		"oF": 0,
@@ -1000,7 +1016,7 @@
 		},
 	"/resources/images/site-SGG-favicon.png": {
 		"ft": 32768,
-		"iS": 0,
+		"iS": 8291,
 		"oA": 0,
 		"oAP": "/resources/images/site-SGG-favicon.png",
 		"oF": 0,
@@ -1011,7 +1027,7 @@
 		},
 	"/resources/images/site-SGG-logo-alt.png": {
 		"ft": 32768,
-		"iS": 0,
+		"iS": 4018,
 		"oA": 0,
 		"oAP": "/resources/images/site-SGG-logo-alt.png",
 		"oF": 0,
@@ -1022,23 +1038,23 @@
 		},
 	"/resources/images/site-SGG-logo.png": {
 		"ft": 32768,
-		"iS": 0,
+		"iS": 8525,
 		"oA": 0,
 		"oAP": "/resources/images/site-SGG-logo.png",
 		"oF": 0,
-		"oIPL": 1,
-		"opt": 1,
+		"oIPL": 0,
+		"opt": 0,
 		"oT": 1,
 		"q": 100
 		},
 	"/resources/images/sportsbooks/betmgm.png": {
 		"ft": 32768,
-		"iS": 9951,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/sportsbooks/betmgm.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -1054,7 +1070,7 @@
 		},
 	"/resources/images/sportsbooks/betrivers.jpg": {
 		"ft": 16384,
-		"iS": 5508,
+		"iS": 0,
 		"jF": 0,
 		"oA": 0,
 		"oAP": "/resources/images/sportsbooks/betrivers.jpg",
@@ -1075,7 +1091,7 @@
 		},
 	"/resources/images/sportsbooks/dk-d-crown.png": {
 		"ft": 32768,
-		"iS": 47627,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/sportsbooks/dk-d-crown.png",
 		"oF": 0,
@@ -1086,15 +1102,15 @@
 		},
 	"/resources/images/sportsbooks/dk-leaderboard-1.gif": {
 		"ft": 4194304,
-		"iS": 42314,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/sportsbooks/dk-leaderboard-1.gif",
 		"oF": 0,
-		"opt": 0
+		"opt": 1
 		},
 	"/resources/images/sportsbooks/dk-leaderboard-2.gif": {
 		"ft": 4194304,
-		"iS": 39627,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/sportsbooks/dk-leaderboard-2.gif",
 		"oF": 0,
@@ -1131,12 +1147,12 @@
 		},
 	"/resources/images/sportsbooks/fanduel.png": {
 		"ft": 32768,
-		"iS": 9021,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/sportsbooks/fanduel.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -1152,7 +1168,7 @@
 		},
 	"/resources/images/sportsbooks/logos/betmgm.png": {
 		"ft": 32768,
-		"iS": 7375,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/sportsbooks/logos/betmgm.png",
 		"oF": 0,
@@ -1163,18 +1179,18 @@
 		},
 	"/resources/images/sportsbooks/logos/betrivers.png": {
 		"ft": 32768,
-		"iS": 7435,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/sportsbooks/logos/betrivers.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
 	"/resources/images/sportsbooks/logos/draftkings.png": {
 		"ft": 32768,
-		"iS": 12720,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/sportsbooks/logos/draftkings.png",
 		"oF": 0,
@@ -1185,7 +1201,7 @@
 		},
 	"/resources/images/sportsbooks/logos/fanduel.png": {
 		"ft": 32768,
-		"iS": 8317,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/sportsbooks/logos/fanduel.png",
 		"oF": 0,
@@ -1196,7 +1212,7 @@
 		},
 	"/resources/images/sportsbooks/logos/unibet.png": {
 		"ft": 32768,
-		"iS": 7249,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/sportsbooks/logos/unibet.png",
 		"oF": 0,
@@ -1218,12 +1234,12 @@
 		},
 	"/resources/images/sportsbooks/unibet.png": {
 		"ft": 32768,
-		"iS": 8348,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/sportsbooks/unibet.png",
 		"oF": 0,
-		"oIPL": 0,
-		"opt": 0,
+		"oIPL": 1,
+		"opt": 1,
 		"oT": 1,
 		"q": 100
 		},
@@ -1759,7 +1775,7 @@
 		},
 	"/resources/images/temp/betrivers-ads.jpg": {
 		"ft": 16384,
-		"iS": 81868,
+		"iS": 0,
 		"jF": 0,
 		"oA": 0,
 		"oAP": "/resources/images/temp/betrivers-ads.jpg",
@@ -1774,8 +1790,8 @@
 		"oA": 0,
 		"oAP": "/resources/images/temp/img-map-dynamic.png",
 		"oF": 0,
-		"oIPL": 1,
-		"opt": 1,
+		"oIPL": 0,
+		"opt": 0,
 		"oT": 1,
 		"q": 100
 		},
@@ -1792,7 +1808,7 @@
 		},
 	"/resources/images/temp/img-sportsbook-placeholder-02.jpg": {
 		"ft": 16384,
-		"iS": 0,
+		"iS": 30000,
 		"jF": 0,
 		"oA": 0,
 		"oAP": "/resources/images/temp/img-sportsbook-placeholder-02.jpg",
@@ -1803,7 +1819,7 @@
 		},
 	"/resources/images/temp/img-sportsbook-placeholder-03.jpg": {
 		"ft": 16384,
-		"iS": 0,
+		"iS": 30000,
 		"jF": 0,
 		"oA": 0,
 		"oAP": "/resources/images/temp/img-sportsbook-placeholder-03.jpg",
@@ -1847,18 +1863,18 @@
 		},
 	"/resources/images/temp/img-sportsbook-placeholder-07.jpg": {
 		"ft": 16384,
-		"iS": 30000,
+		"iS": 0,
 		"jF": 0,
 		"oA": 0,
 		"oAP": "/resources/images/temp/img-sportsbook-placeholder-07.jpg",
 		"oF": 0,
 		"oIPL": 0,
-		"opt": 1,
+		"opt": 0,
 		"q": 100
 		},
 	"/resources/images/ui/arrow-down.png": {
 		"ft": 32768,
-		"iS": 279,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/ui/arrow-down.png",
 		"oF": 0,
@@ -1869,7 +1885,7 @@
 		},
 	"/resources/images/ui/loading.gif": {
 		"ft": 4194304,
-		"iS": 3208,
+		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/ui/loading.gif",
 		"oF": 0,
@@ -1887,13 +1903,13 @@
 		},
 	"/resources/images/ui/vegas.jpg": {
 		"ft": 16384,
-		"iS": 277942,
+		"iS": 0,
 		"jF": 0,
 		"oA": 0,
 		"oAP": "/resources/images/ui/vegas.jpg",
 		"oF": 0,
 		"oIPL": 0,
-		"opt": 0,
+		"opt": 1,
 		"q": 100
 		},
 	"/resources/scripts/inc": {

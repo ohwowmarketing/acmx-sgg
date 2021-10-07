@@ -15,7 +15,20 @@ function api_market_ajax() {
   $out = '';
 
   foreach ( $markets as $market ) {
-	$out .= '<option data-test="test" value="' . $market->id . '">' . $market->display . '</option>';
+
+	// Filtered Market IDs
+	if ( $_POST['league'] == 'nfl' ) {
+		$marketID = [ '13','36','11','9','10','35','6','38','20','21','22','23','24','25','26','27','28','29','339','341','75','76','77','78','79' ];
+	}
+
+	if ( $_POST['league'] == 'nba' ) {
+		$marketID = [ '36','33','29','120','119','35','46','139','140','137','135','138','136' ];
+	}
+
+	if ( in_array($market->id, $marketID) ) {
+		$out .= '<option value="' . $market->id . '">' . $market->display . '</option>';
+	}
+
   }
 
   if ( $out !== '' ) {
