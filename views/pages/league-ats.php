@@ -23,15 +23,15 @@ switch ( $post->post_parent ) {
                                 <th>
                                     <div class="team-label">Team</th>
                                 </th>
-                                <th width="120"><span>Overall</span></th>
+                                <th width="120"><span>Overall <br> W/L</span></th>
                                 <?php if ( $league !== 'nfl' ) : ?>
                                 <th width="120"><span>Home</span></th>
                                 <th width="120"><span>Away</span></th>
                                 <?php endif; ?>
-                                <th width="120"><span>ATS Home<br />(Last 10 Games)</span></th>
-                                <th width="120"><span>ATS Away<br />(Last 10 Games)</span></th>
-                                <th width="120"><span>OV/UN Home<br />(Last 10 Games)</span></th>
-                                <th width="120"><span>OV/UN Away<br />(Last 10 Games)</span></th>
+                                <th width="120"><span>ATS Home<br />(Last 5 Games)</span></th>
+                                <th width="120"><span>ATS Away<br />(Last 5 Games)</span></th>
+                                <th width="120"><span>OV/UN Home<br />(Last 5 Games)</span></th>
+                                <th width="120"><span>OV/UN Away<br />(Last 5 Games)</span></th>
                             </tr>
                         </thead>
                         <tbody></tbody>
