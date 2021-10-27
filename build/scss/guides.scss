@@ -9,8 +9,24 @@
 
 [data-card='guides'] {
   .uk-article .wp-block-image img {
-    // width: 100%;
+    width: 100%;
     border-radius: 3px;
+  }
+
+  .uk-article .iframe-container {
+    overflow: hidden;
+    /* 16:9 aspect ratio */
+    padding-top: 56.25%;
+    position: relative;
+  }
+
+  .uk-article .iframe-container iframe {
+    border: 0;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
   }
 
   .uk-article .wp-post-image {

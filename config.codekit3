@@ -2272,6 +2272,14 @@
 		"oAP": "/views/pages/about.php",
 		"oF": 0
 		},
+	"/views/pages/cappers-corner.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/views/pages/cappers-corner.php",
+		"oF": 0
+		},
 	"/views/pages/careers.php": {
 		"cB": 0,
 		"ft": 8192,
