@@ -16,7 +16,7 @@
                             // echo $my_array_of_vars['v'];
 
                             echo '<div class="iframe-container">';
-                            echo '<iframe src="https://www.youtube-nocookie.com/embed/'.$my_array_of_vars["v"].'?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=0" frameborder="0" allowfullscreen uk-responsive uk-video="automute: false"></iframe>';
+                            echo '<iframe src="https://www.youtube-nocookie.com/embed/'.$my_array_of_vars["v"].'?autoplay=1&amp;showinfo=0&amp;rel=0&amp;modestbranding=1&amp;playsinline=1" frameborder="0" allowfullscreen uk-responsive uk-video="automute: false"></iframe>';
                             echo '</div>';
 
                         } else {
