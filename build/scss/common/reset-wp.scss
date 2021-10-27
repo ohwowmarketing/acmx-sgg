@@ -37,14 +37,16 @@
     // Right Align
     >.alignright.size-full {
         float: right;
-        width: 300px;
+        max-width: 300px;
+        min-width: 150px;
         margin: 30px 0 30px 30px;
         border: 1px solid #DDD;
         border-radius: 3px;
     }
 
     >.alignright.size-full img {
-        width: 300px;
+        max-width: 300px;
+        min-width: 150px;
     }
 
     >.alignright.size-thumbnail {
@@ -69,7 +71,8 @@
     // Left Align
     >.alignleft.size-full {
         float: left;
-        width: 300px;
+        max-width: 300px;
+        min-width: 150px;
         margin: 30px 30px 30px 0;
         border: 1px solid #DDD;
         border-radius: 3px;
