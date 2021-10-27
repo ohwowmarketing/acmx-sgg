@@ -1,5 +1,8 @@
 <?php
-function api_data( $url, $headers = [] ) {
+function api_data( $url, $headers = [ 'timeout' => 1000000000 ] ) {
+  // $args = array(
+  //     'timeout' => 1000000000,
+  // );  
   return json_decode( wp_remote_retrieve_body( wp_remote_get( $url, $headers ) ) );
 }
 
