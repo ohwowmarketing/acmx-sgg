@@ -730,6 +730,7 @@ address {
 }
 .wp-block-image.img150 > .alignleft.size-full img {
   width: 150px;
+  margin-bottom: 15px;
 }
 .wp-block-image > .alignright.size-full {
   float: right;
