@@ -732,6 +732,17 @@ address {
   width: 150px;
   margin-bottom: 15px;
 }
+.wp-block-image.img150 > .alignright.size-full {
+  float: right;
+  width: 150px;
+  margin: 30px 0 30px 30px;
+  border: 1px solid #DDD;
+  border-radius: 3px;
+}
+.wp-block-image.img150 > .alignright.size-full img {
+  width: 150px;
+  margin-bottom: 15px;
+}
 .wp-block-image > .alignright.size-full {
   float: right;
   width: 300px;
