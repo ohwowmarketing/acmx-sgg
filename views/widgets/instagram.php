@@ -17,7 +17,7 @@ while ( have_rows( 'IG_widgetOne', 'option' ) ) : the_row();
         </div>
         <?php elseif ( !empty($bg) ) : ?>
             <div class="uk-text-center uk-margin-bottom">
-                <a href="<?php $url ?>" target="_blank" rel="follow">
+                <a href="<?php echo $url; ?>" target="_blank" rel="follow">
                     <?php echo wp_get_attachment_image( $bg['id'], [ 300, 9999 ] ); ?>
                 </a>
             </div>
@@ -50,7 +50,7 @@ while ( have_rows( 'IG_widgetTwo', 'option' ) ) : the_row();
         </div>
         <?php elseif ( !empty($bg) ) : ?>
             <div class="uk-text-center uk-margin-bottom">
-                <a href="<?php echo $url ?>" target="_blank" rel="follow">
+                <a href="<?php echo $url; ?>" target="_blank" rel="follow">
                     <?php echo wp_get_attachment_image( $bg['id'], [ 300, 9999 ] ); ?>
                 </a>
             </div>
