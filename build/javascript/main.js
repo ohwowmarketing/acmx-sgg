@@ -27,7 +27,14 @@
       init: function () {
         jQuery.getScript($plugin + 'betting-odds.js')
       }
-    }
+    },
+    
+    // Cappers Corner
+    // cappers_corner: {
+    //   init: function () {
+    //     jQuery.getScript($plugin + 'cappers.js')
+    //   }
+    // }
   }
 
   var UTIL = {

@@ -1,0 +1,477 @@
+// Import mixins
+@import "common/mixins";
+
+// Sidebar Content
+@import "widgets/chat",
+"widgets/news",
+"widgets/instagram";
+
+
+[data-card="cappers-corner"] {
+
+    >.uk-card-title {
+        position: relative;
+        top: -15px;
+        left: -15px;
+        right: -15px;
+        color: #FFF;
+        width: calc(100% + 30px);
+        min-height: 190px;
+        padding: 30px 15px;
+
+        h3,
+        p {
+            position: relative;
+            margin: 0;
+        }
+
+        h3 {
+            font-family: $passion;
+            font-size: 42px;
+            color: #FFF;
+            text-transform: uppercase;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            background: url(#{$img}/img-bg-heading.png) no-repeat center / cover;
+            @include size(100%);
+            z-index: 0;
+        }
+    }
+
+    @media (min-width: 640px) {
+        >.uk-card-title {
+            top: -30px;
+            left: -30px;
+            right: -30px;
+            width: calc(100% + 60px);
+        }
+    }
+
+    @media (min-width: 960px) {
+        >.uk-card-title {
+            top: -45px;
+            left: -45px;
+            right: 0;
+            width: 100%;
+            padding: 30px 140px 30px 45px;
+
+            &::before {
+                background-position: right center;
+            }
+        }
+
+        margin-top: 15px;
+    }
+
+    // end card title
+
+    .uk-grid-title {
+        margin-bottom: 30px;
+
+        h4 {
+            font-family: $passion;
+            font-size: 24px;
+            color: $sgg-green;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        p {
+            font-size: 12px;
+            color: #444;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+    }
+
+    // Accordion Styling
+    .uk-accordion li {
+        margin-top: 10px;
+    }
+
+    .--cappers-profile {
+
+        * {
+            transition: all 300ms ease;
+        }
+
+        .uk-card {
+            margin-bottom: 0;
+            border: 1px solid #DDD;
+            border-radius: 5px;
+        }
+
+        .uk-card-header {
+            padding: 15px;
+            border-bottom: 0;
+
+            img {
+                @include size(50px);
+            }
+
+            h4 {
+                font-family: $bold;
+                font-size: 16px;
+                color: #2c2c37;
+                text-transform: uppercase;
+                margin: 0;
+            }
+
+            span {
+                display: block;
+                font-size: 12px;
+            }
+
+            small {
+                font-size: 12px;
+                color: #888;
+                text-transform: uppercase;
+            }
+
+            // Trigger Button
+            .--cappers-action {
+                align-self: center;
+
+                a[href="#"] {
+                    position: relative;
+                    display: block;
+                    @include size(24px);
+                    border: 0;
+                    cursor: pointer;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        display: block;
+                        background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M11%2017h2v-6h-2v6zm1-15C6.48%202%202%206.48%202%2012s4.48%2010%2010%2010%2010-4.48%2010-10S17.52%202%2012%202zm0%2018c-4.41%200-8-3.59-8-8s3.59-8%208-8%208%203.59%208%208-3.59%208-8%208zM11%209h2V7h-2v2z%22%2F%3E%3C%2Fsvg%3E');
+                        @include size(24px);
+                        opacity: .5;
+                        transition: 300ms ease;
+                    }
+
+                    &:hover::before {
+                        opacity: 1;
+                    }
+                }
+            }
+
+        }
+
+        // end header
+
+        .uk-card-body {
+            padding: 0;
+
+            .uk-grid {
+                height: 45px;
+            }
+
+            .--profile-action a,
+            .--modal-action a {
+                display: flex;
+                align-items: center;
+                font-size: 12px;
+                color: #FFF;
+                height: 100%;
+                padding: 0 15px;
+            }
+
+            .--profile-action a {
+                background: #008204;
+                font-family: $bold;
+                text-transform: uppercase;
+            }
+
+            .--modal-action a {
+                position: relative;
+                background: #056308;
+
+                &::after {
+                    content: "";
+                    position: relative;
+                    display: block;
+                    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="%23FFFFFF" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/%3E%3C/svg%3E');
+                    @include size(24px);
+                }
+
+                @media (min-width:640px) {
+                    &::after {
+                        margin-left: 5px;
+                    }
+                }
+            }
+
+            .--cappers-stats {
+                font-size: 12px;
+                padding: 0 15px;
+            }
+        }
+
+        &.uk-open {
+            .uk-card {
+                background: #00A306;
+                border-color: #00A306;
+            }
+
+            *:not(small) {
+                color: #FFF;
+            }
+
+            .uk-card-header {
+                small {
+                    color: #DDD;
+                }
+
+                .--cappers-action {
+                    a[href="#"]::before {
+                        background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202C6.48%202%202%206.48%202%2012s4.48%2010%2010%2010%2010-4.48%2010-10S17.52%202%2012%202zm1%2015h-2v-6h2v6zm0-8h-2V7h2v2z%22%2F%3E%3C%2Fsvg%3E');
+                    }
+                }
+            }
+        }
+
+    }
+
+    @media (min-width:1600px) {
+        .--cappers-profile-list {
+            width: 390px;
+        }
+    }
+
+    // Sidebar Cappers
+    .uk-background-cover {
+        display: flex;
+        align-items: center;
+        width: auto;
+        height: 87px;
+        padding: 0 30px;
+        margin: -30px;
+        margin-bottom: 30px;
+
+        h2 {
+            font-family: $passion;
+            font-size: 48px;
+            color: #FFF;
+            text-transform: uppercase;
+            margin: 0;;
+        }
+
+    }
+
+}
+
+// end cappers corner
+
+[data-card="cappers-stats"] {
+    position: relative;
+    background: #00A306;
+    color: #FFF;
+    // min-height: 180px;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -50px;
+        right: 0;
+        background: url(#{$img}/cappers/bg-cappers-analysis.png) no-repeat center / contain;
+        @include size(472px, 457px);
+        opacity: .10;
+        z-index: 0;
+    }
+
+    div>.avatar {
+        position: relative;
+    }
+
+    div>small {
+        position: relative;
+        display: block;
+        font-size: 12px;
+        color: #DDD;
+        text-transform: uppercase;
+        margin-bottom: -3px;
+    }
+
+    div>h1 {
+        position: relative;
+        font-family: $bold;
+        font-size: 24px;
+        color: #FFF;
+        text-transform: uppercase;
+        line-height: 1.2;
+        margin: 0;
+
+        .odds {
+            position: relative;
+            top: 0;
+            font-size: 24px;
+
+            &::before {
+                content: "[";
+                position: relative;
+                top: -1px;
+                font-size: 26px;
+            }
+
+            &::after {
+                content: "]";
+                position: relative;
+                top: -1px;
+                font-size: 26px;
+            }
+        }
+
+        .opponent {
+            font-size: 12px;
+            text-indent: 2px;
+        }
+
+        &::after {
+            content: "";
+            display: block;
+            width: 100px;
+            margin: 7px 0 5px;
+            border-bottom: 1px solid #038307;
+        }
+    }
+
+    .uk-panel {
+        font-size: 16px;
+        @include sharpText();
+
+        .value {
+            font-family: $bold;
+            font-size: 22px;
+            color: #FFF;
+        }
+    }
+
+    .--modal-action {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        margin: 0;
+        // margin-bottom: 15px;
+    }
+
+    .--modal-action a {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #056308;
+        font-size: 12px;
+        color: #FFF;
+        // @include size(180px, 40px);
+        padding: 7px;
+        border-radius: 5px;
+
+        &:hover,
+        &:focus {
+            color: #DDD;
+        }
+
+        &::after {
+            content: "";
+            position: relative;
+            display: inline-block;
+            background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"%3E%3Cpath fill="%23FFFFFF" d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/%3E%3C/svg%3E');
+            @include size(24px);
+        }
+    }
+
+    @media (min-width:375px) {
+        .uk-panel .value {
+            font-size: 26px;
+        }
+    }
+
+    @media (min-width:640px) {
+        div>h1 {
+            font-size: 32px;
+
+            .odds {
+                top: -3px;
+            }
+        }
+
+        .--modal-action {
+            top: auto;
+            bottom: 15px;
+        }
+
+        .--modal-action a::after {
+            margin-left: 5px;
+        }
+    }
+
+}
+
+// end cappers stats
+
+[data-card="cappers-analysis"] {
+
+    .uk-card-header {
+        padding: 30px 30px 0;
+        border-bottom: 0;
+
+        h4 {
+            display: inline;
+            font-size: 14px;
+            color: #00A305;
+            text-transform: uppercase;
+            line-height: 1;
+            margin: 0;
+        }
+
+        time {
+            display: block;
+            font-size: 12px;
+            color: #888;
+
+            &::before {
+                content: "・";
+                display: none;
+            }
+        }
+    }
+
+    .uk-card-body {
+        font-size: 14px;
+        padding: 30px;
+        @include sharpText();
+    }
+
+    @media (min-width:640px) {
+        .uk-card-header time {
+            display: inline-block;
+
+            &::before {
+                display: inline-block;
+                margin-right: 5px;
+            }
+        }
+
+        .uk-card-body {
+            font-size: 16px;
+        }
+    }
+
+}
+
+// end cappers analysis

@@ -89,6 +89,19 @@
 		"oS": 0,
 		"sct": 0
 		},
+	"/build/scss/cappers.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"ec": 1,
+		"ft": 4,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/resources/styles/cappers.min.css",
+		"oF": 0,
+		"oS": 0,
+		"sct": 0
+		},
 	"/build/scss/careers.scss": {
 		"aP": 1,
 		"bl": 0,
@@ -440,6 +453,19 @@
 		"oS": 0,
 		"sct": 0
 		},
+	"/build/scss/widgets/chat.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 10,
+		"ec": 1,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/resources/styles/chat.min.css",
+		"oF": 0,
+		"oS": 0,
+		"sct": 0
+		},
 	"/build/scss/widgets/content.scss": {
 		"aP": 1,
 		"bl": 0,
@@ -661,6 +687,30 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/config/assets.php",
+		"oF": 0
+		},
+	"/config/auth/login.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/config/auth/login.php",
+		"oF": 0
+		},
+	"/config/auth/register.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/config/auth/register.php",
+		"oF": 0
+		},
+	"/config/auth/reset.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/config/auth/reset.php",
 		"oF": 0
 		},
 	"/config/controller.php": {
@@ -887,6 +937,39 @@
 		"iS": 0,
 		"oA": 0,
 		"oAP": "/resources/images/accreditation/rotoballer-black.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/resources/images/cappers/bg-cappers-analysis-small.png": {
+		"ft": 32768,
+		"iS": 38517,
+		"oA": 0,
+		"oAP": "/resources/images/cappers/bg-cappers-analysis-small.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/resources/images/cappers/bg-cappers-analysis.png": {
+		"ft": 32768,
+		"iS": 98067,
+		"oA": 0,
+		"oAP": "/resources/images/cappers/bg-cappers-analysis.png",
+		"oF": 0,
+		"oIPL": 0,
+		"opt": 0,
+		"oT": 1,
+		"q": 100
+		},
+	"/resources/images/img-bg-heading.png": {
+		"ft": 32768,
+		"iS": 126753,
+		"oA": 0,
+		"oAP": "/resources/images/img-bg-heading.png",
 		"oF": 0,
 		"oIPL": 0,
 		"opt": 0,
@@ -1956,6 +2039,16 @@
 		"oF": 0,
 		"oS": 3
 		},
+	"/resources/styles/cappers.min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/resources/styles/cappers.min-min.css",
+		"oF": 0,
+		"oS": 3
+		},
 	"/resources/styles/careers.min.css": {
 		"aP": 1,
 		"bl": 0,
@@ -2272,12 +2365,12 @@
 		"oAP": "/views/pages/about.php",
 		"oF": 0
 		},
-	"/views/pages/cappers-corner.php": {
+	"/views/pages/cappers.php": {
 		"cB": 0,
 		"ft": 8192,
 		"hM": 0,
 		"oA": 0,
-		"oAP": "/views/pages/cappers-corner.php",
+		"oAP": "/views/pages/cappers.php",
 		"oF": 0
 		},
 	"/views/pages/careers.php": {
@@ -2392,6 +2485,14 @@
 		"oAP": "/views/pages/sitemap.php",
 		"oF": 0
 		},
+	"/views/singles/cappers.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/views/singles/cappers.php",
+		"oF": 0
+		},
 	"/views/singles/guides.php": {
 		"cB": 0,
 		"ft": 8192,
@@ -2446,6 +2547,30 @@
 		"hM": 0,
 		"oA": 0,
 		"oAP": "/views/widgets/bestbooks.php",
+		"oF": 0
+		},
+	"/views/widgets/cappers-sidebar.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/views/widgets/cappers-sidebar.php",
+		"oF": 0
+		},
+	"/views/widgets/chat-sidebar.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/views/widgets/chat-sidebar.php",
+		"oF": 0
+		},
+	"/views/widgets/chat.php": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/views/widgets/chat.php",
 		"oF": 0
 		},
 	"/views/widgets/futures-mlb.php": {

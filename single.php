@@ -25,6 +25,10 @@
 
         get_template_part( _single.'reviews' );
 
+    elseif ( $post->post_type == 'cappers_corner' ) :
+        
+        get_template_part( _single.'cappers' );
+
     endif;
 
 get_footer();
