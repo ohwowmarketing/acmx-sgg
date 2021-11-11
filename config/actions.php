@@ -50,7 +50,7 @@ add_filter( 'protected_title_format', 'remove_protected_text' );
 //* Allow Unfiltered Uploads & Edit themes/plugins
 define('ALLOW_UNFILTERED_UPLOADS', true);
 define('DISALLOW_FILE_EDIT', true);
-define('WP_DEBUG', true);
+// define('WP_DEBUG', false);
 
 //* Replace <p> to <figure> wrapping image tag
 function img_caption_shortcode_filter($val, $attr, $content = null) {
