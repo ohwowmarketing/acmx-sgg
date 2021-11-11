@@ -80,7 +80,7 @@
 
             <div class="uk-width-1-1 uk-width-large@l">
                 <?php // get_sidebar(); 
-                    get_template_part( widget . 'cappers-sidebar' );
+                    // get_template_part( widget . 'cappers-sidebar' );
                 ?>
             </div>
         </div>
