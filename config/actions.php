@@ -36,7 +36,10 @@ function my_admin_bar_render() {
 
 //* Remove Emoji & Admin-Bar
 add_filter('emoji_svg_url', '__return_false');
-// add_filter('show_admin_bar', '__return_false');
+add_filter('show_admin_bar', '__return_false');
+
+//* Bypass ssl for api
+// add_filter('https_ssl_verify', '__return_false');
 
 //* Removes or edits the 'Protected:' part from posts titles
 function remove_protected_text() {
@@ -47,6 +50,7 @@ add_filter( 'protected_title_format', 'remove_protected_text' );
 //* Allow Unfiltered Uploads & Edit themes/plugins
 define('ALLOW_UNFILTERED_UPLOADS', true);
 define('DISALLOW_FILE_EDIT', true);
+define('WP_DEBUG', true);
 
 //* Replace <p> to <figure> wrapping image tag
 function img_caption_shortcode_filter($val, $attr, $content = null) {
