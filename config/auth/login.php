@@ -1,7 +1,8 @@
 <?php
 // Execute the action only if the user isn't logged in
-
-add_action('init', 'ajax_login_init');
+if (!is_user_logged_in()) {
+    add_action('init', 'ajax_login_init');
+}
 
 function ajax_login_init() {
 

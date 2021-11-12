@@ -39,7 +39,7 @@
                                         <div class="uk-card-body">
                                             <div class="uk-grid-collapse uk-flex-between uk-grid-match" uk-grid>
                                                 <div class="uk-width-expand --profile-action">
-                                                    <a href="#analysis">Read capper’s analysis</a>
+                                                    <a href="<?php echo __(site_url( '/cappers-corner/buccaneers' )); ?>">Read capper’s analysis</a>
                                                 </div>
                                                 <div class="--modal-action">
                                                     <a href="#standings"><span class="uk-visible@s">Cappers’ Standings</span></a>
@@ -72,15 +72,14 @@
                         </div>
                     </div>
                 </div>
-               
-               
 
             </div>
 
 
             <div class="uk-width-1-1 uk-width-large@l">
-                <?php // get_sidebar(); 
-                    // get_template_part( widget . 'cappers-sidebar' );
+                <?php 
+                    get_template_part( widget . 'news' );
+                    get_template_part( widget . 'instagram' );
                 ?>
             </div>
         </div>
