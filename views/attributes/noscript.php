@@ -8,7 +8,7 @@
             </svg>
         </div>
         <div>
-            <?php bloginfo( $title ); ?> works best with <br> <strong>JavaScript Enabled</strong>.
+            <?php bloginfo(); ?> works best with <br> <strong>JavaScript Enabled</strong>.
         </div>
     </div>
 </noscript>

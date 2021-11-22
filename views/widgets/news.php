@@ -4,7 +4,7 @@ if ( isset( $_GET['league'] ) ) {
     $league = strtolower( $_GET['league'] );
 }
 ?>
-<div class="uk-card uk-card-default uk-card-body uk-visible@l" data-card="news">
+<div class="uk-card uk-card-default uk-card-body" data-card="news">
     <h1 class="uk-card-title"><?php the_field( 'widget_title_news', 'option' ); ?></h1>
     <ul uk-tab="animation: uk-animation-fade">
         <li<?php echo ( $league === 'nba' ) ? ' class="uk-active"' : ''; ?>><a href="#" id="nba-news">NBA</a></li>

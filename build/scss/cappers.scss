@@ -92,7 +92,6 @@
             text-transform: uppercase;
             margin: 0;
         }
-
     }
 
     // Accordion Styling
@@ -115,22 +114,29 @@
         .uk-card-header {
             padding: 15px;
             border-bottom: 0;
+            cursor: pointer;
 
             img {
                 @include size(50px);
+                border-radius: 50%;
             }
 
             h4 {
                 font-family: $bold;
-                font-size: 16px;
+                font-size: 14px;
                 color: #2c2c37;
                 text-transform: uppercase;
+                line-height: 1.2;
                 margin: 0;
+                @include sharpText();
             }
 
             span {
                 display: block;
                 font-size: 12px;
+                font-family: $regular;
+                text-transform: none;
+                margin-top: 10px;
             }
 
             small {
@@ -143,7 +149,7 @@
             .--cappers-action {
                 align-self: center;
 
-                a[href="#"] {
+                a[title="View More Info"] {
                     position: relative;
                     display: block;
                     @include size(24px);
@@ -237,10 +243,11 @@
                 }
 
                 .--cappers-action {
-                    a[href="#"]::before {
+                    a[title="View More Info"]::before {
                         background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202C6.48%202%202%206.48%202%2012s4.48%2010%2010%2010%2010-4.48%2010-10S17.52%202%2012%202zm1%2015h-2v-6h2v6zm0-8h-2V7h2v2z%22%2F%3E%3C%2Fsvg%3E');
                     }
                 }
+
             }
         }
 
@@ -267,7 +274,8 @@
             font-size: 48px;
             color: #FFF;
             text-transform: uppercase;
-            margin: 0;;
+            margin: 0;
+            ;
         }
 
     }
@@ -280,7 +288,6 @@
     position: relative;
     background: #00A306;
     color: #FFF;
-    // min-height: 180px;
     overflow: hidden;
 
     &::before {
@@ -296,6 +303,10 @@
 
     div>.avatar {
         position: relative;
+
+        img {
+            border-radius: 5px;
+        }
     }
 
     div>small {
@@ -314,38 +325,22 @@
         color: #FFF;
         text-transform: uppercase;
         line-height: 1.2;
+        max-width: 750px;
         margin: 0;
+    }
 
-        .odds {
-            position: relative;
-            top: 0;
-            font-size: 24px;
-
-            &::before {
-                content: "[";
-                position: relative;
-                top: -1px;
-                font-size: 26px;
-            }
-
-            &::after {
-                content: "]";
-                position: relative;
-                top: -1px;
-                font-size: 26px;
-            }
-        }
-
-        .opponent {
-            font-size: 12px;
-            text-indent: 2px;
-        }
+    div>.odds {
+        display: inline-block;
+        font-size: 16px;
+        text-transform: uppercase;
+        @include sharpText();
+        margin: 5px 0 10px;
 
         &::after {
             content: "";
             display: block;
-            width: 100px;
-            margin: 7px 0 5px;
+            width: 100%;
+            padding-bottom: 9px;
             border-bottom: 1px solid #038307;
         }
     }
@@ -366,7 +361,6 @@
         top: 15px;
         right: 15px;
         margin: 0;
-        // margin-bottom: 15px;
     }
 
     .--modal-action a {
@@ -475,3 +469,237 @@
 }
 
 // end cappers analysis
+
+// Modal - Standings
+.uk-modal {
+    z-index: 10009;
+}
+
+.uk-modal-dialog {
+    width: 960px;
+    border-radius: 5px;
+
+    .uk-modal-close-default {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        color: #444;
+        @include size(30px);
+        margin: 0;
+        padding: 0;
+
+        svg {
+            @include size(12px);
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(#FFF, .75);
+            display: block;
+            @include size(30px);
+            border-radius: 50%;
+        }
+    }
+
+    .uk-modal-header {
+        display: flex;
+        align-items: center;
+        background: url(#{$img}/cappers/bg-cappers-standings-header.jpg) no-repeat center / cover;
+        height: 130px;
+
+        h2 {
+            font-family: $passion;
+            font-size: 32px;
+            color: #FFF;
+            margin: 0;
+        }
+    }
+
+    .uk-modal-body {
+        height: 450px;
+    }
+
+    // Table
+    .uk-table {
+        border: 1px solid #DDD;
+    }
+
+    .uk-table thead {
+        background: #36383E;
+        font-size: 14px;
+        text-transform: uppercase;
+    }
+
+    .uk-table tbody tr:first-child {
+        border-top: 0;
+    }
+
+    .uk-table tbody td {
+        color: #444;
+        height: 50px;
+        vertical-align: middle;
+    
+        &:nth-child(2) {
+            &::before {
+                content: "Last 10 Games:";
+                display: inline-block;
+                font-family: $sbold;
+                font-size: 14px;
+                text-transform: uppercase;
+                margin-right: 15px;
+            }
+        }
+
+        &:nth-child(3) {
+            &::before {
+                content: "Win Percentage:";
+                display: inline-block;
+                font-family: $sbold;
+                font-size: 14px;
+                text-transform: uppercase;
+                margin-right: 15px;
+            }
+        }
+
+        @media ( min-width: 960px ) {
+            height: 60px;
+
+            &:nth-child(2),
+            &:nth-child(3) {
+                &::before {
+                    display: none;
+                }
+            }
+        }
+
+    }
+
+    .uk-table tbody td:first-child {
+        display: flex;
+        align-items: center;
+
+        a {
+            vertical-align: middle;
+            margin-right: 15px;
+        }
+
+        h4 {
+            font-size: 14px;
+            color: #444;
+            text-transform: uppercase;
+            margin: 0;
+        }
+    }
+}
+
+
+
+// Ultimate Member UI
+.um {
+    padding-bottom: 50px;
+
+    .um-field-text label,
+    .um-field-password label {
+        font-size: 12px !important;
+        color: #FFF !important;
+        line-height: normal !important;
+        @include sharpText();
+    }
+
+    .um-field-area input {
+        border-radius: 3px !important;
+    }
+
+    .um-field-type_terms_conditions .um-field-area {
+        .um-toggle-terms,
+        .um-hide-terms {
+            font-size: 12px !important;
+            font-family: $sbold;
+            @include sharpText();
+        }
+
+        .um-field-checkbox span {
+            font-size: 12px !important;
+            font-family: $sbold;
+            color: #FFF !important;
+        }
+
+        .um-icon-android-checkbox-outline-blank,
+        .um-icon-android-checkbox-outline {
+            color: #FFF !important;
+        }
+    }
+
+    .um-button {
+        background-color: $sgg-green !important;
+        font-size: 14px !important;
+        font-family: $bold !important;
+        text-transform: uppercase !important;
+    }
+
+    .um-toggle-terms,
+    .um-link-alt {
+        font-size: 12px !important;
+        color: #FFF !important;
+    }
+
+    // Terms UI
+    .um-terms-conditions-content {        
+        * {
+            color: #FFF !important;
+        }
+
+        .um-hide-terms {
+            display: inline-block;
+            margin-bottom: 15px !important;
+        }
+
+        h3 {
+            font-size: 14px !important;
+            margin: 0 0 10px !important;
+        }
+
+        p {
+            font-size: 12px !important;
+            text-transform: none !important;
+            margin: 0 0 10px !important;
+        }
+    }
+
+    &.um-password {
+        .um-field-password label {
+            color: #444 !important;
+            text-transform: uppercase !important;
+        }
+    }
+
+    // Text Block UI
+    .um-field-block {
+        font-size: 14px !important;
+    }
+
+}
+
+[data-card="ulimate-member"] {
+
+    .um-password {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .um-account {
+        .um-account-name {
+            display: none !important;
+        }
+
+        .um-field-label label {
+            color: #444 !important;
+            text-transform: uppercase !important;
+        }
+    }
+
+}

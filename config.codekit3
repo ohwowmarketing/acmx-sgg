@@ -1053,6 +1053,19 @@
       "q" : 100,
       "rq" : 75
     },
+    "\/resources\/images\/cappers\/bg-cappers-standings-header.jpg" : {
+      "ft" : 16384,
+      "iS" : 36265,
+      "jF" : 0,
+      "oA" : 0,
+      "oAP" : "\/resources\/images\/cappers\/bg-cappers-standings-header.jpg",
+      "oF" : 0,
+      "oIPL" : 0,
+      "opt" : 0,
+      "ou" : "lpckwebp-none",
+      "q" : 100,
+      "rq" : 75
+    },
     "\/resources\/images\/img-bg-heading.png" : {
       "ft" : 32768,
       "iS" : 126753,
@@ -2577,6 +2590,14 @@
       "oAP" : "\/views\/pages\/about.php",
       "oF" : 0
     },
+    "\/views\/pages\/cappers-auth.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/views\/pages\/cappers-auth.php",
+      "oF" : 0
+    },
     "\/views\/pages\/cappers.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -2697,6 +2718,14 @@
       "oAP" : "\/views\/pages\/sitemap.php",
       "oF" : 0
     },
+    "\/views\/pages\/yana.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/views\/pages\/yana.php",
+      "oF" : 0
+    },
     "\/views\/singles\/cappers.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -2769,6 +2798,14 @@
       "oAP" : "\/views\/widgets\/cappers-sidebar.php",
       "oF" : 0
     },
+    "\/views\/widgets\/cappers-standings.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/views\/widgets\/cappers-standings.php",
+      "oF" : 0
+    },
     "\/views\/widgets\/chat-sidebar.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -2783,6 +2820,14 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/views\/widgets\/chat.php",
+      "oF" : 0
+    },
+    "\/views\/widgets\/chat.php.zip" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/views\/widgets\/chat.php.zip",
       "oF" : 0
     },
     "\/views\/widgets\/futures-mlb.php" : {
@@ -3198,7 +3243,7 @@
     "bowerUseExactVersion" : 0,
     "browserRefreshDelay" : 0,
     "browserslistString" : ">0.2%, last 2 versions, Firefox ESR, not dead",
-    "buildEnvironment" : 0,
+    "buildEnvironment" : 1,
     "buildFolderActive" : 0,
     "buildFolderName" : "build",
     "cleanBuild" : 1,
@@ -3343,7 +3388,7 @@
     "cssoForceMediaMerge" : 0,
     "cssoRestructure" : 1,
     "environmentVariableEntries" : [
-      "NODE_ENV:::production"
+      "NODE_ENV:::development"
     ],
     "esLintConfigFileHandlingType" : 0,
     "esLintECMAVersion" : 7,

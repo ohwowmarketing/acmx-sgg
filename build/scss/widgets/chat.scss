@@ -23,10 +23,13 @@
             display: none;
         }
 
-        .ui-cm-avatar img {
+        .ui-cm-avatar {
             display: block;
-            @include size(42px);
-            border: 1px solid #333;
+            @include size(45px);
+
+            > img {
+                border: 1px solid #333;
+            }
         }
 
         input.ui-cm-field {
@@ -54,6 +57,7 @@
         }
 
         a.ui-cm-field {
+            position: relative;
             display: block;
             background: transparent;
             font-size: 13px;
@@ -65,6 +69,7 @@
             border: 1px solid #DDD;
             border-radius: 5px;
             @include sharpText();
+            z-index: 100;
         }
 
         // Message Panel Buttons
@@ -189,18 +194,33 @@
                 margin-left: 15px;
 
                 >a {
-                    display: block;
-                    text-align: center;
+                    display: inline-block;
                     width: 30px;
+                }
+
+                >a img {
+                    display: block;
+                    width: 30px !important;
+                    height: 30px !important;
+                    
+                }
+
+                select {
+                    font-size: 12px;
+                    height: 30px;
+                    border-radius: 3px;
+                    @include sharpText();
                 }
             }
 
             button.uk-button-small {
                 font-size: 12px;
                 text-transform: capitalize;
-                @include size(130px, 30px);
-                padding: 0;
-                ;
+                // @include size(150px, 30px);
+                min-width: 150px;
+                height: 30px;
+                padding: 0 10px;
+                border: 1px solid rgba(#FFF, .8);
                 border-radius: 3px;
                 opacity: .8;
             }
@@ -212,7 +232,7 @@
     .ui-comments-body {
         position: relative;
         min-height: calc(400px - 100px);
-        max-height: 450px;
+        height: calc(600px - 140px);
         padding: 15px 15px 0;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
@@ -238,10 +258,10 @@
             }
         }
 
+        .ui-comment>.avatar,
         .ui-comment>.avatar img {
             display: block;
             @include size(42px);
-            border: 1px solid #333;
         }
 
         .ui-comment>.content {
@@ -335,21 +355,22 @@
 
 }
 
-// Login + Register Panel
+// Login + Register Panel + Profile
 .uk-overlay-default {
     top: 55px;
     background: rgba(#056308, .75);
     font-size: 12px;
     color: #FFF;
     text-transform: uppercase;
-    height: calc(587px - 55px);
+    height: calc(600px - 55px);
     border-radius: 0 0 5px 5px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: saturate(180%) blur(8px);
+    z-index: 1009;
 
-    // .uk-panel {
-    //     width: 320px;
-    // }
+    .uk-panel {
+        width: 450px;
+    }
 
     .status {
         margin-bottom: 15px;

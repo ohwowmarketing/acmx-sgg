@@ -21,10 +21,12 @@
 .ui-comments .ui-comments-msgboard .ui-cm-avatar {
   display: none;
 }
-.ui-comments .ui-comments-msgboard .ui-cm-avatar img {
+.ui-comments .ui-comments-msgboard .ui-cm-avatar {
   display: block;
-  width: 42px;
-  height: 42px;
+  width: 45px;
+  height: 45px;
+}
+.ui-comments .ui-comments-msgboard .ui-cm-avatar > img {
   border: 1px solid #333;
 }
 .ui-comments .ui-comments-msgboard input.ui-cm-field {
@@ -47,6 +49,7 @@
   color: #95969c;
 }
 .ui-comments .ui-comments-msgboard a.ui-cm-field {
+  position: relative;
   display: block;
   background: transparent;
   font-size: 13px;
@@ -59,6 +62,7 @@
   border-radius: 5px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  z-index: 100;
 }
 .ui-comments .ui-comments-msgboard .ui-cm-widget-controls,
 .ui-comments .ui-comments-msgboard .ui-cm-widget-controls-alt {
@@ -176,23 +180,37 @@
 }
 .ui-comments .ui-comments-header .ui-ch-action .ui-ch-moreaction > a,
 .ui-comments .ui-comments-header .ui-ch-action .ui-ch-moreaction-alt > a {
-  display: block;
-  text-align: center;
+  display: inline-block;
   width: 30px;
+}
+.ui-comments .ui-comments-header .ui-ch-action .ui-ch-moreaction > a img,
+.ui-comments .ui-comments-header .ui-ch-action .ui-ch-moreaction-alt > a img {
+  display: block;
+  width: 30px !important;
+  height: 30px !important;
+}
+.ui-comments .ui-comments-header .ui-ch-action .ui-ch-moreaction select,
+.ui-comments .ui-comments-header .ui-ch-action .ui-ch-moreaction-alt select {
+  font-size: 12px;
+  height: 30px;
+  border-radius: 3px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 .ui-comments .ui-comments-header .ui-ch-action button.uk-button-small {
   font-size: 12px;
   text-transform: capitalize;
-  width: 130px;
+  min-width: 150px;
   height: 30px;
-  padding: 0;
+  padding: 0 10px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
   border-radius: 3px;
   opacity: 0.8;
 }
 .ui-comments .ui-comments-body {
   position: relative;
   min-height: 300px;
-  max-height: 450px;
+  height: 460px;
   padding: 15px 15px 0;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
@@ -215,11 +233,11 @@
 .ui-comments .ui-comments-body .ui-comment.-reply {
   margin-top: 35px;
 }
+.ui-comments .ui-comments-body .ui-comment > .avatar,
 .ui-comments .ui-comments-body .ui-comment > .avatar img {
   display: block;
   width: 42px;
   height: 42px;
-  border: 1px solid #333;
 }
 .ui-comments .ui-comments-body .ui-comment > .content {
   position: relative;
@@ -306,10 +324,14 @@
   font-size: 12px;
   color: #FFF;
   text-transform: uppercase;
-  height: 532px;
+  height: 545px;
   border-radius: 0 0 5px 5px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: saturate(180%) blur(8px);
+  z-index: 1009;
+}
+.uk-overlay-default .uk-panel {
+  width: 450px;
 }
 .uk-overlay-default .status {
   margin-bottom: 15px;
@@ -522,21 +544,29 @@
 [data-card=cappers-corner] .--cappers-profile .uk-card-header {
   padding: 15px;
   border-bottom: 0;
+  cursor: pointer;
 }
 [data-card=cappers-corner] .--cappers-profile .uk-card-header img {
   width: 50px;
   height: 50px;
+  border-radius: 50%;
 }
 [data-card=cappers-corner] .--cappers-profile .uk-card-header h4 {
   font-family: OpenSans-Bold;
-  font-size: 16px;
+  font-size: 14px;
   color: #2c2c37;
   text-transform: uppercase;
+  line-height: 1.2;
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 [data-card=cappers-corner] .--cappers-profile .uk-card-header span {
   display: block;
   font-size: 12px;
+  font-family: OpenSans-Regular;
+  text-transform: none;
+  margin-top: 10px;
 }
 [data-card=cappers-corner] .--cappers-profile .uk-card-header small {
   font-size: 12px;
@@ -546,7 +576,7 @@
 [data-card=cappers-corner] .--cappers-profile .uk-card-header .--cappers-action {
   align-self: center;
 }
-[data-card=cappers-corner] .--cappers-profile .uk-card-header .--cappers-action a[href="#"] {
+[data-card=cappers-corner] .--cappers-profile .uk-card-header .--cappers-action a[title="View More Info"] {
   position: relative;
   display: block;
   width: 24px;
@@ -554,7 +584,7 @@
   border: 0;
   cursor: pointer;
 }
-[data-card=cappers-corner] .--cappers-profile .uk-card-header .--cappers-action a[href="#"]::before {
+[data-card=cappers-corner] .--cappers-profile .uk-card-header .--cappers-action a[title="View More Info"]::before {
   content: "";
   position: absolute;
   top: 0;
@@ -567,7 +597,7 @@
   opacity: 0.5;
   transition: 300ms ease;
 }
-[data-card=cappers-corner] .--cappers-profile .uk-card-header .--cappers-action a[href="#"]:hover::before {
+[data-card=cappers-corner] .--cappers-profile .uk-card-header .--cappers-action a[title="View More Info"]:hover::before {
   opacity: 1;
 }
 [data-card=cappers-corner] .--cappers-profile .uk-card-body {
@@ -621,7 +651,7 @@
 [data-card=cappers-corner] .--cappers-profile.uk-open .uk-card-header small {
   color: #DDD;
 }
-[data-card=cappers-corner] .--cappers-profile.uk-open .uk-card-header .--cappers-action a[href="#"]::before {
+[data-card=cappers-corner] .--cappers-profile.uk-open .uk-card-header .--cappers-action a[title="View More Info"]::before {
   background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%202C6.48%202%202%206.48%202%2012s4.48%2010%2010%2010%2010-4.48%2010-10S17.52%202%2012%202zm1%2015h-2v-6h2v6zm0-8h-2V7h2v2z%22%2F%3E%3C%2Fsvg%3E");
 }
 @media (min-width: 1600px) {
@@ -666,6 +696,9 @@
 [data-card=cappers-stats] div > .avatar {
   position: relative;
 }
+[data-card=cappers-stats] div > .avatar img {
+  border-radius: 5px;
+}
 [data-card=cappers-stats] div > small {
   position: relative;
   display: block;
@@ -681,34 +714,22 @@
   color: #FFF;
   text-transform: uppercase;
   line-height: 1.2;
+  max-width: 750px;
   margin: 0;
 }
-[data-card=cappers-stats] div > h1 .odds {
-  position: relative;
-  top: 0;
-  font-size: 24px;
+[data-card=cappers-stats] div > .odds {
+  display: inline-block;
+  font-size: 16px;
+  text-transform: uppercase;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 5px 0 10px;
 }
-[data-card=cappers-stats] div > h1 .odds::before {
-  content: "[";
-  position: relative;
-  top: -1px;
-  font-size: 26px;
-}
-[data-card=cappers-stats] div > h1 .odds::after {
-  content: "]";
-  position: relative;
-  top: -1px;
-  font-size: 26px;
-}
-[data-card=cappers-stats] div > h1 .opponent {
-  font-size: 12px;
-  text-indent: 2px;
-}
-[data-card=cappers-stats] div > h1::after {
+[data-card=cappers-stats] div > .odds::after {
   content: "";
   display: block;
-  width: 100px;
-  margin: 7px 0 5px;
+  width: 100%;
+  padding-bottom: 9px;
   border-bottom: 1px solid #038307;
 }
 [data-card=cappers-stats] .uk-panel {
@@ -808,4 +829,185 @@
   [data-card=cappers-analysis] .uk-card-body {
     font-size: 16px;
   }
+}
+
+.uk-modal {
+  z-index: 10009;
+}
+
+.uk-modal-dialog {
+  width: 960px;
+  border-radius: 5px;
+}
+.uk-modal-dialog .uk-modal-close-default {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #444;
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+}
+.uk-modal-dialog .uk-modal-close-default svg {
+  width: 12px;
+  height: 12px;
+}
+.uk-modal-dialog .uk-modal-close-default::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.75);
+  display: block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.uk-modal-dialog .uk-modal-header {
+  display: flex;
+  align-items: center;
+  background: url(../images/cappers/bg-cappers-standings-header.jpg) no-repeat center/cover;
+  height: 130px;
+}
+.uk-modal-dialog .uk-modal-header h2 {
+  font-family: PassionOne-Regular;
+  font-size: 32px;
+  color: #FFF;
+  margin: 0;
+}
+.uk-modal-dialog .uk-modal-body {
+  height: 450px;
+}
+.uk-modal-dialog .uk-table {
+  border: 1px solid #DDD;
+}
+.uk-modal-dialog .uk-table thead {
+  background: #36383E;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+.uk-modal-dialog .uk-table tbody tr:first-child {
+  border-top: 0;
+}
+.uk-modal-dialog .uk-table tbody td {
+  color: #444;
+  height: 50px;
+  vertical-align: middle;
+}
+.uk-modal-dialog .uk-table tbody td:nth-child(2)::before {
+  content: "Last 10 Games:";
+  display: inline-block;
+  font-family: OpenSans-SemiBold;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-right: 15px;
+}
+.uk-modal-dialog .uk-table tbody td:nth-child(3)::before {
+  content: "Win Percentage:";
+  display: inline-block;
+  font-family: OpenSans-SemiBold;
+  font-size: 14px;
+  text-transform: uppercase;
+  margin-right: 15px;
+}
+@media (min-width: 960px) {
+  .uk-modal-dialog .uk-table tbody td {
+    height: 60px;
+  }
+  .uk-modal-dialog .uk-table tbody td:nth-child(2)::before, .uk-modal-dialog .uk-table tbody td:nth-child(3)::before {
+    display: none;
+  }
+}
+.uk-modal-dialog .uk-table tbody td:first-child {
+  display: flex;
+  align-items: center;
+}
+.uk-modal-dialog .uk-table tbody td:first-child a {
+  vertical-align: middle;
+  margin-right: 15px;
+}
+.uk-modal-dialog .uk-table tbody td:first-child h4 {
+  font-size: 14px;
+  color: #444;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.um {
+  padding-bottom: 50px;
+}
+.um .um-field-text label,
+.um .um-field-password label {
+  font-size: 12px !important;
+  color: #FFF !important;
+  line-height: normal !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.um .um-field-area input {
+  border-radius: 3px !important;
+}
+.um .um-field-type_terms_conditions .um-field-area .um-toggle-terms,
+.um .um-field-type_terms_conditions .um-field-area .um-hide-terms {
+  font-size: 12px !important;
+  font-family: OpenSans-SemiBold;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.um .um-field-type_terms_conditions .um-field-area .um-field-checkbox span {
+  font-size: 12px !important;
+  font-family: OpenSans-SemiBold;
+  color: #FFF !important;
+}
+.um .um-field-type_terms_conditions .um-field-area .um-icon-android-checkbox-outline-blank,
+.um .um-field-type_terms_conditions .um-field-area .um-icon-android-checkbox-outline {
+  color: #FFF !important;
+}
+.um .um-button {
+  background-color: #00A305 !important;
+  font-size: 14px !important;
+  font-family: OpenSans-Bold !important;
+  text-transform: uppercase !important;
+}
+.um .um-toggle-terms,
+.um .um-link-alt {
+  font-size: 12px !important;
+  color: #FFF !important;
+}
+.um .um-terms-conditions-content * {
+  color: #FFF !important;
+}
+.um .um-terms-conditions-content .um-hide-terms {
+  display: inline-block;
+  margin-bottom: 15px !important;
+}
+.um .um-terms-conditions-content h3 {
+  font-size: 14px !important;
+  margin: 0 0 10px !important;
+}
+.um .um-terms-conditions-content p {
+  font-size: 12px !important;
+  text-transform: none !important;
+  margin: 0 0 10px !important;
+}
+.um.um-password .um-field-password label {
+  color: #444 !important;
+  text-transform: uppercase !important;
+}
+.um .um-field-block {
+  font-size: 14px !important;
+}
+
+[data-card=ulimate-member] .um-password {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+[data-card=ulimate-member] .um-account .um-account-name {
+  display: none !important;
+}
+[data-card=ulimate-member] .um-account .um-field-label label {
+  color: #444 !important;
+  text-transform: uppercase !important;
 }

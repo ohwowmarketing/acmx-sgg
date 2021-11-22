@@ -18,21 +18,14 @@
                             </div>
 
                             <!-- Dynamic Cappers Here -->
+                            <?php $cappers = [ 'post_type' => 'cappers_corner', 'post_status' => 'publish', 'has_password' => false, 'posts_per_page' => 5, 'orderby' => 'none', 'order' => 'DESC' ];
+                            query_posts( $cappers ); ?>
                             <ul class="--cappers-wrapper" uk-accordion="active: false; content: > .uk-card .uk-card-body; toggle: > .uk-card .uk-card-header">
-                            <?php 
-                                $cappers = [ 'post_type' => 'cappers_corner', 'posts_per_page' => 5, 'order' => 'DESC' ];
-                                $loopCappers = new WP_Query( $cappers );
+                                <?php while ( have_posts() ) : the_post();
 
-                                while ( $loopCappers->have_posts() ) : $loopCappers->the_post();
-
-                                    // ACF Fields
-                                    $activate   = get_field( 'gamepick_activation' );
-                                    $pin        = get_field( 'gamepick_pinpost' );
-                                    $category   = get_field( 'gamepick_category' );
-                                    $predict    = get_field( 'gamepick_prediction' );
-                                    
-                                    $author = get_the_author_meta('ID');    
-                                    $user_post_count = count_user_posts( $author, 'cappers_corner' );
+                                $activate = get_field( 'activate_gamepick' );
+                                $pin = get_field( 'pin_gamepick' );
+                                $category = get_field( 'category_gamepick' );
 
                                 if ( $activate ) : ?>
                                 <li class="--cappers-profile <?php echo ($pin) ? 'uk-open' : ''; ?> " data-category="<?php echo $category; ?>">
@@ -42,12 +35,13 @@
                                                 <div class="uk-width-auto">
                                                     <?php echo get_avatar( get_the_author_meta('email'), 40, '', get_the_author_meta('nicename'), [ 'class' => 'uk-border-circle' ] ); ?>
                                                 </div>
+                                                <?php while ( have_rows( 'cappers_gamepick' ) ) : the_row(); ?>
                                                 <div class="uk-width-expand">
                                                     <small><?php echo get_the_author_meta('nicename'); ?></small>
-                                                    <h4><?php the_title(); ?></h4>
-                                                    <span>Odds Bet: <?php the_field( 'gamepick_odds' ); ?></span>
+                                                    <h4><?php the_sub_field( 'cappers_pick' ); ?> [<?php the_sub_field( 'cappers_odds' ); ?>] <span>vs <?php the_sub_field( 'cappers_matchup' ); ?></span></h4>
                                                 </div>
-                                                <div class="uk-width-auto --cappers-action" hidden>
+                                                <?php endwhile; ?>
+                                                <div class="uk-width-auto --cappers-action">
                                                     <a href="javascript:void(0)" title="View More Info"><!-- &nbsp; --></a>
                                                 </div>
                                             </div>
@@ -58,24 +52,27 @@
                                                     <a href="<?php the_permalink(); ?>">Read capper’s analysis</a>
                                                 </div>
                                                 <div class="--modal-action">
-                                                    <a href="#cappers-standings" uk-toggle><span class="uk-visible@s">Cappers’ Standings</span></a>
+                                                    <a href="#standings"><span class="uk-visible@s">Cappers’ Standings</span></a>
                                                 </div>
                                             </div>
                                             <div class="uk-grid-collapse uk-flex-middle uk-flex-between" uk-grid>
+                                                <?php while ( have_rows( 'cappers_record' ) ) : the_row(); ?>
                                                 <div class="uk-width-auto --cappers-stats">
-                                                    Cappers' Record: <strong><?php echo $totalCorrect; ?> - <?php echo abs($totalWrong); ?></strong>
+                                                    Cappers' Record: <strong><?php the_sub_field( 'record_win' ); ?> - <?php the_sub_field( 'record_loss' ); ?></strong>
                                                 </div>
+                                                <?php endwhile;
+                                                while ( have_rows( 'cappers_winpct' ) ) : the_row(); ?>
                                                 <div class="uk-width-auto --cappers-stats">
-                                                    Win PCT: <strong><?php echo number_format((float)$totalPercent, 2, '.', ''); ?>%</strong>
+                                                    Win PCT: <strong><?php the_sub_field( 'win_pct' ); ?>%</strong>
                                                 </div>
+                                                <?php endwhile; ?>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
                                 <?php endif; // end activate
 
-                                endwhile; 
-                                wp_reset_postdata(); ?>
+                                endwhile; wp_reset_query(); ?>
                             </ul>
 
                         </div>
@@ -92,15 +89,30 @@
                     </div>
                 </div>
 
+
             </div>
 
 
             <div class="uk-width-1-1 uk-width-large@l">
-                <?php
-                    if ( $_GET['um_action'] == 'edit' ) {
-                        echo do_shortcode('[ultimatemember form_id="2042"]');
-                    }
 
+                <div class="uk-card uk-card-default uk-card-body" data-card="ulimate-member">
+
+                    <h1 class="uk-card-title"><?php the_title(); ?></h1>
+
+                    <?php
+                    if ( $post->ID == 2108 ) {
+                        echo do_shortcode('[ultimatemember_password]');
+                    } elseif ( $post->ID == 1964 ) {
+                        if ( $_GET['um_action'] === 'edit' ) {
+                            echo do_shortcode('[ultimatemember form_id="2042"]');
+                        } else {
+                            echo do_shortcode('[ultimatemember_account]');
+                        }
+                    }
+                    ?>
+                </div>
+
+                <?php 
                     get_template_part( widget . 'news' );
                     get_template_part( widget . 'instagram' );
                 ?>
@@ -108,6 +120,3 @@
         </div>
     </div>
 </main>
-
-<!-- Cappers Standing -->
-<?php get_template_part( widget . 'cappers-standings' ); ?>
