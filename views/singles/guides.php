@@ -32,11 +32,15 @@
                         the_title('<h2 class="uk-article-title">','</h2>'); 
                         
                         $author_display = get_field( 'activate_author' );
+
+                        // Get Author Meta
+                        $author_id = get_the_author_meta( 'ID' );
+
                         if ( $author_display ) :
                         ?>
                         <address class="uk-grid-collapse uk-flex-middle" uk-grid>
                             <div class="uk-width-auto">
-                                <?php echo get_avatar( get_the_author_meta('ID'), 40, '', '', [ 'class' => 'uk-border-rounded' ]); ?>
+                                <img src="<?php echo get_avatar_url($author_id); ?>" class="uk-border-rounded" alt="<?php echo get_the_author_meta('display_name', $author_id); ?>" width="40px" height="40px">
                             </div>
                             <div class="uk-width-expand">
                                 <span rel="author" class="uk-text-small uk-link-reset"><?php 
