@@ -61,17 +61,22 @@
 
     // Password Success
     if ( $.urlParam('updated') == 'password_changed' ) {
-        UIkit.notification('You have successfully changed your password.', { status: 'primary', pos:'top-right', timeout: 225000 });
+        UIkit.notification('You have successfully changed your password.', { status: 'primary', pos:'top-right', timeout: 15000 });
     }
  
     // Registration Success
     if ( $.urlParam('reg') == 'success' ) {
-        UIkit.notification('Thank you for signing up! Your account is now active.', { status: 'primary', pos:'top-right', timeout: 225000 });
+        UIkit.notification('Thank you for signing up! Your account is now active.', { status: 'primary', pos:'top-right', timeout: 15000 });
     }
 
     // Registration Success
     if ( $.urlParam('act') == 'deleted_successful' ) {
-        UIkit.notification('Your account has been deleted.', { status: 'primary', pos:'top-right', timeout: 225000 });
+        UIkit.notification('Your account has been deleted.', { status: 'primary', pos:'top-right', timeout: 15000 });
+    }
+
+    // Check Email
+    if ( $.urlParam('updated') == 'checkemail' ) {
+        UIkit.notification('We have sent you a password reset link to your E-mail. Please check your inbox.', { status: 'primary', pos:'top-right', timeout: 15000 });
     }
 
     // Change Link to Profile Avatar
