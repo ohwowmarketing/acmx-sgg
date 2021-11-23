@@ -87,7 +87,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/best-books.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -102,7 +102,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/cappers.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -117,7 +117,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/careers.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -132,7 +132,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/fonts.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -147,7 +147,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/global.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -162,7 +162,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/mixins.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -177,7 +177,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/reset-uikit.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -192,7 +192,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/reset-wp.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -207,7 +207,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/reset-wpforms.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -222,7 +222,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/footer.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -237,7 +237,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/header.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -252,7 +252,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/menu.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -267,7 +267,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/router.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -282,7 +282,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/sidebar.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -297,7 +297,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/contact.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -312,7 +312,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/guides.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -327,7 +327,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/home.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -342,7 +342,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/league-ats.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -357,7 +357,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/league-data.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -372,7 +372,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/league-futures.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -387,7 +387,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/league-injuries.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -402,7 +402,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/league-news.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -417,7 +417,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/league-odds.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -432,7 +432,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/legal.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -447,7 +447,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/main.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -462,7 +462,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/reviews.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -477,7 +477,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/sitemap.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -492,7 +492,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/ats.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -507,7 +507,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/bestbooks.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -522,7 +522,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/chat.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -537,7 +537,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/content.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -552,7 +552,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/futures.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -567,7 +567,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/guides.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -582,7 +582,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/instagram.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -597,7 +597,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/news.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -612,7 +612,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/odds-bak.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -627,7 +627,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/odds.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -642,7 +642,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/oddslines.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -657,7 +657,7 @@
       "oA" : 1,
       "oAP" : "\/resources\/styles\/sportsbooks.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -672,7 +672,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/wp-acf-editor.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -687,7 +687,7 @@
       "oA" : 0,
       "oAP" : "\/resources\/styles\/wp-editor.min.css",
       "oF" : 0,
-      "oS" : 0,
+      "oS" : 3,
       "pg" : 0,
       "sct" : 0
     },
@@ -4557,7 +4557,7 @@
       "cssoStyle" : 0,
       "decimalPrecision" : 10,
       "emitCharset" : 1,
-      "outputStyle" : 0,
+      "outputStyle" : 3,
       "purgeCSSStyle" : 0,
       "shouldRunAutoprefixer" : 1,
       "shouldRunBless" : 0,

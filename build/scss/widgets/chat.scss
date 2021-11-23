@@ -237,6 +237,14 @@
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
 
+        .--welcome {
+            font-size: 14px;
+            font-family: $bold;
+            color: #DDD;
+            text-transform: uppercase;
+            @include sharpText();
+        }
+
         .ui-comment {
             display: flex;
             align-items: flex-start;
@@ -356,68 +364,16 @@
 }
 
 // Login + Register Panel + Profile
-.uk-overlay-default {
-    top: 55px;
-    background: rgba(#056308, .75);
+#form-panel {
+    background: rgba($sgg-green, .75);
     font-size: 12px;
     color: #FFF;
     text-transform: uppercase;
-    height: calc(600px - 55px);
+    height: 100%;
     border-radius: 0 0 5px 5px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: saturate(180%) blur(8px);
     z-index: 1009;
-
-    .uk-panel {
-        width: 450px;
-    }
-
-    .status {
-        margin-bottom: 15px;
-    }
-
-    .uk-inline {
-        display: flex;
-        flex-direction: column;
-        gap: 5px;
-    }
-
-    .uk-input {
-        border-radius: 3px;
-    }
-
-    .uk-text-meta {
-        font-size: 11px;
-        text-transform: capitalize;
-    }
-
-    button[type="submit"] {
-        font-family: $sbold;
-        font-size: 12px;
-    }
-
-    .uk-subnav {
-        >li {
-            padding-left: 10px;
-
-            &:first-child {
-                padding-left: 20px;
-            }
-        }
-
-        >li>a {
-            background-color: $sgg-green;
-            font-family: $sbold;
-            font-size: 12px;
-            color: #CCC;
-            padding: 10px 20px;
-            border-radius: 3px;
-        }
-
-        >li.uk-active>a {
-            color: #FFF;
-        }
-    }
 
     // Toggle - Close Button
     .--close-overlay {
@@ -438,9 +394,176 @@
             left: 0;
             display: block;
             @include size(100%);
-            border: 1px solid #DDD;
+            border: 2px solid #DDD;
             border-radius: 50%;
         }
     }
 
+    .uk-card-body {
+        background: #FFF;
+        width: 450px;
+        margin: auto;
+        border-radius: 5px;
+    }
+
+    .uk-tab > .uk-active > a {
+        border-color: $sgg-green;
+    }
+
+}
+
+
+// Ultimate Member UI
+.um {
+    // padding-bottom: 50px;
+
+    .um-field-text label,
+    .um-field-password label {
+        font-size: 12px !important;
+        // color: #FFF !important;
+        line-height: normal !important;
+        // @include sharpText();
+    }
+
+    .um-field-area input {
+        border-radius: 3px !important;
+    }
+
+    .um-field-type_terms_conditions .um-field-area {
+        .um-toggle-terms,
+        .um-hide-terms {
+            display: block;
+            font-size: 12px !important;
+            font-family: $sbold;
+            color: #444 !important;
+            text-align: center !important;
+            @include sharpText();
+        }
+
+        .um-toggle-terms {
+            margin-top: 15px;
+        }
+
+        .um-field-checkbox span {
+            font-size: 12px !important;
+            font-family: $sbold;
+            // color: #FFF !important;
+        }
+
+        .um-icon-android-checkbox-outline-blank,
+        .um-icon-android-checkbox-outline {
+            color: #888 !important;
+        }
+    }
+
+    .um-field-checkbox {
+        display: none !important;
+    }
+
+    .um-button {
+        background-color: $sgg-green !important;
+        font-size: 14px !important;
+        font-family: $bold !important;
+        text-transform: uppercase !important;
+    }
+
+    .um-link-alt {
+        font-family: $sbold;
+        font-size: 12px !important;
+        color: #444 !important;
+    }
+
+    // Terms UI
+    .um-terms-conditions-content {        
+        border: 1px solid #DDD;
+        border-radius: 5px;
+        padding: 20px;
+
+        * {
+            // color: #FFF !important;
+            text-align: justify;
+            text-align-last: center;
+        }
+
+        .um-hide-terms {
+            display: inline-block;
+            text-align: center;
+            margin-bottom: 15px !important;
+        }
+
+        h3 {
+            font-size: 14px !important;
+            margin: 0 0 10px !important;
+        }
+
+        p {
+            font-size: 12px !important;
+            text-transform: none !important;
+            margin: 0 0 10px !important;
+        }
+    }
+
+    &.um-password {
+        .um-field-password label {
+            color: #444 !important;
+            text-transform: uppercase !important;
+        }
+    }
+
+    // Text Block UI
+    .um-field-block {
+        font-size: 14px !important;
+    }
+
+    // Terms
+    .um-terms-conditions-content {
+        max-height: 350px;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .um-notice {
+        &.success {
+            display: none !important;
+        }
+    }
+
+
+}
+
+[data-card="ulimate-member"] {
+
+    .um-password {
+        margin-bottom: 0 !important;
+        padding-bottom: 0 !important;
+    }
+
+    .um-account {
+        .um-account-name {
+            display: none !important;
+        }
+
+        .um-field-label label {
+            color: #444 !important;
+            text-transform: uppercase !important;
+        }
+    }
+
+}
+
+.uk-notification-message-primary {
+    background: $sgg-green;
+
+    .uk-close {
+        color: #FFF;
+    }
+
+    svg {
+        @include size(12px);
+    }
+
+    div {
+        font-size: 14px;
+        color: rgba(#FFF, .8);
+    }
 }

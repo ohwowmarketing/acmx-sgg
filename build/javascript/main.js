@@ -12,27 +12,37 @@
   theme = {
     common: {
       init: function () {
-        jQuery.getScript($plugin + 'common.js')
+        jQuery.getScript($plugin + 'common.js');
       }
     },
 
     home: {
       init: function () {
-        jQuery.getScript($plugin + 'home.js')
+        jQuery.getScript($plugin + 'home.js');
       }
     },
 
     // NFL/NBA/MLB Odds
     odds_betting_lines: {
       init: function () {
-        jQuery.getScript($plugin + 'betting-odds.js')
+        jQuery.getScript($plugin + 'betting-odds.js');
       }
     },
-    
-    // Cappers Corner
+
+    // Cappers Profile
+    um_page_login: {
+      init: function () {
+        jQuery.getScript($plugin + 'cappers.js');
+      }
+    },    
+    cappers_corner: {
+      init: function () {
+        jQuery.getScript($plugin + 'cappers.js');
+      }
+    },
     cappers_profile: {
       init: function () {
-        jQuery.getScript($plugin + 'cappers.js')
+        jQuery.getScript($plugin + 'cappers.js');
       }
     }
   }
