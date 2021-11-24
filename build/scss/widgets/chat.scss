@@ -379,7 +379,7 @@
     color: #FFF;
     text-transform: uppercase;
     height: 100%;
-    padding: 50px 0;
+    padding: 50px 15px;
     border-radius: 0 0 5px 5px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: saturate(180%) blur(8px);
@@ -390,14 +390,15 @@
     // Toggle - Close Button
     .--close-overlay {
         position: absolute;
-        top: 5px;
-        right: 10px;
+        top: 15px;
+        right: 15px;
         display: flex;
         align-items: center;
         justify-content: center;
         font-size: 18px;
         color: #FFF;
         @include size(25px);
+        margin: 0;
 
         &::after {
             content: "";
