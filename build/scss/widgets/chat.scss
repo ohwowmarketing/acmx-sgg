@@ -379,9 +379,12 @@
     color: #FFF;
     text-transform: uppercase;
     height: 100%;
+    padding: 50px 60px;
     border-radius: 0 0 5px 5px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: saturate(180%) blur(8px);
+    overflow-x: hidden !important;
+    overflow-y: scroll;
     z-index: 1009;
 
     // Toggle - Close Button
