@@ -561,19 +561,25 @@
 
 }
 
-.uk-notification-message-primary {
-    background: $sgg-green;
+.uk-notification {
+    .uk-notification-message {
+        background: $sgg-green;
+        border-radius: 3px;
 
-    .uk-close {
-        color: #FFF;
-    }
+        .uk-close {
+            color: #FFF;
+        }
 
-    svg {
-        @include size(12px);
-    }
+        svg {
+            @include size(12px);
+        }
 
-    div {
-        font-size: 14px;
-        color: rgba(#FFF, .8);
+        div {
+            font-family: $sbold;
+            font-size: 16px;
+            color: rgba(#FFF, .8);
+            @include sharpText();
+        }
     }
 }
+

@@ -1,4 +1,4 @@
-<ul class="--cappers-wrapper" uk-accordion="active: false; content: > .uk-card .uk-card-body; toggle: > .uk-card .uk-card-header">
+<ul class="--cappers-wrapper" uk-accordion="active: false; content: > .uk-card .uk-card-body; toggle: > .uk-card .uk-card-header .uk-grid .-toggle-me">
 <?php 
 // Get all users from Cappers Role
 $users = get_users( [ 'role__in' => [ 'cappers', 'author' ] ] );
@@ -34,7 +34,8 @@ while ( $loopCappers->have_posts() ) : $loopCappers->the_post();
 
     // ACF Fields
     $activate   = get_field( 'gamepick_activation' );
-    $pin        = get_field( 'gamepick_pinpost' );
+    $notif      = get_field( 'message_alert' );
+    $msgnotif   = get_field( 'msg_notification' );
     
     $author = get_the_author_meta('ID'); // Get author ID base on Post
     $user_post_count = count_user_posts( $author, 'cappers_corner' ); // Count all current author post
@@ -61,16 +62,21 @@ while ( $loopCappers->have_posts() ) : $loopCappers->the_post();
         <div class="uk-card uk-card-default uk-card-small">
             <div class="uk-card-header">
                 <div class="uk-grid-small uk-flex-top uk-flex-between uk-flex-middle" uk-grid>
-                    <div class="uk-width-auto">
-                        <img src="<?php echo get_avatar_url($author); ?>" class="uk-border-rounded" alt="<?php echo get_the_author_meta('nicename', $author); ?>" width="40px" height="40px">
+                    <div class="uk-width-expand uk-grid-small -toggle-me" uk-grid>
+                        <div class="uk-width-auto">
+                            <img src="<?php echo get_avatar_url($author); ?>" class="uk-border-rounded" alt="<?php echo get_the_author_meta('nicename', $author); ?>" width="40px" height="40px">
+                        </div>
+                        <div class="uk-width-expand">
+                            <small><?php echo get_the_author_meta('nicename'); ?></small>
+                            <h4><?php the_title(); ?></h4>
+                        </div>
                     </div>
-                    <div class="uk-width-expand">
-                        <small><?php echo get_the_author_meta('nicename'); ?></small>
-                        <h4><?php the_title(); ?></h4>
+                    <?php 
+                    if ( $notif ) : ?>
+                    <div class="uk-width-auto --cappers-action" uk-scrollspy="target: #msgnotif; cls: uk-animation-scale-up; delay: 2500">
+                        <a href="javascript:void(0)" id="msgnotif" onclick="UIkit.notification({message: '<?php echo addslashes($msgnotif) ?>', pos: 'top-right', timeout: 20000})" uk-tooltip title="Hi! I have a quick message."><!-- &nbsp; --></a>
                     </div>
-                    <div class="uk-width-auto --cappers-action" hidden>
-                        <a href="javascript:void(0)" title="View More Info"><!-- &nbsp; --></a>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
             <div class="uk-card-body">
