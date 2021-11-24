@@ -72,6 +72,18 @@ add_action('wp_enqueue_scripts', function() {
 
             case '552':  $pageName = 'guides'; break;
             case '839':  $pageName = 'careers'; break;
+
+            // Cappers Corner
+            // case '2178': // Logout
+            // case '2174': // Register
+            case '2182': // Password Reset
+            case '2180': // Account
+            case '2176': // Members
+            case '2172': // Login
+            case '2170': // User
+            case '2162': // Newsletter
+            case '2166': // CC Authentication
+            case '2168': // CC Profile
             case '2053': $pageName = 'cappers'; break;
 
             // Legal
