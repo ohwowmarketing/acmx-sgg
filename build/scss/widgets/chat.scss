@@ -379,7 +379,7 @@
     color: #FFF;
     text-transform: uppercase;
     height: 100%;
-    padding: 50px 60px;
+    padding: 50px 0;
     border-radius: 0 0 5px 5px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: saturate(180%) blur(8px);
@@ -420,6 +420,12 @@
 
     .uk-tab > .uk-active > a {
         border-color: $sgg-green;
+    }
+
+    @media ( min-width: 568px ) {
+
+        padding: 50px 15px;
+
     }
 
 }
