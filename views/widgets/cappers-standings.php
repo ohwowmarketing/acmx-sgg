@@ -1,4 +1,4 @@
-<?php $authors = [ 'role' => 'author' ];
+<?php $authors = [ 'role' => 'cappers' ];
 $authorsQuery = new WP_User_Query( $authors ); ?>
 
 <div id="cappers-standings" class="uk-flex-top" uk-modal>
