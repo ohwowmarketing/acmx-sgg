@@ -2186,6 +2186,17 @@
       "oAP" : "\/resources\/scripts\/inc",
       "oF" : 0
     },
+    "\/resources\/scripts\/jquery.tmpl.min.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/resources\/scripts\/jquery.tmpl.min.min.js",
+      "oF" : 0,
+      "sC" : 0,
+      "tS" : 0
+    },
     "\/resources\/scripts\/main.min.js" : {
       "bF" : 0,
       "ft" : 64,
@@ -2598,6 +2609,14 @@
       "oAP" : "\/views\/pages\/cappers-auth.php",
       "oF" : 0
     },
+    "\/views\/pages\/cappers-loop.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/views\/pages\/cappers-loop.php",
+      "oF" : 0
+    },
     "\/views\/pages\/cappers.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -2790,6 +2809,14 @@
       "oAP" : "\/views\/widgets\/bestbooks.php",
       "oF" : 0
     },
+    "\/views\/widgets\/cappers-odds.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/views\/widgets\/cappers-odds.php",
+      "oF" : 0
+    },
     "\/views\/widgets\/cappers-sidebar.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -2820,14 +2847,6 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/views\/widgets\/chat.php",
-      "oF" : 0
-    },
-    "\/views\/widgets\/chat.php.zip" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/views\/widgets\/chat.php.zip",
       "oF" : 0
     },
     "\/views\/widgets\/futures-mlb.php" : {

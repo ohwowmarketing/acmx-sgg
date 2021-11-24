@@ -1,23 +1,34 @@
 (function($) {
 
+    // Add Autocomplete Off to the Registration
+    jQuery('.um-register').find('form').attr('autocomplete','off');
+
+    // // Make sure all fields in Registration are empty
+    // jQuery('.um-register form').find(':input')
+    //                            .not(':button, :submit, :reset, :hidden')
+    //                            .removeAttr('checked')
+    //                            .removeAttr('selected')
+    //                            .not(':checkbox, :radio, select')
+    //                            .val('');
+
     // Accept & Read Terms
     if ( jQuery('.um-terms-conditions-content').css('display') == 'none' ) {
         jQuery('.um-register #um-submit-btn').prop("disabled", true);
     }
 
     // Double Check Checkbox if Checked Properly
-    // jQuery('.um-register .um-field-checkbox').on('click', function() {
-    //     jQuery(this).find('input').prop('checked', true);
+    jQuery('.um-register .um-field-checkbox').on('click', function() {
+        jQuery(this).find('input').prop('checked', true);
         
-    //     if ( jQuery('input[name=use_terms_conditions_agreement]').is(':checked') && !jQuery(this).hasClass('active') ) {
-    //         jQuery('.um-register #um-submit-btn').prop("disabled", false);
-    //     } else {
-    //         jQuery('.um-register #um-submit-btn').prop("disabled", true);
-    //     }
-    // });
+        if ( jQuery('input[name=use_terms_conditions_agreement]').is(':checked') && !jQuery(this).hasClass('active') ) {
+            jQuery('.um-register #um-submit-btn').prop("disabled", false);
+        } else {
+            jQuery('.um-register #um-submit-btn').prop("disabled", true);
+        }
+    });
 
     jQuery('.um-toggle-terms').on('click', function() {
-        jQuery('.um-register .um-field-checkbox').find('input').prop('checked', true);
+        // jQuery('.um-register .um-field-checkbox').find('input').prop('checked', true);
         // Make sure user scroll-down to bottom
         jQuery('.um-terms-conditions-content').scroll(function() {
             var textarea_height = $(this)[0].scrollHeight;
@@ -79,11 +90,17 @@
         UIkit.notification('We have sent you a password reset link to your E-mail. Please check your inbox.', { status: 'primary', pos:'top-right', timeout: 15000 });
     }
 
+
+
+
     // Change Link to Profile Avatar
     if ( jQuery('.um-account.um-editing').length ) {
         var profileLink = jQuery('.um-account.um-editing').find('.um-account-meta-img a').attr('href').replace(/\/$/, '');
         jQuery('.um-account.um-editing').find('.um-account-meta-img a').attr('href',profileLink+'?um_action=edit');
     }
+
+
+
 
     // Fix Toggle Overlay Login & Register
     // jQuery('#register-btn, #login-btn').on('click', function() {

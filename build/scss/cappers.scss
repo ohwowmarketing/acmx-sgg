@@ -95,11 +95,26 @@
     }
 
     // Accordion Styling
+    .uk-accordion {
+        display: flex;
+        flex-flow: wrap;
+        margin-top: 0;
+    }
+
     .uk-accordion li {
+        width: 100%;
         margin-top: 10px;
+
+        &:first-child {
+            margin-top: 0;
+        }
     }
 
     .--cappers-profile {
+
+        &.uk-open {
+            order: 0;
+        }
 
         * {
             transition: all 300ms ease;
@@ -255,7 +270,7 @@
 
     @media (min-width:1600px) {
         .--cappers-profile-list {
-            width: 390px;
+            max-width: 390px;
         }
     }
 

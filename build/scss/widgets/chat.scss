@@ -171,7 +171,7 @@
             margin: 0;
             padding-left: 30px;
 
-            &::before {
+            &::before:not(empty) {
                 content: "";
                 position: absolute;
                 top: calc(50% - 16px);
@@ -240,9 +240,18 @@
         .--welcome {
             font-size: 14px;
             font-family: $bold;
-            color: #DDD;
+            color: #888;
             text-transform: uppercase;
             @include sharpText();
+
+            small {
+                background: rgba(#DDD, .5);
+                font-size: 12px;
+                text-transform: none;
+                margin-top: 15px;
+                padding: 6px 10px 5px;
+                border-radius: 3px;
+            }
         }
 
         .ui-comment {
@@ -456,9 +465,10 @@
         }
     }
 
-    .um-field-checkbox {
-        display: none !important;
-    }
+    // Disable the checkbox if needed in Registration
+    // .um-field-checkbox {
+    //     display: none !important;
+    // }
 
     .um-button {
         background-color: $sgg-green !important;
