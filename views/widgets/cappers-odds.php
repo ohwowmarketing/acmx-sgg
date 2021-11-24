@@ -73,7 +73,7 @@ while ( $loopCappers->have_posts() ) : $loopCappers->the_post();
                     </div>
                     <?php 
                     if ( $notif ) : ?>
-                    <div class="uk-width-auto --cappers-action" uk-scrollspy="target: #msgnotif; cls: uk-animation-scale-up; delay: 2500">
+                    <div class="uk-width-auto --cappers-action" uk-scrollspy="target: #msgnotif; cls: uk-animation-fade uk-animation-shake; delay: 2500">
                         <a href="javascript:void(0)" id="msgnotif" onclick="UIkit.notification({message: '<?php echo addslashes($msgnotif) ?>', pos: 'top-right', timeout: 20000})" uk-tooltip title="Hi! I have a quick message."><!-- &nbsp; --></a>
                     </div>
                     <?php endif; ?>
