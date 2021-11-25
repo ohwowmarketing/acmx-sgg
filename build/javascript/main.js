@@ -40,11 +40,11 @@
         jQuery.getScript($plugin + 'cappers.js');
       }
     },
-    cappers_profile: {
-      init: function () {
-        jQuery.getScript($plugin + 'cappers.js');
-      }
-    }
+    // cappers_profile: {
+    //   init: function () {
+    //     jQuery.getScript($plugin + 'cappers-profile.js');
+    //   }
+    // }
   }
 
   var UTIL = {

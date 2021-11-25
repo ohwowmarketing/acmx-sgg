@@ -88,6 +88,13 @@
         UIkit.notification('We have sent you a password reset link to your E-mail. Please check your inbox.', { status: 'primary', pos:'top-right', timeout: 15000 });
     }
 
+    // Notification
+    var $authorSRC = jQuery('#msgnotif').data('authorsrc');
+    jQuery('#msgnotif').on('click', function() {
+        jQuery('.uk-notification-message').prepend(jQuery('<img>',{width:'40',height:'40',alt:'CapperAuthor',src:$authorSRC}));
+    });
+
+
     // Change Link to Profile Avatar
     if ( jQuery('.um-account.um-editing').length ) {
         var profileLink = jQuery('.um-account.um-editing').find('.um-account-meta-img a').attr('href').replace(/\/$/, '');
@@ -95,5 +102,4 @@
     }
 
 })(jQuery);
-
 

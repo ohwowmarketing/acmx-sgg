@@ -14,10 +14,9 @@ add_action('wp_enqueue_scripts', function() {
     wp_enqueue_script( 'uikit', 'https://cdn.jsdelivr.net/npm/uikit@'.$v.'/dist/js/uikit.min.js', ['jquery'], null, true );
     wp_enqueue_script( 'uikit-icons', 'https://cdn.jsdelivr.net/npm/uikit@'.$v.'/dist/js/uikit-icons.min.js', null, null, true );
 
+    wp_enqueue_style( 'main', _styles.'main.min.css' );
     wp_enqueue_script( 'main', _scripts.'main.min.js', null, null, true );
     // wp_enqueue_script( 'icon', _scripts.'icons.min.js', null, null, true );
-
-    wp_enqueue_style( 'main', _styles.'main.min.css' );
 
     $postName = '';
     # Not Found

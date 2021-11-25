@@ -163,6 +163,7 @@
 
         .ui-ch-channel {
             position: relative;
+            display: none;
             font-family: $regular;
             font-size: 12px;
             color: #FFF;
@@ -185,20 +186,29 @@
 
         .ui-ch-action {
             display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
 
-            .ui-ch-moreaction,
-            .ui-ch-moreaction-alt {
+            .ui-ch-moreaction {
                 display: flex;
+                justify-content: space-between;
                 align-items: center;
+                width: 100%;
                 height: 30px;
-                margin-left: 15px;
+                // margin-left: 15px;
 
-                >a {
+                .ui-ch-moreaction-nav {
+                    height: 30px;
+                    margin-left: 15px;
+                }
+
+                .ui-ch-moreaction-nav>a {
                     display: inline-block;
                     width: 30px;
                 }
 
-                >a img {
+                .ui-ch-moreaction-nav>a img {
                     display: block;
                     width: 30px !important;
                     height: 30px !important;
@@ -207,6 +217,7 @@
 
                 select {
                     font-size: 12px;
+                    max-width: 240px;
                     height: 30px;
                     border-radius: 3px;
                     @include sharpText();
@@ -226,6 +237,19 @@
             }
 
         }
+
+        @media ( min-width: 640px ) {
+            
+            .ui-ch-channel {
+                display: block;
+                min-width: 240px;
+            }
+
+            .ui-ch-action .ui-ch-moreaction {
+                justify-content: flex-end;
+            }
+
+        } 
     }
 
 
@@ -573,11 +597,21 @@
 
 .uk-notification {
     .uk-notification-message {
-        background: $sgg-green;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        background: $dangered;
         border-radius: 3px;
+        padding-right: 50px;
+        gap: 15px;
 
         .uk-close {
             color: #FFF;
+        }
+
+        img {
+            // margin-right: 15px;
+            border-radius: 3px;
         }
 
         svg {
@@ -585,10 +619,11 @@
         }
 
         div {
-            font-family: $sbold;
-            font-size: 16px;
-            color: rgba(#FFF, .8);
-            @include sharpText();
+            font-family: $regular;
+            font-size: 12px;
+            color: rgba(#FFF, 1);
+            text-transform: uppercase;
+            // @include sharpText();
         }
     }
 }
