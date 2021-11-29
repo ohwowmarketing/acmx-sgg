@@ -84,8 +84,8 @@
   }
 
   // Load Events
-  jQuery(document).ready(UTIL.loadEvents)
-})(jQuery)
+  jQuery(document).ready(UTIL.loadEvents);
+})(jQuery);
 
 //*
 // Add event listener offline to detect network loss.
