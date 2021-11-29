@@ -103,7 +103,7 @@
         if(response == 'yes') {
             UIkit.notification('Welcome! You are now logged-in.', { status: 'primary', pos:'top-right', timeout: 3500 });
         } else {
-            UIkit.notification('See Yah! You are now logged-out.', { status: 'primary', pos:'top-right', timeout: 3500 });
+            // UIkit.notification('See Yah! You are now logged-out.', { status: 'primary', pos:'top-right', timeout: 3500 });
         }
     });
 
