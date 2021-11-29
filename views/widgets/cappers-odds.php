@@ -29,7 +29,7 @@ while ( $loopCappers->have_posts() ) : $loopCappers->the_post();
                 <div class="uk-grid-small uk-flex-top uk-flex-between uk-flex-middle" uk-grid>
                     <div class="uk-width-expand uk-grid-small -toggle-me" uk-grid>
                         <div class="uk-width-auto">
-                            <img src="<?php echo get_avatar_url($author); ?>" class="uk-border-rounded" alt="<?php echo get_the_author_meta('nicename', $author); ?>" width="40px" height="40px">
+                            <img src="<?php echo get_avatar_url($author); ?>" class="uk-border-rounded" alt="<?php echo get_the_author_meta('display_name', $author); ?>" width="40px" height="40px">
                         </div>
                         <div class="uk-width-expand">
                             <small><?php echo get_the_author_meta('display_name'); ?></small>
@@ -39,7 +39,7 @@ while ( $loopCappers->have_posts() ) : $loopCappers->the_post();
                     <?php 
                     if ( $notif ) : ?>
                     <div class="uk-width-auto --cappers-action" uk-scrollspy="target: #msgnotif; cls: uk-animation-fade uk-animation-shake; delay: 2500">
-                        <a href="javascript:void(0)" id="msgnotif" onclick="UIkit.notification({message: '<?php echo addslashes($msgnotif) ?>', pos: 'top-right', timeout: 10000})" uk-tooltip title="Hi! I have a quick message." data-authorsrc="<?php echo get_avatar_url($author); ?>"><!-- &nbsp; --></a>
+                        <a href="javascript:void(0)" id="msgnotif" uk-tooltip title="Hi! I have a quick message." onclick="UIkit.notification({pos: 'top-right', timeout: 10000, message: '<img src=\'<?php echo get_avatar_url($author); ?>\' width=\'40\' alt=\'<?php echo get_the_author_meta('display_name', $author); ?>\' > <?php echo addslashes($msgnotif); ?>'})"><!-- &nbsp; --></a>
                     </div>
                     <?php endif; ?>
                 </div>

@@ -90,10 +90,17 @@
     }
 
     // Notification
-    var $authorSRC = jQuery('#msgnotif').data('authorsrc');
-    jQuery('#msgnotif').on('click', function() {
-        jQuery('.uk-notification-message').prepend(jQuery('<img>',{width:'40',height:'40',alt:'CapperAuthor',src:$authorSRC}));
-    });
+    // var $authorSRC = jQuery('#msgnotif').data('authorsrc');
+    // jQuery('#msgnotif').on('click', function() {
+
+    //     jQuery('.uk-notification').addClass('CapperAlertMsg');
+
+    //     jQuery('.CapperAlertMsg .uk-notification-message').prepend(jQuery('<img>',{id:'CapperAuthor',width:'40',height:'40',alt:'CapperAuthor',src:$authorSRC}));
+    //     // if($('#CapperAuthor').length < 0){
+    //     // }
+    //     console.log($('#CapperAuthor').length);
+
+    // });
 
     var data = {
         action: 'is_user_logged_in'

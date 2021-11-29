@@ -614,9 +614,6 @@
 
 .uk-notification {
     .uk-notification-message {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
         background: $dangered;
         border-radius: 3px;
         padding-right: 50px;
@@ -628,9 +625,18 @@
             color: #FFF;
         }
 
+        >div {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
         img {
             // margin-right: 15px;
+            // float: left;
+            margin-right: 15px;
             border-radius: 3px;
+            vertical-align: middle;
         }
 
         svg {
