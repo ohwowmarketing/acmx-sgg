@@ -1,10 +1,10 @@
 ;(function ($) {
-  var $, $uri, $plugin, $vendor, $modal, theme
+  var $, $uri, $plugin, $vendor, $modal, theme;
 
   //* Create Root Path
-  $uri = window.location.origin
-  $plugin = $uri + '/wp-content/themes/acmx-sgg/resources/scripts/inc/'
-  $vendor = $uri + '/wp-content/themes/acmx-sgg/vendor/'
+  $uri = window.location.origin;
+  $plugin = $uri + '/wp-content/themes/acmx-sgg/resources/scripts/inc/';
+  $vendor = $uri + '/wp-content/themes/acmx-sgg/vendor/';
 
   //* Convert jQuery $
   // $ = jQuery;
