@@ -30,6 +30,11 @@
     },
 
     // Cappers Profile
+    cappers_profile:{
+      init: function () {
+        jQuery.getScript($plugin + 'cappers.js');
+      }
+    },
     um_page_login: {
       init: function () {
         jQuery.getScript($plugin + 'cappers.js');

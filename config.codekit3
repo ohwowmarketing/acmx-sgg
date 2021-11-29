@@ -795,6 +795,14 @@
       "oAP" : "\/config\/auth\/reset.php",
       "oF" : 0
     },
+    "\/config\/author.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/config\/author.php",
+      "oF" : 0
+    },
     "\/config\/controller.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -2609,14 +2617,6 @@
       "oAP" : "\/views\/pages\/cappers-auth.php",
       "oF" : 0
     },
-    "\/views\/pages\/cappers-loop.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/views\/pages\/cappers-loop.php",
-      "oF" : 0
-    },
     "\/views\/pages\/cappers.php" : {
       "cB" : 0,
       "ft" : 8192,
@@ -2735,14 +2735,6 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/views\/pages\/sitemap.php",
-      "oF" : 0
-    },
-    "\/views\/pages\/yana.php" : {
-      "cB" : 0,
-      "ft" : 8192,
-      "hM" : 0,
-      "oA" : 0,
-      "oAP" : "\/views\/pages\/yana.php",
       "oF" : 0
     },
     "\/views\/singles\/cappers.php" : {

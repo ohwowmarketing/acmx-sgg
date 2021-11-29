@@ -484,6 +484,7 @@
         }
 
         .um-toggle-terms {
+            display: none !important;
             margin-top: 15px;
         }
 
@@ -518,10 +519,15 @@
     }
 
     // Terms UI
-    .um-terms-conditions-content {        
+    .um-terms-conditions-content {
+        position: relative;
+        display: block !important;
+        max-height: 350px;
+        padding: 20px;
         border: 1px solid #DDD;
         border-radius: 5px;
-        padding: 20px;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
 
         * {
             // color: #FFF !important;
@@ -530,7 +536,7 @@
         }
 
         .um-hide-terms {
-            display: inline-block;
+            display: none !important;
             text-align: center;
             margin-bottom: 15px !important;
         }
@@ -547,6 +553,24 @@
         }
     }
 
+    .um-field-type_terms_conditions {
+
+        .um-field-area:nth-child(2) {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .um-field-checkbox {
+            display: inline-block !important;
+        }
+
+        .um-field-checkbox-state {
+            top: -1px;
+        }
+
+    }
+
+
     &.um-password {
         .um-field-password label {
             color: #444 !important;
@@ -557,13 +581,6 @@
     // Text Block UI
     .um-field-block {
         font-size: 14px !important;
-    }
-
-    // Terms
-    .um-terms-conditions-content {
-        max-height: 350px;
-        overflow-y: scroll;
-        -webkit-overflow-scrolling: touch;
     }
 
     .um-notice {
@@ -606,6 +623,8 @@
         gap: 15px;
 
         .uk-close {
+            top: 10px !important;
+            right: 10px !important;
             color: #FFF;
         }
 

@@ -1,94 +1,58 @@
 <?php
-
 // Get Author Meta
 $author_id = get_the_author_meta( 'ID' );
 
-$posts = new WP_Query ([
-    'post_type'       => 'cappers_corner', // This is where we'll know if it's a capper
-    'author'          => $author_id, // This is pulled from the loop
-    'post_status'     => 'publish', // Make sure all are published
-    'meta_query'      => [
-        [ 
-            'key'     => 'gamepick_prediction', 
-            'value'   => 1, 
-            'compare' => '=', 
-            'type'    => 'NUMERIC' 
-        ],
-    ],
-]);
+// Brackets
+$correct  = get_field('win_bracket', 'user_'.$author_id.'');
+$wrong    = get_field('loss_bracket', 'user_'.$author_id.'');
+$winpct   = get_field('win_pct', 'user_'.$author_id.'');
 
-// echo '<pre>';
-// print_r($posts);
-// echo '</pre>';
-
-while ($posts->have_posts()) : $posts->the_post();
-
-    $postCount = $posts->post_count; // Count Author Total Post base on Meta Query
-    $userID    = $posts->post->post_author; // Get author ID
-
-endwhile;
-
-$loopCappers = new WP_Query([ 'post_type' => 'cappers_corner', 'orderby' => 'date', 'order' => 'DESC', 'posts_per_page' => -1 ]);
-while ( $loopCappers->have_posts() ) : $loopCappers->the_post();
-
-    $author = get_the_author_meta('ID'); // Get author ID base on Post
-    $user_post_count = count_user_posts( $author, 'cappers_corner' ); // Count all current author post
-    $prediction = get_post_meta(get_the_ID(), 'gamepick_prediction', true);
-
-
-    // Check if Prediction matched
-    // If not, throw 0 from Incorrect meta_query
-    if ( $postCount != 1 ) {
-        $correct = 0;
-    } else {
-        $correct = $postCount;
-    }
-
-    // Calculate the rest of the predictions
-    $wrong = ((int)$user_post_count - (int)$correct);
-    $percent = ((int)$correct / (int)$user_post_count * 100);
-
-endwhile; wp_reset_postdata();
 ?>
 <main id="main" class="main" role="main">
     <div class="uk-container uk-container-xlarge">
         <div class="uk-grid-small" uk-grid>
             <div class="uk-width-expand@l">
 
-                <div class="uk-card uk-card-body" data-card="cappers-stats">
-                    <div class="uk-grid-small" uk-grid>
-                        <div class="uk-width-auto">
-                            <a class="avatar">
-                                <img src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo get_the_author_meta('nicename', $author); ?>" width="120px" height="120px">
-                            </a>
-                        </div>
-                        <div class="uk-widht-expand">
-                            <small class="author"><?php echo get_the_author_meta('nicename', $author_id); ?></small>
-                            <h1><?php the_title(); ?></h1>
-                            <div class="uk-child-width-auto" uk-grid>
-                                <div>
-                                    <div class="uk-panel">
-                                        Capper’s Record
-                                        <span class="uk-display-block value"><?php echo $correct; ?>–<?php echo abs($wrong); ?></span>
+                <div class="uk-card uk-card-default" data-card="cappers-stats">
+                    <div class="uk-card-body">
+                        <div class="uk-grid-small" uk-grid>
+                            <div class="uk-width-auto">
+                                <a class="avatar">
+                                    <img src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo get_the_author_meta('nicename', $author_id); ?>" width="120px" height="120px">
+                                </a>
+                            </div>
+                            <div class="uk-widht-expand">
+                                <small class="author"><?php echo get_the_author_meta('display_name', $author_id); ?></small>
+                                <h1><?php the_title(); ?></h1>
+                                <div class="uk-child-width-auto uk-margin-small-top" uk-grid>
+                                    <div>
+                                        <div class="uk-panel">
+                                            Capper’s Record
+                                            <span class="uk-display-block value"><?php echo $correct; ?>–<?php echo abs($wrong); ?></span>
+                                        </div>
                                     </div>
-                                </div>
-                                <div>
-                                    <div class="uk-panel">
-                                        Win PCT
-                                        <span class="uk-display-block value"><?php echo number_format((float)$percent, 2, '.', ''); ?>%</span>
+                                    <div>
+                                        <div class="uk-panel">
+                                            Win PCT
+                                            <span class="uk-display-block value"><?php echo number_format((float)$winpct, 2, '.', ''); ?>%</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        <div class="--modal-action">
+                            <a href="#cappers-standings" uk-toggle><span class="uk-visible@s">Cappers’ Standings</span></a>
+                        </div>
                     </div>
-                    <div class="--modal-action">
-                        <a href="#cappers-standings" uk-toggle><span class="uk-visible@s">Cappers’ Standings</span></a>
+
+                    <div class="uk-card-footer">
+                        <?php echo get_the_author_meta('description', $author_id); ?>
                     </div>
                 </div>
                 
                 <div class="uk-card uk-card-default" data-card="cappers-analysis">
                     <div class="uk-card-header">
-                        <h4><?php echo get_the_author_meta('nicename', $author_id); ?></h4>
+                        <h4><?php echo get_the_author_meta('display_name', $author_id); ?></h4>
                         <time datetime="<?php echo get_the_date('c'); ?>" itemprop="datePublished"><?php echo get_the_date('F j, Y'); ?></time>
                     </div>
                     <div class="uk-card-body">
