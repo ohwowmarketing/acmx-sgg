@@ -30,7 +30,7 @@ foreach( $users as $user ) {
     $countTrue = count($postTrue);
 
     // Update author's Win Bracket
-    update_field( 'field_61a32cd4f3b13', $countTrue, $post_id );
+    update_field( 'field_61a49dc5da108', $countTrue, $post_id );
 
     //
     // End $postTrue
@@ -55,7 +55,7 @@ foreach( $users as $user ) {
     $countFalse = count($postFalse);
 
     // Update author's Win Bracket
-    update_field( 'field_61a32cebf3b14', $countFalse, $post_id );
+    update_field( 'field_61a49dddda109', $countFalse, $post_id );
 
     //
     // End $postFalse
@@ -80,7 +80,7 @@ foreach( $users as $user ) {
     $countEmpty = count($postEmpty);
 
     // Update author's No Rate Bracket
-    update_field( 'field_61a45eba0db9b', $countEmpty, $post_id );
+    update_field( 'field_61a49dfdda10b', $countEmpty, $post_id );
 
     //
     // End $postEmpty
@@ -103,7 +103,7 @@ foreach( $users as $user ) {
 
     }
 
-   update_field( 'field_61a4037490f67', $winpct, $post_id );
+   update_field( 'field_61a49deeda10a', $winpct, $post_id );
 
 }
 
