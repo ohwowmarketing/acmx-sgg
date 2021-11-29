@@ -88,6 +88,18 @@
             });
         });
         jQuery('#skipToLink').trigger('click');
+
+        var reSmooth = /^#sgg/;
+        var id;
+        if ( reSmooth.test(location.hash) ) {
+            id = '#' + location.hash.replace(reSmooth, '');
+            $.smoothScroll({
+                scrollTarget: id,
+                offset: -62,
+                speed: 1000
+            });
+        }
+
     });
 
     // Cookie Sessions
