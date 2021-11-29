@@ -1,6 +1,7 @@
 <ul class="--cappers-wrapper" uk-accordion="active: false; content: > .uk-card .uk-card-body; toggle: > .uk-card .uk-card-header .uk-grid .-toggle-me">
 <?php 
 $sticky = get_option( 'sticky_posts' );
+$sticky = array_slice( $sticky, -1, 1 );
 $loopCappers = new WP_Query([ 'post_type' => 'cappers_corner', 'orderby' => 'date', 'order' => 'DESC', 'posts_per_page' => -1 ]);
 
 while ( $loopCappers->have_posts() ) : $loopCappers->the_post();
