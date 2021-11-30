@@ -21,7 +21,7 @@ $cappers = new WP_Query([ 'post_type' => 'page', 'page_id' => '2053' ]);
 
                             <div class="uk-grid-title">
                                 <h4>Cappers Corner Picks</h4>
-                                <p>Top picks of the day</p>
+                                <p>Picks of the day. Click each capper for detail.</p>
                             </div>
 
                             <!-- Dynamic Cappers Here -->
