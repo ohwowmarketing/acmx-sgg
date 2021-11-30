@@ -33,7 +33,7 @@ $authorsQuery = new WP_User_Query( $authors ); ?>
                         <tr>
                             <td>
                                 <a class="uk-width-auto"><img src="<?php echo get_avatar_url($user->ID); ?>" class="uk-border-rounded" alt="<?php echo get_the_author_meta('display_name', $user->ID); ?>" width="40px" height="40px"></a>
-                                <h4><?php echo $user->user_nicename; ?></h4>
+                                <h4><?php echo $user->display_name; ?></h4>
                             </td>
                             <td><span class="bracket-winloss"><?php echo $correct; ?> - <?php echo abs($wrong); ?></span></td>
                             <td><span class="bracket-winpercentage"><?php echo number_format((float)$winpct, 2, '.', ''); ?>%</span></td>

@@ -18,7 +18,7 @@ $winpct   = get_field('win_pct', 'user_'.$author_id.'');
                         <div class="uk-grid-small" uk-grid>
                             <div class="uk-width-auto">
                                 <a class="avatar">
-                                    <img src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo get_the_author_meta('nicename', $author_id); ?>" width="120px" height="120px">
+                                    <img src="<?php echo get_avatar_url($author_id); ?>" alt="<?php echo get_the_author_meta('display_name', $author_id); ?>" width="120px" height="120px">
                                 </a>
                             </div>
                             <div class="uk-widht-expand">
