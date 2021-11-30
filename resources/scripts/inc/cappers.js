@@ -17,8 +17,6 @@
     // Double Check Checkbox if Checked Properly
     jQuery('.um-register #um-submit-btn').prop("disabled", true);
     jQuery('.um-register .um-field-checkbox').on('click', function() {
-        // jQuery(this).find('input').prop('checked', true);
-        
         if ( jQuery('input[name=use_terms_conditions_agreement]').is(':checked') && !jQuery(this).hasClass('active') ) {
             jQuery('.um-register #um-submit-btn').prop("disabled", false);
         } else {
@@ -72,6 +70,10 @@
     // Password Success
     if ( $.urlParam('updated') == 'password_changed' ) {
         UIkit.notification('You have successfully changed your password.', { status: 'primary', pos:'top-right', timeout: 3500 });
+        
+        var panel = UIkit.toggle('#form-btn');
+        panel.toggle();
+        UIkit.switcher('.uk-switcher').show(0);
     }
  
     // Registration Success
@@ -102,23 +104,26 @@
 
     // });
 
-    var data = {
-        action: 'is_user_logged_in'
-    };
+    // var data = {
+    //     action: 'is_user_logged_in'
+    // };
 
-    jQuery.post(ajaxurl, data, function(response) {
-        if(response == 'yes') {
-            UIkit.notification('Welcome! You are now logged-in.', { status: 'primary', pos:'top-right', timeout: 3500 });
-        } else {
-            // UIkit.notification('See Yah! You are now logged-out.', { status: 'primary', pos:'top-right', timeout: 3500 });
-        }
-    });
+    // jQuery.post(ajaxurl, data, function(response) {
+    //     if(response == 'yes') {
+    //         UIkit.notification('Welcome! You are now logged-in.', { status: 'primary', pos:'top-right', timeout: 3500 });
+    //     } else {
+    //         // UIkit.notification('See Yah! You are now logged-out.', { status: 'primary', pos:'top-right', timeout: 3500 });
+    //     }
+    // });
 
 
     // Change Link to Profile Avatar
     if ( jQuery('.um-account.um-editing').length ) {
         var profileLink = jQuery('.um-account.um-editing').find('.um-account-meta-img a').attr('href').replace(/\/$/, '');
         jQuery('.um-account.um-editing').find('.um-account-meta-img a').attr('href',profileLink+'?um_action=edit');
+
+        jQuery('.um-account.um-editing').find('.um-account-name a').attr('href',profileLink+'?um_action=edit').text('Update Avatar');
+
     }
 
 })(jQuery);

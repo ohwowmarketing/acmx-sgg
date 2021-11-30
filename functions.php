@@ -21,6 +21,7 @@ $fn_config = [
     'config/api/against-the-spread.php',
     'config/api/futures.php',
     'config/auth/login.php',
+    'config/auth/register.php',
     'config/author.php',
 ];
 foreach ( $fn_config as $config ) {
@@ -64,4 +65,3 @@ define ( '_kuki', 'views/attributes/cookies');
 define ( 'widget',   'views/widgets/' );
 define ( 'includes', 'includes/' );
 define ( 'auth', 'config/auth/' );
-

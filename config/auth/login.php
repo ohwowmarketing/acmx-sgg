@@ -1,49 +1,84 @@
 <?php
 
-function ajax_check_user_logged_in() {
-    echo is_user_logged_in() ? 'yes' : 'no';
-    die();
-}
-add_action('wp_ajax_is_user_logged_in', 'ajax_check_user_logged_in');
-add_action('wp_ajax_nopriv_is_user_logged_in', 'ajax_check_user_logged_in');
+// global $current_user;
+// get_currentuserinfo();
 
-// // Execute the action only if the user isn't logged in
-// if (!is_user_logged_in()) {
-//     add_action('init', 'ajax_login_init');
-// }
+// print_r($current_user);
 
-// function ajax_login_init() {
+// // Show Login Welcome
+// add_action( 'wp_login', 'welcome_user' );
+// function welcome_user( $current_user ) {
 
-//     // wp_register_script( 'ajax-login-script', _uri . '/resources/scripts/inc/cappers.js', ['jquery'] );
-//     wp_enqueue_script( 'ajax-login-script' );
+    
 
-//     wp_localize_script( 'ajax-login-script', 'ajax_login_object', [
-//         'ajaxurl' => admin_url( 'admin-ajax.php' ),
-//         'redirecturl' => home_url('cappers-corner'),
-//         'loadingmessage' => __( 'Sending user info, please wait...' )
-//     ]);
-
-//     // Enable the user with no privileges to run ajax_login() in AJAX
-//     add_action( 'wp_ajax_nopriv_ajaxlogin', 'ajax_login' );
-// }
-
-// // Check if users input information is valid
-// function ajax_login() {
-//     // First check the nonce, if it fails the function will break
-//     check_ajax_referer( 'ajax-login-nonce', 'security' );
-
-//     //Nonce is checked, get the POST data and sign user on
-//     $info = [];
-//     $info['user_login'] = $_POST['username'];
-//     $info['user_password'] = $_POST['password'];
-//     $info['remember'] = true;
-
-//     $user_signon = wp_signon( $info, '' );
-//     if ( is_wp_error( $user_signon )) {
-//         echo json_encode( array( 'loggedin'=>false, 'message'=>__( 'Wrong username or password!' )));
-//     } else {
-//         echo json_encode( array( 'loggedin'=>true, 'message'=>__('Login successful, redirecting...' )));
+//     wp_enqueue_script('uikit', 'https://cdn.jsdelivr.net/npm/uikit@3.9.1/dist/js/uikit.min.js', ['jquery'], null, true);
+//     if ( $current_user->ID != '' ) {
+//         wp_enqueue_script( 'um_account_error', get_template_directory_uri().'/resources/scripts/um/login_msg.js', ['jquery'], null, true );
 //     }
 
-//     die();
 // }
+
+// Check for errors
+add_action( 'um_submit_form_errors_hook_logincheck', 'loginCheck', 10, 1 );
+function loginCheck($args)
+{
+    global $ultimatemember;
+    $is_email = false;
+    $form_id = $args['form_id'];
+    $mode = $args['mode'];
+
+    wp_enqueue_script('uikit', 'https://cdn.jsdelivr.net/npm/uikit@3.9.1/dist/js/uikit.min.js', ['jquery'], null, true);
+    if (isset($args['username']) && $args['username'] == '') {
+        wp_enqueue_script( 'um_account_error', _scripts.'um/account_error.js', ['jquery'], null, true );
+    }
+    if (isset($args['user_login']) && $args['user_login'] == '') {
+        wp_enqueue_script( 'um_account_error', _scripts.'um/account_error.js', ['jquery'], null, true );
+    }
+    if (isset($args['user_email']) && $args['user_email'] == '') {
+        wp_enqueue_script( 'um_account_error', _scripts.'um/account_error.js', ['jquery'], null, true );
+    }
+    if (isset($args['username'])) {
+        $field = 'username';
+        if (is_email($args['username'])) {
+            $is_email = true;
+            $data = get_user_by('email', $args['username']);
+            $user_name = isset($data->user_login) ? $data->user_login : null;
+        } else {
+            $user_name = $args['username'];
+        }
+    } else {
+        if (isset($args['user_email'])) {
+            $field = 'user_email';
+            $is_email = true;
+            $data = get_user_by('email', $args['user_email']);
+            $user_name = isset($data->user_login) ? $data->user_login : null;
+        } else {
+            $field = 'user_login';
+            $user_name = $args['user_login'];
+        }
+    }
+    if (!username_exists($user_name)) {
+        if ($is_email) {
+            wp_enqueue_script( 'um_account_error', _scripts.'um/account_error.js', ['jquery'], null, true );
+        } else {
+            wp_enqueue_script( 'um_account_error', _scripts.'um/account_error.js', ['jquery'], null, true );
+        }
+    } else {
+        if ($args['user_password'] == '') {
+            wp_enqueue_script( 'um_account_error', _scripts.'um/account_error.js', ['jquery'], null, true );
+        }
+    }
+    $user = get_user_by('login', $user_name);
+    if ($user && wp_check_password($args['user_password'], $user->data->user_pass, $user->ID)) {
+        $ultimatemember->login->auth_id = username_exists($user_name);
+    } else {
+        wp_enqueue_script( 'um_account_error', _scripts.'um/account_error.js', ['jquery'], null, true );
+    }
+}
+
+// Remove Lost Password Link
+function vpsb_remove_lostpassword_text ( $text ) {
+    if ($text == 'Lost your password?'){$text = '';}
+        return $text;
+    }
+add_filter( 'gettext', 'vpsb_remove_lostpassword_text' );

@@ -9,7 +9,7 @@ add_action('wp_enqueue_scripts', function() {
     global $post;
 
     # UIKit 3
-    $v = '3.5.5'; // UIKit Version(s)
+    $v = '3.9.1'; // UIKit Version(s)
     wp_enqueue_style( 'uikit', 'https://cdn.jsdelivr.net/npm/uikit@'.$v.'/dist/css/uikit.min.css' );
     wp_enqueue_script( 'uikit', 'https://cdn.jsdelivr.net/npm/uikit@'.$v.'/dist/js/uikit.min.js', ['jquery'], null, true );
     wp_enqueue_script( 'uikit-icons', 'https://cdn.jsdelivr.net/npm/uikit@'.$v.'/dist/js/uikit-icons.min.js', null, null, true );
