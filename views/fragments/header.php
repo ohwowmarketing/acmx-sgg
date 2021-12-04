@@ -54,7 +54,7 @@
                         <div class="sb-info-description"><p></p></div>
                     </div>
                 </div>
-                <div class="uk-width-3-4">
+                <div class="uk-width-2-3@s">
                     <div class="sb-info-row">
                         <div>
                             <a href="#bet-now" data-sbid="" class="uk-button uk-button-primary uk-button-small hero-sb-bet-now" uk-toggle="">Bet Now</a>
@@ -65,7 +65,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="uk-width-1-4">
+                <div class="uk-width-1-3@s">
                     <div class="sb-info-row --logo"></div>
                 </div>
                 <div class="uk-width-auto">
