@@ -315,7 +315,7 @@ function sportsbook_header() {
     ];
   }
   wp_reset_query(); ?>
-  <ul class="uk-slider-items <?php echo $mobile_width . ' ' . $desktop_width; ?>" uk-height-match="target: > li > div">
+  <ul class="uk-slider-items <?php echo $mobile_width . ' ' . $desktop_width; ?>" uk-height-match="target: > li > div > .hero-sb-content > .hero-sb-data">
     <?php foreach ($sbs as $sb) : ?>
     <li>
       <div class="hero-sb-item with-overlay" <?php echo $sb['background'] !== '' ? 'style="background-image: url(' . $sb['background'] . ')"' : ''; ?>>

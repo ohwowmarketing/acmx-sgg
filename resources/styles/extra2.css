@@ -168,9 +168,10 @@
   height: auto;
   color: #ffffff;
   background: rgba(0, 0, 0, 0.85);
-  background-position: right 15px bottom 0;
+  background-position: 97.5% 90%;
   background-repeat: no-repeat;
   border-radius: 10px;
+  background-size: 240px auto;
 }
 
 .hero-sb-info.uk-grid {
@@ -313,13 +314,18 @@ td .rating-container {
 }
 
 .hero-sb-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding-top: 20px;
   padding-bottom: 20px;
+  min-height: 140px;
   /* z-index: 2; */
 }
 
 .hero-sb-logo img {
-  max-width: 50%;
+  /*max-width: 50%;*/
+  max-width: 200px;
 }
 
 /* .hero-sb-data {
