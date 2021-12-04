@@ -37,7 +37,7 @@
         </div>
         <?php endif; ?>        
         <div class="sb-info">
-            <div uk-grid class="hero-sb-info uk-grid-collapse uk-flex-center">
+            <div uk-grid class="hero-sb-info uk-grid-collapse uk-flex-center uk-flex-middle">
                 <div class="uk-width-1-1 uk-width-1-2@s uk-width-1-3@m">
                     <div class="sb-info-col">
                         <h2><span></span> Review & Signup Offer</h2>
