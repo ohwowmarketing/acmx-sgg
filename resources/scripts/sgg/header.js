@@ -86,7 +86,8 @@ jQuery(document).ready(function ($) {
         $('.sb-info-terms p').html(sb.bonus)
         $('.sb-info-description').html(sb.description)
         $('.sb-info table tbody').html('')
-        $('.hero-sb-info').css('background-image', `url('${sb.logo}')`)
+        // $('.hero-sb-info').css('background-image', `url('${sb.logo}')`)
+        $('.sb-info').find('.--logo').html('<img src="'+sb.logo+'" width="240" alt="'+sb.title+'">');
         if (sb.ratings) {
           sb.ratings.map((rating) => {
             const stars = star_rating(rating.rating, 5)

@@ -273,7 +273,7 @@ add_action( 'wp_ajax_nopriv_sportsbook_info', 'sportsbook_info_ajax' );
 function get_width_class( $columns, $is_mobile ) {
   $width = 'uk-child-width-1-' . $columns;
   if ( ! $is_mobile ) {
-    $width .= '@m';
+    $width .= '@l';
   }
   return $width;
 }
@@ -315,7 +315,7 @@ function sportsbook_header() {
     ];
   }
   wp_reset_query(); ?>
-  <ul class="uk-slider-items <?php echo $mobile_width . ' ' . $desktop_width; ?>" uk-height-match="target: > li > div > .hero-sb-content > .hero-sb-data">
+  <ul class="uk-slider-items <?php echo $mobile_width . ' uk-child-width-1-2@s uk-child-width-1-3@m ' . $desktop_width; ?>" uk-height-match="target: > li > div > .hero-sb-content > .hero-sb-data">
     <?php foreach ($sbs as $sb) : ?>
     <li>
       <div class="hero-sb-item with-overlay" <?php echo $sb['background'] !== '' ? 'style="background-image: url(' . $sb['background'] . ')"' : ''; ?>>

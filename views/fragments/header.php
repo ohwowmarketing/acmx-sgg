@@ -37,29 +37,24 @@
         </div>
         <?php endif; ?>        
         <div class="sb-info">
-            <div uk-grid class="hero-sb-info uk-grid-collapse uk-child-width-expand">
-                <div class="uk-width-expand">
+            <div uk-grid class="hero-sb-info uk-grid-collapse uk-flex-center">
+                <div class="uk-width-1-1 uk-width-1-2@s uk-width-1-3@m">
                     <div class="sb-info-col">
                         <h2><span></span> Review & Signup Offer</h2>
-                        <table><tbody></tbody></table>
+                        <table class="uk-table uk-table-responsive"><tbody></tbody></table>
                     </div>
                 </div>
-                <div class="uk-width-auto">
+                <div class="uk-width-1-1 uk-width-1-2@s uk-width-1-3@m">
                     <div class="sb-info-col uk-text-center">
                         <div id="top-loader" class="rating-dial"></div>
                     </div>
                 </div>
-                <div class="uk-width-expand">
+                <div class="uk-width-1-1 uk-width-1-3@m">
                     <div class="sb-info-col">
                         <div class="sb-info-description"><p></p></div>
                     </div>
                 </div>
-                <div class="uk-width-auto">
-                    <div class="sb-info-col">
-                        <button class="uk-modal-close-default close-info" type="button" uk-close></button>
-                    </div>
-                </div>
-                <div class="uk-width-1-1">
+                <div class="uk-width-3-4">
                     <div class="sb-info-row">
                         <div>
                             <a href="#bet-now" data-sbid="" class="uk-button uk-button-primary uk-button-small hero-sb-bet-now" uk-toggle="">Bet Now</a>
@@ -68,6 +63,14 @@
                             <p></p>
                             <span>Terms and Conditions Apply</span>
                         </div>
+                    </div>
+                </div>
+                <div class="uk-width-1-4">
+                    <div class="sb-info-row --logo"></div>
+                </div>
+                <div class="uk-width-auto">
+                    <div class="sb-info-col">
+                        <button class="uk-modal-close-default close-info" type="button" uk-close></button>
                     </div>
                 </div>
             </div>

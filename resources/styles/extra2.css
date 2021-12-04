@@ -165,13 +165,16 @@
   right: 0;
   z-index: 999;
   width: 100%;
-  height: auto;
+  padding: 15px;
+  max-height: 400px;
   color: #ffffff;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0,0,0,0.95);
   background-position: 97.5% 90%;
   background-repeat: no-repeat;
   border-radius: 10px;
   background-size: 240px auto;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
 
 .hero-sb-info.uk-grid {
@@ -179,7 +182,7 @@
 }
 
 .sb-info-col {
-  padding: 30px;
+  padding: 15px 30px;
 }
 
 /* .sb-info-col > div {
@@ -191,6 +194,16 @@
   margin-bottom: 20px;
 }
 
+.sb-info-col table th,
+.sb-info-col table td {
+  margin: 0;
+  padding: 0;
+}
+
+.sb-info-col table tr {
+  margin-bottom: 15px;
+}
+
 .sb-info-col table th {
   font-size: 0.9rem;
   font-weight: normal;
@@ -198,7 +211,24 @@
 }
 
 td .rating-container {
-  padding-left: 15px;
+  /*padding-left: 15px;*/
+}
+
+@media ( min-width: 960px ) {
+
+  .sb-info-col table th {
+    padding-bottom: 5px;
+  }
+
+  .sb-info-col table td {
+    padding-bottom: 5px;
+    padding-left: 30px;
+  }
+
+  .sb-info-col table tr {
+    margin-bottom: 0;
+  }
+
 }
 
 .sb-info h2,
@@ -227,6 +257,7 @@ td .rating-container {
 .rating-dial {
   width: 200px;
   height: 200px;
+  margin: auto;
 }
 
 .rating-dial > div > div:nth-child(2) {
@@ -251,14 +282,16 @@ td .rating-container {
 }
 
 .sb-info-row {
-  display: flex;
-  justify-content: flex-start;
-  margin-left: 30px;
-  padding-bottom: 30px;
+  /*display: flex;*/
+  /*justify-content: flex-start;*/
+  /*margin-left: 30px;*/
+  /*padding-bottom: 30px;*/
+  padding: 15px 30px;
 }
 
 .sb-info-row .sb-info-terms {
-  margin-left: 20px;
+  /*margin-left: 20px;*/
+  margin-top: 15px;
 }
 .sb-info-row .sb-info-terms p {
   font-size: 0.9em;
@@ -494,6 +527,11 @@ h2.uk-modal-title {
 
 .sb-info-description p {
   font-size: 0.9em;
+  margin: 15px 0 0;
+}
+
+.sb-info-description p:first-child {
+  margin-top: 0;
 }
 
 [data-card='guides-full'] .uk-grid a {
