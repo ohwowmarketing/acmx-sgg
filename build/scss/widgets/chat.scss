@@ -23,6 +23,15 @@
         padding: 0;
         border: 1px solid #DDD;
         border-radius: 5px;
+        z-index: 1;
+
+        &.error-submission {
+            border: 1px solid $danger;
+
+            .emojionearea-editor:empty:before {
+                color: $danger !important;
+            }
+        }
 
         .ui-cm-avatar {
             display: none;
@@ -68,11 +77,19 @@
             border: none;
         }
 
-        // .emojionearea .emojionearea-editor:empty::before {
-        //     font-size: 14px;
-        //     color: #95969c;
-        //     @include sharpText();
-        // }
+        .emojionearea .emojionearea-editor {
+            padding: 0;
+            line-height: 32px;
+        }
+
+        .emojionearea .emojionearea-editor:empty::before {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            color: #CCC;
+            height: 32px;
+            padding-top: 4px;
+        }
 
         // .emojionearea .emojionearea-editor {
         //     display: flex;
@@ -295,6 +312,7 @@
         padding: 15px 15px 0;
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
+        z-index: 0;
 
         .--welcome {
             font-size: 14px;

@@ -1,0 +1,595 @@
+.quick-odds {
+  background-color: #000;
+  width: 100%;
+  min-height: 90px;
+  display: flex;
+}
+.sport-select {
+  background-color: #000;
+  width: 100px;
+}
+.sport-select form {
+  margin: 20px 10px;
+}
+.set-nav {
+  width: 50px;
+}
+/* .sportsbook-header-slider-section {
+  width: auto;
+}
+.sportsbook-header-slider-section li {
+  display: flex;
+  flex-direction: column;
+} */
+.slider-section {
+  background-color: #000;
+  width: calc(100% - 100px);
+}
+.slider-section li {
+  width: 140px;
+  height: 84px;
+  display: flex;
+  flex-direction: column;
+}
+.game {
+  height: 84px;
+  border: 5px solid #000;
+}
+.timeslot {
+  width: 100%;
+  background-color: #181b1d;
+  color: #fff;
+  font-size: 11px;
+  padding: 2px 5px;
+  border-bottom: 2px solid #000;
+}
+.team-column {
+  display: block;
+  background-color: #121314;
+  color: #fff;
+  min-width: 44px;
+  padding: 2px;
+  text-align: left;
+  font-size: 14px;
+}
+.spread-column {
+  display: block;
+  background-color: #121314;
+  color: #00a305;
+  text-align: right;
+  font-size: 14px;
+  min-width: 48px;
+  padding: 2px;
+  border-left: 2px solid #000;
+  border-right: 2px solid #000;
+}
+.totals-column {
+  display: block;
+  background-color: #121314;
+  color: #fff;
+  text-align: right;
+  font-size: 14px;
+  min-width: 38px;
+  padding: 0px 2px;
+  height: 40px;
+  line-height: 40px;
+}
+.date-display {
+  display: block;
+  background-color: #000;
+  color: #fff;
+  font-size: 11px;
+  text-transform: uppercase;
+  border-top: 3px solid #000;
+}
+.uk-icon.bg-grad {
+  background-color: rgba(24, 27, 29, 0.8);
+  color: #fff;
+  border-radius: 6px;
+}
+.uk-slider-items .odds-header-spinner {
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+.odds-game-bet-now {
+  margin-left: 12px;
+}
+
+.odds-game-bet-now a {
+  border-radius: 2px !important;
+  color: #666 im !important;
+}
+
+[data-card='betting-odds'] tbody td img.dk {
+  width: 25px;
+  max-width: 25px;
+  height: 25px;
+  max-height: 25px;
+  padding-right: 0;
+}
+
+.footer-social-icon {
+  width: 50px !important;
+  height: 50px !important;
+  background-color: rgba(255, 255, 255, 0.7) !important;
+  color: #111 !important;
+}
+
+.hero-sb {
+  background: url('https://sportsgamblingguides.com/wp-content/uploads/2020/08/Vegas-Strip-Header-Photo.jpg')
+    rgba(0, 0, 0, 0.74) 50% 50% no-repeat;
+  background-size: cover;
+  background-blend-mode: multiply;
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.hero-sb h1 {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1.15rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.hero-sb-item {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-bottom: 3px solid #00a305;
+  position: relative;
+}
+
+.hero-sb-info-sm {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  text-align: left;
+  color: #fff;
+  display: none;
+}
+
+.sb-info {
+  position: relative;
+}
+
+.hero-sb-info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  width: 100%;
+  padding: 15px;
+  max-height: 400px;
+  color: #ffffff;
+  background: rgba(0,0,0,0.95);
+  background-position: 97.5% 90%;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  background-size: 240px auto;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
+.hero-sb-info.uk-grid {
+  display: none;
+}
+
+.sb-info-col {
+  padding: 15px 30px;
+}
+
+/* .sb-info-col > div {
+  padding-left: 20px;
+  padding-right: 20px;
+} */
+
+.sb-info-col table {
+  margin-bottom: 20px;
+}
+
+.sb-info-col table th,
+.sb-info-col table td {
+  margin: 0;
+  padding: 0;
+}
+
+.sb-info-col table tr {
+  margin-bottom: 15px;
+}
+
+.sb-info-col table th {
+  font-size: 0.9rem;
+  font-weight: normal;
+  text-align: left;
+}
+
+td .rating-container {
+  /*padding-left: 15px;*/
+}
+
+@media ( min-width: 960px ) {
+
+  .sb-info-col table th {
+    padding-bottom: 5px;
+  }
+
+  .sb-info-col table td {
+    padding-bottom: 5px;
+    padding-left: 30px;
+  }
+
+  .sb-info-col table tr {
+    margin-bottom: 0;
+  }
+
+}
+
+.sb-info h2,
+.hero-sb-info-sm h2 {
+  color: #fff;
+  font-family: OpenSans-Bold;
+  font-size: 1.2rem;
+}
+
+.sb-reviews-link {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.sb-reviews-link a {
+  text-transform: uppercase;
+  color: #fff;
+  font-size: 0.8em;
+}
+
+.sb-reviews-link a:hover,
+.sb-reviews-link a:active {
+  color: #00a305;
+}
+
+.rating-dial {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}
+
+.rating-dial > div > div:nth-child(2) {
+  margin-top: -20px !important;
+}
+
+.rating-dial > div > div:nth-child(3) {
+  margin-top: -40px !important;
+}
+
+.rating-dial-sm {
+  width: 120px;
+  height: 120px;
+}
+
+.rating-dial-sm > div > div:nth-child(2) {
+  margin-top: -14px !important;
+}
+
+.rating-dial-sm > div > div:nth-child(3) {
+  margin-top: -30px !important;
+}
+
+.sb-info-row {
+  /*display: flex;*/
+  /*justify-content: flex-start;*/
+  /*margin-left: 30px;*/
+  /*padding-bottom: 30px;*/
+  padding: 15px 30px;
+}
+
+.sb-info-row .sb-info-terms {
+  /*margin-left: 20px;*/
+  margin-top: 15px;
+}
+.sb-info-row .sb-info-terms p {
+  font-size: 0.9em;
+  line-height: 1.1;
+  margin-bottom: 0;
+}
+
+.sb-info-row .sb-info-terms span {
+  font-size: 0.7em;
+  color: #ccc;
+}
+
+.hero-sb-item-full-overlay {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
+.with-overlay:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 160px;
+  bottom: 0;
+  /* background: rgba(0, 0, 0, 0.7); */
+  z-index: 0;
+}
+
+@media (min-width: 960px) {
+  .with-overlay:after {
+    top: 90px;
+  }
+}
+
+@media (min-width: 1500px) {
+  .with-overlay:after {
+    top: 120px;
+  }
+}
+
+.hero-sb-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hero-sb-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  min-height: 140px;
+  /* z-index: 2; */
+}
+
+.hero-sb-logo img {
+  /*max-width: 50%;*/
+  max-width: 200px;
+}
+
+/* .hero-sb-data {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  text-align: left;
+  color: #fff;
+  width: 100%;
+  height: auto;
+} */
+
+.hero-sb-data {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  text-align: left;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.hero-sb-data h4 {
+  color: white;
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.hero-sb-data p {
+  color: white;
+  font-size: 0.75rem;
+  margin-bottom: 0;
+  margin-top: 0;
+  min-height: 32px;
+}
+
+.hero-sb-action {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.hero-sb-action a {
+  color: #fff;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  line-height: 16px;
+}
+
+.hero-sb-action a:hover,
+.hero-sb-action a:active {
+  color: #fff;
+  text-decoration: none;
+}
+
+.no-right-br {
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.7) !important;
+  padding: 7px 7px !important;
+  font-size: 0.7rem !important;
+}
+
+.no-left-br {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-left: 1px solid rgba(0, 0, 0, 0.2) !important;
+  font-size: 0.7rem !important;
+}
+
+#bet-now {
+  z-index: 99999;
+  text-align: center;
+}
+
+#bet-now .uk-modal-dialog {
+  border-radius: 10px;
+}
+
+#bet-now .uk-modal-dialog .bonus {
+  max-width: 60%;
+  margin: 0 auto 20px;
+}
+
+.modal-logo {
+  max-width: 30%;
+  text-align: center;
+  margin: 20px auto;
+}
+
+.bet-now-header {
+  background: url('https://sportsgamblingguides.com/wp-content/uploads/2020/08/Vegas-Strip-Header-Photo.jpg'),
+    rgba(0, 0, 0, 0.5) 50% 50% no-repeat;
+  background-size: 600px 125px;
+  background-blend-mode: multiply;
+  width: 600px;
+  height: 125px;
+  margin: -30px -30px 0 -30px;
+}
+
+.bet-now-header img {
+  max-width: 30%;
+  text-align: center;
+  margin: 20px auto;
+}
+
+#bet-now .outside {
+  display: none;
+  font-size: 0.9em;
+  max-width: 70%;
+  margin: 20px auto;
+}
+
+#bet-now .primary {
+  color: #00a305;
+}
+
+#bet-now .select-container {
+  max-width: 70%;
+  margin: 10px auto;
+}
+
+#bet-now .select-container .uk-button {
+  background-color: #00a305;
+  border-radius: 3px;
+  color: white;
+  font-family: OpenSans-Bold;
+}
+
+h2.uk-modal-title {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  margin-top: 0;
+}
+
+.rating-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-top: 4px;
+}
+
+.rating-circle {
+  background: #c67d24;
+  border-radius: 999px;
+  padding: 2px;
+  width: 14px;
+  height: 14px;
+  margin-right: 2px;
+}
+.rating-circle.half {
+  background: linear-gradient(to right, #c67d24 50%, #babab9 0);
+}
+.rating-circle.empty {
+  background: #babab9;
+}
+.rating-numeric {
+  color: #c67d24;
+  font-size: 0.7rem;
+  margin-left: 5px;
+}
+.rating {
+  margin-top: -16px;
+}
+
+.sb-info-description p {
+  font-size: 0.9em;
+  margin: 15px 0 0;
+}
+
+.sb-info-description p:first-child {
+  margin-top: 0;
+}
+
+[data-card='guides-full'] .uk-grid a {
+  color: #000;
+  font-weight: bold;
+  font-family: OpenSans-Bold;
+  font-size: 0.9em;
+}
+
+[data-card='guides-full'] .uk-grid a:hover,
+[data-card='guides-full'] .uk-grid a:active {
+  color: #00a305;
+  text-decoration: none;
+}
+
+.state-top-border > div:first-child,
+.state-top-border > div:nth-child(2) {
+  border-top: 1px solid #e1e2e9;
+}
+
+.state-outer-border {
+  color: #000;
+  margin-top: 0 !important;
+  font-weight: bold;
+  height: 61px;
+  border-bottom: 1px solid #e1e2e9;
+}
+
+.state-borders {
+  min-height: 60px;
+  border-right: 1px solid #e1e2e9;
+}
+
+.state-outer-border.uk-first-column {
+  border-left: 1px solid #e1e2e9;
+}
+
+.state-img {
+  padding: 10px;
+  min-height: 60px;
+  width: 45px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.state-img img {
+  filter: invert(31%) sepia(36%) saturate(7494%) hue-rotate(119deg)
+    brightness(104%) contrast(104%);
+  max-width: 25px;
+  max-height: 30px;
+}
+
+.state-name {
+  padding-left: 10px;
+  border-left: 1px solid #e1e2e9;
+  min-height: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

@@ -1,6 +1,6 @@
 <?php
 
-// acf_form_head();
+acf_form_head();
 
 // List all Cappers
 $users = get_users( [ 'role__in' => [ 'cappers' ] ] );
@@ -95,7 +95,11 @@ foreach( $users as $user ) {
 
     if ( $emptyBracket ) {
 
-        $winpct = (int)$winBracket / ((int)$totalPosts - (int)$emptyBracket) * 100;
+        if ( $lossBracket > 0 ) {
+            $winpct = (int)$winBracket / ((int)$totalPosts - (int)$emptyBracket) * 100;
+        } else {
+            $winpct = '0';
+        }
 
     } else {
 
