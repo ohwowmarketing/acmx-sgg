@@ -3,11 +3,33 @@
     // Add Autocomplete Off to the Registration
     jQuery('.um-register').find('form').attr('autocomplete','off');
 
-    // // Make sure all fields in Registration are empty
-    jQuery('.um-register form').find('input:text, input:password')
+    // Make sure all fields in Registration are empty from DOM
+    jQuery('.um-register form').find('input').not(':input[type=submit]')
                                .each(function(){
-                                    jQuery(this).val('');
+                                    jQuery(this).attr('value', '');
                                });
+
+    // Count the password to at least 8 characters long
+    jQuery(window).on('load', function() {
+
+        jQuery('.um-register form').find('#user_password-2158').on('focusout',function() {
+            if ( jQuery(this).val().length < 8 ) {
+                jQuery(this).parent('.um-field-area').addClass('notify').append('<small class="uk-text-danger uk-text-small uk-animation-fast uk-animation-fade">Password should be at least 8 characters long. Use upper & lower case letters, numbers & symbols.</small>');
+            }
+        });
+
+        jQuery('.um-register form').find('#user_password-2158').on('focusin', function() {
+            jQuery(this).parent('.notify').find('small').addClass('uk-animation-reverse').remove();
+            jQuery(this).parent('.notify').removeClass('.notify');
+        });
+
+    });
+
+    // $('input[name="noofppl"]').focusout(function(){
+    //   if($(this).val().length < 20){
+    //     alert("Minimum character is 20!!!");
+    //   }
+    // });                               
 
     // Accept & Read Terms
     // if ( jQuery('.um-terms-conditions-content').css('display') == 'none' ) {

@@ -6,25 +6,29 @@
                 <div class="uk-card uk-card-default uk-card-body" data-card="cappers-corner">
                     <div class="uk-card-title">
                         <h3><?php the_title(); ?></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                        <p><?php the_field( 'cc_sub_heading' ); ?></p>
                     </div>
 
                     <div uk-grid class="uk-grid-small uk-grid-divider --cappers-corner-wrapper">
-                        <div class="uk-width-auto@xl --cappers-profile-list">
+                        <div class="uk-width-auto@xl uk-flex-first@xl --cappers-profile-list">
 
                             <div class="uk-grid-title">
-                                <h4>Cappers Corner Picks</h4>
-                                <p>Picks of the day. Click each capper for detail.</p>
+                            <?php while ( have_rows( 'corner_picks' ) ) : the_row(); ?>
+                                <h4><?php the_sub_field( 'cc_title' ); ?></h4>
+                                <p><?php the_sub_field( 'cc_descriptions' ); ?></p>
+                            <?php endwhile; ?>
                             </div>
 
                             <!-- Dynamic Cappers Here -->
                             <?php echo get_template_part( widget . 'cappers-odds' ); ?>
                         </div>
-                        <div class="uk-width-expand@xl --cappers-chat-plugin">
+                        <div class="uk-width-expand@xl uk-flex-first --cappers-chat-plugin">
 
                             <div class="uk-grid-title">
-                                <h4>Cappers Corner Chat</h4>
-                                <p>Join the Discussion</p>
+                            <?php while ( have_rows( 'corner_chat' ) ) : the_row(); ?>
+                                <h4><?php the_sub_field( 'cc_title' ); ?></h4>
+                                <p><?php the_sub_field( 'cc_descriptions' ); ?></p>
+                            <?php endwhile; ?>
                             </div>
 
                             <!-- Chat Plugin Here -->
@@ -37,7 +41,7 @@
             <div class="uk-width-1-1 uk-width-large@l">
                 <?php
                     if ( $_GET['um_action'] == 'edit' ) {
-                        echo do_shortcode('[ultimatemember form_id="2160"]');
+                        // echo do_shortcode('[ultimatemember form_id="2160"]');
                     }
 
                     get_template_part( widget . 'news' );

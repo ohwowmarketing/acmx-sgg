@@ -75,7 +75,9 @@
                 </div>
             </div>
             <div class="sb-reviews-link">
-                <?php do_action( 'sportsbook_daily_promos' ); ?>
+                <?php if ( ! is_page([ 2053, 2168, 2166, 2178 ]) && ! is_singular( 'cappers_corner' ) ) { // Do not show
+                    do_action( 'sportsbook_daily_promos' );
+                } ?>
             </div>
         </div>
     </div>

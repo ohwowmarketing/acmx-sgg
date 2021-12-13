@@ -162,7 +162,8 @@
                 &::before {
                     content: "";
                     display: block;
-                    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAB4UlEQVRYhe2Xz2vTcBiHH7MEikk23FW3g0wHKhTcRHCHsftET570j5hXPerVnfTkX+G8e3VMBraxa9JurG1W3WRszDTtqZU3NCBoXVb7TTzsE0IIvOR5+L5vfl14/eYt/dwHVoA7gIWaBMAG8Ap4LwStj3kBvAOWFMLpX1sYa30mOrAMPFMIHRRhrssKPM0AHmdFBOYzFJgXATtDAVtLUKQ05wKJBBbu3cU0LyoR0JMU5fO3mJq6TLFYYrdWp9UK0xWQTE5eYnFxgbkgj+tt47lVjo6P0xOIY1kWc7fz3LwxS63u4zgl9ve/pycQJ5fLMXt9hmszV/H9JoXil+jY7XZHL9DpdBgb0zGM38s1TWN6+kq0N5vfcL0K5XKFXq+XSEBex6dWGoYRgURA13VM02TctrAsM2qJZcu5zcTEeFTfbrfxvG0q1R0ODv7eHmXPgZ5sCVYhUQuePH40sAW/ZpgWJBKQgRsUGbparYHjbLHX/KpmCP+UMGzT8PfSvw2DIMB1q2yVPU5OfgwNPrPA4eERhYJDveGn/yje3PxMoVgiDEcHPpPAx/VPIwfHOf8g+S8E/v1eGj6BCKibsNOzIQKrGQqsioD8KL7MAC7MtXgInwMPgQ9ASyFUri2MBxET+Ak+9afx5vajUwAAAABJRU5ErkJggg==");
+                    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAE6UlEQVR4nO2b3U8cVRjGf7OwCHSnJWmrlJgSNmBsrCaamqjVeNEm0g+88ErxwvtKMfgXeKG3kBKKJiaK9D8Q0womvTNe1MQLqPLVpLbBy6Z0qYkV9piZnWFnz56Zna/dGVme5GRnZ+fjfZ7zvO+cc3ZX41oWC0PAGPAqkGNvYgu4BYwDPxgMW3ivxXj9HPgS6APa9ih5LG4Gx2HA6PmbhgMuAnMpCC4JvJsBPm0+3rsYMwQ4lZJgksApQwC9+XjvQs+kJJDEsC9ACmJIFPsCpCCGRNEay82FYp+21wVQka71eQpFCS5ALeJ+zk2REMEEkMhrNhOh/ryCqHNbuOyPABGyZ6LVAGHd2O3eQtq2yarEiCCEFuFk/wLIJIVLzwfp3ZiFCINwDlCRL7ocZ0NFzHZFndPDC+HGAU7yAo62HeXyiY/RW/SSEEbbobytasLRipKoVF6/nggugETeaAdaOpl8fYKN4btceW2cgVx/WYQdqreLVIsgtwYJEW0kKAWmZ3VGT46w8v5trp/7nsFn30ErasHcYLeihyNiFCO8A5zvpfw3qvK544PcuDDH8gdLXD4ppUet1sD0CF8DfN78ua4BJt+aYOOju1w5Pc6A3l/bCQ1Mj3hSwEcAepvO6EsjrHx4m+vnHenhJUYDhGj4bNBMj95Bbly00uMFR3o4a4XfgikjoAiJTocr0uONcQYO9vsvmMRTB6IJIA9iQsJ8ehjpMeyRHm6975YOdRVAJh3TiM0zPdzEiAjjq7HPQgcsNDOIVi3Lia7n2S5uo2dzZDNZH2d743D7YVOMkRcv0d3ZzZ3NOzz450H1DFNzTIbcZp9eHLiW9aejYgRo2FQIUS5aVuU+1tFNXu8jfzBP/pDx2kf+UGm7J9cTShBj1vnj/Xkml64yv7GAyIiyAJqG0EQCAggNURQujy+htGt7a7slSp58lyVMV1mgjtaOmqGsbq4x9fs0M+uzFHYKKRBAqKq1QwAUs0WXWd8rz7zM2d4znD1+hjd7TnsKsvH3X5z/aYjFh0uldQm5ovkQIb5FUa+i5NhfLweELcyRV4SqtgUc62xsDYiC6A4QcOSpI3zz9tcWaX+96BeFfwt8u/wdU0vTrBXWSzZ3Lq01XADFMlgue4Ch3gvRIpGw+nCNqcVpZlZmKWwXvIlHECL8kpjX+5Awbf7nPJOLV5m/v1Cu7BnKAsgtIqLXgBjImzb/w7L55nqZtIqwJvW4qvcDCBPPUyAkqmyOOTYtk/AiTVI1ICI8be4kZD/T3YjjQj6gINEEkHvGA4UnVjVfnGbtUQ2bU3/iNsIJYN/MR/7v2nzZsnlKiNsILoCmGMZKQ1DT5vcsm99bKA1T/RQ2mZCXu2KagkdPAQfMar7iqOagfn7XKmyKa7vui4jwDnAEs7XzmNFfxphZnTVFqCKOgmzCxMuXDjobxDEbxFoPwOW7wco71c3mZhwhByTRi6DtiIxjn3yc/D6h3lbBvwCq4ud2nNc13I5pMHEbkYtgxY8TZBfKVne5RpIIJoDkgt288+rZFJJ2ItxTgJCToBQRtxE+BZxkVGKkkKwK8UyG/idkVWj6n8ruC5CCGBLFvgApiCFR7AtgTONTEEdS2DIE+LU5uZu4ZQgwkYJAksJExvrf8BdNSN7gPGf/e/wm8BvQDTy9h/9B/hj4GfgE+ArgP6D5MLQ1ECdsAAAAAElFTkSuQmCC");
+                    background-size: contain;
                     @include size(32px);
                 }
             }
@@ -203,7 +204,6 @@
         }
 
     }
-
 
     .ui-comments-header {
         display: flex;
@@ -472,6 +472,20 @@
     }
 }
 
+#channels-list {
+    margin-left: -5px;
+    
+    > * {
+        padding-left: 5px;
+    }
+
+    a {
+        font-size: 12px !important;
+    }
+
+}
+
+
 // Login + Register Panel + Profile
 #form-panel {
     background: rgba($sgg-green, .75);
@@ -594,6 +608,36 @@
         color: #444 !important;
     }
 
+    .um-col-alt {
+        margin: -15px 0 0;
+
+        // Remember Me
+        .um-field-c {
+            margin-bottom: 15px;
+        }
+
+        .um-field-checkbox {
+            margin-bottom: 0;
+        }
+
+        .um-field-checkbox-option {
+            font-family: $sbold;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-left: 25px;
+            @include sharpText();
+        }
+
+        .um-field-checkbox-state {
+
+            .um-icon-android-checkbox-outline-blank,
+            .um-icon-android-checkbox-outline {
+                color: #888 !important;
+            }
+
+        }
+    }
+
     // Terms UI
     .um-terms-conditions-content {
         position: relative;
@@ -663,6 +707,31 @@
         &.success {
             display: none !important;
         }
+    }
+
+
+    &.um-register form {
+
+        .um-field-checkbox {
+            margin: 0;
+        }
+
+        .um-col-alt {
+            margin-top: 15px;
+        }
+
+        .um-field-area.notify small {
+            display: block;
+            font-size: 12px;
+            text-transform: none;
+            margin-top: 5px;
+        }
+
+        .um-field-area.notify small:last-child {
+            display: none !important;
+            visibility: hidden;
+        }
+
     }
 
 

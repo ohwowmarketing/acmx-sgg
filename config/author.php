@@ -1,6 +1,6 @@
 <?php
 
-acf_form_head();
+// acf_form_head();
 
 // List all Cappers
 $users = get_users( [ 'role__in' => [ 'cappers' ] ] );

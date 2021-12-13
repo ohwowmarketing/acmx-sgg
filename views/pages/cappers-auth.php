@@ -12,7 +12,7 @@ $cappers = new WP_Query([ 'post_type' => 'page', 'page_id' => '2053' ]);
                     <?php while ( $cappers->have_posts() ) : $cappers->the_post(); ?>
                     <div class="uk-card-title">
                         <h3><?php the_title(); ?></h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis.</p>
+                        <p><?php the_field( 'cc_sub_heading' ); ?></p>
                     </div>
                     <?php endwhile; wp_reset_query(); ?>
 
@@ -20,8 +20,10 @@ $cappers = new WP_Query([ 'post_type' => 'page', 'page_id' => '2053' ]);
                         <div class="uk-width-auto@xl --cappers-profile-list">
 
                             <div class="uk-grid-title">
-                                <h4>Cappers Corner Picks</h4>
-                                <p>Picks of the day. Click each capper for detail.</p>
+                            <?php while ( have_rows( 'corner_picks' ) ) : the_row(); ?>
+                                <h4><?php the_sub_field( 'cc_title' ); ?></h4>
+                                <p><?php the_sub_field( 'cc_descriptions' ); ?></p>
+                            <?php endwhile; ?>
                             </div>
 
                             <!-- Dynamic Cappers Here -->
@@ -30,8 +32,10 @@ $cappers = new WP_Query([ 'post_type' => 'page', 'page_id' => '2053' ]);
                         <div class="uk-width-expand@xl --cappers-chat-plugin">
 
                             <div class="uk-grid-title">
-                                <h4>Cappers Corner Chat</h4>
-                                <p>Join the Discussion</p>
+                            <?php while ( have_rows( 'corner_chat' ) ) : the_row(); ?>
+                                <h4><?php the_sub_field( 'cc_title' ); ?></h4>
+                                <p><?php the_sub_field( 'cc_descriptions' ); ?></p>
+                            <?php endwhile; ?>
                             </div>
 
                             <!-- Chat Plugin Here -->
