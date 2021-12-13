@@ -1,46 +1,27 @@
 (function($) {
 
-    // Add Autocomplete Off to the Registration
-    jQuery('.um-register').find('form').attr('autocomplete','off');
-
-    // Make sure all fields in Registration are empty from DOM
-    jQuery('.um-register form').find('input').not(':input[type=submit]')
-                               .each(function(){
-                                    jQuery(this).attr('value', '');
-                               });
-
-    // Count the password to at least 8 characters long
-    jQuery(window).on('load', function() {
-
-        jQuery('.um-register form').find('#user_password-2158').on('focusout',function() {
-            if ( jQuery(this).val().length < 8 ) {
-                jQuery(this).parent('.um-field-area').addClass('notify').append('<small class="uk-text-danger uk-text-small uk-animation-fast uk-animation-fade">Password should be at least 8 characters long. Use upper & lower case letters, numbers & symbols.</small>');
-            }
-        });
-
-        jQuery('.um-register form').find('#user_password-2158').on('focusin', function() {
-            jQuery(this).parent('.notify').find('small').addClass('uk-animation-reverse').remove();
-            jQuery(this).parent('.notify').removeClass('.notify');
-        });
-
-    });
-
-    // $('input[name="noofppl"]').focusout(function(){
-    //   if($(this).val().length < 20){
-    //     alert("Minimum character is 20!!!");
-    //   }
-    // });                               
-
-    // Accept & Read Terms
-    // if ( jQuery('.um-terms-conditions-content').css('display') == 'none' ) {
-    //     jQuery('.um-register #um-submit-btn').prop("disabled", true);
-    // }
-
     // Double Check Checkbox if Checked Properly
+    // Control the Submit if password do not match & less minimum count
     jQuery('.um-register #um-submit-btn').prop("disabled", true);
     jQuery('.um-register .um-field-checkbox').on('click', function() {
         if ( jQuery('input[name=use_terms_conditions_agreement]').is(':checked') && !jQuery(this).hasClass('active') ) {
-            jQuery('.um-register #um-submit-btn').prop("disabled", false);
+            
+            var passCode = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/;
+            if ( jQuery('.um-register form').find('#user_password-2158').val().match(passCode) ) {
+                jQuery('.um-register #um-submit-btn').prop("disabled", true);
+            } else {
+                jQuery('.um-register #um-submit-btn').prop("disabled", false);
+            }
+
+            var $password = jQuery('.um-register form #user_password-2158').val();
+            var $confirmPassword = jQuery('.um-register form').find('#confirm_user_password-2158').val();
+
+            if ( $password != $confirmPassword ) {
+                jQuery('.um-register #um-submit-btn').prop("disabled", true);
+            } else {
+                jQuery('.um-register #um-submit-btn').prop("disabled", false);
+            }
+
         } else {
             jQuery('.um-register #um-submit-btn').prop("disabled", true);
         }
@@ -60,6 +41,48 @@
     //         }
     //     });
     // });
+
+    // Add Autocomplete Off to the Registration
+    jQuery('.um-register').find('form').attr('autocomplete','off');
+
+    // Make sure all fields in Registration are empty from DOM
+    jQuery('.um-register form').find('input').not(':input[type=submit]')
+                               .each(function(){
+                                    jQuery(this).attr('value', '');
+                               });
+
+    // Count the password to at least 8 characters long
+    jQuery('.um-register form').find('#user_password-2158').on('focusout',function() {
+        var passCode = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])[A-Za-z\d$@$!%*?&]{8,}/;
+
+        if ( !jQuery(this).val().match(passCode) ) {
+            jQuery(this).parent('.um-field-area').addClass('notify').append('<small class="uk-text-danger uk-text-small uk-animation-fast uk-animation-fade">Password should be at least 8 characters long. Use upper & lower case letters, numbers & symbols.</small>');
+        }
+    });
+
+    jQuery('.um-register form').find('#user_password-2158').on('focusin', function() {
+        jQuery(this).parent('.notify').find('small').addClass('uk-animation-reverse').remove();
+        jQuery(this).parent('.notify').removeClass('.notify');
+    });
+
+    jQuery('.um-register form').find('#confirm_user_password-2158').on('focusout',function() {
+        var $password = jQuery('.um-register form #user_password-2158').val();
+        var $confirmPassword = jQuery('.um-register form').find('#confirm_user_password-2158').val();
+
+        if ( $password != $confirmPassword ) {
+            jQuery(this).parent('.um-field-area').addClass('password-conflict').append('<small class="uk-text-danger uk-text-small uk-animation-fast uk-animation-fade">Password not match.</small>');
+        }
+    });
+
+    jQuery('.um-register form').find('#confirm_user_password-2158').on('focusin', function() {
+        jQuery(this).parent('.password-conflict').find('small').addClass('uk-animation-reverse').remove();
+        jQuery(this).parent('.password-conflict').removeClass('.password-conflict');
+    });
+
+    // Accept & Read Terms
+    // if ( jQuery('.um-terms-conditions-content').css('display') == 'none' ) {
+    //     jQuery('.um-register #um-submit-btn').prop("disabled", true);
+    // }
 
     // Override Forgot Passowrd
     jQuery('.um-login .um-col-alt-b').find('a.um-link-alt').attr('href','#').attr('uk-switcher-item','2');

@@ -7,7 +7,7 @@
       "uuidString" : "7062C19C-8287-47B1-9B52-2666D65C4837"
     }
   ],
-  "creatorBuild" : "34214",
+  "creatorBuild" : "34264",
   "files" : {
     "\/_temp\/nba-dropdown.html" : {
       "cB" : 0,
@@ -2233,6 +2233,39 @@
       "oAP" : "\/resources\/scripts\/sgg",
       "oF" : 0
     },
+    "\/resources\/scripts\/um\/account_error.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/resources\/scripts\/account_error.min.js",
+      "oF" : 0,
+      "sC" : 0,
+      "tS" : 0
+    },
+    "\/resources\/scripts\/um\/login_msg.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/resources\/scripts\/login_msg.min.js",
+      "oF" : 0,
+      "sC" : 0,
+      "tS" : 0
+    },
+    "\/resources\/scripts\/um\/register_error.js" : {
+      "bF" : 0,
+      "ft" : 64,
+      "ma" : 0,
+      "mi" : 1,
+      "oA" : 0,
+      "oAP" : "\/resources\/scripts\/register_error.min.js",
+      "oF" : 0,
+      "sC" : 0,
+      "tS" : 0
+    },
     "\/resources\/styles\/best-books.min.css" : {
       "aP" : 1,
       "bl" : 0,
@@ -2278,6 +2311,18 @@
       "ma" : 0,
       "oA" : 0,
       "oAP" : "\/resources\/styles\/contact.min-min.css",
+      "oF" : 0,
+      "pg" : 0
+    },
+    "\/resources\/styles\/extra2-min.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/resources\/styles\/extra2-min-min.css",
       "oF" : 0,
       "pg" : 0
     },
@@ -2503,6 +2548,70 @@
       "hM" : 0,
       "oA" : 0,
       "oAP" : "\/taxonomy.php",
+      "oF" : 0
+    },
+    "\/ultimate-member\/email\/changedaccount_email.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/ultimate-member\/email\/changedaccount_email.php",
+      "oF" : 0
+    },
+    "\/ultimate-member\/email\/changedpw_email.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/ultimate-member\/email\/changedpw_email.php",
+      "oF" : 0
+    },
+    "\/ultimate-member\/email\/deletion_email.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/ultimate-member\/email\/deletion_email.php",
+      "oF" : 0
+    },
+    "\/ultimate-member\/email\/inactive_email.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/ultimate-member\/email\/inactive_email.php",
+      "oF" : 0
+    },
+    "\/ultimate-member\/email\/mc_unsubscribe.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/ultimate-member\/email\/mc_unsubscribe.php",
+      "oF" : 0
+    },
+    "\/ultimate-member\/email\/notification_new_user.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/ultimate-member\/email\/notification_new_user.php",
+      "oF" : 0
+    },
+    "\/ultimate-member\/email\/resetpw_email.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/ultimate-member\/email\/resetpw_email.php",
+      "oF" : 0
+    },
+    "\/ultimate-member\/email\/welcome_email.php" : {
+      "cB" : 0,
+      "ft" : 8192,
+      "hM" : 0,
+      "oA" : 0,
+      "oAP" : "\/ultimate-member\/email\/welcome_email.php",
       "oF" : 0
     },
     "\/views\/attributes\/cookies.php" : {
@@ -4107,6 +4216,9 @@
       },
       "no-unused-labels" : {
         "active" : 1
+      },
+      "no-unused-private-class-members" : {
+        "active" : 0
       },
       "no-unused-vars" : {
         "active" : 1,
