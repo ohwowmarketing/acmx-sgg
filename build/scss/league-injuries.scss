@@ -10,3 +10,21 @@
         "widgets/guides",
         "widgets/news",
         "widgets/instagram";
+
+#accreditation {
+    text-align: right;
+
+    span {
+        display: block;
+        font-size: 12px;
+    }
+
+    img {
+        width: auto;
+        height: 20px;
+    }
+
+    a {
+        color: #999;
+    }
+}

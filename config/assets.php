@@ -91,8 +91,8 @@ add_action('wp_enqueue_scripts', function() {
             case '19':   $pageName = 'legal'; break;
 
             case '292':
-            case '294':
-            case '296':  $pageName = 'league-news'; break;
+            case '294':  $pageName = 'league-news'; break;
+            // case '296':  
             
             // Leagues Pages
             case '6':    $pageName = 'best-books'; break;
@@ -105,23 +105,23 @@ add_action('wp_enqueue_scripts', function() {
 
             // Leagues Odds Lines
             case '29':
-            case '37':
-            case '45':   $pageName = 'league-odds'; break;
+            case '37':   $pageName = 'league-odds'; break;
+            // case '45':   
 
             // Leagues Futures
             case '31':
-            case '39':
-            case '47':   $pageName = 'league-futures'; break;
+            case '39':   $pageName = 'league-futures'; break;
+            // case '47':   
 
             // Leagues ATS Standings
             case '33':
-            case '41':
-            case '49':   $pageName = 'league-ats'; break;
+            case '41':   $pageName = 'league-ats'; break;
+            // case '49':   
 
             // Leagues Injuries
-            case '33':
-            case '43':
-            case '51':   $pageName = 'league-injuries'; break;
+            case '35':
+            case '43':   $pageName = 'league-injuries'; break;
+            // case '51':   
 
             default : $pageName = "home"; break;
 
@@ -133,6 +133,11 @@ add_action('wp_enqueue_scripts', function() {
         //     wp_enqueue_script( 'odds-cell', get_template_directory_uri() . '/resources/scripts/inc/odds-cell.js', ['jquery-tmpl'] );
         //     wp_enqueue_script( 'odds-row', get_template_directory_uri() . '/resources/scripts/inc/odds-row.js', ['odds-cell'] );
         //     wp_enqueue_script( 'odds', get_template_directory_uri() . '/resources/scripts/inc/odds.js', ['odds-row', 'odds-row-empty'] );
+        // }
+
+        // if ( is_page([ 2053 ]) ) {
+        //     wp_enqueue_script( 'validatejQuery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js' );
+        //     wp_enqueue_script( 'addMethodsjQuery', 'https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/additional-methods.min.js' );
         // }
     }
 

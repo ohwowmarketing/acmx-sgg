@@ -80,6 +80,11 @@
                                 </header>
                                 <div class="uk-comment-body">
                                     <p><?php echo $news->Content; ?></p>
+
+                                    <div id="accreditation">
+                                        <span>Powered by</span>
+                                        <a href="<?php echo esc_url( $news->Url ); ?>"><img src="<?php echo _uri.'/resources/images/accreditation/rotoballer-black.png' ?>" height="50" alt="RotoBaller Premium News"></a>
+                                    </div>                                    
                                 </div>
                             </article>  
 
