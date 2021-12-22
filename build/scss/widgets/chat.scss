@@ -70,6 +70,11 @@
             }
         }
 
+        .uk-icon-button {
+            background: transparent;
+            cursor: pointer;
+        }
+
         .emojionearea, .emojionearea.form-control {
             background: #F7F8FD;
             width: calc( 100% - 42px );
@@ -91,22 +96,16 @@
             padding-top: 4px;
         }
 
-        // .emojionearea .emojionearea-editor {
-        //     display: flex;
-        //     align-items: center;
-        //     font-size: 14px;
-        //     height: 42px;
-        //     @include sharpText();
-        // }
+        .emojionearea .emojionearea-button > div.emojionearea-button-open,
+        .emojionearea .emojionearea-button > div.emojionearea-button-close {
+            background: none !important;
+        }
 
-        // .emojionearea.emojionearea-inline > .emojionearea-button {
-        //     top: calc( 50% - 12px );
-        //     right: 45px;
-        // }
-
-        // .emojionearea .emojionearea-button.active + .emojionearea-picker-position-top {
-        //     right: 28px;
-        // }
+        .emojionearea .emojionearea-button > div.emojionearea-button-open > span,
+        .emojionearea .emojionearea-button > div.emojionearea-button-close > span {
+            position: relative;
+            top: 1px;
+        }
 
         a.ui-cm-field {
             position: relative;
@@ -215,7 +214,6 @@
 
         .ui-ch-channel {
             position: relative;
-            display: none;
             font-family: $regular;
             font-size: 12px;
             color: #FFF;
@@ -292,10 +290,10 @@
 
         @media ( min-width: 640px ) {
             
-            .ui-ch-channel {
-                display: block;
-                min-width: 240px;
-            }
+            // .ui-ch-channel {
+            //     display: block;
+            //     min-width: 240px;
+            // }
 
             .ui-ch-action .ui-ch-moreaction {
                 justify-content: flex-end;
@@ -480,7 +478,19 @@
     }
 
     a {
-        font-size: 12px !important;
+        font-size: 11px !important;
+        padding: 5px 10px 6px;
+        border-radius: 3px;
+
+        &:focus,
+        &:hover {
+            background: #DDD;
+        }
+    }
+
+    .uk-active > a {
+        background: $sgg-green;
+        font-family: $sbold;
     }
 
 }
@@ -815,4 +825,3 @@
         }
     }
 }
-

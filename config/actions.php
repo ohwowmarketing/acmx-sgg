@@ -25,14 +25,14 @@ function schema() {
 //* Remove Posts & Comments (WP Navigation)
 add_action('admin_menu', function() {
     // remove_menu_page( 'edit.php' ); // Remove Posts
-    remove_menu_page( 'edit-comments.php' ); // Remove Comments
+    // remove_menu_page( 'edit-comments.php' ); // Remove Comments
 });
 
-add_action( 'wp_before_admin_bar_render', 'my_admin_bar_render' );
-function my_admin_bar_render() {
-    global $wp_admin_bar;
-    $wp_admin_bar->remove_menu('comments');
-}
+// add_action( 'wp_before_admin_bar_render', 'my_admin_bar_render' );
+// function my_admin_bar_render() {
+//     global $wp_admin_bar;
+//     $wp_admin_bar->remove_menu('comments');
+// }
 
 //* Remove Emoji & Admin-Bar
 add_filter('emoji_svg_url', '__return_false');
@@ -51,6 +51,10 @@ add_filter( 'protected_title_format', 'remove_protected_text' );
 define('ALLOW_UNFILTERED_UPLOADS', true);
 define('DISALLOW_FILE_EDIT', true);
 // define('WP_DEBUG', false);
+
+// add_action('admin_menu', function() {
+//     add_options_page( 'Discussion Settings', 'Discussion', 'manage_options', 'options-discussion.php' );
+// }, 1);
 
 //* Replace <p> to <figure> wrapping image tag
 function img_caption_shortcode_filter($val, $attr, $content = null) {
@@ -167,4 +171,10 @@ function custom_field_excerpt( $content, $length ) {
     $text = wp_trim_words( $text, $excerpt_length, $excerpt_more );
   }
   return apply_filters('the_excerpt', $text);
+}
+
+// Reset Session Keep Me Logged In to 1 week
+add_filter('auth_cookie_expiration', 'keep_me_logged_in_for_1_week');
+function keep_me_logged_in_for_1_week( $expirein ) {
+    return WEEK_IN_SECONDS; // 1 week in seconds
 }

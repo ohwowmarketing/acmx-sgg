@@ -88,9 +88,9 @@ if ( ! is_user_logged_in() ) : ?>
 
         $authorID = get_the_author_meta('ID'); ?>
 
-        <li class="--cappers-profile --blur-me" data-notification="Register to gain access to Cappers Corner">
+        <li class="--cappers-profile --blur-me" data-notification="Register to gain access to Cappers Corner Picks">
             <div class="uk-card uk-card-default uk-card-small">
-                <div class="uk-card-header">
+                <div class="uk-card-header" uk-tooltip title="Register to gain access to Cappers Corner Picks">
                     <div class="uk-grid-small uk-flex-top uk-flex-between uk-flex-middle" uk-grid>
                         <div class="uk-width-expand uk-grid-small" uk-grid>
                             <div class="uk-width-auto">
@@ -168,7 +168,7 @@ else : ?>
                 <div class="uk-card-body">
                     <div class="uk-grid-collapse uk-flex-between uk-grid-match" uk-grid>
                         <div class="uk-width-expand --profile-action">
-                            <a href="<?php the_permalink(); ?>">Read capper’s analysis</a>
+                            <a href="<?php the_permalink(); ?>">Read capper's analysis</a>
                         </div>
                         <div class="--modal-action">
                             <a href="#cappers-standings" uk-toggle><span class="uk-visible@s">Cappers’ Standings</span></a>
