@@ -51,7 +51,7 @@ if ( ! is_user_logged_in() ) : ?>
                             </div>
                         </div>
                         <?php 
-                        if ( ! $notif ) : ?>
+                        if ( $notif ) : ?>
                         <div class="uk-width-auto --cappers-action" uk-scrollspy="target: #msgnotif; cls: uk-animation-fade uk-animation-shake; delay: 2500">
                             <a href="javascript:void(0)" id="msgnotif" uk-tooltip title="Hi! I have a quick message." onclick="UIkit.notification({pos: 'top-right', timeout: 10000, message: '<img src=\'<?php echo get_avatar_url($author); ?>\' width=\'40\' alt=\'<?php echo get_the_author_meta('display_name', $author); ?>\' > <?php echo addslashes($msgnotif); ?>'})"><!-- &nbsp; --></a>
                         </div>
@@ -90,7 +90,7 @@ if ( ! is_user_logged_in() ) : ?>
 
         <li class="--cappers-profile --blur-me" data-notification="Click to Register to See Cappers Picks.">
             <div class="uk-card uk-card-default uk-card-small">
-                <div class="uk-card-header" uk-tooltip title="Click to Register to See Cappers Picks.">
+                <div class="uk-card-header uk-position-relative">
                     <div class="uk-grid-small uk-flex-top uk-flex-between uk-flex-middle" uk-grid>
                         <div class="uk-width-expand uk-grid-small" uk-grid>
                             <div class="uk-width-auto">
@@ -103,6 +103,7 @@ if ( ! is_user_logged_in() ) : ?>
                         </div>
                     </div>
                 </div>
+                <a href="<?php echo esc_url( site_url( '/cappers-register' ) ); ?>" class="uk-position-cover uk-position-z-index"></a>
             </div>
         </li>
 
