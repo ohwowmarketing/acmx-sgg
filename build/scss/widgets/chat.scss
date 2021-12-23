@@ -1,18 +1,26 @@
 .ui-comments {
     position: relative;
     width: 100%;
-    min-height: 400px;
+    min-height: 410px;
     max-height: 600px;
     border: 1px solid #DDD;
     border-radius: 5px;
-    padding-bottom: calc(20px + 40px + 20px); // pad-top + msg box + pad-bottom
+    padding-bottom: calc(20px + 40px + 30px); // pad-top + msg box + pad-bottom
     // overflow: hidden;
+
+    .--help-text {
+        bottom: -20px;
+        left: 0;
+        font-size: 11px !important;
+        color: #888;
+        width: 100%;
+    }
 
     // Message Panel
     .ui-comments-msgboard {
         position: absolute;
         top: auto;
-        bottom: 20px;
+        bottom: 30px;
         left: 0;
         right: 0;
         display: flex;
