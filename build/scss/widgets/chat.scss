@@ -244,21 +244,37 @@
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                gap: 5px;
                 width: 100%;
                 height: 30px;
-                // margin-left: 15px;
 
-                .ui-ch-moreaction-nav {
+                a:not(.um-avatar) {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    height: 30px;
+                    padding: 0 10px;
+                    border-radius: 3px;
+
+                    &:focus,
+                    &:hover {
+                        background: darken($sgg-green, 5%);
+                    }
+                }
+
+                .ui-ch-moreaction {
                     height: 30px;
                     margin-left: 15px;
                 }
 
-                .ui-ch-moreaction-nav>a {
+                .ui-ch-moreaction > a.um-avatar {
                     display: inline-block;
                     width: 30px;
                 }
 
-                .ui-ch-moreaction-nav>a img {
+                .ui-ch-moreaction>a.um-avatar img {
                     display: block;
                     width: 30px !important;
                     height: 30px !important;
@@ -498,12 +514,13 @@
 
 // Login + Register Panel + Profile
 #form-panel {
+    top: 55px;
     background: rgba($sgg-green, .75);
     font-size: 12px;
     color: #FFF;
     text-transform: uppercase;
-    height: 100%;
-    padding: 50px 15px;
+    height: calc( 100% - 55px);
+    padding: 30px 15px;
     border-radius: 0 0 5px 5px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: saturate(180%) blur(8px);
@@ -547,10 +564,15 @@
         border-color: $sgg-green;
     }
 
-    @media ( min-width: 568px ) {
+    h3,
+    .um-login,
+    .um-register {
+        margin-bottom: 0 !important;
+    }
 
-        padding: 50px 15px;
-
+    .um-tab-form {
+        list-style: none !important;
+        padding: 0;
     }
 
 }
@@ -738,11 +760,11 @@
             margin-top: 5px;
         }
 
-        .um-field-area.notify small:last-child,
-        .um-field-area.password-conflict small:last-child {
-            display: none !important;
-            visibility: hidden;
-        }
+        // .um-field-area.notify small:last-child,
+        // .um-field-area.password-conflict small:last-child {
+        //     display: none !important;
+        //     visibility: hidden;
+        // }
 
     }
 

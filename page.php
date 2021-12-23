@@ -1,4 +1,5 @@
-<?php get_header();
+<?php
+get_header();
 
     global $post;
 
@@ -14,7 +15,7 @@
         case '839':  $pageName = 'careers'; break;
 
         // case '2178': // Logout
-        // case '2174': // Register
+        case '2174': // Register
         case '2182': // Password Reset
         case '2180': // Account
         case '2176': // Members

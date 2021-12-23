@@ -29,22 +29,33 @@
       }
     },
 
-    // Cappers Profile
-    cappers_profile:{
-      init: function () {
-        jQuery.getScript($plugin + 'cappers.js');
-      }
-    },
-    um_page_login: {
-      init: function () {
-        jQuery.getScript($plugin + 'cappers.js');
-      }
-    },    
+    // Cappers Corner
     cappers_corner: {
       init: function () {
         jQuery.getScript($plugin + 'cappers.js');
       }
     },
+    cappers_login: {
+      init: function () {
+        jQuery.getScript($plugin + 'cappers.js');
+      }
+    },    
+    cappers_register: {
+      init: function () {
+        jQuery.getScript($plugin + 'cappers.js');
+      }
+    },
+    cappers_password_reset: {
+      init: function () {
+        jQuery.getScript($plugin + 'cappers.js');
+      }
+    },
+    cappers_profile:{
+      init: function () {
+        jQuery.getScript($plugin + 'cappers.js');
+      }
+    },
+
     // cappers_profile: {
     //   init: function () {
     //     jQuery.getScript($plugin + 'cappers-profile.js');

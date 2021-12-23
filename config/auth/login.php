@@ -68,12 +68,14 @@ function loginCheck($args)
             wp_enqueue_script( 'um_account_error', _scripts.'um/account_error.js', ['jquery'], null, true );
         }
     }
+
     $user = get_user_by('login', $user_name);
     if ($user && wp_check_password($args['user_password'], $user->data->user_pass, $user->ID)) {
         $ultimatemember->login->auth_id = username_exists($user_name);
     } else {
         wp_enqueue_script( 'um_account_error', _scripts.'um/account_error.js', ['jquery'], null, true );
     }
+    
 }
 
 // Remove Lost Password Link

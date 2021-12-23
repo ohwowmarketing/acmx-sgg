@@ -74,7 +74,7 @@ add_action('wp_enqueue_scripts', function() {
 
             // Cappers Corner
             // case '2178': // Logout
-            // case '2174': // Register
+            case '2174': // Register
             case '2182': // Password Reset
             case '2180': // Account
             case '2176': // Members

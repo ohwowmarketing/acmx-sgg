@@ -46,10 +46,10 @@
     jQuery('.um-register').find('form').attr('autocomplete','off');
 
     // Make sure all fields in Registration are empty from DOM
-    jQuery('.um-register form').find('input').not(':input[type=submit]')
-                               .each(function(){
-                                    jQuery(this).attr('value', '');
-                               });
+    // jQuery('.um-register form').find('input').not(':input[type=submit]')
+    //                            .each(function(){
+    //                                 jQuery(this).attr('value', '');
+    //                            });
 
     // Count the password to at least 8 characters long
     jQuery('.um-register form').find('#user_password-2158').on('focusout',function() {
@@ -85,7 +85,8 @@
     // }
 
     // Override Forgot Passowrd
-    jQuery('.um-login .um-col-alt-b').find('a.um-link-alt').attr('href','#').attr('uk-switcher-item','2');
+    urlPasswordReset = window.location.origin;
+    jQuery('.um-login .um-col-alt-b').find('a.um-link-alt').attr('href', urlPasswordReset + '/cappers-password-reset');
 
     // If reset password active, Get parameter and pop the window
     $.urlParam = function(name){
