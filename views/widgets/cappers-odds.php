@@ -88,9 +88,9 @@ if ( ! is_user_logged_in() ) : ?>
 
         $authorID = get_the_author_meta('ID'); ?>
 
-        <li class="--cappers-profile --blur-me" data-notification="Register to gain access to Cappers Corner Picks">
+        <li class="--cappers-profile --blur-me" data-notification="Click to Register to See Cappers Picks.">
             <div class="uk-card uk-card-default uk-card-small">
-                <div class="uk-card-header" uk-tooltip title="Register to gain access to Cappers Corner Picks">
+                <div class="uk-card-header" uk-tooltip title="Click to Register to See Cappers Picks.">
                     <div class="uk-grid-small uk-flex-top uk-flex-between uk-flex-middle" uk-grid>
                         <div class="uk-width-expand uk-grid-small" uk-grid>
                             <div class="uk-width-auto">
@@ -121,6 +121,8 @@ else : ?>
     $sticky = array_slice( $sticky, -1, 1 );
 
     // Create loop with sticky post & collapsible cards
+    // $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
+    // 'paged' => $paged, 'pagination' => true
     query_posts([ 'post_type' => 'cappers_corner', 'orderby' => 'date', 'order' => 'DESC', 'posts_per_page' => -1 ]);
     while ( have_posts() ) : the_post();
 
@@ -185,9 +187,31 @@ else : ?>
                 </div>
             </div>
         </li>
-        <?php endwhile; 
-    wp_reset_query();
-    // End of loop query ?>
+    <?php endwhile; ?>
     </ul>
+
+    <?php // Count Post & Display Note to users.
+    $count_posts = wp_count_posts( 'cappers_corner' )->publish; 
+
+    if ( $count_posts <= 3 ) {
+        $unHideMe = 'hidden';
+    } else {
+        $unHideMe = '';
+    } ?>
+    <div class="uk-text-meta" <?php echo $unHideMe; ?>>
+        <small>Note: Use Scroll Bar to See More Cappers Picks.</small> 
+    </div>
+
+    <div class="uk-flex-between" uk-grid hidden>
+        <div class="prev-more-link uk-text-meta">
+            <?php previous_posts_link( 'Previous Cappers Picks' ); ?>
+        </div>
+        <div class="next-more-link uk-text-meta">
+            <?php if( get_next_posts_link() ) :
+            next_posts_link( 'Netx Cappers Picks' );
+            endif; wp_reset_query(); ?>
+        </div>
+    </div>
+
 
 <?php endif; ?>

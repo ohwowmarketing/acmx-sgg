@@ -94,11 +94,15 @@
         }
     }
 
+
     // Accordion Styling
     .uk-accordion {
         display: flex;
         flex-flow: wrap;
         margin-top: 0;
+        max-height: 650px;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
     }
 
     .uk-accordion li {
