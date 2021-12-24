@@ -13,7 +13,7 @@ $authorsQuery = new WP_User_Query( $authors ); ?>
                 <thead class="uk-light">
                     <tr>
                         <td width="50%">Capper's Name</td>
-                        <td width="25%">Last 10 Games</td>
+                        <td width="25%">Last 10 Picks</td>
                         <td width="25%">Win Percentage</td>
                     </tr>
                 </thead>
