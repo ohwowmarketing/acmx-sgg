@@ -194,7 +194,7 @@ else : ?>
     <?php // Count Post & Display Note to users.
     $count_posts = wp_count_posts( 'cappers_corner' )->publish; 
 
-    if ( $count_posts <= 3 ) {
+    if ( $count_posts <= 6 ) {
         $unHideMe = 'hidden';
     } else {
         $unHideMe = '';
