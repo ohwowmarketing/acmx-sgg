@@ -354,13 +354,14 @@
         }
 
         .ui-comment {
+            position: relative;
             display: flex;
             align-items: flex-start;
             justify-content: flex-start;
             background: #F2F3F5;
             width: 100%;
             min-height: 70px;
-            margin-top: 15px;
+            margin-top: 20px;
             padding: 15px;
             border-radius: 5px;
             gap: 15px;
@@ -417,6 +418,21 @@
 
             .reply>strong {
                 font-family: $sbold;
+            }
+
+            .reaction {
+                position: absolute;
+                bottom: -30px;
+                right: 0;
+                background: rgba(#F2F3F5, 1);
+                width: auto;
+                padding: 5px 10px 7px;
+                border-radius: 3px;
+
+                .fa-thumbs-down {
+                    position: relative;
+                    top: 4px;
+                }
             }
         }
     }
