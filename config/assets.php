@@ -72,6 +72,8 @@ add_action('wp_enqueue_scripts', function() {
             case '552':  $pageName = 'guides'; break;
             case '839':  $pageName = 'careers'; break;
 
+            case '2635':  $pageName = 'agreement'; break;
+
             // Cappers Corner
             // case '2178': // Logout
             case '2174': // Register
