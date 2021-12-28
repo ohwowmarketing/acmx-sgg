@@ -19,7 +19,8 @@
 }
 
 .forminator-checkbox__wrapper {
-    clear: both;
+    display: flex;
+    align-items: flex-start;
     margin-bottom: 10px;
 
     .forminator-checkbox__label p {
@@ -58,7 +59,7 @@
 }
 
 .uk-form-horizontal .forminator-checkbox {
-    float: left;
+    // float: left;
     margin-right: 15px !important;
 }
 
