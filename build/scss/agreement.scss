@@ -36,7 +36,8 @@
 }
 
 .forminator-input,
-.forminator-checkbox-box {
+.forminator-checkbox-box,
+.forminator-textarea {
     background: transparent !important;
     border: 1px solid #DDD !important;
     border-radius: 3px !important;
@@ -56,6 +57,11 @@
         background-color: darken($sgg-green, 5%) !important;
         box-shadow: none !important;
     }
+}
+
+.forminator-merge-tags p {
+    font-size: 12px !important;
+    margin-top: 5px;
 }
 
 .uk-form-horizontal .forminator-checkbox {
