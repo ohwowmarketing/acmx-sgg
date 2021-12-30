@@ -2281,6 +2281,18 @@
       "sC" : 0,
       "tS" : 0
     },
+    "\/resources\/styles\/agreement.min.css" : {
+      "aP" : 1,
+      "bl" : 0,
+      "ci" : 0,
+      "co" : 0,
+      "ft" : 16,
+      "ma" : 0,
+      "oA" : 0,
+      "oAP" : "\/resources\/styles\/agreement.min-min.css",
+      "oF" : 0,
+      "pg" : 0
+    },
     "\/resources\/styles\/best-books.min.css" : {
       "aP" : 1,
       "bl" : 0,
