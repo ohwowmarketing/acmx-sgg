@@ -96,6 +96,10 @@
     }
 }
 
+ol li > strong {
+    border-bottom: 1px solid #888;
+}
+
 ol li > ol {
     margin-top: 15px;
 
