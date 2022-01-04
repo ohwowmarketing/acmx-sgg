@@ -14,6 +14,11 @@
         <a class="uk-button uk-button-primary uk-button-small continue" type="button">Continue</a>
     </div>
 </div>
+<aside class="uk-section uk-section-secondary uk-section-xsmall --module-banner">
+    <div class="uk-container uk-text-center uk-animation-scale-up">
+        The #1 Source for Social Media Content & Advertising in Sports Gambling
+    </div>
+</aside>
 <header class="hero-sb">
     <div class="uk-container uk-container-xlarge">
         <h1>Best Sports Betting Sites</h1>

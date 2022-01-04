@@ -198,8 +198,12 @@
     }
 }
 
-@media ( min-width: 1280px ) {
-
-
-
+aside.--module-banner {
+    background: #000 url(#{$img}/header-splash.webp) no-repeat center;
+    font-family: $passion;
+    font-size: 32px;
+    color: #FFF !important;
+    text-shadow: 0 1px 5px rgba(#000, .15);
+    line-height: 1;
+    letter-spacing: normal;
 }
