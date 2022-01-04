@@ -55,15 +55,16 @@ $cappers = new WP_Query([ 'post_type' => 'page', 'page_id' => '2053' ]);
                 <div class="uk-card uk-card-default uk-card-body" data-card="ulimate-member">
                     <h1 class="uk-card-title"><?php the_title(); ?></h1>
                     <?php
-                    if ( $post->ID == 2168 ) {
-                        if ( $_GET['um_action'] === 'edit' ) {
-                            echo do_shortcode('[ultimatemember form_id="2160"]');
-                        } else {
-                            echo do_shortcode('[ultimatemember_account]');
-
-                            if ( is_user_logged_in() ) : ?>
-                            <a href="<?php echo esc_url( site_url('logout') ); ?>" class="uk-button uk-button-large uk-button-primary --log-out">Log Out</a>
-                            <?php endif;
+                    if ( !is_user_logged_in() ) {
+                        wp_redirect( site_url( '/cappers-corner' ) ); exit;
+                    } else {
+                        if ( $post->ID == 2168 ) {
+                            if ( $_GET['um_action'] === 'edit' ) {
+                                echo do_shortcode('[ultimatemember form_id="2160"]');
+                            } else {
+                                echo do_shortcode('[ultimatemember_account]'); ?>
+                                <a href="<?php echo esc_url( site_url('logout') ); ?>" class="uk-button uk-button-large uk-button-primary --log-out">Log Out</a>
+                            <?php }
                         }
                     }
                     ?>

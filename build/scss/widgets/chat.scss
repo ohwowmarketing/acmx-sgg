@@ -537,9 +537,11 @@
     }
 
     a {
-        font-size: 11px !important;
-        padding: 5px 10px 6px;
+        font-family: $bold;
+        font-size: 12px !important;
+        padding: 5px 10px 4px;
         border-radius: 3px;
+        @include sharpText();
 
         &:focus,
         &:hover {
@@ -626,6 +628,7 @@
     // padding-bottom: 50px;
 
     .um-field-text label,
+    .um-field-select label,
     .um-field-password label {
         font-size: 12px !important;
         // color: #FFF !important;
@@ -814,6 +817,10 @@
 
 }
 
+.select2.select2-container .select2-selection {
+    font-size: 12px !important;
+}
+
 [data-card="ulimate-member"] {
 
     .um-password {
@@ -852,10 +859,15 @@
 
 .uk-notification {
     .uk-notification-message {
-        background: $dangered;
+        // background: $dangered;
+        background: $sgg-green;
         border-radius: 3px;
         padding-right: 50px;
         gap: 15px;
+
+        // &.uk-notification-message-success {
+        //     background: $sgg-green;
+        // }
 
         .uk-close {
             top: 10px !important;
