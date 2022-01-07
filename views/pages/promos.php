@@ -84,7 +84,32 @@
 
                         endforeach;
 
-                    endif; ?>
+                    endif; 
+
+                    if ( $override_posts ) {
+
+                        // Bet Now Link
+                        if ( !empty($link_or) ) {
+                            $betnow = $link_or;
+                        } else {
+                            $betnow = $link;
+                        }
+
+                        // Summary
+                        if ( !empty($summary_or) ) {
+                            $summary = $summary_or;
+                        } else {
+                            $summary = $summary;
+                        }
+
+                        // Description
+                        if ( !empty($description_or) ) {
+                            $description = $description_or;
+                        } else {
+                            $description = $description;
+                        }
+                    }
+                    ?>
                     <div <?php echo ($display) ? 'class="hidden"' : ''; ?>>
                         <div class="uk-card --promo-item">
                             <div class="uk-card-header uk-position-relative">
@@ -102,11 +127,11 @@
                                             <h3><span><?php echo get_the_title(); ?></span> Review & Signup Offer</h3>
                                         </div>
                                         <div id="descriptions" class="uk-width-1-2@s uk-width-2-3@m">
-                                            <?php echo ( $override_posts ) ? $description_or : $description; ?>
+                                            <?php echo $description; ?>
                                             <hr class="uk-divider-small">
                                             <div class="uk-panel">
-                                                <a href="<?php echo ( $override_posts ) ? esc_url( $link_or ) : esc_url( $link ); ?>" class="uk-button uk-button-primary uk-button-small">Bet Now at <?php echo get_the_title(); ?></a>
-                                                <p class="uk-text-small"><?php echo ( $override_posts ) ? $summary_or : $summary; ?></p>
+                                                <a href="<?php echo esc_url( $betnow ); ?>" class="uk-button uk-button-primary uk-button-small">Bet Now at <?php echo get_the_title(); ?></a>
+                                                <p class="uk-text-small"><?php echo $summary; ?></p>
                                                 <small class="uk-text-meta">Terms and Conditions Apply</small>
                                             </div>
                                         </div>
@@ -138,7 +163,7 @@
                                     <div class="uk-width-expand@s">
                                         <div class="uk-panel">
                                             <h4><?php the_title(); ?></h4>
-                                            <p><?php echo ( $override_posts ) ? $summary_or : $summary; ?></p>
+                                            <p><?php echo $summary; ?></p>
                                             <div class="uk-margin-small-top">
                                                 <?php starRating( 'sb_promotion_rating', '1' ); ?> <span>/ <?php echo $rating; ?></span>
                                             </div>
@@ -147,7 +172,7 @@
                                     <div class="uk-width-auto@s">
                                         <div class="uk-button-group">
                                             <button type="button" data-sbid="<?php echo strtolower(get_the_title()); ?>" class="uk-button uk-button-primary uk-button-small sb-more-info" uk-toggle="target: #reviews-overlay-ID<?php the_ID(); ?>"> <span uk-icon="icon: info"></span> </button>
-                                            <a href="<?php echo ( $override_posts ) ? esc_url( $link_or ) : esc_url( $link ); ?>" class="uk-button uk-button-primary uk-button-small"> Bet Now </a>
+                                            <a href="<?php echo esc_url( $betnow ); ?>" class="uk-button uk-button-primary uk-button-small"> Bet Now </a>
                                         </div>
                                     </div>
                                 </div>
