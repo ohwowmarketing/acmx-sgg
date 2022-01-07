@@ -1,3 +1,43 @@
+<?php
+    // Init Star Display
+    function starRating( $fieldName, $option ) {
+
+        switch ($option) {
+            case '1':
+                $rating = get_field( $fieldName );
+                break;
+            
+            case '2':
+                $rating = get_sub_field( $fieldName );
+                break;
+        }
+        
+        if ( $rating ) {
+            $average_stars = round( $rating * 2 ) / 2;
+            $drawn = 5;
+
+            // Full Stars
+            for ( $i = 0; $i < floor( $average_stars ); $i++ ) {
+                $drawn--;
+                // echo '<span class="icon full" uk-svg uk-icon="icon: star;"></span>';
+                echo '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="-2 -3 40 40"><defs><linearGradient id="fullRating"><stop offset="100%" stop-color="rgb(251,179,24)"></stop><stop offset="0%" stop-color="#EBECF5"></stop></linearGradient></defs><path d="M20.388,10.918L32,12.118l-8.735,7.749L25.914, 31.4l-9.893-6.088L6.127,31.4l2.695-11.533L0, 12.118l11.547-1.2L16.026,0.6L20.388,10.918z" fill="url(#fullRating)" stroke="rgb(251,179,24)" stroke-width="0"></path></svg>';
+            }
+
+            // Half Stars
+            if ( $rating - floor( $average_stars ) === 0.5 ) {
+                $drawn--;
+                // echo '<span class="icon half" uk-svg uk-icon="icon: star;"></span>';
+                echo '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="-2 -3 40 40"><defs><linearGradient id="halfRating"><stop offset="50%" stop-color="rgb(251,179,24)"></stop><stop offset="0%" stop-color="#EBECF5"></stop></linearGradient></defs><path d="M20.388,10.918L32,12.118l-8.735,7.749L25.914, 31.4l-9.893-6.088L6.127,31.4l2.695-11.533L0, 12.118l11.547-1.2L16.026,0.6L20.388,10.918z" fill="url(#halfRating)" stroke="rgb(251,179,24)" stroke-width="0"></path></svg>';
+            }
+
+            // Empty Stars
+            for ( $i = 0; $i < $drawn; $i++ ) {
+                // echo '<span class="icon" uk-svg uk-icon="icon: star;"></span>';
+                echo '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="-2 -3 40 40"><defs><linearGradient id="emptyRating"><stop offset="100%" stop-color="#EBECF5"></stop><stop offset="0%" stop-color="#EBECF5"></stop></linearGradient></defs><path d="M20.388,10.918L32,12.118l-8.735,7.749L25.914, 31.4l-9.893-6.088L6.127,31.4l2.695-11.533L0, 12.118l11.547-1.2L16.026,0.6L20.388,10.918z" fill="url(#emptyRating)" stroke="rgb(251,179,24)" stroke-width="0"></path></svg>';
+            }
+        }
+    } // End Function
+?>
 <main id="main" class="main" role="main">
     <div class="uk-container">
 
@@ -21,7 +61,9 @@
                     $override_posts = get_field( 'sb_promotion_override_description' );
                     $summary_or     = get_field( 'sb_promotion_summary' );
                     $link_or        = get_field( 'sb_promotion_link' );
-                    $description_or     = get_field( 'sb_promotion_description' );
+                    $description_or = get_field( 'sb_promotion_description' );
+
+                    $rating_or      - get_field( 'sb_promotion_rating' );
 
                     // Responsive Images
                     $desktop    = get_field( 'sb_responsive_desktop' );
@@ -97,6 +139,9 @@
                                         <div class="uk-panel">
                                             <h4><?php the_title(); ?></h4>
                                             <p><?php echo ( $override_posts ) ? $summary_or : $summary; ?></p>
+                                            <div class="uk-margin-small-top">
+                                                <?php starRating( 'sb_promotion_rating', '1' ); ?> <span>/ <?php echo $rating; ?></span>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="uk-width-auto@s">
