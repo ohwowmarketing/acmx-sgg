@@ -3,6 +3,12 @@
 
 [data-card="promos"] {
 
+    .uk-card-title {
+        font-family: $passion;
+        font-size: 2.625rem;
+        text-align: center;
+    }
+
     .--promo-item {
 
         .uk-card-header { 
