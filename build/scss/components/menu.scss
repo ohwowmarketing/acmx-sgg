@@ -4,6 +4,10 @@
     height: auto;
     box-shadow: 0 5px 15px rgba(#000, 0.08);
     z-index: 1020;
+
+    .--promo {
+        height: 100px;
+    }
     
     // Sticky
     .uk-navbar-sticky {

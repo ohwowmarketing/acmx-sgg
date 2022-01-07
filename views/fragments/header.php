@@ -19,7 +19,14 @@
         The #1 Source for Social Media Content & Advertising in Sports Gambling
     </div>
 </aside>
-<header class="hero-sb">
+
+<?php 
+$hidden = true;
+if ( !is_singular( 'sgg_promo' ) && !is_page( 2743 ) ) {
+    $hidden = false;
+} ?>
+
+<header class="hero-sb" <?php echo ($hidden) ? 'hidden' : ''; ?>>
     <div class="uk-container uk-container-xlarge">
         <h1>Best Sports Betting Sites</h1>
         <div class="sportsbook-header-slider-section uk-position-relative uk-visible-toggle uk-text-center" tabindex="-1" uk-slider="sets: true; finite: true">

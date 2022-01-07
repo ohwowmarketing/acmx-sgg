@@ -38,6 +38,7 @@ add_action('wp_enqueue_scripts', function() {
             case 'sports_guides' : $postName = 'guides'; break;
             case 'sportsbooks_reviews' : $postName = 'reviews'; break;
             case 'cappers_corner' : $postName = 'cappers'; break;
+            // case 'sgg_promo' : $postName = 'promos'; break;
 
         }
         wp_enqueue_style( 'page', _styles.$postName.'.min.css' );
@@ -73,6 +74,7 @@ add_action('wp_enqueue_scripts', function() {
             case '839':  $pageName = 'careers'; break;
 
             case '2635':  $pageName = 'agreement'; break;
+            case '2743':  $pageName = 'promos'; break;
 
             // Cappers Corner
             // case '2178': // Logout

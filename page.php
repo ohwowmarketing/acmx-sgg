@@ -15,6 +15,7 @@ get_header();
         case '839':  $pageName = 'careers'; break;
 
         case '2635':  $pageName = 'agreement'; break;
+        case '2743':  $pageName = 'promos'; break;
 
         // case '2178': // Logout
         case '2174': // Register

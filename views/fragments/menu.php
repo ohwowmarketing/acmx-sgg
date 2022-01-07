@@ -20,14 +20,14 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
 <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; offset: -400; animation: uk-animation-slide-top" class="uk-position-z-index" data-globals="menu">
     <div class="uk-container uk-container-xlarge">
 
-        <nav uk-navbar class="uk-navbar-container uk-navbar-transparent --mainnav">
+        <nav uk-navbar class="uk-navbar-container uk-navbar-transparent --mainnav <?php echo ( !is_singular('sgg_promo') && !is_page( 2740 ) ) ? '' : '--promo'; ?>">
             <div class="uk-navbar-left">
                 <a href="<?php echo esc_url( home_url() ); ?>" class="uk-logo">
                     <?php echo '<img src="'. $logo[0] .'" alt="'. get_bloginfo() .'">'; ?>
                 </a>
             </div>
             <div class="uk-navbar-right">
-                <?php // wp_nav_menu( $hdrMenu ); ?>
+                <?php if ( !is_singular( 'sgg_promo' ) && !is_page( 2743 ) ) : ?>
                 <ul class="uk-navbar-nav uk-visible@l">
                     <li><a href="<?php echo esc_url( home_url() ); ?>">Home</a></li>
                     <?php /* <li><a href="<?php // echo esc_url( site_url('best-books') ); ?>">Best Books</a></li> */ ?>
@@ -107,6 +107,7 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
                     <li><a href="<?php echo esc_url( site_url('careers') ); ?>">Careers</a></li>
                     <li><a href="<?php echo esc_url( site_url('contact') ); ?>">Contact</a></li>
                 </ul>
+                <?php endif; ?>
                 
                 <a href="#newsletter" role="button" type="button" class="uk-button uk-button-primary newsletter uk-visible@l" uk-scroll> <i uk-icon="icon: mail"></i> Get On Our List </a>
                 <a href="#newsletter" role="button" type="button" class="uk-button uk-button-primary newsletter uk-hidden@l" uk-scroll="offset: 70"> <i uk-icon="icon: mail"></i> </a>

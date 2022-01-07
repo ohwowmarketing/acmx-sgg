@@ -1,0 +1,136 @@
+// Import mixins
+@import "common/mixins";
+
+[data-card="promos"] {
+
+    .--promo-item {
+
+        .uk-card-header { 
+            padding: 0;
+            border-bottom: 0;
+        }
+
+        .uk-card-footer {
+            width: 100%;
+            padding-left: 15px;
+            padding-right: 15px;
+            border: 0;
+        }
+
+        .uk-card-footer h4,
+        .uk-card-footer p {
+            color: rgba(#FFF, .8);
+            margin: 0;
+        }
+
+        .uk-card-footer h4 {
+            font-size: 1rem;
+            font-family: $bold;
+            color: #FFF;
+        }
+
+        .uk-card-footer p {
+            font-size: 0.875rem;
+        }
+
+    }
+
+    img {
+        width: 100%;
+        min-height: 360px;
+        object-fit: cover;
+    
+        &.desktop-screen {
+            display: none;
+        }
+
+        &.tablet-screen {
+            display: none;
+        }
+
+        &.mobile-screen {
+            display: block;
+        }
+
+        @media ( min-width: 414px ) {
+
+            &.tablet-screen {
+                display: block;
+            }
+
+            &.mobile-screen {
+                display: none;
+            }
+        }
+
+        @media ( min-width: 760px ) {
+
+            &.desktop-screen {
+                display: block;
+            }
+
+            &.tablet-screen {
+                display: none;
+            }
+
+        }
+
+    }
+
+    .uk-overlay-default {
+        background-color: rgba(#000, .85);
+
+        // Set all color to off-white
+        * { color: rgba(#FFF, 1) }
+    }
+
+    .promos-info {
+
+        h3 {
+            font-size: 1.125rem;
+            text-transform: uppercase;
+            margin: 0;
+            @include sharpText();
+
+            span {
+                font-family: $bold;
+                color: #FFF;
+            }
+        }
+
+        .uk-text-small {
+            margin: 15px 0 0;
+        }
+
+        .uk-text-meta {
+            font-size: 0.75rem;
+            color: #888;
+        }
+
+        .uk-table {
+
+            tbody tr:first-child td {
+                padding-top: 0;
+            }
+
+            tbody tr > td,
+            tfoot tr > td {
+                font-size: 0.875rem;
+                padding-left: 0;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+
+            tfoot tr > td {
+                font-family: $bold;
+                font-size: 1.125rem;
+                color: $sgg-green;
+            }
+
+        }
+
+    }
+
+
+
+}
