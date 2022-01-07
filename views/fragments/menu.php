@@ -20,7 +20,7 @@ $logo         = wp_get_attachment_image_src( $customLogoID, 'full' ); ?>
 <div uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; offset: -400; animation: uk-animation-slide-top" class="uk-position-z-index" data-globals="menu">
     <div class="uk-container uk-container-xlarge">
 
-        <nav uk-navbar class="uk-navbar-container uk-navbar-transparent --mainnav <?php echo ( !is_singular('sgg_promo') && !is_page( 2740 ) ) ? '' : '--promo'; ?>">
+        <nav uk-navbar class="uk-navbar-container uk-navbar-transparent --mainnav <?php echo ( !is_singular('sgg_promo') && !is_page( 2743 ) ) ? '' : '--promo'; ?>">
             <div class="uk-navbar-left">
                 <a href="<?php echo esc_url( home_url() ); ?>" class="uk-logo">
                     <?php echo '<img src="'. $logo[0] .'" alt="'. get_bloginfo() .'">'; ?>
