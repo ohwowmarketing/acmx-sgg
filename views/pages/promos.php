@@ -39,7 +39,7 @@
     } // End Function
 ?>
 <main id="main" class="main" role="main">
-    <div class="uk-container">
+    <div class="uk-container" id="promo">
 
         <div class="uk-card uk-card-default" data-card="promos">
             <div class="uk-card-body">
@@ -114,7 +114,8 @@
                         <div class="uk-card --promo-item">
                             <div class="uk-card-header uk-position-relative">
                                 <?php # echo wp_get_attachment_image( $desktop['id'], [ 1120, 360, true ] ); ?>
-                                <figure id="promo-card-banner" >
+                                <figure id="promo-card-banner" class="uk-position-relative">
+                                    <a href="<?php echo esc_url( $betnow ); ?>" class="uk-position-cover"></a>
                                     <img src="<?php echo $desktop['url'] ?>" alt="<?php echo $desktop['alt'] ?>" class="desktop-screen">
                                     <img src="<?php echo $tablet['url'] ?>" alt="<?php echo $tablet['alt'] ?>" class="tablet-screen">
                                     <img src="<?php echo $mobile['url'] ?>" alt="<?php echo $mobile['alt'] ?>" class="mobile-screen">
@@ -130,7 +131,7 @@
                                             <?php echo $description; ?>
                                             <hr class="uk-divider-small">
                                             <div class="uk-panel">
-                                                <a href="<?php echo esc_url( $betnow ); ?>" class="uk-button uk-button-primary uk-button-small">Bet Now at <?php echo get_the_title(); ?></a>
+                                                <a href="<?php echo esc_url( $betnow ); ?>" class="uk-button uk-button-primary uk-button-large">Bet Now at <?php echo get_the_title(); ?></a>
                                                 <p class="uk-text-small"><?php echo $summary; ?></p>
                                                 <small class="uk-text-meta">Terms and Conditions Apply</small>
                                             </div>
@@ -172,7 +173,7 @@
                                     <div class="uk-width-auto@s">
                                         <div class="uk-button-group">
                                             <button type="button" data-sbid="<?php echo strtolower(get_the_title()); ?>" class="uk-button uk-button-primary uk-button-small sb-more-info" uk-toggle="target: #reviews-overlay-ID<?php the_ID(); ?>"> <span uk-icon="icon: info"></span> </button>
-                                            <a href="<?php echo esc_url( $betnow ); ?>" class="uk-button uk-button-primary uk-button-small"> Bet Now </a>
+                                            <a href="<?php echo esc_url( $betnow ); ?>" class="uk-button uk-button-primary uk-button-large"> Bet Now </a>
                                         </div>
                                     </div>
                                 </div>
