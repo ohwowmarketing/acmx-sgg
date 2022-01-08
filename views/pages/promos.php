@@ -45,7 +45,7 @@
             <div class="uk-card-body">
                 <h3 class="uk-card-title"><?php the_title(); ?></h3>
 
-                <div class="uk-grid-small --promo-lists" uk-grid>
+                <div class="uk-grid-small uk-child-width-1-1 --promo-lists" uk-grid>
                     <!-- SB Starts Here -->
                     <?php
                     // Import Title from Cappers Corner
