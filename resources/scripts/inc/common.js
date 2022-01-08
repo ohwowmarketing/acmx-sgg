@@ -79,28 +79,64 @@
     // });
 
     // SmoothScroll to content section
-    jQuery.getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js', function() {        
-        jQuery( "#skipToLink" ).on( "click", function() {
-            jQuery.smoothScroll({
-                scrollTarget: '#Contents',
-                offset: -126,
-                speed: 1000
+
+    var $promo = location.hash;
+
+    if ( $promo != '#sggpromo' ) {
+        jQuery.getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js', function() {        
+            jQuery( "#skipToLink" ).on( "click", function() {
+                jQuery.smoothScroll({
+                    scrollTarget: '#Contents',
+                    offset: -126,
+                    speed: 1000
+                });
             });
+            jQuery('#skipToLink').trigger('click');
+
+            var reSmooth = /^#sgg/;
+            var id;
+            if ( reSmooth.test(location.hash) ) {
+                id = '#' + location.hash.replace(reSmooth, '');
+                jQuery.smoothScroll({
+                    scrollTarget: id,
+                    offset: -62,
+                    speed: 600
+                });
+            }
+
         });
-        jQuery('#skipToLink').trigger('click');
+    } else {
 
-        var reSmooth = /^#sgg/;
-        var id;
-        if ( reSmooth.test(location.hash) ) {
-            id = '#' + location.hash.replace(reSmooth, '');
-            jQuery.smoothScroll({
-                scrollTarget: id,
-                offset: -50,
-                speed: 300
+        setTimeout(function() {
+
+            jQuery('.quick-odds .sport-select').addClass('--delay-load');
+            jQuery('.quick-odds .sport-select').removeClass('--delay-load');
+
+        }, 5000);
+
+        jQuery.getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js', function() {        
+            jQuery( "#skipToLink" ).on( "click", function() {
+                jQuery.smoothScroll({
+                    scrollTarget: '#Contents',
+                    offset: -126,
+                    speed: 1000
+                });
             });
-        }
+            jQuery('#skipToLink').trigger('click');
 
-    });
+            var reSmooth = /^#sgg/;
+            var id;
+            if ( reSmooth.test(location.hash) ) {
+                id = '#' + location.hash.replace(reSmooth, '');
+                jQuery.smoothScroll({
+                    scrollTarget: id,
+                    offset: -15,
+                    speed: 0
+                });
+            }
+
+        });
+    }
 
     // Cookie Sessions
     // The basic check of site fully loaded

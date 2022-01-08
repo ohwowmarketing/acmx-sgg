@@ -1,6 +1,10 @@
 // Import mixins
 @import "common/mixins";
 
+.--delay-load {
+    display: none;
+}
+
 [data-card="promos"] {
 
     .uk-card-title {

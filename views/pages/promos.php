@@ -41,7 +41,7 @@
 <main id="main" class="main" role="main">
     <div class="uk-container">
 
-        <div class="uk-card uk-card-default" data-card="promos" id="Contents">
+        <div class="uk-card uk-card-default" data-card="promos" id="promo">
             <div class="uk-card-body">
                 <h3 class="uk-card-title"><?php the_title(); ?></h3>
 
