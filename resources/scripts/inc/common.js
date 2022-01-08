@@ -93,9 +93,9 @@
         var id;
         if ( reSmooth.test(location.hash) ) {
             id = '#' + location.hash.replace(reSmooth, '');
-            $.smoothScroll({
+            jQuery.smoothScroll({
                 scrollTarget: id,
-                offset: -62,
+                offset: -50,
                 speed: 300
             });
         }
