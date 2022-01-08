@@ -110,7 +110,7 @@
                         }
                     }
                     
-                    for ( $i=0;$i<5;$i++ ) : ?>
+                    ?>
                     <div <?php echo ($display) ? 'class="hidden"' : ''; ?>>
                         <div class="uk-card --promo-item">
                             <div class="uk-card-header uk-position-relative">
@@ -181,7 +181,7 @@
                             </div>
                         </div>
                     </div>
-                    <?php endfor;
+                    <?php
                     endwhile; wp_reset_query(); ?>
                     <!-- SB Ends Here -->
                 </div>
