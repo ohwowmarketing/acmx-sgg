@@ -107,13 +107,6 @@
         });
     } else {
 
-        setTimeout(function() {
-
-            jQuery('.quick-odds .sport-select').addClass('--delay-load');
-            jQuery('.quick-odds .sport-select').removeClass('--delay-load');
-
-        }, 5000);
-
         jQuery.getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js', function() {        
             jQuery( "#skipToLink" ).on( "click", function() {
                 jQuery.smoothScroll({
