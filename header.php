@@ -22,7 +22,9 @@
 </head>
 <body <?php body_class(); ?>>
 <?php
-    if ( !is_page( 2743 ) ) { do_action( 'odds_header' ) }
+    if ( !is_page( 2743 ) ) {
+        do_action( 'odds_header' );
+    }
     // get_template_part( _promo );
     get_template_part( _nav );
     get_template_part( _hdr );
