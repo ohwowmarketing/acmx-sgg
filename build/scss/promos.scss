@@ -65,7 +65,7 @@
             display: block;
         }
 
-        @media ( min-width: 414px ) {
+        @media ( min-width: 568px ) {
 
             &.tablet-screen {
                 display: block;
@@ -76,7 +76,7 @@
             }
         }
 
-        @media ( min-width: 760px ) {
+        @media ( min-width: 960px ) {
 
             &.desktop-screen {
                 display: block;
