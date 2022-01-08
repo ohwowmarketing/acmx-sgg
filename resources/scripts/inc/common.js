@@ -79,20 +79,22 @@
     // });
 
     // SmoothScroll to content section
-    jQuery.getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js', function() {        
-        jQuery( "#skipToLink" ).on( "click", function() {
-            jQuery.smoothScroll({
-                scrollTarget: '#Contents',
-                offset: -126,
-                speed: 1000
+
+    var $promo = location.hash;
+
+    if ( $promo != '#promo' ) {
+        jQuery.getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js', function() {        
+            jQuery( "#skipToLink" ).on( "click", function() {
+                jQuery.smoothScroll({
+                    scrollTarget: '#Contents',
+                    offset: -126,
+                    speed: 1000
+                });
             });
-        });
-        jQuery('#skipToLink').trigger('click');
+            jQuery('#skipToLink').trigger('click');
 
 
-        var $promo = location.hash;
 
-        if ( $promo !== '#promo' ) {
 
             var reSmooth = /^#sgg/;
             var id;
@@ -105,11 +107,8 @@
                 });
             }
 
-        }
-        
-
-
-    });
+        });
+    }
 
     // Cookie Sessions
     // The basic check of site fully loaded
