@@ -108,9 +108,7 @@
                         } else {
                             $description = $description;
                         }
-                    }
-                    
-                    ?>
+                    } ?>
                     <div <?php echo ($display) ? 'class="hidden"' : ''; ?>>
                         <div class="uk-card --promo-item">
                             <div class="uk-card-header uk-position-relative">
