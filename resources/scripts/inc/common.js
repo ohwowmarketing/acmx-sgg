@@ -78,8 +78,8 @@
     //     }
     // });
 
-    // SmoothScroll to content section    
-    jQuery.getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js', function() {
+    // SmoothScroll to content section
+    jQuery.getScript('https://cdnjs.cloudflare.com/ajax/libs/jquery-smooth-scroll/2.2.0/jquery.smooth-scroll.min.js', function() {        
         jQuery( "#skipToLink" ).on( "click", function() {
             jQuery.smoothScroll({
                 scrollTarget: '#Contents',
@@ -89,16 +89,25 @@
         });
         jQuery('#skipToLink').trigger('click');
 
-        var reSmooth = /^#sgg/;
-        var id;
-        if ( reSmooth.test(location.hash) ) {
-            id = '#' + location.hash.replace(reSmooth, '');
-            $.smoothScroll({
-                scrollTarget: id,
-                offset: -62,
-                speed: 1000
-            });
+
+        var $promo = location.hash;
+
+        if ( $promo !== '#promo' ) {
+
+            var reSmooth = /^#sgg/;
+            var id;
+            if ( reSmooth.test(location.hash) ) {
+                id = '#' + location.hash.replace(reSmooth, '');
+                $.smoothScroll({
+                    scrollTarget: id,
+                    offset: -62,
+                    speed: 1000
+                });
+            }
+
         }
+        
+
 
     });
 
@@ -119,7 +128,6 @@
             }
 
         });
-
     }
 
 }) (jQuery);
